@@ -13,7 +13,7 @@ number:
 date:
 consensus: true
 v: 3
-area: "IRTF"
+area: ""
 workgroup: "Network Management"
 keyword:
  - network digital twin
