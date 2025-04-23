@@ -1,10 +1,11 @@
 ---
 title: "Integrating Generative AI with Network Digital Twin for Network Operation"
+abbrev: "AI Agent archiecture"
+category: info
+
 # Network Digital Twin based Architecture for Service oriented AI for Network Operation
 # AI driven Network Digital Twin Management Framework
 # Architecture for integrating Generative AI with Network Digital Twin
-abbrev: "AI Agent archiecture"
-category: info
 
 docname: draft-xxx-nmrg-agent-ndt-arch-latest
 submissiontype: IRTF  # also: "independent", "editorial", "IAB", or "IRTF"
@@ -91,7 +92,7 @@ coordinating the components that operate and manage the network:
   congestion. It aims to evaluate traffic's impact on network performance.
 
 * Network Capacity planning to ensure that the network has sufficient capacity
-  , resources, and infrastructure to meet current and future demands.   
+  , resources, and infrastructure to meet current and future demands.
 
 This document describes an architecture and framework for service oriented AI for Network
 Operation, showing how these components work together. It provides a
