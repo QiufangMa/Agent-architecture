@@ -125,6 +125,7 @@ key elements (i.e., awareness, decision, analysis, execution, intent and knowled
 characterize the AI for network operation and its use, as shown in {{ops-arch}}.
 
 ~~~~
+
  +---------------------------------------------------+
  |                  +---------+                      |
  |                  |  Intent |                      |
@@ -146,6 +147,7 @@ characterize the AI for network operation and its use, as shown in {{ops-arch}}.
  |                 |  Knowledge|                     |
  |                 +-----------+                     |
  +---------------------------------------------------+
+
 ~~~~
 {: #ops-arch title="Six Key Elements to Characterize AI for network operation" artwork-align="center"}
 
