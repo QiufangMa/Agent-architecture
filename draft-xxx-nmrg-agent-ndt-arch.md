@@ -40,7 +40,7 @@ informative:
 
 A Network Digital Twin (NDT) provides a network emulation tool for
 scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, intent allows intent based management
+a Network Digital Twin into network management together with AI, intent allows the network management
 take user intent data or service requirements as input,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
@@ -77,29 +77,27 @@ automatically assess, model, and refine optimization strategies under real condi
 but in a risk-free environment. An environment that operates to meet these types of
 requirements is said to have service oriented AI for Network Operations.
 
-service oriented AI for Network Operations provide the following types of service to applications by
+Service oriented AI for Network Operations provide the following types of service to applications by
 coordinating the components that operate and manage the network:
 
-* Network intent and service assurance work together to ensure that the
-  network change aligns with business goals and that the services provided
+* Service intent and service assurance work together to ensure that the
+  network change or network optimization aligns with business goals and that the services provided
   meet the agreed-upon Service Level Agreements (SLAs).
 
-* Models the protocol operations and interactions among devices in the network and Simulating specific
+* Provide Network Capacity planning and ensure that the network has sufficient capacity
+  , resources, and infrastructure to meet current and future demands.  
+  
+* Model the protocol operations and interactions among devices in the network and Simulate specific 
   networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
   different conditions.
-
-* Modelling traffic flow across the network, including packet generation, flow control, routing, and
-  congestion. It aims to evaluate traffic's impact on network performance.
-
-* Network Capacity planning to ensure that the network has sufficient capacity
-  , resources, and infrastructure to meet current and future demands.
+  
+* Model traffic flow across the network, including traffic generation, flow control, routing, and
+  congestion control and evaluate traffic's impact on network performance.
 
 This document describes an architecture and framework for service oriented AI for Network
 Operation, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
 intent based networking to meet the needs of the applications.
-
-
 
 # Conventions and Definitions
 
@@ -115,18 +113,39 @@ intent based networking to meet the needs of the applications.
 
 # AI for Network Operation
 
-## Assumptions
+## Characteristics of AI for Network Operations
 
-The principal assumption underlying this document is that existing
-technologies should be used where they are adequate for the task.
-Furthermore, when an existing technology is almost sufficient, it is
-assumed to be preferable to make minor extensions rather than to
-invent a whole new technology.
+AIOPs was first defined by Gartner in 2016, combining "artificial intelligence" 
+and "IT operations" to describe the application of AI and machine learning to 
+enhance IT operations. However there is no unified definition for characteristic 
+of "AI for Network operation" within the networking industry.  Referring to the 
+characteristics of AIOPS in IT field and the characteristics of networking itself, 
+this document introduces six
+key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to 
+characterize the AI for network operation and its use, as shown in Figure 1. 
 
-Note that this document describes an architecture.  Functional
-components are architectural concepts and have distinct and clear
-responsibilities.  Pairs of functional components interact over
-functional interfaces that are, themselves, architectural concepts.
+ +---------------------------------------------------+
+ |                  +---------+                      |
+ |                  |  Intent |                      |
+ |                  +---------+                      |
+ |                                                   |
+ | +-----------+                       +-----------+ |
+ | |  Decision |                       | Analysis  | |
+ | +-----------+       --------        +-----------+ |
+ |                 ////        \\\\                  |
+ |                |AI for Network  |                 |
+ |                |    Operation   |                 |
+ |                 \\\\        ////                  |
+ |                     --------                      |
+ | +-----------+                      +------------+ |
+ | |  Awareness|                      |  Excution  | |
+ | +-----------+                      +------------+ |
+ |                                                   |
+ |                 +-----------+                     |
+ |                 |  Knowledge|                     |
+ |                 +-----------+                     |
+ +---------------------------------------------------+
+
 
 # archiecture Design
 
