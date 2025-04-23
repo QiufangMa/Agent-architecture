@@ -17,7 +17,7 @@ Abstract
    A Network Digital Twin (NDT) provides a network emulation tool for
    scenario planning, impact analysis, and change management.
    Integrating a Network Digital Twin into network management together
-   with AI, intent allows intent based management take user intent data
+   with AI, intent allows the network management take user intent data
    or service requirements as input, automatically assess, model, and
    refine optimization strategies under real conditions but in a risk-
    free environment.  An environment that operates to meet these types
@@ -33,6 +33,17 @@ Abstract
    together.  It provides a cookbook of existing technologies to satisfy
    the architecture and realize intent based networking to meet the
    needs of the applications.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Discussion of this document takes place on the Network Management
+   mailing list (nmrg@irtf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/nmrg.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/QiufangMa/Agent-architecture.
 
 Status of This Memo
 
@@ -70,7 +81,7 @@ Table of Contents
      3.1.  AI Agent
      3.2.  Network Digital Twin
    4.  AI for Network Operation
-     4.1.  Assumptions
+     4.1.  Characteristics of AI for Network Operations
    5.  archiecture Design
      5.1.  Overall Archiecture
      5.2.  Functional Components
@@ -116,27 +127,27 @@ Table of Contents
    of requirements is said to have service oriented AI for Network
    Operations.
 
-   service oriented AI for Network Operations provide the following
+   Service oriented AI for Network Operations provide the following
    types of service to applications by coordinating the components that
    operate and manage the network:
 
-   *  Network intent and service assurance work together to ensure that
-      the network change aligns with business goals and that the
-      services provided meet the agreed-upon Service Level Agreements
-      (SLAs).
+   *  Service intent and service assurance work together to ensure that
+      the network change or network optimization aligns with business
+      goals and that the services provided meet the agreed-upon Service
+      Level Agreements (SLAs).
 
-   *  Models the protocol operations and interactions among devices in
-      the network and Simulating specific networking protocols such as
-      IS-IS, OSPF, BGP, SR to understand how they perform under
-      different conditions.
-
-   *  Modelling traffic flow across the network, including packet
-      generation, flow control, routing, and congestion.  It aims to
-      evaluate traffic's impact on network performance.
-
-   *  Network Capacity planning to ensure that the network has
+   *  Provide Network Capacity planning and ensure that the network has
       sufficient capacity , resources, and infrastructure to meet
       current and future demands.
+
+   *  Model the protocol operations and interactions among devices in
+      the network and Simulate specific networking protocols such as IS-
+      IS, OSPF, BGP, SR to understand how they perform under different
+      conditions.
+
+   *  Model traffic flow across the network, including traffic
+      generation, flow control, routing, and congestion control and
+      evaluate traffic's impact on network performance.
 
    This document describes an architecture and framework for service
    oriented AI for Network Operation, showing how these components work
@@ -160,24 +171,47 @@ Table of Contents
 
 4.  AI for Network Operation
 
-4.1.  Assumptions
+4.1.  Characteristics of AI for Network Operations
 
-   The principal assumption underlying this document is that existing
-   technologies should be used where they are adequate for the task.
-   Furthermore, when an existing technology is almost sufficient, it is
-   assumed to be preferable to make minor extensions rather than to
-   invent a whole new technology.
+   AIOPs was first defined by Gartner in 2016, combining "artificial
+   intelligence" and "IT operations" to describe the application of AI
+   and machine learning to enhance IT operations.  However there is no
+   unified definition for characteristic of "AI for Network operation"
+   within the networking industry.  Referring to the characteristics of
+   AIOPS in IT field and the characteristics of networking itself, this
+   document introduces six key elements (i.e., awareness, decision,
+   analysis, execution, intent and knowledge) to characterize the AI for
+   network operation and its use, as shown in Figure 1.
 
-   Note that this document describes an architecture.  Functional
-   components are architectural concepts and have distinct and clear
-   responsibilities.  Pairs of functional components interact over
-   functional interfaces that are, themselves, architectural concepts.
+           +---------------------------------------------------+
+           |                  +---------+                      |
+           |                  |  Intent |                      |
+           |                  +---------+                      |
+           |                                                   |
+           | +-----------+                       +-----------+ |
+           | |  Decision |                       | Analysis  | |
+           | +-----------+       --------        +-----------+ |
+           |                 ////        \\\\                  |
+           |                |AI for Network  |                 |
+           |                |    Operation   |                 |
+           |                 \\\\        ////                  |
+           |                     --------                      |
+           | +-----------+                      +------------+ |
+           | |  Awareness|                      |  Excution  | |
+           | +-----------+                      +------------+ |
+           |                                                   |
+           |                 +-----------+                     |
+           |                 |  Knowledge|                     |
+           |                 +-----------+                     |
+           +---------------------------------------------------+
+
+    Figure 1: Six Key Elements to Characterize AI for network operation
 
 5.  archiecture Design
 
 5.1.  Overall Archiecture
 
-   Figure 1 provides the overall archiecture for integrating Network
+   Figure 2 provides the overall archiecture for integrating Network
    Digital Twin and Network Agent System.
 
   +--------------------------------------------------------------------+
@@ -222,7 +256,8 @@ Table of Contents
   |                 Physical Network                                   |
   +--------------------------------------------------------------------+
 
-                      Figure 1: An Architecture for
+       Figure 2: An Architecture for Integrating Generative AI with
+                           Network Digital Twin
 
 5.2.  Functional Components
 
