@@ -4,10 +4,23 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>AI-Driven Network Operations: Integrating AI Agent with Network Digital Twin for Network Intelligence</title>
-<meta content="Your Name Here" name="author">
+<title>Integrating Generative AI with Network Digital Twin for Network Operation</title>
+<meta content="Qin Wu" name="author">
 <meta content="
-       TODO Abstract 
+       A Network Digital Twin (NDT) provides a network emulation tool for
+scenario planning, impact analysis, and change management. Integrating
+a Network Digital Twin into network management together with AI, intent allows intent based management
+take user intent data or service requirements as input,
+automatically assess, model, and refine optimization strategies under real conditions
+but in a risk-free environment. An environment that operates to meet these types of
+requirements is said to have service oriented AI for Network Operations. 
+       AI for Network Operation brings together existing technologies such
+as network digital twin, AI and may be seen as the use of a toolbox
+of existing components enhanced with a few new elements. 
+       This document describes an architecture and framework for service oriented AI for Network
+Operation, showing how these components work together. It provides a
+cookbook of existing technologies to satisfy the architecture and realize
+intent based networking to meet the needs of the applications. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="network digital twin" name="keyword">
@@ -1050,8 +1063,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">April 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Here</td>
-<td class="center">Expires 23 October 2025</td>
+<td class="left">Wu</td>
+<td class="center">Expires 25 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1064,25 +1077,38 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-xxx-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-21" class="published">21 April 2025</time>
+<time datetime="2025-04-23" class="published">23 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-23">23 October 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-25">25 October 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">Y. N. Here</div>
-<div class="org">Your Organization Here</div>
+      <div class="author-name">Q. Wu</div>
+<div class="org">Huawei</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">AI-Driven Network Operations: Integrating AI Agent with Network Digital Twin for Network Intelligence</h1>
+<h1 id="title">Integrating Generative AI with Network Digital Twin for Network Operation</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TODO Abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">A Network Digital Twin (NDT) provides a network emulation tool for
+scenario planning, impact analysis, and change management. Integrating
+a Network Digital Twin into network management together with AI, intent allows intent based management
+take user intent data or service requirements as input,
+automatically assess, model, and refine optimization strategies under real conditions
+but in a risk-free environment. An environment that operates to meet these types of
+requirements is said to have service oriented AI for Network Operations.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">AI for Network Operation brings together existing technologies such
+as network digital twin, AI and may be seen as the use of a toolbox
+of existing components enhanced with a few new elements.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-3">This document describes an architecture and framework for service oriented AI for Network
+Operation, showing how these components work together. It provides a
+cookbook of existing technologies to satisfy the architecture and realize
+intent based networking to meet the needs of the applications.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1103,7 +1129,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1147,36 +1173,71 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-archiecture-design" class="internal xref">archiecture Design</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-ai-for-network-operation" class="internal xref">AI for Network Operation</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-overall-archiecture" class="internal xref">Overall Archiecture</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-functional-components" class="internal xref">Functional Components</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-assumptions" class="internal xref">Assumptions</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-use-cases" class="internal xref">Use Cases</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-archiecture-design" class="internal xref">archiecture Design</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-overall-archiecture" class="internal xref">Overall Archiecture</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-functional-components" class="internal xref">Functional Components</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-challenges-and-future-work" class="internal xref">Challenges and Future Work</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-ai-in-network-operation-a-c" class="internal xref">AI in Network Operation: A collection of Use Cases</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-network-configuration-chang" class="internal xref">Network Configuration Change</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-network-troubleshooting" class="internal xref">Network Troubleshooting</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-network-optimization" class="internal xref">Network Optimization</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-challenges-and-future-work" class="internal xref">Challenges and Future Work</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-hallucination" class="internal xref">hallucination</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-manageability-consideration" class="internal xref">Manageability Consideration</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
+                <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1187,7 +1248,47 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The rapid expansion of network scale and the increasing demands on these networks necessitate
+making network change better adapt to ever-changing service requirements.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Since network changes are directly related to service operations, any successful change
+needs to not only ensure that new services are provisioned smoothly, but also that existing
+services are not affected and that no problems are introduced. Network operators or O&amp;M personnel
+are, therefore, increasingly cautious about making network changes, given that they need to review
+the solution design as well as evaluate all change impacts, before making any change. Then, after
+the change, they need to perform dialing tests, monitor traffic, and manually check table entries.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">A Network Digital Twin (NDT) <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> was developed to provide a
+network emulation tool for scenario planning, impact analysis, and change management. Integrating
+a Network Digital Twin into network management together with AI, intent allows network management
+dynamically adapt to customer needs,
+automatically assess, model, and refine optimization strategies under real conditions
+but in a risk-free environment. An environment that operates to meet these types of
+requirements is said to have service oriented AI for Network Operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">service oriented AI for Network Operations provide the following types of service to applications by
+coordinating the components that operate and manage the network:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <p id="section-1-5.1.1">Network intent and service assurance work together to ensure that the
+network change aligns with business goals and that the services provided
+meet the agreed-upon Service Level Agreements (SLAs).<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <p id="section-1-5.2.1">Models the protocol operations and interactions among devices in the network and Simulating specific
+networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
+different conditions.<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.3">
+          <p id="section-1-5.3.1">Modelling traffic flow across the network, including packet generation, flow control, routing, and
+congestion. It aims to evaluate traffic's impact on network performance.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.4">
+          <p id="section-1-5.4.1">Network Capacity planning to ensure that the network has sufficient capacity
+, resources, and infrastructure to meet current and future demands.<a href="#section-1-5.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-6">This document describes an architecture and framework for service oriented AI for Network
+Operation, showing how these components work together. It provides a
+cookbook of existing technologies to satisfy the architecture and realize
+intent based networking to meet the needs of the applications.<a href="#section-1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1222,72 +1323,227 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </div>
 </section>
 </div>
-<div id="archiecture-design">
+<div id="ai-for-network-operation">
 <section id="section-4">
+      <h2 id="name-ai-for-network-operation">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-ai-for-network-operation" class="section-name selfRef">AI for Network Operation</a>
+      </h2>
+<div id="assumptions">
+<section id="section-4.1">
+        <h3 id="name-assumptions">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-assumptions" class="section-name selfRef">Assumptions</a>
+        </h3>
+<p id="section-4.1-1">The principal assumption underlying this document is that existing
+technologies should be used where they are adequate for the task.
+Furthermore, when an existing technology is almost sufficient, it is
+assumed to be preferable to make minor extensions rather than to
+invent a whole new technology.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">Note that this document describes an architecture.  Functional
+components are architectural concepts and have distinct and clear
+responsibilities.  Pairs of functional components interact over
+functional interfaces that are, themselves, architectural concepts.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="archiecture-design">
+<section id="section-5">
       <h2 id="name-archiecture-design">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-archiecture-design" class="section-name selfRef">archiecture Design</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-archiecture-design" class="section-name selfRef">archiecture Design</a>
       </h2>
 <div id="overall-archiecture">
-<section id="section-4.1">
+<section id="section-5.1">
         <h3 id="name-overall-archiecture">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-overall-archiecture" class="section-name selfRef">Overall Archiecture</a>
-      </h3>
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overall-archiecture" class="section-name selfRef">Overall Archiecture</a>
+        </h3>
+<p id="section-5.1-1"><a href="#arch" class="auto internal xref">Figure 1</a> provides the overall archiecture for integrating Network Digital Twin and Network Agent System.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<span id="name-an-architecture-for"></span><div id="arch">
+<figure id="figure-1">
+          <div class="alignCenter art-text artwork" id="section-5.1-2.1">
+<pre>
++--------------------------------------------------------------------+
+|                                                                    |
+|               OSS/Multi-domain Orchestrator                        |
++-----^-------------------^-------------^----------------------------+
+      |                   |             |
++-----+-------------------+-------------+----------------------------+
+| +---v----+     +--------+-------------+---------------------------+|
+| |        |     |   +----+-------------+------------------------+  ||
+| |        |     |   |+---v-----+ +-----v---+ +--------------+   |  ||
+| |        |     |   ||Agent NBI| |Agent GUI| |Access Control|   |  ||
+| |        |     |   |+---------+ +---------+ +--------------+   |  ||
+| |        |     |   |                           AI Agent Access |  ||
+| |        |     |   +-------------------------------------------+  ||
+| |        |     |                                                  ||
+| |        |     |      +-------------------------+                 ||
+| |        |     |      |  +----------------------+---+             ||
+| |Network |     |      |  | +------------------------+--+          ||
+| |Digital &lt;-----&gt;      +--+-+                        |  |          ||
+| |Twin    |     |         | |        AI Agent(s)     |  |          ||
+| |        |     |         +-+------------------------+  |          ||
+| |        |     |           +--^------------^---------+-+          ||
+| |        |     |              |            |         |            ||
+| |        |     |              |            |         |            ||
+| |        |     |        +-----v--+  +------v------+  |            ||
+| |        |     |        |        |  |Knowledge and|  |            ||
+| |        |     |        |   LLM  |  |Memory System|  |            ||
+| |        |     |        +--------+  +-------------+  |            ||
+| |        |     | Network Agent System                |            ||
+| +----^---+     +-------------------------------------+------------+|
+|      |                                               |             |
+| +----v-----------------------------------------------v------------+|
+| |                                                                 ||
+| |    Original Management,Control, and Analysis Unit               ||
+| +------------------------------^----------------------------------+|
+|                                |         Network Management System |
++--------------------------------+-----------------------------------+
+|                                |                                   |
++--------------------------------v-----------------------------------+
+|                                                                    |
+|                 Physical Network                                   |
++--------------------------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-an-architecture-for" class="selfRef">An Architecture for</a>
+          </figcaption></figure>
+</div>
 </section>
 </div>
 <div id="functional-components">
-<section id="section-4.2">
+<section id="section-5.2">
         <h3 id="name-functional-components">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-functional-components" class="section-name selfRef">Functional Components</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-functional-components" class="section-name selfRef">Functional Components</a>
       </h3>
 </section>
 </div>
 </section>
 </div>
-<div id="use-cases">
-<section id="section-5">
-      <h2 id="name-use-cases">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-use-cases" class="section-name selfRef">Use Cases</a>
-    </h2>
+<div id="ai-in-network-operation-a-collection-of-use-cases">
+<section id="section-6">
+      <h2 id="name-ai-in-network-operation-a-c">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-ai-in-network-operation-a-c" class="section-name selfRef">AI in Network Operation: A collection of Use Cases</a>
+      </h2>
+<p id="section-6-1">AI Agent could help in the following three phases which are usually mentioned in network management:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-2.1">
+          <p id="section-6-2.1.1">Day 0: Network Planning and Design: includes the understanding of user intent,
+       generation of solutions, and simulation for decision-making.<a href="#section-6-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.2">
+          <p id="section-6-2.2.1">Day 1: Service Deployment: includes the construction of the physical network,
+       as well as intent understanding, pre-deployment simulation, automated configuration,
+       post-deployment validation, and other capabilities to enhance the efficiency
+       and accuracy of network configuration for service deployment.<a href="#section-6-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.3">
+          <p id="section-6-2.3.1">Day 2: Network Monitoring and Troubleshooting: includes intent monitoring, issues
+       identification, solution generation, evaluation and decison-making, solution
+       implementation, and service validation.<a href="#section-6-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-6-2.4">
+          <p id="section-6-2.4.1">Day N: Network Change and Optimization: involves the design, evaluation, decision-making,
+       implementation, and validation of network configuration changes or optimizations
+       to improve network operation efficiency.<a href="#section-6-2.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<div id="network-configuration-change">
+<section id="section-6.1">
+        <h3 id="name-network-configuration-chang">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-network-configuration-chang" class="section-name selfRef">Network Configuration Change</a>
+      </h3>
+</section>
+</div>
+<div id="network-troubleshooting">
+<section id="section-6.2">
+        <h3 id="name-network-troubleshooting">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-network-troubleshooting" class="section-name selfRef">Network Troubleshooting</a>
+      </h3>
+</section>
+</div>
+<div id="network-optimization">
+<section id="section-6.3">
+        <h3 id="name-network-optimization">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-network-optimization" class="section-name selfRef">Network Optimization</a>
+      </h3>
+</section>
+</div>
 </section>
 </div>
 <div id="challenges-and-future-work">
-<section id="section-6">
+<section id="section-7">
       <h2 id="name-challenges-and-future-work">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-challenges-and-future-work" class="section-name selfRef">Challenges and Future Work</a>
-    </h2>
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-challenges-and-future-work" class="section-name selfRef">Challenges and Future Work</a>
+      </h2>
+<div id="hallucination">
+<section id="section-7.1">
+        <h3 id="name-hallucination">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-hallucination" class="section-name selfRef">hallucination</a>
+        </h3>
+<p id="section-7.1-1">Although Gen-AI can produce amazing results at first sight, sometimes they can be
+totally wrong.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
-<section id="section-7">
+<section id="section-8">
       <h2 id="name-security-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">TODO Security<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">TODO Security<a href="#section-8-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="manageability-consideration">
+<section id="section-9">
+      <h2 id="name-manageability-consideration">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-manageability-consideration" class="section-name selfRef">Manageability Consideration</a>
+    </h2>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-8">
+<section id="section-10">
       <h2 id="name-iana-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-8-1">This document has no requests to IANA.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-10-1">This document has no requests to IANA.<a href="#section-10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-normative-references">
-<section id="section-9">
-      <h2 id="name-normative-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<div id="sec-combined-references">
+<section id="section-11">
+      <h2 id="name-references">
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
+<section id="section-11.1">
+        <h3 id="name-normative-references">
+<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-11.2">
+        <h3 id="name-informative-references">
+<a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
+      <dd>
+<span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin: Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-10</span>, <time datetime="2025-02-28" class="refDate">28 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">
@@ -1304,11 +1560,15 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Your Name Here</span></div>
-<div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Qin Wu</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
+<div dir="auto" class="left"><span class="street-address">101 Software Avenue, Yuhua District</span></div>
+<div dir="auto" class="left"><span class="locality">Jiangsu</span></div>
+<div dir="auto" class="left"><span class="postal-code">210012</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
+<a href="mailto:bill.wu@huawei.com" class="email">bill.wu@huawei.com</a>
 </div>
 </address>
 </section>

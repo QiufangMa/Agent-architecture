@@ -2,19 +2,37 @@
 
 
 
-Network Management                                            Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                             21 April 2025
-Expires: 23 October 2025
+Network Management                                                 Q. Wu
+Internet-Draft                                                    Huawei
+Intended status: Informational                             23 April 2025
+Expires: 25 October 2025
 
 
-AI-Driven Network Operations: Integrating AI Agent with Network Digital
-                     Twin for Network Intelligence
+    Integrating Generative AI with Network Digital Twin for Network
+                               Operation
                   draft-xxx-nmrg-agent-ndt-arch-latest
 
 Abstract
 
-   TODO Abstract
+   A Network Digital Twin (NDT) provides a network emulation tool for
+   scenario planning, impact analysis, and change management.
+   Integrating a Network Digital Twin into network management together
+   with AI, intent allows intent based management take user intent data
+   or service requirements as input, automatically assess, model, and
+   refine optimization strategies under real conditions but in a risk-
+   free environment.  An environment that operates to meet these types
+   of requirements is said to have service oriented AI for Network
+   Operations.
+
+   AI for Network Operation brings together existing technologies such
+   as network digital twin, AI and may be seen as the use of a toolbox
+   of existing components enhanced with a few new elements.
+
+   This document describes an architecture and framework for service
+   oriented AI for Network Operation, showing how these components work
+   together.  It provides a cookbook of existing technologies to satisfy
+   the architecture and realize intent based networking to meet the
+   needs of the applications.
 
 Status of This Memo
 
@@ -31,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 October 2025.
+   This Internet-Draft will expire on 25 October 2025.
 
 Copyright Notice
 
@@ -51,20 +69,80 @@ Table of Contents
    3.  Introduction of Concepts
      3.1.  AI Agent
      3.2.  Network Digital Twin
-   4.  archiecture Design
-     4.1.  Overall Archiecture
-     4.2.  Functional Components
-   5.  Use Cases
-   6.  Challenges and Future Work
-   7.  Security Considerations
-   8.  IANA Considerations
-   9.  Normative References
+   4.  AI for Network Operation
+     4.1.  Assumptions
+   5.  archiecture Design
+     5.1.  Overall Archiecture
+     5.2.  Functional Components
+   6.  AI in Network Operation: A collection of Use Cases
+     6.1.  Network Configuration Change
+     6.2.  Network Troubleshooting
+     6.3.  Network Optimization
+   7.  Challenges and Future Work
+     7.1.  hallucination
+   8.  Security Considerations
+   9.  Manageability Consideration
+   10. IANA Considerations
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   The rapid expansion of network scale and the increasing demands on
+   these networks necessitate making network change better adapt to
+   ever-changing service requirements.
+
+   Since network changes are directly related to service operations, any
+   successful change needs to not only ensure that new services are
+   provisioned smoothly, but also that existing services are not
+   affected and that no problems are introduced.  Network operators or
+   O&M personnel are, therefore, increasingly cautious about making
+   network changes, given that they need to review the solution design
+   as well as evaluate all change impacts, before making any change.
+   Then, after the change, they need to perform dialing tests, monitor
+   traffic, and manually check table entries.
+
+   A Network Digital Twin (NDT)
+   [I-D.irtf-nmrg-network-digital-twin-arch] was developed to provide a
+   network emulation tool for scenario planning, impact analysis, and
+   change management.  Integrating a Network Digital Twin into network
+   management together with AI, intent allows network management
+   dynamically adapt to customer needs, automatically assess, model, and
+   refine optimization strategies under real conditions but in a risk-
+   free environment.  An environment that operates to meet these types
+   of requirements is said to have service oriented AI for Network
+   Operations.
+
+   service oriented AI for Network Operations provide the following
+   types of service to applications by coordinating the components that
+   operate and manage the network:
+
+   *  Network intent and service assurance work together to ensure that
+      the network change aligns with business goals and that the
+      services provided meet the agreed-upon Service Level Agreements
+      (SLAs).
+
+   *  Models the protocol operations and interactions among devices in
+      the network and Simulating specific networking protocols such as
+      IS-IS, OSPF, BGP, SR to understand how they perform under
+      different conditions.
+
+   *  Modelling traffic flow across the network, including packet
+      generation, flow control, routing, and congestion.  It aims to
+      evaluate traffic's impact on network performance.
+
+   *  Network Capacity planning to ensure that the network has
+      sufficient capacity , resources, and infrastructure to meet
+      current and future demands.
+
+   This document describes an architecture and framework for service
+   oriented AI for Network Operation, showing how these components work
+   together.  It provides a cookbook of existing technologies to satisfy
+   the architecture and realize intent based networking to meet the
+   needs of the applications.
 
 2.  Conventions and Definitions
 
@@ -80,25 +158,125 @@ Table of Contents
 
 3.2.  Network Digital Twin
 
-4.  archiecture Design
+4.  AI for Network Operation
 
-4.1.  Overall Archiecture
+4.1.  Assumptions
 
-4.2.  Functional Components
+   The principal assumption underlying this document is that existing
+   technologies should be used where they are adequate for the task.
+   Furthermore, when an existing technology is almost sufficient, it is
+   assumed to be preferable to make minor extensions rather than to
+   invent a whole new technology.
 
-5.  Use Cases
+   Note that this document describes an architecture.  Functional
+   components are architectural concepts and have distinct and clear
+   responsibilities.  Pairs of functional components interact over
+   functional interfaces that are, themselves, architectural concepts.
 
-6.  Challenges and Future Work
+5.  archiecture Design
 
-7.  Security Considerations
+5.1.  Overall Archiecture
+
+   Figure 1 provides the overall archiecture for integrating Network
+   Digital Twin and Network Agent System.
+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |               OSS/Multi-domain Orchestrator                        |
+  +-----^-------------------^-------------^----------------------------+
+        |                   |             |
+  +-----+-------------------+-------------+----------------------------+
+  | +---v----+     +--------+-------------+---------------------------+|
+  | |        |     |   +----+-------------+------------------------+  ||
+  | |        |     |   |+---v-----+ +-----v---+ +--------------+   |  ||
+  | |        |     |   ||Agent NBI| |Agent GUI| |Access Control|   |  ||
+  | |        |     |   |+---------+ +---------+ +--------------+   |  ||
+  | |        |     |   |                           AI Agent Access |  ||
+  | |        |     |   +-------------------------------------------+  ||
+  | |        |     |                                                  ||
+  | |        |     |      +-------------------------+                 ||
+  | |        |     |      |  +----------------------+---+             ||
+  | |Network |     |      |  | +------------------------+--+          ||
+  | |Digital <----->      +--+-+                        |  |          ||
+  | |Twin    |     |         | |        AI Agent(s)     |  |          ||
+  | |        |     |         +-+------------------------+  |          ||
+  | |        |     |           +--^------------^---------+-+          ||
+  | |        |     |              |            |         |            ||
+  | |        |     |              |            |         |            ||
+  | |        |     |        +-----v--+  +------v------+  |            ||
+  | |        |     |        |        |  |Knowledge and|  |            ||
+  | |        |     |        |   LLM  |  |Memory System|  |            ||
+  | |        |     |        +--------+  +-------------+  |            ||
+  | |        |     | Network Agent System                |            ||
+  | +----^---+     +-------------------------------------+------------+|
+  |      |                                               |             |
+  | +----v-----------------------------------------------v------------+|
+  | |                                                                 ||
+  | |    Original Management,Control, and Analysis Unit               ||
+  | +------------------------------^----------------------------------+|
+  |                                |         Network Management System |
+  +--------------------------------+-----------------------------------+
+  |                                |                                   |
+  +--------------------------------v-----------------------------------+
+  |                                                                    |
+  |                 Physical Network                                   |
+  +--------------------------------------------------------------------+
+
+                      Figure 1: An Architecture for
+
+5.2.  Functional Components
+
+6.  AI in Network Operation: A collection of Use Cases
+
+   AI Agent could help in the following three phases which are usually
+   mentioned in network management:
+
+   *  Day 0: Network Planning and Design: includes the understanding of
+      user intent, generation of solutions, and simulation for decision-
+      making.
+
+   *  Day 1: Service Deployment: includes the construction of the
+      physical network, as well as intent understanding, pre-deployment
+      simulation, automated configuration, post-deployment validation,
+      and other capabilities to enhance the efficiency and accuracy of
+      network configuration for service deployment.
+
+   *  Day 2: Network Monitoring and Troubleshooting: includes intent
+      monitoring, issues identification, solution generation, evaluation
+      and decison-making, solution implementation, and service
+      validation.
+
+   *  Day N: Network Change and Optimization: involves the design,
+      evaluation, decision-making, implementation, and validation of
+      network configuration changes or optimizations to improve network
+      operation efficiency.
+
+6.1.  Network Configuration Change
+
+6.2.  Network Troubleshooting
+
+6.3.  Network Optimization
+
+7.  Challenges and Future Work
+
+7.1.  hallucination
+
+   Although Gen-AI can produce amazing results at first sight, sometimes
+   they can be totally wrong.
+
+8.  Security Considerations
 
    TODO Security
 
-8.  IANA Considerations
+9.  Manageability Consideration
+
+10.  IANA Considerations
 
    This document has no requests to IANA.
 
-9.  Normative References
+11.  References
+
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -109,12 +287,27 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+11.2.  Informative References
+
+   [I-D.irtf-nmrg-network-digital-twin-arch]
+              Zhou, C., Yang, H., Duan, X., Lopez, D., Pastor, A., Wu,
+              Q., Boucadair, M., and C. Jacquenet, "Network Digital
+              Twin: Concepts and Reference Architecture", Work in
+              Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
+              twin-arch-10, 28 February 2025,
+              <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
+              network-digital-twin-arch-10>.
+
 Acknowledgments
 
    TODO Acknowledgments.
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Qin Wu
+   Huawei
+   101 Software Avenue, Yuhua District
+   Jiangsu
+   210012
+   China
+   Email: bill.wu@huawei.com
