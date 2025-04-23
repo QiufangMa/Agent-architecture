@@ -85,12 +85,12 @@ coordinating the components that operate and manage the network:
   meet the agreed-upon Service Level Agreements (SLAs).
 
 * Provide Network Capacity planning and ensure that the network has sufficient capacity
-  , resources, and infrastructure to meet current and future demands.  
-  
-* Model the protocol operations and interactions among devices in the network and Simulate specific 
+  , resources, and infrastructure to meet current and future demands.
+
+* Model the protocol operations and interactions among devices in the network and Simulate specific
   networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
   different conditions.
-  
+
 * Model traffic flow across the network, including traffic generation, flow control, routing, and
   congestion control and evaluate traffic's impact on network performance.
 
@@ -115,15 +115,16 @@ intent based networking to meet the needs of the applications.
 
 ## Characteristics of AI for Network Operations
 
-AIOPs was first defined by Gartner in 2016, combining "artificial intelligence" 
-and "IT operations" to describe the application of AI and machine learning to 
-enhance IT operations. However there is no unified definition for characteristic 
-of "AI for Network operation" within the networking industry.  Referring to the 
-characteristics of AIOPS in IT field and the characteristics of networking itself, 
+AIOPs was first defined by Gartner in 2016, combining "artificial intelligence"
+and "IT operations" to describe the application of AI and machine learning to
+enhance IT operations. However there is no unified definition for characteristic
+of "AI for Network operation" within the networking industry.  Referring to the
+characteristics of AIOPS in IT field and the characteristics of networking itself,
 this document introduces six
-key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to 
-characterize the AI for network operation and its use, as shown in Figure 1. 
+key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
+characterize the AI for network operation and its use, as shown in {{ops-arch}}.
 
+~~~~
  +---------------------------------------------------+
  |                  +---------+                      |
  |                  |  Intent |                      |
@@ -145,7 +146,8 @@ characterize the AI for network operation and its use, as shown in Figure 1.
  |                 |  Knowledge|                     |
  |                 +-----------+                     |
  +---------------------------------------------------+
-
+~~~~
+{: #ops-arch title="Six Key Elements to Characterize AI for network operation" artwork-align="center"}
 
 # archiecture Design
 
@@ -196,7 +198,7 @@ characterize the AI for network operation and its use, as shown in Figure 1.
 |                 Physical Network                                   |
 +--------------------------------------------------------------------+
 ~~~~
-{: #arch title="An Architecture for " artwork-align="center"}
+{: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
 
 ## Functional Components
 
