@@ -1,10 +1,11 @@
 ---
-title: "Integrating Generative AI with Network Digital Twin for Network Operation"
+title: "Network Digital Twin based Architecture for Service oriented AI for Network Operation"
 abbrev: "AI Agent archiecture"
 category: info
 
 # Network Digital Twin based Architecture for Service oriented AI for Network Operation
 # AI driven Network Digital Twin Management Framework
+# Integrating Generative AI with Network Digital Twin for Network Operation
 # Architecture for integrating Generative AI with Network Digital Twin
 
 docname: draft-xxx-nmrg-agent-ndt-arch-latest
