@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu</td>
-<td class="center">Expires 25 October 2025</td>
+<td class="center">Expires 26 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1077,12 +1077,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-xxx-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-23" class="published">23 April 2025</time>
+<time datetime="2025-04-24" class="published">24 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-25">25 October 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-26">26 October 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1140,7 +1140,7 @@ intent based networking to meet the needs of the applications.<a href="#section-
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1176,7 +1176,7 @@ intent based networking to meet the needs of the applications.<a href="#section-
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-introduction-of-concepts" class="internal xref">Introduction of Concepts</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-ai-agent" class="internal xref">AI Agent</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-generative-ai-and-ai-agent" class="internal xref">Generative AI and AI Agent</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-digital-twin" class="internal xref">Network Digital Twin</a></p>
@@ -1311,6 +1311,27 @@ intent based networking to meet the needs of the applications.<a href="#section-
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The document uses the following definitions and acronyms defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>:<a href="#section-2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-3.1">
+          <p id="section-2-3.1.1">Network Digital Twin (NDT)<a href="#section-2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-3.2">
+          <p id="section-2-3.2.1">Artificial Intelligence (AI)<a href="#section-2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-4">The following acronyms are used throughout this document:<a href="#section-2-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-5.1">
+          <p id="section-2-5.1.1">Generative Artificial Intelligence (Gen-AI)<a href="#section-2-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.2">
+          <p id="section-2-5.2.1">Large Language Model (LLM)<a href="#section-2-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.3">
+          <p id="section-2-5.3.1">Retrieval-Augmented Generation (RAG)<a href="#section-2-5.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 </section>
 </div>
 <div id="introduction-of-concepts">
@@ -1318,18 +1339,47 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-introduction-of-concepts">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-introduction-of-concepts" class="section-name selfRef">Introduction of Concepts</a>
       </h2>
-<div id="ai-agent">
+<div id="generative-ai-and-ai-agent">
 <section id="section-3.1">
-        <h3 id="name-ai-agent">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-ai-agent" class="section-name selfRef">AI Agent</a>
-      </h3>
+        <h3 id="name-generative-ai-and-ai-agent">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-generative-ai-and-ai-agent" class="section-name selfRef">Generative AI and AI Agent</a>
+        </h3>
+<p id="section-3.1-1">The integration of AI into network operations has marked a significant leap forward in
+the pursuit of network automation and intelligence, while generative AI further
+enhances the role of AI in network operations and management. Generative AI is a
+subfield of AI that uses generative models such as LLMs to generate new and
+original content such as text, images, videos, or other forms of data with the
+capability to adapt and make decisions to achieve specific goals.
+<span>[<a href="#TMF-1218" class="cite xref">TMF-1218</a>]</span> lists full-stack AI as one of key requirements of Autonomous Network capabilities,
+and <span>[<a href="#TMF-1345" class="cite xref">TMF-1345</a>]</span> highlights the potential of generative AI in driving the evoluation
+of autonomous networks. Other SDOs like ETSI (Experiential Networked Intelligence) ENI
+is actively advancing the integration of AI in networks and services <span>[<a href="#ETSI-ENI035" class="cite xref">ETSI-ENI035</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">AI agent which takes the power of generative AI a step further refers to a system
+or program that uses AI to perform tasks on behalf of users.
+AI Agent is an autonomous entity that can perceive the environment, make decisions,
+and take actions to achieve specific goals. In the context of network operations
+and management, agents are increasingly being designed to perform tasks such as
+understanding user intent, generating network configurations, diagnosing and resolving network
+incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-digital-twin">
 <section id="section-3.2">
         <h3 id="name-network-digital-twin">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-digital-twin" class="section-name selfRef">Network Digital Twin</a>
-      </h3>
+        </h3>
+<p id="section-3.2-1">The Network Digital Twin is a digital representation that is used in the context
+of network. The concept and archiecture of the Network Digital Twin are specified
+in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. Three core functional components
+which includes Data Repository component, a Service Mapping Models component,
+and an NDT Management component are introduced to characterize the Network Digital
+Twin and its reference architecture.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">The Network Digital Twin is widely recognized to be useful as an advanced platform
+for network emulation, serving as a tool for scenario planning, impact analysis,
+and change management. By delivering applications requests to the Network Digital
+Twin through standardized interfaces (see
+<span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10#section-9.4" class="relref">Section 9.4</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>), the Network Digital
+Twin exposes the various capabilities to network applications.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1349,9 +1399,9 @@ and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
 of "AI for Network operation" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
-this document introduces six
-key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
-characterize the AI for network operation and its use, as shown in <a href="#ops-arch" class="auto internal xref">Figure 1</a>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+this document introduces six key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
+characterize the AI for network operation and its use, as shown in <a href="#ops-arch" class="auto internal xref">Figure 1</a>.
+They together form a close-loop of network operation and management.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <span id="name-six-key-elements-to-charact"></span><div id="ops-arch">
 <figure id="figure-1">
           <div class="alignCenter art-text artwork" id="section-4.1-2.1">
@@ -1384,6 +1434,92 @@ characterize the AI for network operation and its use, as shown in <a href="#ops
 <a href="#name-six-key-elements-to-charact" class="selfRef">Six Key Elements to Characterize AI for network operation</a>
           </figcaption></figure>
 </div>
+<ul class="normal">
+<li class="normal" id="section-4.1-3.1">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.1.1">
+              <dt id="section-4.1-3.1.1.1">Intent:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.1.1.2">
+                <p id="section-4.1-3.1.1.2.1">Intent is defined as a set of operational goals and outcomes defined in a declarative
+manner without specifying how to achieve or implement them in <span>[<a href="#RFC9315" class="cite xref">RFC9315</a>]</span>. The AI agent
+must accurately intepret and understand the user's high-level business or operational
+objectives, this involves translating declarative requirements into specific network
+instructions, e.g., configurations.<a href="#section-4.1-3.1.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-4.1-3.2">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.2.1">
+              <dt id="section-4.1-3.2.1.1">Decision:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.2.1.2">
+                <p id="section-4.1-3.2.1.2.1">Based on the intent and network analysis, the AI agent makes
+informed decisions. These decisions could involve dynamically adjusting network
+parameters, e.g., rerouting traffic to avoid congestion. The decision-making
+process is driven by predefined policies, real-time data analysis, and AI
+models (e.g., LLMs) that enable the AI agent to choose the best course of action
+to meet the specified intent. AI agent may also verify the correctness the decision
+by performing some network simulation or validation process.<a href="#section-4.1-3.2.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-4.1-3.3">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.3.1">
+              <dt id="section-4.1-3.3.1.1">Analysis:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.3.1.2">
+                <p id="section-4.1-3.3.1.2.1">The AI agent continuously analyzes vast amounts of network data from various
+source, including network telemetry <span>[<a href="#RFC9232" class="cite xref">RFC9232</a>]</span> and external feeds, and identify
+the gap between user intent and the existing network status. Leveraging machine
+learning and other data analytics techniques, it also identifies
+network fault, problem, incident, anomaly, and so on. Their distinction is further
+discussed in <span>[<a href="#I-D.ietf-nmop-terminology" class="cite xref">I-D.ietf-nmop-terminology</a>]</span>.<a href="#section-4.1-3.3.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-4.1-3.4">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.4.1">
+              <dt id="section-4.1-3.4.1.1">Awareness:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.4.1.2">
+                <p id="section-4.1-3.4.1.2.1">Awareness is achieved through real-time monitoring and data collection.
+The AI agent maintains a comprehensive visibility of the network,
+enabling it to make context-aware decisions. Network operators can also use the
+awareness understand the root cause of specific network issues and achieve closed-loop
+decision-making.<a href="#section-4.1-3.4.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-4.1-3.5">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.5.1">
+              <dt id="section-4.1-3.5.1.1">Execution:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.5.1.2">
+                <p id="section-4.1-3.5.1.2.1">Once a decision is made, the AI agent executes the necessary actions to implement
+it. This could involve, e.g., sending configuration to network devices through
+NETCONF/RESTCONF protocols. The execution is carried out in a controlled and
+precise manner to ensure that the network behaves as intended without causing
+disruptions. The AI agent also verifies that the executed actions have the
+desired effect and makes adjustments if needed.<a href="#section-4.1-3.5.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-4.1-3.6">
+            <span class="break"></span><dl class="dlParallel" id="section-4.1-3.6.1">
+              <dt id="section-4.1-3.6.1.1">Knowledge:</dt>
+              <dd style="margin-left: 1.5em" id="section-4.1-3.6.1.2">
+                <p id="section-4.1-3.6.1.2.1">The AI agent relies on a knowledge base that includes network policies,
+historical data, expert experience, and best practices in product manual. The
+knowledge is used to inform its analysis, decision-making, and execution processes.
+Over time, the AI agent can expand its knowledge through machine learning,
+incorporating new data and experiences to improve its performance. For example,
+it learns which configurations are optimal for specific scenarios or how to
+respond most effectively to particular types of network incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.<a href="#section-4.1-3.6.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+        </ul>
 </section>
 </div>
 </section>
@@ -1664,9 +1800,37 @@ totally wrong.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="ETSI-ENI035">[ETSI-ENI035]</dt>
+        <dd>
+<span class="refTitle">"Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf">https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-nmop-network-incident-yang">[I-D.ietf-nmop-network-incident-yang]</dt>
+        <dd>
+<span class="refAuthor">Hu, T.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Davis, N.</span>, and <span class="refAuthor">C. Feng</span>, <span class="refTitle">"A YANG Data Model for Network Incident Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-network-incident-yang-03</span>, <time datetime="2025-02-19" class="refDate">19 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-03">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-03</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-nmop-terminology">[I-D.ietf-nmop-terminology]</dt>
+        <dd>
+<span class="refAuthor">Davis, N.</span>, <span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Graf, T.</span>, <span class="refAuthor">Wu, Q.</span>, and <span class="refAuthor">C. Yu</span>, <span class="refTitle">"Some Key Terms for Network Fault and Problem Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-terminology-16</span>, <time datetime="2025-04-15" class="refDate">15 April 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-terminology-16">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-terminology-16</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin: Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-10</span>, <time datetime="2025-02-28" class="refDate">28 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9232">[RFC9232]</dt>
+        <dd>
+<span class="refAuthor">Song, H.</span>, <span class="refAuthor">Qin, F.</span>, <span class="refAuthor">Martinez-Julia, P.</span>, <span class="refAuthor">Ciavaglia, L.</span>, and <span class="refAuthor">A. Wang</span>, <span class="refTitle">"Network Telemetry Framework"</span>, <span class="seriesInfo">RFC 9232</span>, <span class="seriesInfo">DOI 10.17487/RFC9232</span>, <time datetime="2022-05" class="refDate">May 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9232">https://www.rfc-editor.org/rfc/rfc9232</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9315">[RFC9315]</dt>
+        <dd>
+<span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Ciavaglia, L.</span>, <span class="refAuthor">Granville, L. Z.</span>, and <span class="refAuthor">J. Tantsura</span>, <span class="refTitle">"Intent-Based Networking - Concepts and Definitions"</span>, <span class="seriesInfo">RFC 9315</span>, <span class="seriesInfo">DOI 10.17487/RFC9315</span>, <time datetime="2022-10" class="refDate">October 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9315">https://www.rfc-editor.org/rfc/rfc9315</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TMF-1218">[TMF-1218]</dt>
+        <dd>
+<span class="refTitle">"Autonomous Networks Business Requirements and Framework"</span>, <time datetime="2024-05" class="refDate">May 2024</time>, <span>&lt;<a href="https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218">https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TMF-1345">[TMF-1345]</dt>
+      <dd>
+<span class="refTitle">"Embracing Generative AI in Telecom: Amplifying Autonomous Network Evolution"</span>, <time datetime="2025-01" class="refDate">January 2025</time>, <span>&lt;<a href="https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0">https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
