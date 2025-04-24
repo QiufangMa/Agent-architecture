@@ -35,6 +35,20 @@ normative:
 
 informative:
 
+TMF-1218:
+  title: "Autonomous Networks Business Requirements and Framework"
+  target: https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218
+  date: May 2024
+
+TMF-1345:
+  title: "Embracing Generative AI in Telecom: Amplifying Autonomous Network Evolution"
+  target: https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0
+  date: Jan 2025
+
+ETSI-ENI035:
+  title: "Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"
+  target: https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf
+
 
 --- abstract
 
@@ -103,13 +117,58 @@ intent based networking to meet the needs of the applications.
 
 {::boilerplate bcp14-tagged}
 
+The document uses the following definitions and acronyms defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}:
+
+* Network Digital Twin (NDT)
+
+* Artificial Intelligence (AI)
+
+ The following acronyms are used throughout this document:
+
+ * Generative Artificial Intelligence (Gen-AI)
+
+ * Large Language Model (LLM)
+
+ * Retrieval-Augmented Generation (RAG)
 
 # Introduction of Concepts
 
-## AI Agent
+## Generative AI and AI Agent
+
+The integration of AI into network operations has marked a significant leap forward in
+the pursuit of network automation and intelligence, while generative AI further
+enhances the role of AI in network operations and management. Generative AI is a
+subfield of AI that uses generative models such as LLMs to generate new and
+original content such as text, images, videos, or other forms of data with the
+capability to adapt and make decisions to achieve specific goals.
+{{TMF-1218}} lists full-stack AI as one of key requirements of Autonomous Network capabilities,
+and {{TMF-1345}} highlights the potential of generative AI in driving the evoluation
+of autonomous networks. Other SDOs like ETSI (Experiential Networked Intelligence) ENI
+is actively advancing the integration of AI in networks and services {{ETSI-ENI035}}.
+
+AI agent which takes the power of generative AI a step further refers to a system
+or program that uses AI to perform tasks on behalf of users.
+AI Agent is an autonomous entity that can perceive the environment, make decisions,
+and take actions to achieve specific goals. In the context of network operations
+and management, agents are increasingly being designed to perform tasks such as
+understanding user intent, generating network configurations, diagnosing and resolving network
+incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 
 ## Network Digital Twin
 
+The Network Digital Twin is a digital representation that is used in the context
+of network. The concept and archiecture of the Network Digital Twin are specified
+in {{I-D.irtf-nmrg-network-digital-twin-arch}}. Three core functional components
+which includes Data Repository component, a Service Mapping Models component,
+and an NDT Management component are introduced to characterize the Network Digital
+Twin and its reference architecture.
+
+The Network Digital Twin is widely recognized to be useful as an advanced platform
+for network emulation, serving as a tool for scenario planning, impact analysis,
+and change management. By delivering applications requests to the Network Digital
+Twin through standardized interfaces (see
+{{Section 9.4 of ?I-D.irtf-nmrg-network-digital-twin-arch}}), the Network Digital
+Twin exposes the various capabilities to network applications.
 
 # AI for Network Operation
 
@@ -120,9 +179,9 @@ and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
 of "AI for Network operation" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
-this document introduces six
-key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
+this document introduces six key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
 characterize the AI for network operation and its use, as shown in {{ops-arch}}.
+They together form a close-loop of network operation and management.
 
 ~~~~
 
@@ -150,6 +209,54 @@ characterize the AI for network operation and its use, as shown in {{ops-arch}}.
 
 ~~~~
 {: #ops-arch title="Six Key Elements to Characterize AI for network operation" artwork-align="center"}
+
+* Intent:
+: Intent is defined as a set of operational goals and outcomes defined in a declarative
+  manner without specifying how to achieve or implement them in {{?RFC9315}}. The AI agent
+  must accurately intepret and understand the user's high-level business or operational
+  objectives, this involves translating declarative requirements into specific network
+  instructions, e.g., configurations.
+
+* Decision:
+: Based on the intent and network analysis, the AI agent makes
+  informed decisions. These decisions could involve dynamically adjusting network
+  parameters, e.g., rerouting traffic to avoid congestion. The decision-making
+  process is driven by predefined policies, real-time data analysis, and AI
+  models (e.g., LLMs) that enable the AI agent to choose the best course of action
+  to meet the specified intent. AI agent may also verify the correctness the decision
+  by performing some network simulation or validation process.
+
+* Analysis:
+: The AI agent continuously analyzes vast amounts of network data from various
+  source, including network telemetry {{?RFC9232}} and external feeds, and identify
+  the gap between user intent and the existing network status. Leveraging machine
+  learning and other data analytics techniques, it also identifies
+  network fault, problem, incident, anomaly, and so on. Their distinction is further
+  discussed in {{?I-D.ietf-nmop-terminology}}.
+
+* Awareness:
+: Awareness is achieved through real-time monitoring and data collection.
+  The AI agent maintains a comprehensive visibility of the network,
+  enabling it to make context-aware decisions. Network operators can also use the
+  awareness understand the root cause of specific network issues and achieve closed-loop
+  decision-making.
+
+* Execution:
+: Once a decision is made, the AI agent executes the necessary actions to implement
+  it. This could involve, e.g., sending configuration to network devices through
+  NETCONF/RESTCONF protocols. The execution is carried out in a controlled and
+  precise manner to ensure that the network behaves as intended without causing
+  disruptions. The AI agent also verifies that the executed actions have the
+  desired effect and makes adjustments if needed.
+
+* Knowledge:
+: The AI agent relies on a knowledge base that includes network policies,
+  historical data, expert experience, and best practices in product manual. The
+  knowledge is used to inform its analysis, decision-making, and execution processes.
+  Over time, the AI agent can expand its knowledge through machine learning,
+  incorporating new data and experiences to improve its performance. For example,
+  it learns which configurations are optimal for specific scenarios or how to
+  respond most effectively to particular types of network incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 
 # archiecture Design
 
