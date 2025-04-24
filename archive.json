@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-22T01:38:22.128625+00:00",
+  "timestamp": "2025-04-24T01:38:39.138934+00:00",
   "repo": "QiufangMa/Agent-architecture",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOOc-8is6ThEDp",
+      "title": "Update draft-xxx-nmrg-agent-ndt-arch.md",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/1",
+      "state": "MERGED",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-04-23T03:00:00Z",
+      "updatedAt": "2025-04-23T05:56:22Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "80edb0fdbcb5d1530377d8ce12ab7fc3b84f4446",
+      "headRepository": "billwuqin/Agent-architecture",
+      "headRefName": "patch-1",
+      "headRefOid": "23c4ec41982a111cfc5514d5952c77397948657a",
+      "closedAt": "2025-04-23T05:56:21Z",
+      "mergedAt": "2025-04-23T05:56:21Z",
+      "mergedBy": "QiufangMa",
+      "mergeCommit": {
+        "oid": "b0c08d2b7d858227caa4f337abce9336d7c7236c"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
