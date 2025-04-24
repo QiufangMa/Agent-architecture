@@ -8,8 +8,8 @@ Intended status: Informational                             24 April 2025
 Expires: 26 October 2025
 
 
-    Integrating Generative AI with Network Digital Twin for Network
-                               Operation
+  Network Digital Twin based Architecture for Service oriented AI for
+                           Network Operation
                   draft-xxx-nmrg-agent-ndt-arch-latest
 
 Abstract
