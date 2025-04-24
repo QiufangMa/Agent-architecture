@@ -48,7 +48,7 @@ informative:
   ETSI-ENI035:
     title: "Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"
     target: https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf
-
+    date: December 2023
 
 --- abstract
 
