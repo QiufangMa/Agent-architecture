@@ -35,19 +35,19 @@ normative:
 
 informative:
 
-TMF-1218:
-  title: "Autonomous Networks Business Requirements and Framework"
-  target: https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218
-  date: May 2024
+  TMF-1218:
+    title: "Autonomous Networks Business Requirements and Framework"
+    target: https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218
+    date: May 2024
 
-TMF-1345:
-  title: "Embracing Generative AI in Telecom: Amplifying Autonomous Network Evolution"
-  target: https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0
-  date: Jan 2025
+  TMF-1345:
+    title: "Embracing Generative AI in Telecom: Amplifying Autonomous Network Evolution"
+    target: https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0
+    date: Jan 2025
 
-ETSI-ENI035:
-  title: "Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"
-  target: https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf
+  ETSI-ENI035:
+    title: "Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"
+    target: https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/04.01.01_60/gr_ENI035v040101p.pdf
 
 
 --- abstract
