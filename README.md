@@ -1,6 +1,6 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# Integrating Generative AI with Network Digital Twin for Network Operation
+# Network Digital Twin based Architecture for Service oriented AI for Network Operation
 
 This is the working area for the individual Internet-Draft, "Integrating Generative AI with Network Digital Twin for Network Operation".
 
