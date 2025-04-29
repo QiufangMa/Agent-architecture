@@ -1,5 +1,5 @@
 ---
-title: "Network Digital Twin based Architecture for Service oriented AI for Network Operation"
+title: "Network Digital Twin based Architecture for Service oriented AI for Network Operations"
 abbrev: "AI Agent archiecture"
 category: info
 
@@ -56,20 +56,20 @@ informative:
 
 A Network Digital Twin (NDT) provides a network emulation tool for
 scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, intent allows the network management
-take user intent data or service requirements as input,
+a Network Digital Twin into network management together with AI, it allows the network management
+activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
 requirements is said to have service oriented AI for Network Operations.
 
-AI for Network Operation brings together existing technologies such
-as network digital twin, AI and may be seen as the use of a toolbox
+AI for Network Operations brings together existing technologies such
+as Network Digital Twin and AI which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.
 
 This document describes an architecture and framework for service oriented AI for Network
-Operation, showing how these components work together. It provides a
+Operations and shows how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the applications.
+intent based networking to meet the needs of the network service.
 
 --- middle
 
@@ -87,11 +87,11 @@ the change, they need to perform dialing tests, monitor traffic, and manually ch
 
 A Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} was developed to provide a
 network emulation tool for scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, intent allows network management
-dynamically adapt to customer needs,
+a Network Digital Twin into network management together with AI, it allows network management activities
+to dynamically adapt to customer needs,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for Network Operations.
+requirements is said to have service oriented AI for network operations.
 
 Service oriented AI for Network Operations provide the following types of service to applications by
 coordinating the components that operate and manage the network:
@@ -100,18 +100,18 @@ coordinating the components that operate and manage the network:
   network change or network optimization aligns with business goals and that the services provided
   meet the agreed-upon Service Level Agreements (SLAs).
 
-* Provide Network Capacity planning and ensure that the network has sufficient capacity
+* Provide Network capacity planning and ensure that the network has sufficient capacity
   , resources, and infrastructure to meet current and future demands.
 
-* Model the protocol operations and interactions among devices in the network and Simulate specific
+* Model the protocol operations and interactions among devices in the network and simulate specific
   networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
   different conditions.
 
 * Model traffic flow across the network, including traffic generation, flow control, routing, and
   congestion control and evaluate traffic's impact on network performance.
 
-This document describes an architecture and framework for service oriented AI for Network
-Operation, showing how these components work together. It provides a
+This document describes an architecture and framework for service oriented AI for network
+operations, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
 intent based networking to meet the needs of the applications.
 
@@ -172,21 +172,18 @@ Twin through standardized interfaces (see
 {{Section 9.4 of ?I-D.irtf-nmrg-network-digital-twin-arch}}), the Network Digital
 Twin exposes the various capabilities to network applications.
 
-# AI for Network Operation
+# Characteristics of AI for Network Operations
 
-## Characteristics of AI for Network Operations
-
-AIOPs was first defined by Gartner in 2016, combining "artificial intelligence"
+AIOPS was first defined by Gartner in 2016, combining "artificial intelligence"
 and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
-of "AI for Network operation" within the networking industry.  Referring to the
+of "AI for network operations" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
 this document introduces six key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
 characterize the AI for network operation and its use, as shown in {{ops-arch}}.
 They together form a close-loop of network operation and management.
 
 ~~~~
-
  +---------------------------------------------------+
  |                  +---------+                      |
  |                  |  Intent |                      |
@@ -197,7 +194,7 @@ They together form a close-loop of network operation and management.
  | +-----------+       --------        +-----------+ |
  |                 ////        \\\\                  |
  |                |AI for Network  |                 |
- |                |    Operation   |                 |
+ |                |  Operations    |                 |
  |                 \\\\        ////                  |
  |                     --------                      |
  | +-----------+                      +------------+ |
@@ -205,10 +202,9 @@ They together form a close-loop of network operation and management.
  | +-----------+                      +------------+ |
  |                                                   |
  |                 +-----------+                     |
- |                 |  Knowledge|                     |
+ |                 | Knowledge |                     |
  |                 +-----------+                     |
  +---------------------------------------------------+
-
 ~~~~
 {: #ops-arch title="Six Key Elements to Characterize AI for network operation" artwork-align="center"}
 
@@ -267,95 +263,8 @@ They together form a close-loop of network operation and management.
 {{arch}} provides the overall archiecture for integrating Network Digital Twin and Network Agent System.
 
 ~~~~
-+--------------------------------------------------------------------+
-|                                                                    |
-|               OSS/Multi-domain Orchestrator                        |
-+-----^-------------------^-------------^----------------------------+
-      |                   |             |
-+-----+-------------------+-------------+----------------------------+
-| +---v----+     +--------+-------------+---------------------------+|
-| |        |     |   +----+-------------+------------------------+  ||
-| |        |     |   |+---v-----+ +-----v---+ +--------------+   |  ||
-| |        |     |   ||Agent NBI| |Agent GUI| |Access Control|   |  ||
-| |        |     |   |+---------+ +---------+ +--------------+   |  ||
-| |        |     |   |                           AI Agent Access |  ||
-| |        |     |   +-------------------------------------------+  ||
-| |        |     |                                                  ||
-| |        |     |      +-------------------------+                 ||
-| |        |     |      |  +----------------------+---+             ||
-| |Network |     |      |  | +------------------------+--+          ||
-| |Digital <----->      +--+-+                        |  |          ||
-| |Twin    |     |         | |        AI Agent(s)     |  |          ||
-| |        |     |         +-+------------------------+  |          ||
-| |        |     |           +--^------------^---------+-+          ||
-| |        |     |              |            |         |            ||
-| |        |     |              |            |         |            ||
-| |        |     |        +-----v--+  +------v------+  |            ||
-| |        |     |        |        |  |Knowledge and|  |            ||
-| |        |     |        |   LLM  |  |Memory System|  |            ||
-| |        |     |        +--------+  +-------------+  |            ||
-| |        |     | Network Agent System                |            ||
-| +----^---+     +-------------------------------------+------------+|
-|      |                                               |             |
-| +----v-----------------------------------------------v------------+|
-| |                                                                 ||
-| |    Original Management,Control, and Analysis Unit               ||
-| +------------------------------^----------------------------------+|
-|                                |         Network Management System |
-+--------------------------------+-----------------------------------+
-|                                |                                   |
-+--------------------------------v-----------------------------------+
-|                                                                    |
-|                 Physical Network                                   |
-+--------------------------------------------------------------------+
-~~~~
-{: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
-
-~~~~
-+------------------------------------------------------------------------+
-|                     Multi-Domain Orchestrator                          |
-+-----------------------^-------------------------------------^----------+
-                        |                                     |
-              Invoke NDT|                     Intent Interface|
-                        |                                     |
-+-----------------------+-------------------------------------|----------+
-|Autonomous Domain      |                             +-------v---------+|
-|                       |                             |Intent Management||
-|                       |                             +-------^---------+|
-|                       |                                     |          |
-|+----------------------v----------------------------+        |          |
-|| Network Digital Twin                              |        |          |
-||+-------------------------------------------------+|        |          |
-|||                    NDT Applications             ||    +---v-------+  |
-|||+---------------++--------++--------++----------+|<----> AI Agent  |  |
-||||Multi-Dimension||Scenario||Impact  ||Change    ||| +-->(Analysis  |  |
-||||Observability  ||Planning||Analysis||Management||| |  |& Decision)|  |
-|||+---------------++--------++--------++----------+|| |  +-+----^----+  |
-||+-------------------------------------------------+| |    |    |       |
-||+----------++----------------------++------------+ | |    |    |       |
-|||          ||Service Mapping Models||            | | |    | +--v------+|
-|||          || +-----------------+  ||            | | |    | |Knowledge||
-|||Data      || |Functional Models|  ||Digital Twin| | |    | |Base     ||
-|||Repository|| +-----------------+  ||Management  | | |    | +---------+|
-|||          || +-----------------+  ||            | | |    |            |
-|||          || |  Basic Models   |  ||            | | | +--v------+     |
-|||          || +-----------------+  ||            | | | |Execution|     |
-||+----------++----------------------++------------+ | | +---------+     |
-|+---------------------------------------------------+ |                 |
-|   +---------------+                                  |                 |
-|   |Data Collection+----------------------------------+                 |
-|   +------+--------+                                                    |
-+----------+-------------------------------------------------------------+
-           |
-           |
-+----------v-------------------------------------------------------------+
-|                           Physical Network                             |
-+------------------------------------------------------------------------+
-~~~~
-
-~~~~
 +----------------------------------------------------------------------+
-|                 Multi-Domain Orchestrator                            |
+|                 Multi-domain Orchestrator                            |
 +------------------^-----------------------^---------------------------+
                    |                       |
         Invoke NDT |       Intent Interface|
@@ -370,31 +279,77 @@ They together form a close-loop of network operation and management.
 | |                       |        +-------v---------+    +-----------+|
 | |                       |        |   AI Agent(s)   |    | Knowledge ||
 | |                       <-------->   (Analysis &   <----> Base      ||
-| | Network Digital Twin  |        |    Decision)    |    |           ||
-| |                       |        +-^------------+--+    +-----------+|
-| |                       |          |            |                    |
-| |                       |          |            |                    |
-| |                       |          |            |                    |
-| |                       |          |     +------v---------+          |
-| |                       |          |     |                |          |
-| |                       |          |     |    Execution   |          |
-| |                       |          |     |                |          |
-| +----------^------------+          |     +----------------+          |
-|            |                       |                                 |
-|            |                       |                                 |
-| +----------+-----------------------+--------------------------------+|
-| |                                                                   ||
-| |                       Data Collection                             ||
-| +-----------------------------^-------------------------------------+|
-+-------------------------------+--------------------------------------+
-                                |
-                                |
-+----------------------------------------------------------------------+
+| | Network Digital Twin  |   +---->    Decision)    |    |           ||
+| |                       |   |    +-----------+-----+    +-----------+|
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| |                       |   |                |                       |
+| +-------------------^---+   |                |                       |
+|                     |       |                |                       |
+|                +----+-------+---+      +-----v----------+            |
+|                |                |      |                |            |
+|                | Data Collection|      |    Execution   |            |
+|                |                |      |                |            |
+|                +--------^-------+      +-------+--------+            |
++-------------------------+----------------------+---------------------+
+                          |                      |
+                          |                      |
++-------------------------+----------------------v---------------------+
 |                    Physical Network                                  |
 +----------------------------------------------------------------------+
 ~~~~
+{: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
 
 ## Functional Components
+
+### Multi-domain Orchestrator
+
+### Autonomous Domain
+
+#### Network Digital Twin
+
+#### Intent Management
+
+ this includes NBI, GUI, access management.
+
+#### AI Agent(s)
+
+Agents could be scenario-oriented and classified according to the function they perform.
+
+#### Knowledge Base
+
+#### Data Collection
+
+#### Execution
+
+### Physical Network
+
+
+## Architecture Requirements
+
+There are a couple of key requirements of the architecture to integrate
+Network Digital twin with service-oriented AI which are crucial in
+ensuring the proposed architecture can handle the complex and dynamic network scenarios
+for network operations and management.
+
+## Human-in-the-loop
+
+This allows human experts to provide guidance and make critical decisions when necessary.
+By involving human in the process, the archiecture can leverage their insights and
+experience, ensuring AI actions align with organizational goals.
+
+## Interoperability via Open Standards
+
+standardized protocols and interfaces facilitate smooth communication from various vendors.
+
+## Feedback-driven Improvement
+
+## Scalability and Flexibility
+
 
 # AI in Network Operation: A collection of Use Cases
 
@@ -426,11 +381,11 @@ AI Agent could help in the following three phases which are usually mentioned in
 Although Gen-AI can produce amazing results at first sight, sometimes they can be
 totally wrong.
 
+## Security
+
 # Security Considerations
 
 TODO Security
-
-# Manageability Consideration
 
 # IANA Considerations
 
