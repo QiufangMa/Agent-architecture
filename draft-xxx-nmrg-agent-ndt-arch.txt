@@ -4,8 +4,8 @@
 
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
-Intended status: Informational                             29 April 2025
-Expires: 31 October 2025
+Intended status: Informational                                3 May 2025
+Expires: 4 November 2025
 
 
   Network Digital Twin based Architecture for Service oriented AI for
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 October 2025.
+   This Internet-Draft will expire on 4 November 2025.
 
 Copyright Notice
 
