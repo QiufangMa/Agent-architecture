@@ -24,8 +24,8 @@ keyword:
 
 author:
 -
- fullname: Qin Wu
- organization: Huawei
+   fullname: Qin Wu
+   organization: Huawei
    street: 101 Software Avenue, Yuhua District
    city: Jiangsu
    code: 210012
