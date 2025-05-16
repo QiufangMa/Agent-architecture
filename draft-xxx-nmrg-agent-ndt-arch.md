@@ -1,5 +1,5 @@
 ---
-title: "Network Digital Twin based Architecture for Service oriented AI for Network Operations"
+title: "Network Digital Twin based Architecture for Service-oriented AI for Network Operations"
 abbrev: "AI Agent archiecture"
 category: info
 
@@ -264,30 +264,18 @@ They together form a close-loop of network operation and management.
 
 ~~~~
 +----------------------------------------------------------------------+
-|                 Multi-domain Orchestrator                            |
+|                          Multi-domain Orchestrator                   |
 +------------------^-----------------------^---------------------------+
                    |                       |
         Invoke NDT |       Intent Interface|
 +------------------+-----------------------+---------------------------+
 |Autonomous Domain |                       |                           |
-| +----------------v------+        +-------v---------+                 |
-| |                       |        |Intent Management|                 |
-| |                       |        +-------+---------+                 |
-| |                       |                |                           |
-| |                       |                |                           |
-| |                       |                |                           |
+| +----------------v------+                |                           |
 | |                       |        +-------v---------+    +-----------+|
 | |                       |        |   AI Agent(s)   |    | Knowledge ||
-| |                       <-------->   (Analysis &   <----> Base      ||
-| | Network Digital Twin  |   +---->    Decision)    |    |           ||
+| | Network Digital Twin  <-------->   (Analysis &   <----> Base      ||
+| |                       |   +---->    Decision)    |    |           ||
 | |                       |   |    +-----------+-----+    +-----------+|
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
 | +-------------------^---+   |                |                       |
 |                     |       |                |                       |
 |                +----+-------+---+      +-----v----------+            |
@@ -308,13 +296,21 @@ They together form a close-loop of network operation and management.
 
 ### Multi-domain Orchestrator
 
+Multi-domain orchestrator serves as the top-level coordinator and manages the interactions
+across different autonomous domains. Multi-domain orchestrator may invoke Network Digital
+Twin to perform functions such as analyze, diagnose, optimize, control, and emulate
+as per {{?I-D.irtf-network-digital-twin-arch}}. It also provide means to convey user
+intent to each autonomous domain through a user-facing Graphical User Interface (GUI)
+or machine-to-machine North Bound Interface (NBI).
+
 ### Autonomous Domain
+
+An autonomous domain is a self-governing unit that achieves NDT and AI driven network
+autonomous management.
 
 #### Network Digital Twin
 
-#### Intent Management
 
- this includes NBI, GUI, access management.
 
 #### AI Agent(s)
 
@@ -336,35 +332,35 @@ Network Digital twin with service-oriented AI which are crucial in
 ensuring the proposed architecture can handle the complex and dynamic network scenarios
 for network operations and management.
 
-## Human-in-the-loop
+### Human-in-the-loop
 
 This allows human experts to provide guidance and make critical decisions when necessary.
 By involving human in the process, the archiecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.
 
-## Interoperability via Open Standards
+### Interoperability via Open Standards
 
 standardized protocols and interfaces facilitate smooth communication from various vendors.
 
-## Feedback-driven Improvement
+### Feedback-driven Improvement
 
-## Scalability and Flexibility
+### Scalability and Flexibility
 
 
 # AI in Network Operation: A collection of Use Cases
 
 AI Agent could help in the following three phases which are usually mentioned in network management:
 
-* Day 0: Network Planning and Design: includes the understanding of user intent,
+* Network Planning and Design: includes the understanding of user intent,
          generation of solutions, and simulation for decision-making.
-* Day 1: Service Deployment: includes the construction of the physical network,
+* Service Deployment: includes the construction of the physical network,
          as well as intent understanding, pre-deployment simulation, automated configuration,
          post-deployment validation, and other capabilities to enhance the efficiency
          and accuracy of network configuration for service deployment.
-* Day 2: Network Monitoring and Troubleshooting: includes intent monitoring, issues
+* Network Monitoring and Troubleshooting: includes intent monitoring, issues
          identification, solution generation, evaluation and decison-making, solution
          implementation, and service validation.
-* Day N: Network Change and Optimization: involves the design, evaluation, decision-making,
+* Network Change and Optimization: involves the design, evaluation, decision-making,
          implementation, and validation of network configuration changes or optimizations
          to improve network operation efficiency.
 
