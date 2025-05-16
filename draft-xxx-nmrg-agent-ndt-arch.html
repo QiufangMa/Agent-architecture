@@ -1240,13 +1240,19 @@ intent based networking to meet the needs of the network service.<a href="#secti
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-challenges-and-future-work" class="internal xref">Challenges and Future Work</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-challenges-of-integrating-s" class="internal xref">Challenges of Integrating Service-oriented AI into Network Management</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-hallucination" class="internal xref">hallucination</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-security" class="internal xref">Security</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-data-quality-and-consistenc" class="internal xref">Data Quality and Consistency</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-interpretability-and-explai" class="internal xref">Interpretability and Explainability</a></p>
 </li>
             </ul>
 </li>
@@ -1638,7 +1644,7 @@ to AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a hre
             </h5>
 <p id="section-5.2.2.2-1">AI Agent(s) acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network operations.
-It leverages the interference of LLM, the simulation of Network Digital Twin, and the
+It leverages the inference of LLM, the simulation of Network Digital Twin, and the
 contextual and domain-specific knowledge provided by Knowledge Base to accomplish
 specific network operation task.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.2-2">Agents could be scenario-oriented and classified according to the function they perform.
@@ -1709,7 +1715,7 @@ includes a set of network devices and wiring.<a href="#section-5.2.3-1" class="p
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-architecture-requirements" class="section-name selfRef">Architecture Requirements</a>
         </h3>
 <p id="section-5.3-1">There are a couple of key requirements of the architecture to integrate
-Network Digital twin with service-oriented AI which are crucial in
+Network Digital Twin with service-oriented AI which are crucial in
 ensuring the proposed architecture can handle the complex and dynamic network scenarios
 for network operations and management.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 <div id="human-in-the-loop">
@@ -1720,6 +1726,8 @@ for network operations and management.<a href="#section-5.3-1" class="pilcrow">�
 <p id="section-5.3.1-1">This allows human experts to provide guidance and make critical decisions when necessary.
 By involving human in the process, the archiecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-2">Human-in-the-loop is also helpful to provide a safeguard for complex or sensitive
+decisions, where human judgement is essential to avoid potential errors or ethical dilemms.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interoperability-via-open-standards">
@@ -1727,21 +1735,43 @@ experience, ensuring AI actions align with organizational goals.<a href="#sectio
           <h4 id="name-interoperability-via-open-s">
 <a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-interoperability-via-open-s" class="section-name selfRef">Interoperability via Open Standards</a>
           </h4>
-<p id="section-5.3.2-1">standardized protocols and interfaces facilitate smooth communication from various vendors.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.2-1">Standardized protocols and interfaces facilitate smooth communication and ensures
+different systems and devices from various vendors can work together seamlessly.
+The interfaces between AI Agent(s) and Network Digital Twin are the application-facing
+interfaces as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.
+There are some ongoing efforts that are working on the standardization of AI Agent
+communication <span>[<a href="#I-D.rosenberg-ai-protocols" class="cite xref">I-D.rosenberg-ai-protocols</a>]</span>.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="feedback-driven-improvement">
 <section id="section-5.3.3">
           <h4 id="name-feedback-driven-improvement">
 <a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-feedback-driven-improvement" class="section-name selfRef">Feedback-driven Improvement</a>
-        </h4>
+          </h4>
+<p id="section-5.3.3-1">The architecture should incorporate mechanism for continuous improvement based on
+feedback. This includes collecting data on AI decisions, network performance,
+and user feedback to identify areas for enhancement. By analyzing the feedback,
+the system can adapt and optimize its operations over time, leading to better
+performance and more accurate decision-making. For example, if an AI Agent fails
+to accurately identify the root cause of a network incident, the relevant records
+can be submitted as negative samples to the LLM which provides inference services,
+this allows the LLM to be trained on these negative samples for optimization.
+Feedback-driven improvement also enables the architecture to evolve with changing
+network conditions and requirements.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="scalability-and-flexibility">
 <section id="section-5.3.4">
           <h4 id="name-scalability-and-flexibility">
 <a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-scalability-and-flexibility" class="section-name selfRef">Scalability and Flexibility</a>
-        </h4>
+          </h4>
+<p id="section-5.3.4-1">The architecture must be designed to scale efficiently to accommodate growing
+network demands and increasing data volumes. It should also be flexible enough
+to adapt to new network scenarios and operational requirements. This means that
+components should be modular, allowing for easy addition or modification of
+functionality without disrupting the entire system. Scalability and flexibility
+ensure that the architecture remains effective and relevant in the face of evolving
+network challenges.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1799,25 +1829,71 @@ experience, ensuring AI actions align with organizational goals.<a href="#sectio
 </div>
 </section>
 </div>
-<div id="challenges-and-future-work">
+<div id="challenges-of-integrating-service-oriented-ai-into-network-management">
 <section id="section-7">
-      <h2 id="name-challenges-and-future-work">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-challenges-and-future-work" class="section-name selfRef">Challenges and Future Work</a>
+      <h2 id="name-challenges-of-integrating-s">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-challenges-of-integrating-s" class="section-name selfRef">Challenges of Integrating Service-oriented AI into Network Management</a>
       </h2>
 <div id="hallucination">
 <section id="section-7.1">
         <h3 id="name-hallucination">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-hallucination" class="section-name selfRef">hallucination</a>
         </h3>
-<p id="section-7.1-1">Although Gen-AI can produce amazing results at first sight, sometimes they can be
-totally wrong.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-1">Although Gen-AI can produce seemingly impressive results at first glance, there's
+a risk of them being completely wrong at times. These hallucinations can lead to
+incorrect decisions and actions in network management. For example, if the AI
+generates inaccurate network configurations or diagnoses faults incorrectly, it
+may cause network disruptions or even security vulnerabilities. The challenge lies
+in identifying and correcting these hallucinations to ensure the reliability of
+AI-driven network management actions.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security">
 <section id="section-7.2">
         <h3 id="name-security">
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
-      </h3>
+        </h3>
+<p id="section-7.2-1">Integrating AI into network management introduces new security challenges.
+Protecting sensitive network data and ensuring the integrity of AI-generated decisions
+are crucial. AI systems can become targets for attacks aimed at compromising network
+security. For instance, malicious actors could attempt to manipulate AI models
+to make them generate harmful network configurations or to disclose confidential
+network information. Additionally, the integration of AI components from different
+vendors may create new vulnerabilities that need to be addressed. Ensuring robust
+security measures throughout the entire AI-based network management architecture
+is essential to prevent unauthorized access and maintain the security of the network
+infrastructure.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="data-quality-and-consistency">
+<section id="section-7.3">
+        <h3 id="name-data-quality-and-consistenc">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-data-quality-and-consistenc" class="section-name selfRef">Data Quality and Consistency</a>
+        </h3>
+<p id="section-7.3-1">The performance of AI models heavily relies on the quality and consistency of the
+data they're trained on. In network management, data sources can be diverse
+and heterogeneous, leading to potential issues such as data inconsistencies,
+missing data, or outdated information. Poor-quality data can result in inaccurate
+AI predictions and recommendations. For example, if the training data for an AI model
+used in traffic forecasting is incomplete or contains errors, the model's predictions
+may not accurately reflect real - world network conditions. Ensuring that data is
+properly cleaned, validated, and maintained is a significant challenge in providing
+reliable inputs for AI-driven network management.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="interpretability-and-explainability">
+<section id="section-7.4">
+        <h3 id="name-interpretability-and-explai">
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-interpretability-and-explai" class="section-name selfRef">Interpretability and Explainability</a>
+        </h3>
+<p id="section-7.4-1">AI-generated decisions can sometimes be difficult to interpret and explain,
+especially for complex models like deep neural networks. Network operators need
+to understand the reasoning behind AI-driven decisions to trust and effectively
+utilize them. For example, if an AI system recommends a particular network
+reconfiguration to optimize performance, operators may want to know why that
+specific change is being suggested. The lack of interpretability can hinder
+the adoption of AI in network management and make it challenging to identify
+potential issues with AI-generated recommendations.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1885,6 +1961,10 @@ totally wrong.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
         <dd>
 <span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin: Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-10</span>, <time datetime="2025-02-28" class="refDate">28 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.rosenberg-ai-protocols">[I-D.rosenberg-ai-protocols]</dt>
+        <dd>
+<span class="refAuthor">Rosenberg, J.</span> and <span class="refAuthor">C. F. Jennings</span>, <span class="refTitle">"Framework, Use Cases and Requirements for AI Agent Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-rosenberg-ai-protocols-00</span>, <time datetime="2025-05-05" class="refDate">5 May 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-rosenberg-ai-protocols-00">https://datatracker.ietf.org/doc/html/draft-rosenberg-ai-protocols-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6241">[RFC6241]</dt>
         <dd>
