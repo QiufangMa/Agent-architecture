@@ -4,11 +4,11 @@
 
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
-Intended status: Informational                                3 May 2025
-Expires: 4 November 2025
+Intended status: Informational                               16 May 2025
+Expires: 17 November 2025
 
 
-  Network Digital Twin based Architecture for Service oriented AI for
+  Network Digital Twin based Architecture for Service-oriented AI for
                            Network Operations
                   draft-xxx-nmrg-agent-ndt-arch-latest
 
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 November 2025.
+   This Internet-Draft will expire on 17 November 2025.
 
 Copyright Notice
 
@@ -88,10 +88,10 @@ Table of Contents
        5.2.2.  Autonomous Domain
        5.2.3.  Physical Network
      5.3.  Architecture Requirements
-     5.4.  Human-in-the-loop
-     5.5.  Interoperability via Open Standards
-     5.6.  Feedback-driven Improvement
-     5.7.  Scalability and Flexibility
+       5.3.1.  Human-in-the-loop
+       5.3.2.  Interoperability via Open Standards
+       5.3.3.  Feedback-driven Improvement
+       5.3.4.  Scalability and Flexibility
    6.  AI in Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
@@ -331,30 +331,18 @@ Table of Contents
    Digital Twin and Network Agent System.
 
 +----------------------------------------------------------------------+
-|                 Multi-domain Orchestrator                            |
+|                          Multi-domain Orchestrator                   |
 +------------------^-----------------------^---------------------------+
                    |                       |
         Invoke NDT |       Intent Interface|
 +------------------+-----------------------+---------------------------+
 |Autonomous Domain |                       |                           |
-| +----------------v------+        +-------v---------+                 |
-| |                       |        |Intent Management|                 |
-| |                       |        +-------+---------+                 |
-| |                       |                |                           |
-| |                       |                |                           |
-| |                       |                |                           |
+| +----------------v------+                |                           |
 | |                       |        +-------v---------+    +-----------+|
 | |                       |        |   AI Agent(s)   |    | Knowledge ||
-| |                       <-------->   (Analysis &   <----> Base      ||
-| | Network Digital Twin  |   +---->    Decision)    |    |           ||
+| | Network Digital Twin  <-------->   (Analysis &   <----> Base      ||
+| |                       |   +---->    Decision)    |    |           ||
 | |                       |   |    +-----------+-----+    +-----------+|
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
-| |                       |   |                |                       |
 | +-------------------^---+   |                |                       |
 |                     |       |                |                       |
 |                +----+-------+---+      +-----v----------+            |
@@ -376,24 +364,32 @@ Table of Contents
 
 5.2.1.  Multi-domain Orchestrator
 
+   Multi-domain orchestrator serves as the top-level coordinator and
+   manages the interactions across different autonomous domains.  Multi-
+   domain orchestrator may invoke Network Digital Twin to perform
+   functions such as analyze, diagnose, optimize, control, and emulate
+   as per [I-D.irtf-network-digital-twin-arch].  It also provide means
+   to convey user intent to each autonomous domain through a user-facing
+   Graphical User Interface (GUI) or machine-to-machine North Bound
+   Interface (NBI).
+
 5.2.2.  Autonomous Domain
+
+   An autonomous domain is a self-governing unit that achieves NDT and
+   AI driven network autonomous management.
 
 5.2.2.1.  Network Digital Twin
 
-5.2.2.2.  Intent Management
-
-   this includes NBI, GUI, access management.
-
-5.2.2.3.  AI Agent(s)
+5.2.2.2.  AI Agent(s)
 
    Agents could be scenario-oriented and classified according to the
    function they perform.
 
-5.2.2.4.  Knowledge Base
+5.2.2.3.  Knowledge Base
 
-5.2.2.5.  Data Collection
+5.2.2.4.  Data Collection
 
-5.2.2.6.  Execution
+5.2.2.5.  Execution
 
 5.2.3.  Physical Network
 
@@ -404,45 +400,45 @@ Table of Contents
    crucial in ensuring the proposed architecture can handle the complex
    and dynamic network scenarios for network operations and management.
 
-5.4.  Human-in-the-loop
+5.3.1.  Human-in-the-loop
 
    This allows human experts to provide guidance and make critical
    decisions when necessary.  By involving human in the process, the
    archiecture can leverage their insights and experience, ensuring AI
    actions align with organizational goals.
 
-5.5.  Interoperability via Open Standards
+5.3.2.  Interoperability via Open Standards
 
    standardized protocols and interfaces facilitate smooth communication
    from various vendors.
 
-5.6.  Feedback-driven Improvement
+5.3.3.  Feedback-driven Improvement
 
-5.7.  Scalability and Flexibility
+5.3.4.  Scalability and Flexibility
 
 6.  AI in Network Operation: A collection of Use Cases
 
    AI Agent could help in the following three phases which are usually
    mentioned in network management:
 
-   *  Day 0: Network Planning and Design: includes the understanding of
-      user intent, generation of solutions, and simulation for decision-
+   *  Network Planning and Design: includes the understanding of user
+      intent, generation of solutions, and simulation for decision-
       making.
 
-   *  Day 1: Service Deployment: includes the construction of the
-      physical network, as well as intent understanding, pre-deployment
+   *  Service Deployment: includes the construction of the physical
+      network, as well as intent understanding, pre-deployment
       simulation, automated configuration, post-deployment validation,
       and other capabilities to enhance the efficiency and accuracy of
       network configuration for service deployment.
 
-   *  Day 2: Network Monitoring and Troubleshooting: includes intent
+   *  Network Monitoring and Troubleshooting: includes intent
       monitoring, issues identification, solution generation, evaluation
       and decison-making, solution implementation, and service
       validation.
 
-   *  Day N: Network Change and Optimization: involves the design,
-      evaluation, decision-making, implementation, and validation of
-      network configuration changes or optimizations to improve network
+   *  Network Change and Optimization: involves the design, evaluation,
+      decision-making, implementation, and validation of network
+      configuration changes or optimizations to improve network
       operation efficiency.
 
 6.1.  Network Configuration Change
@@ -503,6 +499,9 @@ Table of Contents
               in Progress, Internet-Draft, draft-ietf-nmop-terminology-
               16, 15 April 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-nmop-terminology-16>.
+
+   [I-D.irtf-network-digital-twin-arch]
+              "*** BROKEN REFERENCE ***".
 
    [I-D.irtf-nmrg-network-digital-twin-arch]
               Zhou, C., Yang, H., Duan, X., Lopez, D., Pastor, A., Wu,
