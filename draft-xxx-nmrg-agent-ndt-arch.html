@@ -1617,7 +1617,18 @@ autonomous management.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 <section id="section-5.2.2.1">
             <h5 id="name-network-digital-twin-2">
 <a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-network-digital-twin-2" class="section-name selfRef">Network Digital Twin</a>
-          </h5>
+            </h5>
+<p id="section-5.2.2.1-1">A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the acutal network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.1-2">As depicted in <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10#section-7" class="relref">Section 7</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ai-agents">
@@ -1625,28 +1636,58 @@ autonomous management.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
             <h5 id="name-ai-agents">
 <a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-ai-agents" class="section-name selfRef">AI Agent(s)</a>
             </h5>
-<p id="section-5.2.2.2-1">Agents could be scenario-oriented and classified according to the function they perform.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-1">AI Agent(s) acts as the smart brain of the Autonomous Domain, which is responsible
+for conducting AI-based analysis and making decisions regarding network operations.
+It leverages the interference of LLM, the simulation of Network Digital Twin, and the
+contextual and domain-specific knowledge provided by Knowledge Base to accomplish
+specific network operation task.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-2">Agents could be scenario-oriented and classified according to the function they perform.
+It is also possible for multiple Agents to collaborate in some scenarios.
+Multi-Agents management is needed to handle the agent instance lifecycle
+(e.g., deployment, update, and retirement of AI Agent), Agent registration,
+Agent discovery, and so on.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="knowledge-base">
 <section id="section-5.2.2.3">
             <h5 id="name-knowledge-base">
 <a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
-          </h5>
+            </h5>
+<p id="section-5.2.2.3-1">The Knowledge Base serves as a crucial repository of information within the
+architecture. It enables the injection of expert knowledge and provides the
+necessary knowledge and memory that helps AI Agent(s) make more accurate and
+context-aware decisions. It also helps mitigate the hallucination problems that
+can arise in large-scale models, which enhances the accuracy of task execution.
+Additionally, the Knowledge Base plays a key role in providing the data needed
+for techniques like Retrieval-Augmented Generation (RAG), which further boosts
+the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="data-collection">
 <section id="section-5.2.2.4">
             <h5 id="name-data-collection">
 <a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
-          </h5>
+            </h5>
+<p id="section-5.2.2.4-1">Data Collection component is responsible for gathering data from the physical network
+through various different tools and methods (e.g., IPFIX <span>[<a href="#RFC7011" class="cite xref">RFC7011</a>]</span>, YANG-push
+  <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>).
+It collects various types of network data including configuration data, operational data,
+network topology, routing data, logs, and trace on management plane, control plane, and
+forwarding plane as needed. The collected data is fed into the Network Digital Twin
+and AI Agent(s) to provide with up-to-date information about the current state of
+the physical network.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="execution">
 <section id="section-5.2.2.5">
             <h5 id="name-execution">
 <a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-execution" class="section-name selfRef">Execution</a>
-          </h5>
+            </h5>
+<p id="section-5.2.2.5-1">Once network decisions are made and confirmed, the Execution component performs
+specific actions to the physical network, e.g., modify specific configuration on network
+devices thourgh protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.
+It is the component that makes the planned control and management changes a reality
+in the real physical network.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1655,7 +1696,9 @@ autonomous management.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
 <section id="section-5.2.3">
           <h4 id="name-physical-network">
 <a href="#section-5.2.3" class="section-number selfRef">5.2.3. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
-        </h4>
+          </h4>
+<p id="section-5.2.3-1">This is the actual hardware and infrastructure that makes up the network, which
+includes a set of network devices and wiring.<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1842,6 +1885,30 @@ totally wrong.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
         <dd>
 <span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin: Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-10</span>, <time datetime="2025-02-28" class="refDate">28 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6241">[RFC6241]</dt>
+        <dd>
+<span class="refAuthor">Enns, R., Ed.</span>, <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refAuthor">Schoenwaelder, J., Ed.</span>, and <span class="refAuthor">A. Bierman, Ed.</span>, <span class="refTitle">"Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6241</span>, <span class="seriesInfo">DOI 10.17487/RFC6241</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6241">https://www.rfc-editor.org/rfc/rfc6241</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7011">[RFC7011]</dt>
+        <dd>
+<span class="refAuthor">Claise, B., Ed.</span>, <span class="refAuthor">Trammell, B., Ed.</span>, and <span class="refAuthor">P. Aitken</span>, <span class="refTitle">"Specification of the IP Flow Information Export (IPFIX) Protocol for the Exchange of Flow Information"</span>, <span class="seriesInfo">STD 77</span>, <span class="seriesInfo">RFC 7011</span>, <span class="seriesInfo">DOI 10.17487/RFC7011</span>, <time datetime="2013-09" class="refDate">September 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7011">https://www.rfc-editor.org/rfc/rfc7011</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7854">[RFC7854]</dt>
+        <dd>
+<span class="refAuthor">Scudder, J., Ed.</span>, <span class="refAuthor">Fernando, R.</span>, and <span class="refAuthor">S. Stuart</span>, <span class="refTitle">"BGP Monitoring Protocol (BMP)"</span>, <span class="seriesInfo">RFC 7854</span>, <span class="seriesInfo">DOI 10.17487/RFC7854</span>, <time datetime="2016-06" class="refDate">June 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7854">https://www.rfc-editor.org/rfc/rfc7854</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8040">[RFC8040]</dt>
+        <dd>
+<span class="refAuthor">Bierman, A.</span>, <span class="refAuthor">Bjorklund, M.</span>, and <span class="refAuthor">K. Watsen</span>, <span class="refTitle">"RESTCONF Protocol"</span>, <span class="seriesInfo">RFC 8040</span>, <span class="seriesInfo">DOI 10.17487/RFC8040</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8040">https://www.rfc-editor.org/rfc/rfc8040</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8639">[RFC8639]</dt>
+        <dd>
+<span class="refAuthor">Voit, E.</span>, <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Gonzalez Prieto, A.</span>, <span class="refAuthor">Nilsen-Nygaard, E.</span>, and <span class="refAuthor">A. Tripathy</span>, <span class="refTitle">"Subscription to YANG Notifications"</span>, <span class="seriesInfo">RFC 8639</span>, <span class="seriesInfo">DOI 10.17487/RFC8639</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8639">https://www.rfc-editor.org/rfc/rfc8639</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8641">[RFC8641]</dt>
+        <dd>
+<span class="refAuthor">Clemm, A.</span> and <span class="refAuthor">E. Voit</span>, <span class="refTitle">"Subscription to YANG Notifications for Datastore Updates"</span>, <span class="seriesInfo">RFC 8641</span>, <span class="seriesInfo">DOI 10.17487/RFC8641</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8641">https://www.rfc-editor.org/rfc/rfc8641</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9232">[RFC9232]</dt>
         <dd>

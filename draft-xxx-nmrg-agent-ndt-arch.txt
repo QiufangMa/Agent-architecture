@@ -380,18 +380,77 @@ Table of Contents
 
 5.2.2.1.  Network Digital Twin
 
+   A Network Digital Twin provides an enhanced and optimized solution in
+   the face of increasing network and business types, scale, and
+   complexity.  It simulates the behavior, performance, and
+   characteristics of the acutal network, which could help in validation
+   and testing scenarios, analyzing and predicting network behavior
+   without affecting the real physical network.
+
+   As depicted in Section 7 of
+   [I-D.irtf-nmrg-network-digital-twin-arch], the core functional
+   components of an Network Digital Twin includes Data Repository,
+   Service Mapping Models, and a Network Digital Twin Management
+   component.  The Network Digital Twin collects the real-time
+   operational and instrumentation data from network through the
+   appropriate real network-facing input interfaces, and it delivers NDT
+   services through appropriate application-facing output interfaces,
+   which is the interfaces to AI Agent(s) in Figure 2.
+
 5.2.2.2.  AI Agent(s)
 
+   AI Agent(s) acts as the smart brain of the Autonomous Domain, which
+   is responsible for conducting AI-based analysis and making decisions
+   regarding network operations.  It leverages the interference of LLM,
+   the simulation of Network Digital Twin, and the contextual and
+   domain-specific knowledge provided by Knowledge Base to accomplish
+   specific network operation task.
+
    Agents could be scenario-oriented and classified according to the
-   function they perform.
+   function they perform.  It is also possible for multiple Agents to
+   collaborate in some scenarios.  Multi-Agents management is needed to
+   handle the agent instance lifecycle (e.g., deployment, update, and
+   retirement of AI Agent), Agent registration, Agent discovery, and so
+   on.
 
 5.2.2.3.  Knowledge Base
 
+   The Knowledge Base serves as a crucial repository of information
+   within the architecture.  It enables the injection of expert
+   knowledge and provides the necessary knowledge and memory that helps
+   AI Agent(s) make more accurate and context-aware decisions.  It also
+   helps mitigate the hallucination problems that can arise in large-
+   scale models, which enhances the accuracy of task execution.
+   Additionally, the Knowledge Base plays a key role in providing the
+   data needed for techniques like Retrieval-Augmented Generation (RAG),
+   which further boosts the system's ability to generate reliable and
+   relevant outputs.
+
 5.2.2.4.  Data Collection
+
+   Data Collection component is responsible for gathering data from the
+   physical network through various different tools and methods (e.g.,
+   IPFIX [RFC7011], YANG-push [RFC8639],[RFC8641], BMP [RFC7854]).  It
+   collects various types of network data including configuration data,
+   operational data, network topology, routing data, logs, and trace on
+   management plane, control plane, and forwarding plane as needed.  The
+   collected data is fed into the Network Digital Twin and AI Agent(s)
+   to provide with up-to-date information about the current state of the
+   physical network.
 
 5.2.2.5.  Execution
 
+   Once network decisions are made and confirmed, the Execution
+   component performs specific actions to the physical network, e.g.,
+   modify specific configuration on network devices thourgh protocols
+   like NETCONF [RFC6241] and RESTCONF [RFC8040].  It is the component
+   that makes the planned control and management changes a reality in
+   the real physical network.
+
 5.2.3.  Physical Network
+
+   This is the actual hardware and infrastructure that makes up the
+   network, which includes a set of network devices and wiring.
 
 5.3.  Architecture Requirements
 
@@ -511,6 +570,35 @@ Table of Contents
               twin-arch-10, 28 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
               network-digital-twin-arch-10>.
+
+   [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
+              and A. Bierman, Ed., "Network Configuration Protocol
+              (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
+              <https://www.rfc-editor.org/rfc/rfc6241>.
+
+   [RFC7011]  Claise, B., Ed., Trammell, B., Ed., and P. Aitken,
+              "Specification of the IP Flow Information Export (IPFIX)
+              Protocol for the Exchange of Flow Information", STD 77,
+              RFC 7011, DOI 10.17487/RFC7011, September 2013,
+              <https://www.rfc-editor.org/rfc/rfc7011>.
+
+   [RFC7854]  Scudder, J., Ed., Fernando, R., and S. Stuart, "BGP
+              Monitoring Protocol (BMP)", RFC 7854,
+              DOI 10.17487/RFC7854, June 2016,
+              <https://www.rfc-editor.org/rfc/rfc7854>.
+
+   [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/rfc/rfc8040>.
+
+   [RFC8639]  Voit, E., Clemm, A., Gonzalez Prieto, A., Nilsen-Nygaard,
+              E., and A. Tripathy, "Subscription to YANG Notifications",
+              RFC 8639, DOI 10.17487/RFC8639, September 2019,
+              <https://www.rfc-editor.org/rfc/rfc8639>.
+
+   [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
+              for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
+              September 2019, <https://www.rfc-editor.org/rfc/rfc8641>.
 
    [RFC9232]  Song, H., Qin, F., Martinez-Julia, P., Ciavaglia, L., and
               A. Wang, "Network Telemetry Framework", RFC 9232,
