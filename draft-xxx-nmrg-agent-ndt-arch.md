@@ -327,7 +327,7 @@ to AI Agent(s) in {{arch}}.
 
 AI Agent(s) acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network operations.
-It leverages the interference of LLM, the simulation of Network Digital Twin, and the
+It leverages the inference of LLM, the simulation of Network Digital Twin, and the
 contextual and domain-specific knowledge provided by Knowledge Base to accomplish
 specific network operation task.
 
@@ -375,7 +375,7 @@ includes a set of network devices and wiring.
 ## Architecture Requirements
 
 There are a couple of key requirements of the architecture to integrate
-Network Digital twin with service-oriented AI which are crucial in
+Network Digital Twin with service-oriented AI which are crucial in
 ensuring the proposed architecture can handle the complex and dynamic network scenarios
 for network operations and management.
 
@@ -385,14 +385,40 @@ This allows human experts to provide guidance and make critical decisions when n
 By involving human in the process, the archiecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.
 
+Human-in-the-loop is also helpful to provide a safeguard for complex or sensitive
+decisions, where human judgement is essential to avoid potential errors or ethical dilemms.
+
 ### Interoperability via Open Standards
 
-standardized protocols and interfaces facilitate smooth communication from various vendors.
+Standardized protocols and interfaces facilitate smooth communication and ensures
+different systems and devices from various vendors can work together seamlessly.
+The interfaces between AI Agent(s) and Network Digital Twin are the application-facing
+interfaces as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
+There are some ongoing efforts that are working on the standardization of AI Agent
+communication {{?I-D.rosenberg-ai-protocols}}.
 
 ### Feedback-driven Improvement
 
+The architecture should incorporate mechanism for continuous improvement based on
+feedback. This includes collecting data on AI decisions, network performance,
+and user feedback to identify areas for enhancement. By analyzing the feedback,
+the system can adapt and optimize its operations over time, leading to better
+performance and more accurate decision-making. For example, if an AI Agent fails
+to accurately identify the root cause of a network incident, the relevant records
+can be submitted as negative samples to the LLM which provides inference services,
+this allows the LLM to be trained on these negative samples for optimization.
+Feedback-driven improvement also enables the architecture to evolve with changing
+network conditions and requirements.
+
 ### Scalability and Flexibility
 
+The architecture must be designed to scale efficiently to accommodate growing
+network demands and increasing data volumes. It should also be flexible enough
+to adapt to new network scenarios and operational requirements. This means that
+components should be modular, allowing for easy addition or modification of
+functionality without disrupting the entire system. Scalability and flexibility
+ensure that the architecture remains effective and relevant in the face of evolving
+network challenges.
 
 # AI in Network Operation: A collection of Use Cases
 
@@ -417,14 +443,53 @@ AI Agent could help in the following three phases which are usually mentioned in
 
 ## Network Optimization
 
-# Challenges and Future Work
+# Challenges of Integrating Service-oriented AI into Network Management
 
 ## hallucination
 
-Although Gen-AI can produce amazing results at first sight, sometimes they can be
-totally wrong.
+Although Gen-AI can produce seemingly impressive results at first glance, there's
+a risk of them being completely wrong at times. These hallucinations can lead to
+incorrect decisions and actions in network management. For example, if the AI
+generates inaccurate network configurations or diagnoses faults incorrectly, it
+may cause network disruptions or even security vulnerabilities. The challenge lies
+in identifying and correcting these hallucinations to ensure the reliability of
+AI-driven network management actions.
 
 ## Security
+
+Integrating AI into network management introduces new security challenges.
+Protecting sensitive network data and ensuring the integrity of AI-generated decisions
+are crucial. AI systems can become targets for attacks aimed at compromising network
+security. For instance, malicious actors could attempt to manipulate AI models
+to make them generate harmful network configurations or to disclose confidential
+network information. Additionally, the integration of AI components from different
+vendors may create new vulnerabilities that need to be addressed. Ensuring robust
+security measures throughout the entire AI-based network management architecture
+is essential to prevent unauthorized access and maintain the security of the network
+infrastructure.
+
+## Data Quality and Consistency
+
+The performance of AI models heavily relies on the quality and consistency of the
+data they're trained on. In network management, data sources can be diverse
+and heterogeneous, leading to potential issues such as data inconsistencies,
+missing data, or outdated information. Poor-quality data can result in inaccurate
+AI predictions and recommendations. For example, if the training data for an AI model
+used in traffic forecasting is incomplete or contains errors, the model's predictions
+may not accurately reflect real - world network conditions. Ensuring that data is
+properly cleaned, validated, and maintained is a significant challenge in providing
+reliable inputs for AI-driven network management.
+
+## Interpretability and Explainability
+
+AI-generated decisions can sometimes be difficult to interpret and explain,
+especially for complex models like deep neural networks. Network operators need
+to understand the reasoning behind AI-driven decisions to trust and effectively
+utilize them. For example, if an AI system recommends a particular network
+reconfiguration to optimize performance, operators may want to know why that
+specific change is being suggested. The lack of interpretability can hinder
+the adoption of AI in network management and make it challenging to identify
+potential issues with AI-generated recommendations.
 
 # Security Considerations
 
