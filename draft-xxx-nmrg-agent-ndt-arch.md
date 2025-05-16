@@ -310,20 +310,67 @@ autonomous management.
 
 #### Network Digital Twin
 
+A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the acutal network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.
 
+As depicted in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to AI Agent(s) in {{arch}}.
 
 #### AI Agent(s)
 
+AI Agent(s) acts as the smart brain of the Autonomous Domain, which is responsible
+for conducting AI-based analysis and making decisions regarding network operations.
+It leverages the interference of LLM, the simulation of Network Digital Twin, and the
+contextual and domain-specific knowledge provided by Knowledge Base to accomplish
+specific network operation task.
+
 Agents could be scenario-oriented and classified according to the function they perform.
+It is also possible for multiple Agents to collaborate in some scenarios.
+Multi-Agents management is needed to handle the agent instance lifecycle
+(e.g., deployment, update, and retirement of AI Agent), Agent registration,
+Agent discovery, and so on.
 
 #### Knowledge Base
 
+The Knowledge Base serves as a crucial repository of information within the
+architecture. It enables the injection of expert knowledge and provides the
+necessary knowledge and memory that helps AI Agent(s) make more accurate and
+context-aware decisions. It also helps mitigate the hallucination problems that
+can arise in large-scale models, which enhances the accuracy of task execution.
+Additionally, the Knowledge Base plays a key role in providing the data needed
+for techniques like Retrieval-Augmented Generation (RAG), which further boosts
+the system's ability to generate reliable and relevant outputs.
+
 #### Data Collection
+
+Data Collection component is responsible for gathering data from the physical network
+through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
+  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}).
+It collects various types of network data including configuration data, operational data,
+network topology, routing data, logs, and trace on management plane, control plane, and
+forwarding plane as needed. The collected data is fed into the Network Digital Twin
+and AI Agent(s) to provide with up-to-date information about the current state of
+the physical network.
 
 #### Execution
 
+Once network decisions are made and confirmed, the Execution component performs
+specific actions to the physical network, e.g., modify specific configuration on network
+devices thourgh protocols like NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}.
+It is the component that makes the planned control and management changes a reality
+in the real physical network.
+
 ### Physical Network
 
+This is the actual hardware and infrastructure that makes up the network, which
+includes a set of network devices and wiring.
 
 ## Architecture Requirements
 
