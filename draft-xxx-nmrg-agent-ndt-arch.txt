@@ -371,10 +371,10 @@ Table of Contents
    manages the interactions across different autonomous domains.  Multi-
    domain orchestrator may invoke Network Digital Twin to perform
    functions such as analyze, diagnose, optimize, control, and emulate
-   as per [I-D.irtf-network-digital-twin-arch].  It also provide means
-   to convey user intent to each autonomous domain through a user-facing
-   Graphical User Interface (GUI) or machine-to-machine North Bound
-   Interface (NBI).
+   as per [I-D.irtf-nmrg-network-digital-twin-arch].  It also provide
+   means to convey user intent to each autonomous domain through a user-
+   facing Graphical User Interface (GUI) or machine-to-machine North
+   Bound Interface (NBI).
 
 5.2.2.  Autonomous Domain
 
@@ -741,9 +741,6 @@ Table of Contents
               in Progress, Internet-Draft, draft-ietf-nmop-terminology-
               17, 18 May 2025, <https://datatracker.ietf.org/doc/html/
               draft-ietf-nmop-terminology-17>.
-
-   [I-D.irtf-network-digital-twin-arch]
-              "*** BROKEN REFERENCE ***".
 
    [I-D.irtf-nmrg-network-digital-twin-arch]
               Zhou, C., Yang, H., Duan, X., Lopez, D., Pastor, A., Wu,
