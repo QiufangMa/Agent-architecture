@@ -31,7 +31,12 @@ author:
    code: 210012
    country: China
    email: bill.wu@huawei.com
-
+ -
+   fullname: Sai Han
+   organization: China Unicom
+   country: China
+   email: hans29@chinaunicom.cn
+ 
 normative:
 
 informative:
@@ -88,10 +93,9 @@ the change, they need to perform dialing tests, monitor traffic, and manually ch
 A Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} was developed to provide a
 network emulation tool for scenario planning, impact analysis, and change management. Integrating
 a Network Digital Twin into network management together with AI, it allows network management activities
-to dynamically adapt to customer needs,
-automatically assess, model, and refine optimization strategies under real conditions
-but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for network operations.
+to dynamically adapt to customer needs, network changes, automatically assess, model, and refine optimization
+strategies under real conditions but in a risk-free environment. An environment that operates to meet these
+types of requirements is said to have service oriented AI for network operations.
 
 Service oriented AI for Network Operations provide the following types of service to applications by
 coordinating the components that operate and manage the network:
@@ -102,6 +106,9 @@ coordinating the components that operate and manage the network:
 
 * Provide Network capacity planning and ensure that the network has sufficient capacity
   , resources, and infrastructure to meet current and future demands.
+
+* Model the network configuration change and use a virtual topology model to test and network change
+  and assess the effect of the network configuration changes on the network.
 
 * Model the protocol operations and interactions among devices in the network and simulate specific
   networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
@@ -159,7 +166,7 @@ incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 ## Network Digital Twin
 
 The Network Digital Twin is a digital representation that is used in the context
-of network. The concept and archiecture of the Network Digital Twin are specified
+of network. The concept and architecture of the Network Digital Twin are specified
 in {{I-D.irtf-nmrg-network-digital-twin-arch}}. Three core functional components
 which includes Data Repository component, a Service Mapping Models component,
 and an NDT Management component are introduced to characterize the Network Digital
@@ -179,8 +186,9 @@ and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
 of "AI for network operations" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
-this document introduces six key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
-characterize the AI for network operation and its use, as shown in {{ops-arch}}.
+this document introduces six key elements (i.e., awareness, decision, analysis,
+execution, intent and knowledge) to characterize the AI for network operation and
+its use, as shown in {{ops-arch}}.
 They together form a close-loop of network operation and management.
 
 ~~~~
@@ -211,7 +219,7 @@ They together form a close-loop of network operation and management.
 * Intent:
 : Intent is defined as a set of operational goals and outcomes defined in a declarative
   manner without specifying how to achieve or implement them in {{?RFC9315}}. The AI agent
-  must accurately intepret and understand the user's high-level business or operational
+  must accurately interpret and understand the user's high-level business or operational
   objectives, this involves translating declarative requirements into specific network
   instructions, e.g., configurations.
 
@@ -260,7 +268,7 @@ They together form a close-loop of network operation and management.
 
 ## Overall Archiecture
 
-{{arch}} provides the overall archiecture for integrating Network Digital Twin and Network Agent System.
+{{arch}} provides the overall architecture for integrating Network Digital Twin and Network Agent System.
 
 ~~~~
 +----------------------------------------------------------------------+
@@ -312,7 +320,7 @@ autonomous management.
 
 A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
 network and business types, scale, and complexity. It simulates the behavior, performance,
-and characteristics of the acutal network, which could help in validation and testing
+and characteristics of the actual network, which could help in validation and testing
 scenarios, analyzing and predicting network behavior without affecting the real physical network.
 
 As depicted in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
@@ -363,7 +371,7 @@ the physical network.
 
 Once network decisions are made and confirmed, the Execution component performs
 specific actions to the physical network, e.g., modify specific configuration on network
-devices thourgh protocols like NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}.
+devices through protocols like NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}.
 It is the component that makes the planned control and management changes a reality
 in the real physical network.
 
@@ -382,11 +390,11 @@ for network operations and management.
 ### Human-in-the-loop
 
 This allows human experts to provide guidance and make critical decisions when necessary.
-By involving human in the process, the archiecture can leverage their insights and
+By involving human in the process, the architecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.
 
 Human-in-the-loop is also helpful to provide a safeguard for complex or sensitive
-decisions, where human judgement is essential to avoid potential errors or ethical dilemms.
+decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
 ### Interoperability via Open Standards
 
@@ -454,7 +462,7 @@ Step 1:
    objectives and requirements of the changes.
 
 Step 2:
-: AI Agent first verifies the identity of the user requsting the change and checks the user's
+: AI Agent first verifies the identity of the user requesting the change and checks the user's
   permissions to make certain types of network changes against predefined rules
   or policies. It then understands and parses the initial intent of the request,
   and leverages the powerful knowledge and reasoning capabilities of LLM to generate
@@ -464,7 +472,7 @@ Step 2:
 Step 3:
 : AI Agent communicates with the Network Digital Twin to validate the suggested
   configuration change, including the syntax and semantics of the configuration,
-  verfication of effected application and resources. The network digital Twin
+  verification of effected application and resources. The network digital Twin
   may generate a report indicating the validation result, and suggested
   configuration fix when the validation fails after network simulation leveraging
   the current physical network operational state.
@@ -498,7 +506,7 @@ AI Agent could assist in network troubleshooting in the following significant as
 : After diagnosing the fault, AI Agent can generate targeted repair solutions.
   These solutions range from specific configuration adjustments to more complex
   fixes (e.g., hardware replacement). AI Agent would also communicate with
-  the Network Digital Twin to simulate the proposed repaire solutions and get feedback
+  the Network Digital Twin to simulate the proposed repair solutions and get feedback
   from the Network Digital Twin. In advanced setups, AI Agent may automatically execute
   these repairs, ensuring quick restoration of normal operations and enhancing
   the overall reliability and efficiency of network management. But it may also
@@ -511,7 +519,7 @@ Network optimization is often due to the AI Agent's awareness of some potential
 network faults or anomalies through continuously monitoring of network operational
 state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
-actively inputing the network optimization intent.
+actively inputting the network optimization intent.
 
 Based on the analysis of netork data and user's intent (if any), AI Agent proposes
 network optimization strategies. For instance, once the network congestion sometime
@@ -561,7 +569,7 @@ data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
 AI predictions and decisions. For example, if incorrect or outdated network configuration data is
-provided, the modle may provide incorrect repair advice when diagnosing network incidents
+provided, the model may provide incorrect repair advice when diagnosing network incidents
 or faults, it may suggest checking an non-existing interface. Ensuring that data is
 properly cleaned, validated, and maintained is a significant challenge in providing
 reliable inputs for AI-driven network management.
