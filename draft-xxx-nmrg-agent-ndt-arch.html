@@ -6,6 +6,7 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>Network Digital Twin based Architecture for Service-oriented AI for Network Operations</title>
 <meta content="Qin Wu" name="author">
+<meta content="Sai Han" name="author">
 <meta content="
        A Network Digital Twin (NDT) provides a network emulation tool for
 scenario planning, impact analysis, and change management. Integrating
@@ -1063,8 +1064,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Wu</td>
-<td class="center">Expires 24 November 2025</td>
+<td class="left">Wu &amp; Han</td>
+<td class="center">Expires 27 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1077,17 +1078,21 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-xxx-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-23" class="published">23 May 2025</time>
+<time datetime="2025-05-26" class="published">26 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-24">24 November 2025</time></dd>
-<dt class="label-authors">Author:</dt>
+<dd class="expires"><time datetime="2025-11-27">27 November 2025</time></dd>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">Q. Wu</div>
 <div class="org">Huawei</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Han</div>
+<div class="org">China Unicom</div>
 </div>
 </dd>
 </dl>
@@ -1140,7 +1145,7 @@ intent based networking to meet the needs of the network service.<a href="#secti
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1277,7 +1282,7 @@ intent based networking to meet the needs of the network service.<a href="#secti
             <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1299,10 +1304,9 @@ the change, they need to perform dialing tests, monitor traffic, and manually ch
 <p id="section-1-3">A Network Digital Twin (NDT) <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> was developed to provide a
 network emulation tool for scenario planning, impact analysis, and change management. Integrating
 a Network Digital Twin into network management together with AI, it allows network management activities
-to dynamically adapt to customer needs,
-automatically assess, model, and refine optimization strategies under real conditions
-but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
+to dynamically adapt to customer needs, network changes, automatically assess, model, and refine optimization
+strategies under real conditions but in a risk-free environment. An environment that operates to meet these
+types of requirements is said to have service oriented AI for network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">Service oriented AI for Network Operations provide the following types of service to applications by
 coordinating the components that operate and manage the network:<a href="#section-1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1316,13 +1320,17 @@ meet the agreed-upon Service Level Agreements (SLAs).<a href="#section-1-5.1.1" 
 , resources, and infrastructure to meet current and future demands.<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-5.3">
-          <p id="section-1-5.3.1">Model the protocol operations and interactions among devices in the network and simulate specific
-networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
-different conditions.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-5.3.1">Model the network configuration change and use a virtual topology model to test and network change
+and assess the effect of the network configuration changes on the network.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-5.4">
-          <p id="section-1-5.4.1">Model traffic flow across the network, including traffic generation, flow control, routing, and
-congestion control and evaluate traffic's impact on network performance.<a href="#section-1-5.4.1" class="pilcrow">¶</a></p>
+          <p id="section-1-5.4.1">Model the protocol operations and interactions among devices in the network and simulate specific
+networking protocols such as IS-IS, OSPF, BGP, SR to understand how they perform under
+different conditions.<a href="#section-1-5.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.5">
+          <p id="section-1-5.5.1">Model traffic flow across the network, including traffic generation, flow control, routing, and
+congestion control and evaluate traffic's impact on network performance.<a href="#section-1-5.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-1-6">This document describes an architecture and framework for service oriented AI for network
@@ -1398,7 +1406,7 @@ incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-digital-twin" class="section-name selfRef">Network Digital Twin</a>
         </h3>
 <p id="section-3.2-1">The Network Digital Twin is a digital representation that is used in the context
-of network. The concept and archiecture of the Network Digital Twin are specified
+of network. The concept and architecture of the Network Digital Twin are specified
 in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. Three core functional components
 which includes Data Repository component, a Service Mapping Models component,
 and an NDT Management component are introduced to characterize the Network Digital
@@ -1423,8 +1431,9 @@ and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
 of "AI for network operations" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
-this document introduces six key elements (i.e., awareness, decision, analysis, execution, intent and knowledge) to
-characterize the AI for network operation and its use, as shown in <a href="#ops-arch" class="auto internal xref">Figure 1</a>.
+this document introduces six key elements (i.e., awareness, decision, analysis,
+execution, intent and knowledge) to characterize the AI for network operation and
+its use, as shown in <a href="#ops-arch" class="auto internal xref">Figure 1</a>.
 They together form a close-loop of network operation and management.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <span id="name-six-key-elements-to-charact"></span><div id="ops-arch">
 <figure id="figure-1">
@@ -1464,7 +1473,7 @@ They together form a close-loop of network operation and management.<a href="#se
             <dd style="margin-left: 1.5em" id="section-4-3.1.1.2">
               <p id="section-4-3.1.1.2.1">Intent is defined as a set of operational goals and outcomes defined in a declarative
 manner without specifying how to achieve or implement them in <span>[<a href="#RFC9315" class="cite xref">RFC9315</a>]</span>. The AI agent
-must accurately intepret and understand the user's high-level business or operational
+must accurately interpret and understand the user's high-level business or operational
 objectives, this involves translating declarative requirements into specific network
 instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow">¶</a></p>
 </dd>
@@ -1555,7 +1564,7 @@ respond most effectively to particular types of network incidents <span>[<a href
         <h3 id="name-overall-archiecture">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overall-archiecture" class="section-name selfRef">Overall Archiecture</a>
         </h3>
-<p id="section-5.1-1"><a href="#arch" class="auto internal xref">Figure 2</a> provides the overall archiecture for integrating Network Digital Twin and Network Agent System.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-1"><a href="#arch" class="auto internal xref">Figure 2</a> provides the overall architecture for integrating Network Digital Twin and Network Agent System.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <span id="name-an-architecture-for-integra"></span><div id="arch">
 <figure id="figure-2">
           <div class="alignCenter art-text artwork" id="section-5.1-2.1">
@@ -1626,7 +1635,7 @@ autonomous management.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
             </h5>
 <p id="section-5.2.2.1-1">A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
 network and business types, scale, and complexity. It simulates the behavior, performance,
-and characteristics of the acutal network, which could help in validation and testing
+and characteristics of the actual network, which could help in validation and testing
 scenarios, analyzing and predicting network behavior without affecting the real physical network.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.1-2">As depicted in <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10#section-7" class="relref">Section 7</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>, the core
 functional components of an Network Digital Twin includes Data Repository,
@@ -1691,7 +1700,7 @@ the physical network.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
             </h5>
 <p id="section-5.2.2.5-1">Once network decisions are made and confirmed, the Execution component performs
 specific actions to the physical network, e.g., modify specific configuration on network
-devices thourgh protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.
+devices through protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.
 It is the component that makes the planned control and management changes a reality
 in the real physical network.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
 </section>
@@ -1724,10 +1733,10 @@ for network operations and management.<a href="#section-5.3-1" class="pilcrow">�
 <a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-human-in-the-loop" class="section-name selfRef">Human-in-the-loop</a>
           </h4>
 <p id="section-5.3.1-1">This allows human experts to provide guidance and make critical decisions when necessary.
-By involving human in the process, the archiecture can leverage their insights and
+By involving human in the process, the architecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.3.1-2">Human-in-the-loop is also helpful to provide a safeguard for complex or sensitive
-decisions, where human judgement is essential to avoid potential errors or ethical dilemms.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
+decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="interoperability-via-open-standards">
@@ -1828,7 +1837,7 @@ objectives and requirements of the changes.<a href="#section-6.1-2.2.1" class="p
           <dd class="break"></dd>
 <dt id="section-6.1-2.3">Step 2:</dt>
           <dd style="margin-left: 1.5em" id="section-6.1-2.4">
-            <p id="section-6.1-2.4.1">AI Agent first verifies the identity of the user requsting the change and checks the user's
+            <p id="section-6.1-2.4.1">AI Agent first verifies the identity of the user requesting the change and checks the user's
 permissions to make certain types of network changes against predefined rules
 or policies. It then understands and parses the initial intent of the request,
 and leverages the powerful knowledge and reasoning capabilities of LLM to generate
@@ -1840,7 +1849,7 @@ multiple possible network configuration change plans if possible.<a href="#secti
           <dd style="margin-left: 1.5em" id="section-6.1-2.6">
             <p id="section-6.1-2.6.1">AI Agent communicates with the Network Digital Twin to validate the suggested
 configuration change, including the syntax and semantics of the configuration,
-verfication of effected application and resources. The network digital Twin
+verification of effected application and resources. The network digital Twin
 may generate a report indicating the validation result, and suggested
 configuration fix when the validation fails after network simulation leveraging
 the current physical network operational state.<a href="#section-6.1-2.6.1" class="pilcrow">¶</a></p>
@@ -1898,7 +1907,7 @@ and reduces the time needed to address the issue.<a href="#section-6.2-2.2.1.2.1
                 <p id="section-6.2-2.3.1.2.1">After diagnosing the fault, AI Agent can generate targeted repair solutions.
 These solutions range from specific configuration adjustments to more complex
 fixes (e.g., hardware replacement). AI Agent would also communicate with
-the Network Digital Twin to simulate the proposed repaire solutions and get feedback
+the Network Digital Twin to simulate the proposed repair solutions and get feedback
 from the Network Digital Twin. In advanced setups, AI Agent may automatically execute
 these repairs, ensuring quick restoration of normal operations and enhancing
 the overall reliability and efficiency of network management. But it may also
@@ -1920,7 +1929,7 @@ and proceed to carry out the repair task once it is confirmed.<a href="#section-
 network faults or anomalies through continuously monitoring of network operational
 state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
-actively inputing the network optimization intent.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+actively inputting the network optimization intent.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
 <p id="section-6.3-2">Based on the analysis of netork data and user's intent (if any), AI Agent proposes
 network optimization strategies. For instance, once the network congestion sometime
 in the future is predicted, it may proactively optimize the network configuration,
@@ -1985,7 +1994,7 @@ data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
 AI predictions and decisions. For example, if incorrect or outdated network configuration data is
-provided, the modle may provide incorrect repair advice when diagnosing network incidents
+provided, the model may provide incorrect repair advice when diagnosing network incidents
 or faults, it may suggest checking an non-existing interface. Ensuring that data is
 properly cleaned, validated, and maintained is a significant challenge in providing
 reliable inputs for AI-driven network management.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
@@ -2128,8 +2137,8 @@ potential issues with AI-generated recommendations.<a href="#section-7.4-1" clas
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Qin Wu</span></div>
@@ -2141,6 +2150,15 @@ potential issues with AI-generated recommendations.<a href="#section-7.4-1" clas
 <div class="email">
 <span>Email:</span>
 <a href="mailto:bill.wu@huawei.com" class="email">bill.wu@huawei.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Sai Han</span></div>
+<div dir="auto" class="left"><span class="org">China Unicom</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:hans29@chinaunicom.cn" class="email">hans29@chinaunicom.cn</a>
 </div>
 </address>
 </section>
