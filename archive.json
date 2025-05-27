@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T01:49:41.152285+00:00",
+  "timestamp": "2025-05-27T01:41:15.472760+00:00",
   "repo": "QiufangMa/Agent-architecture",
   "labels": [
     {
@@ -84,24 +84,26 @@
       "id": "PR_kwDOOc-8is6XeXuP",
       "title": "Add one case related to configuration change simuation with other edi\u2026",
       "url": "https://github.com/QiufangMa/Agent-architecture/pull/2",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "billwuqin",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026torial changes",
       "createdAt": "2025-05-24T03:53:01Z",
-      "updatedAt": "2025-05-24T03:59:56Z",
+      "updatedAt": "2025-05-26T01:07:42Z",
       "baseRepository": "QiufangMa/Agent-architecture",
       "baseRefName": "main",
       "baseRefOid": "4dfd3f9d42117d988479496bd71ad4287943cc75",
       "headRepository": "QiufangMa/Agent-architecture",
       "headRefName": "billwuqin-patch-1",
-      "headRefOid": "b3b1db52d652a45fadc8bab11d2a8f69ebf31e53",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "709adde5b94f4202ef67bcc75fddd4ed9bf89e7c",
+      "closedAt": "2025-05-26T01:07:42Z",
+      "mergedAt": "2025-05-26T01:07:42Z",
+      "mergedBy": "QiufangMa",
+      "mergeCommit": {
+        "oid": "d5acba8a5656ed1b1df409a402da9e1d6358f078"
+      },
       "comments": [],
       "reviews": []
     }
