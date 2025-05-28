@@ -57,6 +57,14 @@ informative:
             04.01.01_60/gr_ENI035v040101p.pdf
     date: December 2023
 
+  MCP:
+    title: Model Context Protocol
+    target: https://modelcontextprotocol.io/
+
+  A2A:
+    title: Agent2Agent (A2A) protocol
+    target: https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a
+
 --- abstract
 
 A Network Digital Twin (NDT) provides a network emulation tool for
@@ -65,16 +73,16 @@ a Network Digital Twin into network management together with AI, it allows the n
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for Network Operations.
+requirements is said to have service-oriented AI for Network Operations.
 
 AI for Network Operations brings together existing technologies such
 as Network Digital Twin and AI which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.
 
-This document describes an architecture and framework for service oriented AI for Network
-Operations and shows how these components work together. It provides a
+This document describes an architecture for service-oriented AI for network
+operations and shows how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the network service.
+intent-based networking to meet the needs of the network service.
 
 --- middle
 
@@ -85,7 +93,7 @@ making network change better adapt to ever-changing service requirements.
 
 Since network changes are directly related to service operations, any successful change
 needs to not only ensure that new services are provisioned smoothly, but also that existing
-services are not affected and that no problems are introduced. Network operators or O&M personnel
+services are not affected and that no problems are introduced. Network operators
 are, therefore, increasingly cautious about making network changes, given that they need to review
 the solution design as well as evaluate all change impacts, before making any change. Then, after
 the change, they need to perform dialing tests, monitor traffic, and manually check table entries.
@@ -95,9 +103,9 @@ network emulation tool for scenario planning, impact analysis, and change manage
 a Network Digital Twin into network management together with AI, it allows network management activities
 to dynamically adapt to customer needs, network changes, automatically assess, model, and refine optimization
 strategies under real conditions but in a risk-free environment. An environment that operates to meet these
-types of requirements is said to have service oriented AI for network operations.
+types of requirements is said to have service-oriented AI for network operations.
 
-Service oriented AI for Network Operations provide the following types of service to applications by
+Service-oriented AI for network operations provide the following capabilities to applications by
 coordinating the components that operate and manage the network:
 
 * Service intent and service assurance work together to ensure that the
@@ -107,7 +115,7 @@ coordinating the components that operate and manage the network:
 * Provide Network capacity planning and ensure that the network has sufficient capacity
   , resources, and infrastructure to meet current and future demands.
 
-* Model the network configuration change and use a virtual topology model to test and network change
+* Model the network configuration change and use a virtual topology model to test network changes
   and assess the effect of the network configuration changes on the network.
 
 * Model the protocol operations and interactions among devices in the network and simulate specific
@@ -117,10 +125,10 @@ coordinating the components that operate and manage the network:
 * Model traffic flow across the network, including traffic generation, flow control, routing, and
   congestion control and evaluate traffic's impact on network performance.
 
-This document describes an architecture and framework for service oriented AI for network
+This document describes an architecture for service-oriented AI for network
 operations, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the applications.
+intent-based networking to meet the needs of applications.
 
 # Conventions and Definitions
 
@@ -218,13 +226,13 @@ They together form a close-loop of network operation and management.
 
 * Intent:
 : Intent is defined as a set of operational goals and outcomes defined in a declarative
-  manner without specifying how to achieve or implement them in {{?RFC9315}}. The AI agent
+  manner without specifying how to achieve or implement them in {{?RFC9315}}. The AI Agent
   must accurately interpret and understand the user's high-level business or operational
   objectives, this involves translating declarative requirements into specific network
   instructions, e.g., configurations.
 
 * Decision:
-: Based on the intent and network analysis, the AI agent makes
+: Based on the intent and network analysis, AI makes
   informed decisions. These decisions could involve dynamically adjusting network
   parameters, e.g., rerouting traffic to avoid congestion. The decision-making
   process is driven by predefined policies, real-time data analysis, and AI
@@ -295,7 +303,12 @@ They together form a close-loop of network operation and management.
                           |                      |
                           |                      |
 +-------------------------+----------------------v---------------------+
-|                    Physical Network                                  |
+| Physical Network                                                     |
+|     +-------------+        +--------------+     +--------------+     |
+|     |             |        |    +-------+ |     |    +-------+ |     |
+|     |     NE      |  ...   | NE |Site AI| |     | NE |Site AI| |     |
+|     |             |        |    +-------+ |     |    +-------+ |     |
+|     +-------------+        +--------------+     +--------------+     |
 +----------------------------------------------------------------------+
 ~~~~
 {: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
@@ -343,7 +356,8 @@ Agents could be scenario-oriented and classified according to the function they 
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
 (e.g., deployment, update, and retirement of AI Agent), Agent registration,
-Agent discovery, and so on.
+Agent discovery, and so on. Some ongoing efforts (MCP {{?MCP}}, A2A {{?A2A}}) in the
+industry may help with multi-agents coordination.
 
 #### Knowledge Base
 
@@ -378,7 +392,13 @@ in the real physical network.
 ### Physical Network
 
 This is the actual hardware and infrastructure that makes up the network, which
-includes a set of network devices and wiring.
+includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
+with site AI may also achieve some local close loop without relying on external AI or
+human intervention. For example, the site AI may automatically isolate the faulty
+interface, update the route table to reroute traffic through alternative paths, and
+sends alerts if it detects the interface failure through monitoring. It is also
+possible for the site AI to coordinate with AI Agent(s) to enhance the automation
+and efficiency of network operations.
 
 ## Architecture Requirements
 
