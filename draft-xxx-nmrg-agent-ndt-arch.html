@@ -14,14 +14,14 @@ a Network Digital Twin into network management together with AI, it allows the n
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for Network Operations. 
+requirements is said to have service-oriented AI for Network Operations. 
        AI for Network Operations brings together existing technologies such
 as Network Digital Twin and AI which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements. 
-       This document describes an architecture and framework for service oriented AI for Network
-Operations and shows how these components work together. It provides a
+       This document describes an architecture for service-oriented AI for network
+operations and shows how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the network service. 
+intent-based networking to meet the needs of the network service. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="network digital twin" name="keyword">
@@ -1065,7 +1065,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu &amp; Han</td>
-<td class="center">Expires 27 November 2025</td>
+<td class="center">Expires 29 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1078,12 +1078,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-xxx-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-26" class="published">26 May 2025</time>
+<time datetime="2025-05-28" class="published">28 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-27">27 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-29">29 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1106,14 +1106,14 @@ a Network Digital Twin into network management together with AI, it allows the n
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under real conditions
 but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service oriented AI for Network Operations.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+requirements is said to have service-oriented AI for Network Operations.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <p id="section-abstract-2">AI for Network Operations brings together existing technologies such
 as Network Digital Twin and AI which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
-<p id="section-abstract-3">This document describes an architecture and framework for service oriented AI for Network
-Operations and shows how these components work together. It provides a
+<p id="section-abstract-3">This document describes an architecture for service-oriented AI for network
+operations and shows how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the network service.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
+intent-based networking to meet the needs of the network service.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1145,7 +1145,7 @@ intent based networking to meet the needs of the network service.<a href="#secti
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1297,7 +1297,7 @@ intent based networking to meet the needs of the network service.<a href="#secti
 making network change better adapt to ever-changing service requirements.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Since network changes are directly related to service operations, any successful change
 needs to not only ensure that new services are provisioned smoothly, but also that existing
-services are not affected and that no problems are introduced. Network operators or O&amp;M personnel
+services are not affected and that no problems are introduced. Network operators
 are, therefore, increasingly cautious about making network changes, given that they need to review
 the solution design as well as evaluate all change impacts, before making any change. Then, after
 the change, they need to perform dialing tests, monitor traffic, and manually check table entries.<a href="#section-1-2" class="pilcrow">¶</a></p>
@@ -1306,8 +1306,8 @@ network emulation tool for scenario planning, impact analysis, and change manage
 a Network Digital Twin into network management together with AI, it allows network management activities
 to dynamically adapt to customer needs, network changes, automatically assess, model, and refine optimization
 strategies under real conditions but in a risk-free environment. An environment that operates to meet these
-types of requirements is said to have service oriented AI for network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">Service oriented AI for Network Operations provide the following types of service to applications by
+types of requirements is said to have service-oriented AI for network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">Service-oriented AI for network operations provide the following capabilities to applications by
 coordinating the components that operate and manage the network:<a href="#section-1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-5.1">
@@ -1320,7 +1320,7 @@ meet the agreed-upon Service Level Agreements (SLAs).<a href="#section-1-5.1.1" 
 , resources, and infrastructure to meet current and future demands.<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-5.3">
-          <p id="section-1-5.3.1">Model the network configuration change and use a virtual topology model to test and network change
+          <p id="section-1-5.3.1">Model the network configuration change and use a virtual topology model to test network changes
 and assess the effect of the network configuration changes on the network.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-5.4">
@@ -1333,10 +1333,10 @@ different conditions.<a href="#section-1-5.4.1" class="pilcrow">¶</a></p>
 congestion control and evaluate traffic's impact on network performance.<a href="#section-1-5.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-6">This document describes an architecture and framework for service oriented AI for network
+<p id="section-1-6">This document describes an architecture for service-oriented AI for network
 operations, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent based networking to meet the needs of the applications.<a href="#section-1-6" class="pilcrow">¶</a></p>
+intent-based networking to meet the needs of applications.<a href="#section-1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1472,7 +1472,7 @@ They together form a close-loop of network operation and management.<a href="#se
             <dt id="section-4-3.1.1.1">Intent:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.1.1.2">
               <p id="section-4-3.1.1.2.1">Intent is defined as a set of operational goals and outcomes defined in a declarative
-manner without specifying how to achieve or implement them in <span>[<a href="#RFC9315" class="cite xref">RFC9315</a>]</span>. The AI agent
+manner without specifying how to achieve or implement them in <span>[<a href="#RFC9315" class="cite xref">RFC9315</a>]</span>. The AI Agent
 must accurately interpret and understand the user's high-level business or operational
 objectives, this involves translating declarative requirements into specific network
 instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow">¶</a></p>
@@ -1484,7 +1484,7 @@ instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow
           <span class="break"></span><dl class="dlParallel" id="section-4-3.2.1">
             <dt id="section-4-3.2.1.1">Decision:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.2.1.2">
-              <p id="section-4-3.2.1.2.1">Based on the intent and network analysis, the AI agent makes
+              <p id="section-4-3.2.1.2.1">Based on the intent and network analysis, AI makes
 informed decisions. These decisions could involve dynamically adjusting network
 parameters, e.g., rerouting traffic to avoid congestion. The decision-making
 process is driven by predefined policies, real-time data analysis, and AI
@@ -1593,7 +1593,12 @@ respond most effectively to particular types of network incidents <span>[<a href
                           |                      |
                           |                      |
 +-------------------------+----------------------v---------------------+
-|                    Physical Network                                  |
+| Physical Network                                                     |
+|     +-------------+        +--------------+     +--------------+     |
+|     |             |        |    +-------+ |     |    +-------+ |     |
+|     |     NE      |  ...   | NE |Site AI| |     | NE |Site AI| |     |
+|     |             |        |    +-------+ |     |    +-------+ |     |
+|     +-------------+        +--------------+     +--------------+     |
 +----------------------------------------------------------------------+
 </pre>
 </div>
@@ -1660,7 +1665,8 @@ specific network operation task.<a href="#section-5.2.2.2-1" class="pilcrow">¶<
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
 (e.g., deployment, update, and retirement of AI Agent), Agent registration,
-Agent discovery, and so on.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
+Agent discovery, and so on. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>) in the
+industry may help with multi-agents coordination.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="knowledge-base">
@@ -1713,7 +1719,13 @@ in the real physical network.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a>
 <a href="#section-5.2.3" class="section-number selfRef">5.2.3. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
           </h4>
 <p id="section-5.2.3-1">This is the actual hardware and infrastructure that makes up the network, which
-includes a set of network devices and wiring.<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
+includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
+with site AI may also achieve some local close loop without relying on external AI or
+human intervention. For example, the site AI may automatically isolate the faulty
+interface, update the route table to reroute traffic through alternative paths, and
+sends alerts if it detects the interface failure through monitoring. It is also
+possible for the site AI to coordinate with AI Agent(s) to enhance the automation
+and efficiency of network operations.<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2062,6 +2074,10 @@ potential issues with AI-generated recommendations.<a href="#section-7.4-1" clas
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="A2A">[A2A]</dt>
+        <dd>
+<span class="refTitle">"Agent2Agent (A2A) protocol"</span>, <span>n.d.</span>, <span>&lt;<a href="https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a">https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="ETSI-ENI035">[ETSI-ENI035]</dt>
         <dd>
 <span class="refTitle">"Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"</span>, <time datetime="2023-12" class="refDate">December 2023</time>, <span>&lt;<a href="https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/%2004.01.01_60/gr_ENI035v040101p.pdf">https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/ 04.01.01_60/gr_ENI035v040101p.pdf</a>&gt;</span>. </dd>
@@ -2081,6 +2097,10 @@ potential issues with AI-generated recommendations.<a href="#section-7.4-1" clas
 <dt id="I-D.rosenberg-ai-protocols">[I-D.rosenberg-ai-protocols]</dt>
         <dd>
 <span class="refAuthor">Rosenberg, J.</span> and <span class="refAuthor">C. F. Jennings</span>, <span class="refTitle">"Framework, Use Cases and Requirements for AI Agent Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-rosenberg-ai-protocols-00</span>, <time datetime="2025-05-05" class="refDate">5 May 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-rosenberg-ai-protocols-00">https://datatracker.ietf.org/doc/html/draft-rosenberg-ai-protocols-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MCP">[MCP]</dt>
+        <dd>
+<span class="refTitle">"Model Context Protocol"</span>, <span>n.d.</span>, <span>&lt;<a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6241">[RFC6241]</dt>
         <dd>
