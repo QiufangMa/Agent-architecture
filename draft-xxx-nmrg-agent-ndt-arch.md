@@ -356,7 +356,7 @@ Agents could be scenario-oriented and classified according to the function they 
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
 (e.g., deployment, update, and retirement of AI Agent), Agent registration,
-Agent discovery, and so on. Some ongoing efforts (MCP {{?MCP}}, A2A {{?A2A}}) in the
+Agent discovery, and so on. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
 industry may help with multi-agents coordination.
 
 #### Knowledge Base
