@@ -41,29 +41,30 @@ normative:
 
 informative:
 
-  TMF-1218:
-    title: "Autonomous Networks Business Requirements and Framework"
-    target: https://www.tmforum.org/resources/introductory-guide/autonomous-networks-business-requirements-and-framework-v3-0-0-ig1218
-    date: May 2024
+  TMF-1251C:
+    title: "AN Level 4 Target Archiecture v1.1.0"
+    target: https://projects.tmforum.org/wiki/pages/viewpage.action?pageId=354689994
+    date: May 2025
 
-  TMF-1345:
-    title: "Embracing Generative AI in Telecom: Amplifying Autonomous Network Evolution"
-    target: https://www.tmforum.org/resources/introductory-guide/ig1345-embracing-generative-ai-in-telecom-amplifying-autonomous-network-evolution-v1-1-0
-    date: Jan 2025
+  TMF-1251D:
+    title: "AN Agent Archiecture v1.1.0"
+    target: https://projects.tmforum.org/wiki/pages/viewpage.action?pageId=354697930
+    date: May 2025
 
-  ETSI-ENI035:
-    title: "Experiential Networked Intelligence (ENI); Definition of IP networks autonomicity level"
-    target: https://www.etsi.org/deliver/etsi_gr/ENI/001_099/035/
-            04.01.01_60/gr_ENI035v040101p.pdf
-    date: December 2023
+  TMF-1258:
+    title: "Autonomous Networks Glossary v1.2.0"
+    target: https://projects.tmforum.org/wiki/display/PUB/IG1258+Autonomous+Networks+Glossary+v1.2.0
+    date: May 2025
 
   MCP:
     title: Model Context Protocol
     target: https://modelcontextprotocol.io/
+    date: November 2024
 
   A2A:
     title: Agent2Agent (A2A) protocol
     target: https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a
+    date: April 2025
 
 --- abstract
 
@@ -148,6 +149,13 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 
  * Retrieval-Augmented Generation (RAG)
 
+Besides, this document defines the following terminology:
+
+AI Agent:
+: AI Agent is an autonomous system or entity with awareness of its environment, capable of
+conducting analysis, making decisions, and executing actions with specific intent
+based on its knowledge representation to achieve a set of service goals.
+
 # Introduction of Concepts
 
 ## Generative AI and AI Agent
@@ -158,18 +166,14 @@ enhances the role of AI in network operations and management. Generative AI is a
 subfield of AI that uses generative models such as LLMs to generate new and
 original content such as text, images, videos, or other forms of data with the
 capability to adapt and make decisions to achieve specific goals.
-{{TMF-1218}} lists full-stack AI as one of key requirements of Autonomous Network capabilities,
-and {{TMF-1345}} highlights the potential of generative AI in driving the evoluation
-of autonomous networks. Other SDOs like ETSI (Experiential Networked Intelligence) ENI
-is actively advancing the integration of AI in networks and services {{ETSI-ENI035}}.
 
 AI agent which takes the power of generative AI a step further refers to a system
-or program that uses AI to perform tasks on behalf of users.
-AI Agent is an autonomous entity that can perceive the environment, make decisions,
-and take actions to achieve specific goals. In the context of network operations
+or program that uses AI to perform tasks on behalf of users. In the context of network operations
 and management, agents are increasingly being designed to perform tasks such as
 understanding user intent, generating network configurations, diagnosing and resolving network
-incidents {{?I-D.ietf-nmop-network-incident-yang}}.
+incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs also try to
+define terms related to AI agent in the context of network operations
+and management, e.g., tmforum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network) Terminology.
 
 ## Network Digital Twin
 
@@ -280,13 +284,13 @@ They together form a close-loop of network operation and management.
 
 ~~~~
 +----------------------------------------------------------------------+
-|                          Multi-domain Orchestrator                   |
-+------------------^-----------------------^---------------------------+
-                   |                       |
-        Invoke NDT |       Intent Interface|
-+------------------+-----------------------+---------------------------+
-|Autonomous Domain |                       |                           |
-| +----------------v------+                |                           |
+|                            Application                               |
++------------------------------------------^---------------------------+
+                                           |
+                           Intent Interface|
++------------------------------------------+---------------------------+
+|Autonomous Domain                         |                           |
+| +-----------------------+                |                           |
 | |                       |        +-------v---------+    +-----------+|
 | |                       |        |   AI Agent(s)   |    | Knowledge ||
 | | Network Digital Twin  <-------->   (Analysis &   <----> Base      ||
@@ -294,21 +298,21 @@ They together form a close-loop of network operation and management.
 | |                       |   |    +-----------+-----+    +-----------+|
 | +-------------------^---+   |                |                       |
 |                     |       |                |                       |
-|                +----+-------+---+      +-----v----------+            |
-|                |                |      |                |            |
-|                | Data Collection|      |    Execution   |            |
-|                |                |      |                |            |
-|                +--------^-------+      +-------+--------+            |
-+-------------------------+----------------------+---------------------+
+|                +----+-------+---+   +--------v-------+               |
+|                |                |   |                |               |
+|                | Data Collection|   |    Execution   |               |
+|                |                |   |                |               |
+|                +--------^-------+   +----------------+               |
                           |                      |
++-------------------------+----------------------+---------------------+
                           |                      |
 +-------------------------+----------------------v---------------------+
 | Physical Network                                                     |
-|     +-------------+        +--------------+     +--------------+     |
-|     |             |        |    +-------+ |     |    +-------+ |     |
-|     |     NE      |  ...   | NE |Site AI| |     | NE |Site AI| |     |
-|     |             |        |    +-------+ |     |    +-------+ |     |
-|     +-------------+        +--------------+     +--------------+     |
+|  +-------------+      +-------------------+  +-------------------+   |
+|  |             |      |  +---------------+|  |  +---------------+|   |
+|  |     NE      |  ... |NE| Lightweight AI||  |NE| Lightweight AI||   |
+|  |             |      |  +---------------+|  |  +---------------+|   |
+|  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
 ~~~~
 {: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
@@ -393,12 +397,9 @@ in the real physical network.
 
 This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
-with site AI may also achieve some local close loop without relying on external AI or
-human intervention. For example, the site AI may automatically isolate the faulty
-interface, update the route table to reroute traffic through alternative paths, and
-sends alerts if it detects the interface failure through monitoring. It is also
-possible for the site AI to coordinate with AI Agent(s) to enhance the automation
-and efficiency of network operations.
+with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} may also achieve some local close loop without relying on external AI or
+human intervention. It is also possible for the Leightweight AI to coordinate with
+AI Agent(s) to enhance the automation and efficiency of network operations.
 
 ## Architecture Requirements
 
@@ -554,6 +555,11 @@ or suggest scaling up to meet specific demands.
   from the network operator.
 
 # Challenges of Integrating Service-oriented AI into Network Management
+
+In addition to the research challengs in coupling AI and network management
+specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
+also identifies some challengs that need to be considered when integrating
+service-oriented AI into network management.
 
 ## hallucination
 
