@@ -41,16 +41,6 @@ normative:
 
 informative:
 
-  TMF-1251C:
-    title: "AN Level 4 Target Archiecture v1.1.0"
-    target: https://projects.tmforum.org/wiki/pages/viewpage.action?pageId=354689994
-    date: May 2025
-
-  TMF-1251D:
-    title: "AN Agent Archiecture v1.1.0"
-    target: https://projects.tmforum.org/wiki/pages/viewpage.action?pageId=354697930
-    date: May 2025
-
   TMF-1258:
     title: "Autonomous Networks Glossary v1.2.0"
     target: https://projects.tmforum.org/wiki/display/PUB/IG1258+Autonomous+Networks+Glossary+v1.2.0
@@ -399,7 +389,9 @@ This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
 with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} may also achieve some local close loop without relying on external AI or
 human intervention. It is also possible for the Leightweight AI to coordinate with
-AI Agent(s) to enhance the automation and efficiency of network operations.
+AI Agent(s) to enhance the automation and efficiency of network operations. The
+Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
+and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
 
 ## Architecture Requirements
 
@@ -514,6 +506,10 @@ AI Agent could assist in network troubleshooting in the following significant as
   state. By analyzing the real-time data, AI Agent could detect network
   anomalies swiftly, which enables the prompt identification of potential issues
   before they escalate into major faults, minimizing downtime or service disruptions.
+  In some cases, the Leightweight AI located in the Network Element may handle some
+  simple fault identification tasks (e.g., optical module fault automatic identification)
+  to enhance the awareness, while the AI Agent and LLM could leverage their powerful
+  processing capabilities to analyze the time-domain data collected from the optical module.
 
 * Fault Diagnosis:
 : Once a fault is identified, AI Agent delves into diagnosing the root cause, it
