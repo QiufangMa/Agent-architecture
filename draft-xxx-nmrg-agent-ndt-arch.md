@@ -37,7 +37,7 @@ author:
     fullname: Cheng Zhou
     organization: China Mobile
     country: China
-    email:zhouchengyjy@chinamobile.com
+    email: zhouchengyjy@chinamobile.com
 
 normative:
 
