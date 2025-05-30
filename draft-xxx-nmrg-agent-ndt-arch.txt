@@ -5,8 +5,8 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                    S. Han
-Expires: 30 November 2025                                   China Unicom
-                                                             29 May 2025
+Expires: 1 December 2025                                    China Unicom
+                                                             30 May 2025
 
 
   Network Digital Twin based Architecture for Service-oriented AI for
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 November 2025.
+   This Internet-Draft will expire on 1 December 2025.
 
 Copyright Notice
 
@@ -851,9 +851,6 @@ Authors' Addresses
 
    Qin Wu
    Huawei
-   101 Software Avenue, Yuhua District
-   Jiangsu
-   210012
    China
    Email: bill.wu@huawei.com
 
