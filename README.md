@@ -2,7 +2,7 @@
 
 # Network Digital Twin based Architecture for Service oriented AI for Network Operation
 
-This is the working area for the individual Internet-Draft, "Integrating Generative AI with Network Digital Twin for Network Operation".
+This is the working area for the individual Internet-Draft, "Network Digital Twin based Architecture for Service oriented AI for Network Operation".
 
 * [Editor's Copy](https://QiufangMa.github.io/Agent-architecture/#go.draft-xxx-nmrg-agent-ndt-arch.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-xxx-nmrg-agent-ndt-arch)
