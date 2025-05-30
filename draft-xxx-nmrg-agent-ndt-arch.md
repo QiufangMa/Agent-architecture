@@ -36,6 +36,12 @@ author:
     organization: China Unicom
     country: China
     email: hans29@chinaunicom.cn
+-
+    fullname: Cheng Zhou
+    organization: China Mobile
+    city: Beijing
+    country: China
+    email: zhouchengyjy@chinamobile.com
 
 normative:
 
