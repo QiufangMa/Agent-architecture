@@ -1,6 +1,6 @@
 ---
 title: "Network Digital Twin based Architecture for Service-oriented AI for Network Operations"
-abbrev: "AI Agent archiecture"
+abbrev: "AI Agent architecture"
 category: info
 
 # Network Digital Twin based Architecture for Service oriented AI for Network Operation
@@ -33,12 +33,6 @@ author:
     organization: China Unicom
     country: China
     email: hans29@chinaunicom.cn
--
-    fullname: Cheng Zhou
-    organization: China Mobile
-    city: Beijing
-    country: China
-    email: zhouchengyjy@chinamobile.com
 
 normative:
 
