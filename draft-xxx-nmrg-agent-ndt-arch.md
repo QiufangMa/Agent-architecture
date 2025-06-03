@@ -248,7 +248,7 @@ They together form a close-loop of network operation and management.
 : Awareness is achieved through real-time monitoring and data collection.
   The AI agent maintains a comprehensive visibility of the network,
   enabling it to make context-aware decisions. Network operators can also use the
-  awareness understand the root cause of specific network issues and achieve closed-loop
+  awareness understand the exact cause of specific network issues and achieve closed-loop
   decision-making.
 
 * Execution:
@@ -282,15 +282,15 @@ They together form a close-loop of network operation and management.
                            Intent Interface|
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
-| +-----------------------+                |                           |
-| |                       |        +-------v---------+    +-----------+|
-| |                       |        |   AI Agent(s)   |    | Knowledge ||
-| | Network Digital Twin  <-------->   (Analysis &   <----> Base      ||
-| |                       |   +---->    Decision)    |    |           ||
-| |                       |   |    +-----------+-----+    +-----------+|
-| +-------------------^---+   |                |                       |
-|                     |       |                |                       |
-|                +----+-------+---+   +--------v-------+               |
+|                                          |                           |
+|     +----------------|        +-------v---------+    +------------+  |
+|     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
+|     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
+|     |                |   +---->    Decision)    |    |            |  |
+|     +------------^---|   |    +-----------+-----+    +------------+  |
+|                  |       |                |                          |
+|                  |       |                |                          |
+|                +-+-------+------+   +-----v----------+               |
 |                |                |   |                |               |
 |                | Data Collection|   |    Execution   |               |
 |                |                |   |                |               |
@@ -427,7 +427,7 @@ feedback. This includes collecting data on AI decisions, network performance,
 and user feedback to identify areas for enhancement. By analyzing the feedback,
 the system can adapt and optimize its operations over time, leading to better
 performance and more accurate decision-making. For example, if an AI Agent fails
-to accurately identify the root cause of a network incident, the relevant records
+to accurately identify the exact cause of a network incident, the relevant records
 can be submitted as negative samples to the LLM which provides inference services,
 this allows the LLM to be trained on these negative samples for optimization.
 Feedback-driven improvement also enables the architecture to evolve with changing
@@ -514,11 +514,11 @@ AI Agent could assist in network troubleshooting in the following significant as
   processing capabilities to analyze the time-domain data collected from the optical module.
 
 * Fault Diagnosis:
-: Once a fault is identified, AI Agent delves into diagnosing the root cause, it
+: Once a fault is identified, AI Agent delves into diagnosing the exact cause, it
   may also invoke some existing operations such as "incident-diagnose" RPC defined
   in {{?I-D.ietf-nmop-network-incident-yang}}. By correlating symptoms and/or
   applying AI models trained on historical data, it can narrow down the potential
-  causes and pinpoint the exact root cause, which accelerates the diagnosis process
+  causes and pinpoint the exact cause, which accelerates the diagnosis process
   and reduces the time needed to address the issue.
 
 * Fault Repair:
@@ -545,12 +545,12 @@ network optimization strategies. For instance, once the network congestion somet
 in the future is predicted, it may proactively optimize the network configuration,
 or suggest scaling up to meet specific demands.
 
-  Before the network optimization is conducted, AI Agent implements and evaluates
-  the optimization solution using the Network Digital Twin. This may need repeated
-  trials and validations, before the optimal strategy could be selected. AI Agent
-  may also first present the suggested network optimization solution to the network
-  operator for review, and apply it to the physical network after obtaining approval
-  from the network operator.
+Before the network optimization is conducted, AI Agent implements and evaluates
+the optimization solution using the Network Digital Twin. This may need repeated
+trials and validations based on specific evaluation criteria, before the optimal
+strategy could be selected. AI Agent may also first present the suggested network
+optimization solution to the network operator for review, and apply it to the
+physical network after obtaining approval from the network operator.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
