@@ -268,9 +268,9 @@ They together form a close-loop of network operation and management.
   it learns which configurations are optimal for specific scenarios or how to
   respond most effectively to particular types of network incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 
-# archiecture Design
+# Architecture Design
 
-## Overall Archiecture
+## Overall Archtiecture
 
 {{arch}} provides the overall architecture for integrating Network Digital Twin and Network Agent System.
 
