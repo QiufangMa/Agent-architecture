@@ -8,6 +8,8 @@ Intended status: Informational                                    S. Han
 Expires: 5 December 2025                                    China Unicom
                                                                  C. Zhou
                                                             China Mobile
+                                                                 Y. Hong
+                                                      Daejeon University
                                                              3 June 2025
 
 
@@ -918,3 +920,8 @@ Authors' Addresses
    China Mobile
    China
    Email: zhouchengyjy@chinamobile.com
+
+
+   Yong-Geun Hong
+   Daejeon University
+   Email: yonggeun.hong@gmail.com
