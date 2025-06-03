@@ -28,6 +28,10 @@ author:
     organization: Huawei
     country: China
     email: bill.wu@huawei.com
+  -
+    fullname: Luis M. Contreras
+    organization: Telefonica
+    email: luismiguel.contrerasmurillo@telefonica.com
  -
     fullname: Sai Han
     organization: China Unicom
