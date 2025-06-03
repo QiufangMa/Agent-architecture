@@ -89,7 +89,7 @@ needs to not only ensure that new services are provisioned smoothly, but also th
 services are not affected and that no problems are introduced. Network operators
 are, therefore, increasingly cautious about making network changes, given that they need to review
 the solution design as well as evaluate all change impacts, before making any change. Then, after
-the change, they need to perform dialing tests, monitor traffic, and manually check table entries.
+the change, they need to perform dialling tests, monitor traffic, and manually check table entries.
 
 A Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} was developed to provide a
 network emulation tool for scenario planning, impact analysis, and change management. Integrating
@@ -165,7 +165,7 @@ and management, agents are increasingly being designed to perform tasks such as
 understanding user intent, generating network configurations, diagnosing and resolving network
 incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs also try to
 define terms related to AI agent in the context of network operations
-and management, e.g., tmforum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network) Terminology.
+and management, e.g., TM Forum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network) Terminology.
 
 ## Network Digital Twin
 
@@ -210,7 +210,7 @@ They together form a close-loop of network operation and management.
  |                 \\\\        ////                  |
  |                     --------                      |
  | +-----------+                      +------------+ |
- | |  Awareness|                      |  Excution  | |
+ | |  Awareness|                      |  Execution | |
  | +-----------+                      +------------+ |
  |                                                   |
  |                 +-----------+                     |
@@ -554,9 +554,9 @@ or suggest scaling up to meet specific demands.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
-In addition to the research challengs in coupling AI and network management
+In addition to the research challenges in coupling AI and network management
 specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
-also identifies some challengs that need to be considered when integrating
+also identifies some challenges that need to be considered when integrating
 service-oriented AI into network management.
 
 ## hallucination
