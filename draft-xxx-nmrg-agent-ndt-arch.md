@@ -672,4 +672,5 @@ This document has no requests to IANA.
 # Acknowledgements
 {:numbered="false"}
 
-TODO Acknowledgments.
+The authors of this document would like, specially to thank Qiufang Ma for the inputs to
+the initial version of this work.
