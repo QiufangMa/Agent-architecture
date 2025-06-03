@@ -126,7 +126,7 @@ Table of Contents
    therefore, increasingly cautious about making network changes, given
    that they need to review the solution design as well as evaluate all
    change impacts, before making any change.  Then, after the change,
-   they need to perform dialing tests, monitor traffic, and manually
+   they need to perform dialling tests, monitor traffic, and manually
    check table entries.
 
    A Network Digital Twin (NDT)
@@ -222,7 +222,7 @@ Table of Contents
    diagnosing and resolving network incidents
    [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
    try to define terms related to AI agent in the context of network
-   operations and management, e.g., tmforum defines Autonomous Agent in
+   operations and management, e.g., TM Forum defines Autonomous Agent in
    [TMF-1258] as AN (Autonomous Network) Terminology.
 
 3.2.  Network Digital Twin
@@ -271,7 +271,7 @@ Table of Contents
            |                 \\\\        ////                  |
            |                     --------                      |
            | +-----------+                      +------------+ |
-           | |  Awareness|                      |  Excution  | |
+           | |  Awareness|                      |  Execution | |
            | +-----------+                      +------------+ |
            |                                                   |
            |                 +-----------+                     |
@@ -668,9 +668,9 @@ Table of Contents
 7.  Challenges of Integrating Service-oriented AI into Network
     Management
 
-   In addition to the research challengs in coupling AI and network
+   In addition to the research challenges in coupling AI and network
    management specified in [I-D.irtf-nmrg-ai-challenges], this document
-   also identifies some challengs that need to be considered when
+   also identifies some challenges that need to be considered when
    integrating service-oriented AI into network management.
 
 7.1.  hallucination
