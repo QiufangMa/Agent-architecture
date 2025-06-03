@@ -154,7 +154,7 @@ based on its knowledge representation to achieve a set of service goals.
 
 The integration of AI into network operations has marked a significant leap forward in
 the pursuit of network automation and intelligence, while generative AI further
-enhances the role of AI in network operations and management. Generative AI is a
+enhances the role of AI for network operations and management. Generative AI is a
 subfield of AI that uses generative models such as LLMs to generate new and
 original content such as text, images, videos, or other forms of data with the
 capability to adapt and make decisions to achieve specific goals.
@@ -443,7 +443,7 @@ functionality without disrupting the entire system. Scalability and flexibility
 ensure that the architecture remains effective and relevant in the face of evolving
 network challenges.
 
-# AI in Network Operation: A collection of Use Cases
+# AI for Network Operation: A collection of Use Cases
 
 AI Agent could help in the following phases which are usually mentioned in network management:
 
@@ -607,7 +607,7 @@ reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
 specific change is being suggested. The lack of interpretability can hinder
-the adoption of AI in network management and make it challenging to identify
+the adoption of AI for network management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
 # Security Considerations
