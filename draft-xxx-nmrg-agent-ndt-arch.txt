@@ -5,10 +5,10 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                    S. Han
-Expires: 1 December 2025                                    China Unicom
+Expires: 5 December 2025                                    China Unicom
                                                                  C. Zhou
                                                             China Mobile
-                                                             30 May 2025
+                                                             3 June 2025
 
 
   Network Digital Twin based Architecture for Service-oriented AI for
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 December 2025.
+   This Internet-Draft will expire on 5 December 2025.
 
 Copyright Notice
 
@@ -84,8 +84,8 @@ Table of Contents
      3.1.  Generative AI and AI Agent
      3.2.  Network Digital Twin
    4.  Characteristics of AI for Network Operations
-   5.  archiecture Design
-     5.1.  Overall Archiecture
+   5.  Architecture Design
+     5.1.  Overall Archtiecture
      5.2.  Functional Components
        5.2.1.  Multi-domain Orchestrator
        5.2.2.  Autonomous Domain
@@ -335,9 +335,9 @@ Table of Contents
          effectively to particular types of network incidents
          [I-D.ietf-nmop-network-incident-yang].
 
-5.  archiecture Design
+5.  Architecture Design
 
-5.1.  Overall Archiecture
+5.1.  Overall Archtiecture
 
    Figure 2 provides the overall architecture for integrating Network
    Digital Twin and Network Agent System.
