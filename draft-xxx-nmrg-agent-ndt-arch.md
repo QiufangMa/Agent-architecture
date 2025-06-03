@@ -534,7 +534,7 @@ AI Agent could assist in network troubleshooting in the following significant as
 
 ## Network Optimization
 
-Network optimization is often due to the AI Agent's awareness of some potential
+Network optimization is often introduced due to the AI Agent's awareness of some potential
 network faults or anomalies through continuously monitoring of network operational
 state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
@@ -551,6 +551,28 @@ trials and validations based on specific evaluation criteria, before the optimal
 strategy could be selected. AI Agent may also first present the suggested network
 optimization solution to the network operator for review, and apply it to the
 physical network after obtaining approval from the network operator.
+
+## Network level Energy Efficiency Management 
+Network level Energy Efficiency refer to a set of processes used to discover a inventory
+of capabilities, use specific metrics to monitor and assess energy consumption of the
+network , operate, and control the use of available energy in an optimized manner while
+achieving the network’s functional and performance requirements by improving overall network
+utilization.
+
+Network level Energy Efficiency allows network operators not only see real time energy
+consumption in the network devices of large scale network through interaction with the
+GREEN Network AI Agent, but also allow them see
+
+o which network devices enable energy saving, which devices not,which are legacy ones,
+
+o The total energy consumption changing trend over the time of the day, for all network
+   devices,
+
+o Energy efficiency changing trend over the time of the day for the whole network.
+   
+On the other hand, With the better observability to energy consumption statistics data
+and energy efficiency statistics data, the AI Agent can know which part of the network
+need to be adjusted or optimized based on network status change.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
