@@ -4,8 +4,10 @@
 
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
-Intended status: Informational                                    S. Han
-Expires: 5 December 2025                                    China Unicom
+Intended status: Informational                           L. M. Contreras
+Expires: 5 December 2025                                      Telefonica
+                                                                  S. Han
+                                                            China Unicom
                                                                  C. Zhou
                                                             China Mobile
                                                                  Y. Hong
@@ -908,6 +910,11 @@ Authors' Addresses
    Huawei
    China
    Email: bill.wu@huawei.com
+
+
+   Luis M. Contreras
+   Telefonica
+   Email: luismiguel.contrerasmurillo@telefonica.com
 
 
    Sai Han
