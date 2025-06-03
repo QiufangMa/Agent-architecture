@@ -540,7 +540,7 @@ state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
 actively inputting the network optimization intent.
 
-Based on the analysis of netork data and user's intent (if any), AI Agent proposes
+Based on the analysis of network data and user's intent (if any), AI Agent proposes
 network optimization strategies. For instance, once the network congestion sometime
 in the future is predicted, it may proactively optimize the network configuration,
 or suggest scaling up to meet specific demands.
