@@ -552,7 +552,7 @@ strategy could be selected. AI Agent may also first present the suggested networ
 optimization solution to the network operator for review, and apply it to the
 physical network after obtaining approval from the network operator.
 
-## Network level Energy Efficiency Management 
+## Network level Energy Efficiency Management
 Network level Energy Efficiency refer to a set of processes used to discover a inventory
 of capabilities, use specific metrics to monitor and assess energy consumption of the
 network , operate, and control the use of available energy in an optimized manner while
@@ -569,7 +569,7 @@ o The total energy consumption changing trend over the time of the day, for all 
    devices,
 
 o Energy efficiency changing trend over the time of the day for the whole network.
-   
+
 On the other hand, With the better observability to energy consumption statistics data
 and energy efficiency statistics data, the AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
