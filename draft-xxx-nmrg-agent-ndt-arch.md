@@ -621,7 +621,7 @@ This document has no requests to IANA.
 
 --- back
 
-# Acknowledgments
+# Acknowledgements
 {:numbered="false"}
 
 TODO Acknowledgments.
