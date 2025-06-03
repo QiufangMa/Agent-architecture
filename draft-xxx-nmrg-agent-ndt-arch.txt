@@ -110,7 +110,7 @@ Table of Contents
    10. References
      10.1.  Normative References
      10.2.  Informative References
-   Acknowledgments
+   Acknowledgements
    Authors' Addresses
 
 1.  Introduction
@@ -845,7 +845,7 @@ Table of Contents
               <https://projects.tmforum.org/wiki/display/PUB/
               IG1258+Autonomous+Networks+Glossary+v1.2.0>.
 
-Acknowledgments
+Acknowledgements
 
    TODO Acknowledgments.
 
