@@ -553,6 +553,7 @@ optimization solution to the network operator for review, and apply it to the
 physical network after obtaining approval from the network operator.
 
 ## Network level Energy Efficiency Management
+
 Network level Energy Efficiency refer to a set of processes used to discover a inventory
 of capabilities, use specific metrics to monitor and assess energy consumption of the
 network , operate, and control the use of available energy in an optimized manner while
@@ -573,6 +574,22 @@ o Energy efficiency changing trend over the time of the day for the whole networ
 On the other hand, With the better observability to energy consumption statistics data
 and energy efficiency statistics data, the AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
+
+## Collaboration between small AI model and large AI model
+
+In the past, we only support AI and machine learning technologies at the network level,
+e.g., we can use collected various different network data to provide network analysis and
+generate network insight.
+
+With more intelligence introduced into the network element, more GPU/NPU resource can be
+allocated for AI inference, this make collaboration between large AI model
+And small AI model become possible. On one hand, we can use accumulated field engineering
+expertise to train large AI model into one foundation model for fault management AI agent,
+On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
+in the intelligent network element to collect more fine granularity data or provide local processing
+for Collected data and summary report generation, Trend prediction, etc.
+With collaboration between large AI model and small AI model, we can allow AI Agent within the Network
+controller interact with network element and has more quick response to network change.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
