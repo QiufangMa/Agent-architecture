@@ -48,6 +48,12 @@ author:
     country: Korea
     email: yonggeun.hong@gmail.com
 
+contributor:
+ -
+    fullname: Qiufang Ma
+    organization: Huawei
+    email: maqiufang1@huawei.com
+
 normative:
 
 informative:
@@ -672,5 +678,3 @@ This document has no requests to IANA.
 # Acknowledgements
 {:numbered="false"}
 
-The authors of this document would like, specially to thank Qiufang Ma for the inputs to
-the initial version of this work.
