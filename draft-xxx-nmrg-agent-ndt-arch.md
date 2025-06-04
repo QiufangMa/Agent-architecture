@@ -18,7 +18,7 @@ area: ""
 workgroup: "Network Management"
 keyword:
  - network digital twin
- - Large Language Model
+ - large language model
  - architecture
  - network management
 
