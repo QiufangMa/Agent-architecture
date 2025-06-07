@@ -270,11 +270,11 @@ They together form a close-loop of network operation and management.
 
 * Execution:
 : Once a decision is made, the AI agent executes the necessary actions to implement
-  it. This could involve, e.g., sending configuration to network devices through
-  NETCONF/RESTCONF protocols. The execution is carried out in a controlled and
-  precise manner to ensure that the network behaves as intended without causing
-  disruptions. The AI agent also verifies that the executed actions have the
-  desired effect and makes the proper adjustments if needed.
+  it. This could involve, e.g., sending configuration to network controllers or
+  network devices through NETCONF/RESTCONF protocols. The execution is carried out
+  in a controlled and precise manner to ensure that the network behaves as intended
+  without causing disruptions. The AI agent also verifies that the executed actions
+  have the desired effect and makes the proper adjustments if needed.
 
 * Knowledge:
 : The AI agent relies on a knowledge base that includes network policies,
@@ -397,10 +397,10 @@ the physical network.
 #### Execution
 
 Once network decisions are made and confirmed, the Execution component performs
-specific actions to the physical network, e.g., modify specific configuration on network
-devices through protocols like NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}.
-It is the component that makes the planned control and management changes a reality
-in the real physical network.
+specific actions to the physical network, e.g., modify specific configuration on
+network controllers or network devices through protocols like NETCONF {{?RFC6241}}
+and RESTCONF {{?RFC8040}}. It is the component that makes the planned control and
+management changes a reality in the real physical network.
 
 ### Physical Network
 
