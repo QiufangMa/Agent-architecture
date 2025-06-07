@@ -5,31 +5,30 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 6 December 2025                                      Telefonica
+Expires: 9 December 2025                                      Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  C. Zhou
                                                             China Mobile
                                                                  Y. Hong
                                                       Daejeon University
-                                                             4 June 2025
+                                                             7 June 2025
 
 
-  Network Digital Twin based Architecture for Service-oriented AI for
-                           Network Operations
+Network Digital Twin based Architecture for AI driven Network Operations
                   draft-xxx-nmrg-agent-ndt-arch-latest
 
 Abstract
 
-   A Network Digital Twin (NDT) provides a network emulation tool for
-   scenario planning, impact analysis, and change management.
-   Integrating a Network Digital Twin into network management together
-   with AI, it allows the network management activities to take user
-   intent or service requirements as input, automatically assess, model,
-   and refine optimization strategies under real conditions but in a
-   risk-free environment.  An environment that operates to meet these
-   types of requirements is said to have service-oriented AI for Network
-   Operations.
+   A Network Digital Twin (NDT) provides a network emulation tool usable
+   for different purposes such as scenario planning, impact analysis,
+   and change management.  Integrating a Network Digital Twin into
+   network management together with AI, it allows the network management
+   activities to take user intent or service requirements as input,
+   automatically assess, model, and refine optimization strategies under
+   realistic conditions but in a risk-free environment.  An environment
+   that operates to meet these types of requirements is said to have
+   service-oriented AI for Network Operations.
 
    AI for Network Operations brings together existing technologies such
    as Network Digital Twin and AI which may be seen as the use of a
@@ -67,7 +66,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 December 2025.
+   This Internet-Draft will expire on 9 December 2025.
 
 Copyright Notice
 
@@ -107,7 +106,7 @@ Table of Contents
      6.5.  Collaboration between small AI model and large AI model
    7.  Challenges of Integrating Service-oriented AI into Network
            Management
-     7.1.  hallucination
+     7.1.  Hallucination
      7.2.  Security
      7.3.  Data Quality and Consistency
      7.4.  Interpretability and Explainability
@@ -123,29 +122,30 @@ Table of Contents
 1.  Introduction
 
    The rapid expansion of network scale and the increasing demands on
-   these networks necessitate making network change better adapt to
-   ever-changing service requirements.
+   these networks necessitate of continuous network reconfiguration to
+   better adapt to ever-changing service requirements.
 
    Since network changes are directly related to service operations, any
    successful change needs to not only ensure that new services are
    provisioned smoothly, but also that existing services are not
-   affected and that no problems are introduced.  Network operators are,
-   therefore, increasingly cautious about making network changes, given
-   that they need to review the solution design as well as evaluate all
-   change impacts, before making any change.  Then, after the change,
-   they need to perform dialling tests, monitor traffic, and manually
-   check table entries.
+   affected and that no problems are introduced with the new
+   configurations.  Network operators are, therefore, increasingly
+   cautious about making network changes, given that they need to review
+   the solution design as well as evaluate all change impacts, before
+   making any change.  Then, after the change, they need to perform
+   dialling tests, monitor traffic, and manually check table entries.
 
-   A Network Digital Twin (NDT)
-   [I-D.irtf-nmrg-network-digital-twin-arch] was developed to provide a
-   network emulation tool for scenario planning, impact analysis, and
-   change management.  Integrating a Network Digital Twin into network
-   management together with AI, it allows network management activities
-   to dynamically adapt to customer needs, network changes,
-   automatically assess, model, and refine optimization strategies under
-   real conditions but in a risk-free environment.  An environment that
-   operates to meet these types of requirements is said to have service-
-   oriented AI for network operations.
+   The Network Digital Twin (NDT)
+   [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
+   to provide a network emulation tool for scenario planning, impact
+   analysis, and change management.  Integrating a Network Digital Twin
+   into network management together with AI, it allows network
+   management activities to dynamically adapt to customer needs, network
+   changes, as well as to automatically assess, model, and refine
+   optimization strategies under realistic conditions but in a risk-free
+   environment.  An environment that operates to meet these types of
+   requirements is said to have service-oriented AI for network
+   operations.
 
    Service-oriented AI for network operations provide the following
    capabilities to applications by coordinating the components that
@@ -166,8 +166,8 @@ Table of Contents
 
    *  Model the protocol operations and interactions among devices in
       the network and simulate specific networking protocols such as IS-
-      IS, OSPF, BGP, SR to understand how they perform under different
-      conditions.
+      IS, OSPF, BGP, SR, etc to understand how they perform under
+      different conditions.
 
    *  Model traffic flow across the network, including traffic
       generation, flow control, routing, and congestion control and
@@ -217,15 +217,15 @@ Table of Contents
    significant leap forward in the pursuit of network automation and
    intelligence, while generative AI further enhances the role of AI for
    network operations and management.  Generative AI is a subfield of AI
-   that uses generative models such as LLMs to generate new and original
-   content such as text, images, videos, or other forms of data with the
-   capability to adapt and make decisions to achieve specific goals.
+   that uses generative models such as Large Language Models (LLMs) to
+   generate new and original content such as text, images, videos, or
+   other forms of data with the capability to adapt and make decisions
+   to achieve specific goals.
 
-   AI agent which takes the power of generative AI a step further refers
-   to a system or program that uses AI to perform tasks on behalf of
-   users.  In the context of network operations and management, agents
-   are increasingly being designed to perform tasks such as
-   understanding user intent, generating network configurations,
+   An AI agent refers to a system or program that uses AI to perform
+   tasks on behalf of users.  In the context of network operations and
+   management, agents are increasingly being designed to perform tasks
+   such as understanding user intent, generating network configurations,
    diagnosing and resolving network incidents
    [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
    try to define terms related to AI agent in the context of network
@@ -303,11 +303,11 @@ Table of Contents
          predefined policies, real-time data analysis, and AI models
          (e.g., LLMs) that enable the AI agent to choose the best course
          of action to meet the specified intent.  AI agent may also
-         verify the correctness the decision by performing some network
-         simulation or validation process.
+         verify the correctness of the decision outcome by performing
+         some network simulation or validation process.
 
    *  Analysis:  The AI agent continuously analyzes vast amounts of
-         network data from various source, including network telemetry
+         network data from various sources, including network telemetry
          [RFC9232] and external feeds, and identify the gap between user
          intent and the existing network status.  Leveraging machine
          learning and other data analytics techniques, it also
@@ -329,7 +329,7 @@ Table of Contents
          controlled and precise manner to ensure that the network
          behaves as intended without causing disruptions.  The AI agent
          also verifies that the executed actions have the desired effect
-         and makes adjustments if needed.
+         and makes the proper adjustments if needed.
 
    *  Knowledge:  The AI agent relies on a knowledge base that includes
          network policies, historical data, expert experience, and best
@@ -411,7 +411,7 @@ Table of Contents
    and testing scenarios, analyzing and predicting network behavior
    without affecting the real physical network.
 
-   As depicted in Section 7 of
+   As described in Section 7 of
    [I-D.irtf-nmrg-network-digital-twin-arch], the core functional
    components of an Network Digital Twin includes Data Repository,
    Service Mapping Models, and a Network Digital Twin Management
@@ -423,7 +423,7 @@ Table of Contents
 
 5.2.2.2.  AI Agent(s)
 
-   AI Agent(s) acts as the smart brain of the Autonomous Domain, which
+   AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which
    is responsible for conducting AI-based analysis and making decisions
    regarding network operations.  It leverages the inference of LLM, the
    simulation of Network Digital Twin, and the contextual and domain-
@@ -557,7 +557,7 @@ Table of Contents
 
    *  Network Monitoring and Troubleshooting: includes intent
       monitoring, issues identification, solution generation, evaluation
-      and decison-making, solution implementation, and service
+      and decision-making, solution implementation, and service
       validation.
 
    *  Network Change and Optimization: involves the design, evaluation,
@@ -729,7 +729,7 @@ Table of Contents
    also identifies some challenges that need to be considered when
    integrating service-oriented AI into network management.
 
-7.1.  hallucination
+7.1.  Hallucination
 
    Hallucination refers to the generation of AI responses that are
    incorrect, irrelevant, or even nonsensical in relation to the input
