@@ -125,7 +125,7 @@ coordinating the components that operate and manage the network:
 * Model the network configuration change and use a virtual topology model to test network changes
   and assess the effect of the network configuration changes on the network.
 
-* Model the protocol operations and interactions among devices in the network and simulate 
+* Model the protocol operations and interactions among devices in the network and simulate
   specific networking protocols such as IS-IS, OSPF, BGP, SR, etc to understand how they perform
   under different conditions.
 
