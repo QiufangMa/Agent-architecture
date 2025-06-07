@@ -1216,7 +1216,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-functional-components" class="internal xref">Functional Components</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-multi-domain-orchestrator" class="internal xref">Multi-domain Orchestrator</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-application" class="internal xref">Application</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
                     <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-autonomous-domain" class="internal xref">Autonomous Domain</a></p>
@@ -1609,11 +1609,11 @@ respond most effectively to particular types of network incidents <span>[<a href
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------|        +-------v---------+    +------------+  |
+|     +----------------+        +-------v---------+    +------------+  |
 |     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
 |     |  Digital Twin  &lt;--------&gt;   (Analysis &amp;   &lt;----&gt; Base       |  |
 |     |                |   +----&gt;    Decision)    |    |            |  |
-|     +------------^---|   |    +-----------+-----+    +------------+  |
+|     +------------^---+   |    +-----------+-----+    +------------+  |
 |                  |       |                |                          |
 |                  |       |                |                          |
 |                +-+-------+------+   +-----v----------+               |
@@ -1635,7 +1635,7 @@ respond most effectively to particular types of network incidents <span>[<a href
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-an-architecture-for-integra" class="selfRef">An Architecture for Integrating Generative AI with Network Digital Twin</a>
+<a href="#name-an-architecture-for-integra" class="selfRef">An Architecture for Integrating AI Agent with Network Digital Twin</a>
           </figcaption></figure>
 </div>
 </section>
@@ -1645,17 +1645,17 @@ respond most effectively to particular types of network incidents <span>[<a href
         <h3 id="name-functional-components">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-functional-components" class="section-name selfRef">Functional Components</a>
         </h3>
-<div id="multi-domain-orchestrator">
+<div id="application">
 <section id="section-5.2.1">
-          <h4 id="name-multi-domain-orchestrator">
-<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-multi-domain-orchestrator" class="section-name selfRef">Multi-domain Orchestrator</a>
+          <h4 id="name-application">
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-application" class="section-name selfRef">Application</a>
           </h4>
-<p id="section-5.2.1-1">Multi-domain orchestrator serves as the top-level coordinator and manages the interactions
-across different autonomous domains. Multi-domain orchestrator may invoke Network Digital
-Twin to perform functions such as analyze, diagnose, optimize, control, and emulate
-as per <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. It also provide means to convey user
-intent to each autonomous domain through a user-facing Graphical User Interface (GUI)
-or machine-to-machine North Bound Interface (NBI).<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-1">One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
+as the top-level coordinator and manages the interactions across different autonomous domains.
+Multi-domain orchestrator may invoke Network Digital Twin to perform functions such as analyze,
+diagnose, optimize, control, and emulate as per <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.
+It also provide means to convey user intent to each autonomous domain through a user-facing
+Graphical User Interface (GUI) or machine-to-machine North Bound Interface (NBI).<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="autonomous-domain">

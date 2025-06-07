@@ -90,7 +90,7 @@ Table of Contents
    5.  Architecture Design
      5.1.  Overall Archtiecture
      5.2.  Functional Components
-       5.2.1.  Multi-domain Orchestrator
+       5.2.1.  Application
        5.2.2.  Autonomous Domain
        5.2.3.  Physical Network
      5.3.  Architecture Requirements
@@ -359,11 +359,11 @@ Table of Contents
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------|        +-------v---------+    +------------+  |
+|     +----------------+        +-------v---------+    +------------+  |
 |     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
 |     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
 |     |                |   +---->    Decision)    |    |            |  |
-|     +------------^---|   |    +-----------+-----+    +------------+  |
+|     +------------^---+   |    +-----------+-----+    +------------+  |
 |                  |       |                |                          |
 |                  |       |                |                          |
 |                +-+-------+------+   +-----v----------+               |
@@ -383,21 +383,22 @@ Table of Contents
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
 
-     Figure 2: An Architecture for Integrating Generative AI with
-                         Network Digital Twin
+   Figure 2: An Architecture for Integrating AI Agent with Network
+                             Digital Twin
 
 5.2.  Functional Components
 
-5.2.1.  Multi-domain Orchestrator
+5.2.1.  Application
 
-   Multi-domain orchestrator serves as the top-level coordinator and
-   manages the interactions across different autonomous domains.  Multi-
-   domain orchestrator may invoke Network Digital Twin to perform
-   functions such as analyze, diagnose, optimize, control, and emulate
-   as per [I-D.irtf-nmrg-network-digital-twin-arch].  It also provide
-   means to convey user intent to each autonomous domain through a user-
-   facing Graphical User Interface (GUI) or machine-to-machine North
-   Bound Interface (NBI).
+   One of example application is multi-domain orchestrator.  Multi-
+   domain orchestrator serves as the top-level coordinator and manages
+   the interactions across different autonomous domains.  Multi-domain
+   orchestrator may invoke Network Digital Twin to perform functions
+   such as analyze, diagnose, optimize, control, and emulate as per
+   [I-D.irtf-nmrg-network-digital-twin-arch].  It also provide means to
+   convey user intent to each autonomous domain through a user-facing
+   Graphical User Interface (GUI) or machine-to-machine North Bound
+   Interface (NBI).
 
 5.2.2.  Autonomous Domain
 
