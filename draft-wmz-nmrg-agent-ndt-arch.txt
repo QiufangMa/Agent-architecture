@@ -16,7 +16,7 @@ Expires: 9 December 2025                                      Telefonica
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
-                  draft-xxx-nmrg-agent-ndt-arch-latest
+                  draft-wmz-nmrg-agent-ndt-arch-latest
 
 Abstract
 
