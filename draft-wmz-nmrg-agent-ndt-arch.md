@@ -80,7 +80,7 @@ such as scenario planning, impact analysis, and change management. Integrating
 a Network Digital Twin into network management together with AI, it allows the network management
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
-but in a risk-free environment. An environment that operates to meet these types of
+but in a risk-free environment. Such environment that operates to meet these types of
 requirements is said to have AI driven Network Operations.
 
 AI driven Network Operations brings together existing technologies such
