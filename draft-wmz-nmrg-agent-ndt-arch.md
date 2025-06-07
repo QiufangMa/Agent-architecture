@@ -300,11 +300,11 @@ They together form a close-loop of network operation and management.
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------|        +-------v---------+    +------------+  |
+|     +----------------+        +-------v---------+    +------------+  |
 |     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
 |     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
 |     |                |   +---->    Decision)    |    |            |  |
-|     +------------^---|   |    +-----------+-----+    +------------+  |
+|     +------------^---+   |    +-----------+-----+    +------------+  |
 |                  |       |                |                          |
 |                  |       |                |                          |
 |                +-+-------+------+   +-----v----------+               |
@@ -324,18 +324,18 @@ They together form a close-loop of network operation and management.
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
 ~~~~
-{: #arch title="An Architecture for Integrating Generative AI with Network Digital Twin" artwork-align="center"}
+{: #arch title="An Architecture for Integrating AI Agent with Network Digital Twin" artwork-align="center"}
 
 ## Functional Components
 
-### Multi-domain Orchestrator
+### Application
 
-Multi-domain orchestrator serves as the top-level coordinator and manages the interactions
-across different autonomous domains. Multi-domain orchestrator may invoke Network Digital
-Twin to perform functions such as analyze, diagnose, optimize, control, and emulate
-as per {{?I-D.irtf-nmrg-network-digital-twin-arch}}. It also provide means to convey user
-intent to each autonomous domain through a user-facing Graphical User Interface (GUI)
-or machine-to-machine North Bound Interface (NBI).
+One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
+as the top-level coordinator and manages the interactions across different autonomous domains.
+Multi-domain orchestrator may invoke Network Digital Twin to perform functions such as analyze,
+diagnose, optimize, control, and emulate as per {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
+It also provide means to convey user intent to each autonomous domain through a user-facing
+Graphical User Interface (GUI) or machine-to-machine North Bound Interface (NBI).
 
 ### Autonomous Domain
 
