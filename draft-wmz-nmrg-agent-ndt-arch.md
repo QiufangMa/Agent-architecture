@@ -8,7 +8,7 @@ category: info
 # Integrating Generative AI with Network Digital Twin for Network Operation
 # Architecture for integrating Generative AI with Network Digital Twin
 
-docname: draft-xxx-nmrg-agent-ndt-arch-latest
+docname: draft-wmz-nmrg-agent-ndt-arch-latest
 submissiontype: IRTF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
