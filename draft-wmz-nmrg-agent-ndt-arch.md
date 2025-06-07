@@ -81,13 +81,13 @@ a Network Digital Twin into network management together with AI, it allows the n
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. An environment that operates to meet these types of
-requirements is said to have service-oriented AI for Network Operations.
+requirements is said to have AI driven Network Operations.
 
-AI for Network Operations brings together existing technologies such
+AI driven Network Operations brings together existing technologies such
 as Network Digital Twin and AI which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.
 
-This document describes an architecture for service-oriented AI for network
+This document describes an architecture for AI driven network
 operations and shows how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
 intent-based networking to meet the needs of the network service.
@@ -103,13 +103,16 @@ Since network changes are directly related to service operations, any successful
 needs to not only ensure that new services are provisioned smoothly, but also that existing
 services are not affected and that no problems are introduced with the new configurations.
 Network operators are, therefore, increasingly cautious about making network changes, given that
-they need to review the solution design as well as evaluate all change impacts, before making any change. Then, after the change, they need to perform dialling tests, monitor traffic, and manually check table entries.
+they need to review the solution design as well as evaluate all change impacts, before making any
+change. Then, after the change, they need to perform dialling tests, monitor traffic, and manually
+check table entries.
 
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} has been proposed as
 a mean to provide a network emulation tool for scenario planning, impact analysis, and change
 management. Integrating a Network Digital Twin into network management together with AI, it
 allows network management activities to dynamically adapt to customer needs, network changes, as
-well as to automatically assess, model, and refine optimization strategies under realistic conditions but in a risk-free environment. An environment that operates to meet these
+well as to automatically assess, model, and refine optimization strategies under realistic conditions
+but in a risk-free environment. An environment that operates to meet these
 types of requirements is said to have service-oriented AI for network operations.
 
 Service-oriented AI for network operations provide the following capabilities to applications by
@@ -168,7 +171,7 @@ based on its knowledge representation to achieve a set of service goals.
 
 The integration of AI into network operations has marked a significant leap forward in
 the pursuit of network automation and intelligence, while generative AI further
-enhances the role of AI for network operations and management. Generative AI is a
+enhances the role of AI driven network operations and management. Generative AI is a
 subfield of AI that uses generative models such as Large Language Models (LLMs) to
 generate new and original content such as text, images, videos, or other forms of data with the
 capability to adapt and make decisions to achieve specific goals.
@@ -178,7 +181,8 @@ the context of network operations and management, agents are increasingly being 
 perform tasks such as understanding user intent, generating network configurations, diagnosing
 and resolving network incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs
 also try to define terms related to AI agent in the context of network operations
-and management, e.g., TM Forum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network) Terminology.
+and management, e.g., TM Forum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network)
+Terminology.
 
 ## Network Digital Twin
 
@@ -196,15 +200,15 @@ Twin through standardized interfaces (see
 {{Section 9.4 of ?I-D.irtf-nmrg-network-digital-twin-arch}}), the Network Digital
 Twin exposes the various capabilities to network applications.
 
-# Characteristics of AI for Network Operations
+# Characteristics of AI driven Network Operations
 
 AIOPS was first defined by Gartner in 2016, combining "artificial intelligence"
 and "IT operations" to describe the application of AI and machine learning to
 enhance IT operations. However there is no unified definition for characteristic
-of "AI for network operations" within the networking industry.  Referring to the
+of "AI driven network operations" within the networking industry.  Referring to the
 characteristics of AIOPS in IT field and the characteristics of networking itself,
 this document introduces six key elements (i.e., awareness, decision, analysis,
-execution, intent and knowledge) to characterize the AI for network operation and
+execution, intent and knowledge) to characterize the AI driven network operation and
 its use, as shown in {{ops-arch}}.
 They together form a close-loop of network operation and management.
 
@@ -218,7 +222,7 @@ They together form a close-loop of network operation and management.
  | |  Decision |                       | Analysis  | |
  | +-----------+       --------        +-----------+ |
  |                 ////        \\\\                  |
- |                |AI for Network  |                 |
+ |                |AI Driven Network|                |
  |                |  Operations    |                 |
  |                 \\\\        ////                  |
  |                     --------                      |
@@ -231,7 +235,7 @@ They together form a close-loop of network operation and management.
  |                 +-----------+                     |
  +---------------------------------------------------+
 ~~~~
-{: #ops-arch title="Six Key Elements to Characterize AI for network operation" artwork-align="center"}
+{: #ops-arch title="Six Key Elements to Characterize AI driven network operation" artwork-align="center"}
 
 * Intent:
 : Intent is defined as a set of operational goals and outcomes defined in a declarative
@@ -456,7 +460,7 @@ functionality without disrupting the entire system. Scalability and flexibility
 ensure that the architecture remains effective and relevant in the face of evolving
 network challenges.
 
-# AI for Network Operation: A collection of Use Cases
+# AI Driven Network Operation: A collection of Use Cases
 
 AI Agent could help in the following phases which are usually mentioned in network management:
 
@@ -659,7 +663,7 @@ reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
 specific change is being suggested. The lack of interpretability can hinder
-the adoption of AI for network management and make it challenging to identify
+the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
 # Security Considerations
