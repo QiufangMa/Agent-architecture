@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T01:43:27.172818+00:00",
+  "timestamp": "2025-06-08T01:51:50.726409+00:00",
   "repo": "QiufangMa/Agent-architecture",
   "labels": [
     {
@@ -49,7 +49,128 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOOc-8is66WxU4",
+      "title": "What is the service",
+      "url": "https://github.com/QiufangMa/Agent-architecture/issues/3",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Quote comment from Luis:\n\"\nThe notion of \u201cservice\u201d here is related to the services being delivered by the network? Or it is the \u201cservice\u201d the contol and management of the network?\n\"",
+      "createdAt": "2025-06-07T05:57:32Z",
+      "updatedAt": "2025-06-07T06:44:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Good question, I think it is more referred to AI network operation as a service or make AI for Network operation to match user intent or service intent. To avoid such confusion, maybe we can skip to use Service, focus on AI driven network operation.",
+          "createdAt": "2025-06-07T06:44:14Z",
+          "updatedAt": "2025-06-07T06:44:14Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOOc-8is66WxwK",
+      "title": "Realistic vs Real",
+      "url": "https://github.com/QiufangMa/Agent-architecture/issues/4",
+      "state": "CLOSED",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Quote comment from Luis:\n\"\nSince we are using the NDT as a tool the conditions are realistic but not real, since we are emulating the network\n\"",
+      "createdAt": "2025-06-07T05:59:03Z",
+      "updatedAt": "2025-06-07T06:33:59Z",
+      "closedAt": "2025-06-07T06:33:59Z",
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Agree to use Realistic",
+          "createdAt": "2025-06-07T06:33:57Z",
+          "updatedAt": "2025-06-07T06:33:57Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOOc-8is66WyNf",
+      "title": "What is dialling test",
+      "url": "https://github.com/QiufangMa/Agent-architecture/issues/5",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The comment comes from Luis",
+      "createdAt": "2025-06-07T06:00:05Z",
+      "updatedAt": "2025-06-07T06:47:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think it is referred to OAM Test or probing test, if you think it is useful to reference to https://datatracker.ietf.org/doc/draft-ietf-opsawg-scheduling-oam-tests/, we are happy to do so.",
+          "createdAt": "2025-06-07T06:47:43Z",
+          "updatedAt": "2025-06-07T06:47:43Z"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOOc-8is66Wytx",
+      "title": "Where to execute",
+      "url": "https://github.com/QiufangMa/Agent-architecture/issues/6",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Quote comment from Luis as follows:\n\"\nHere the execution is represented as actions directly on the network elements. It would be maybe convenient to add to the figure a networ controller, so that the execution ca go either to the network elements or to the network controller.\n\"",
+      "createdAt": "2025-06-07T06:01:52Z",
+      "updatedAt": "2025-06-07T07:10:38Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Done, I have add text to explain the execution can either go to the network elements or the network controllers.",
+          "createdAt": "2025-06-07T07:10:36Z",
+          "updatedAt": "2025-06-07T07:10:36Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOOc-8is66Wyzw",
+      "title": "Where Multi-domain Orchestrator is defined",
+      "url": "https://github.com/QiufangMa/Agent-architecture/issues/7",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The comment comes from Luis",
+      "createdAt": "2025-06-07T06:02:27Z",
+      "updatedAt": "2025-06-07T06:48:47Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, multi-domain orchestrator has been generalized into application, multi-domain orechestrator is just one special example of the application.",
+          "createdAt": "2025-06-07T06:48:46Z",
+          "updatedAt": "2025-06-07T06:48:46Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -103,6 +224,62 @@
       "mergedBy": "QiufangMa",
       "mergeCommit": {
         "oid": "d5acba8a5656ed1b1df409a402da9e1d6358f078"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOOc-8is6ZfLqW",
+      "title": "Incorporate Luis's proposed editorial changes",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/8",
+      "state": "MERGED",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-07T06:24:13Z",
+      "updatedAt": "2025-06-07T06:26:12Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "c7ebf4c9fb2df262f4cf494ceb5cf9059d83c60b",
+      "headRepository": "QiufangMa/Agent-architecture",
+      "headRefName": "billwuqin-patch-2",
+      "headRefOid": "5d014bb974564ecb7d00540ae13cb6599e56c388",
+      "closedAt": "2025-06-07T06:26:12Z",
+      "mergedAt": "2025-06-07T06:26:12Z",
+      "mergedBy": "billwuqin",
+      "mergeCommit": {
+        "oid": "0c1f87559b8b12b71c350df7df99862d0049fa6e"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOOc-8is6ZfSIk",
+      "title": "clarify the relationship between multi-domain Orchestrator and Applic\u2026",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/9",
+      "state": "MERGED",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026ation",
+      "createdAt": "2025-06-07T06:53:10Z",
+      "updatedAt": "2025-06-07T06:57:40Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "b2e8e7deaaa888d395e688495450430f9026191e",
+      "headRepository": "QiufangMa/Agent-architecture",
+      "headRefName": "billwuqin-patch-3",
+      "headRefOid": "27028454bb46114e61b5deaff6daf73da2f65486",
+      "closedAt": "2025-06-07T06:57:40Z",
+      "mergedAt": "2025-06-07T06:57:40Z",
+      "mergedBy": "billwuqin",
+      "mergeCommit": {
+        "oid": "3e195e6aad9c5a49acbf70cb305486b742da61cf"
       },
       "comments": [],
       "reviews": []
