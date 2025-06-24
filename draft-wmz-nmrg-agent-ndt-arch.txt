@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 9 December 2025                                      Telefonica
+Expires: 26 December 2025                                     Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  C. Zhou
                                                             China Mobile
                                                                  Y. Hong
                                                       Daejeon University
-                                                             7 June 2025
+                                                            24 June 2025
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -66,7 +66,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 December 2025.
+   This Internet-Draft will expire on 26 December 2025.
 
 Copyright Notice
 
@@ -88,7 +88,7 @@ Table of Contents
      3.2.  Network Digital Twin
    4.  Characteristics of AI driven Network Operations
    5.  Architecture Design
-     5.1.  Overall Archtiecture
+     5.1.  Overall Architecture
      5.2.  Functional Components
        5.2.1.  Application
        5.2.2.  Autonomous Domain
@@ -346,7 +346,7 @@ Table of Contents
 
 5.  Architecture Design
 
-5.1.  Overall Archtiecture
+5.1.  Overall Architecture
 
    Figure 2 provides the overall architecture for integrating Network
    Digital Twin and Network Agent System.
@@ -823,16 +823,16 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-03, 19 February 2025,
+              incident-yang-04, 14 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-03>.
+              network-incident-yang-04>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
               Key Terms for Network Fault and Problem Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-terminology-
-              17, 18 May 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-nmop-terminology-17>.
+              19, 18 June 2025, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-nmop-terminology-19>.
 
    [I-D.irtf-nmrg-ai-challenges]
               François, J., Clemm, A., Papadimitriou, D., Fernandes, S.,
