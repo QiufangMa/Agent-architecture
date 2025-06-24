@@ -287,7 +287,7 @@ They together form a close-loop of network operation and management.
 
 # Architecture Design
 
-## Overall Archtiecture
+## Overall Architecture
 
 {{arch}} provides the overall architecture for integrating Network Digital Twin and Network Agent System.
 
