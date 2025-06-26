@@ -243,7 +243,7 @@ They together form a close-loop of network operation and management.
  |                  +---------+                      |
  |                                                   |
  | +-----------+                       +-----------+ |
- | |  Decision |                       | Analysis  | |
+ | |  Analysis |                       | Decision  | |
  | +-----------+       --------        +-----------+ |
  |                 ////        \\\\                  |
  |                |AI Driven Network|                |
@@ -268,6 +268,14 @@ They together form a close-loop of network operation and management.
   objectives, this involves translating declarative requirements into specific network
   instructions, e.g., configurations.
 
+* Analysis:
+: The AI agent continuously analyzes vast amounts of network data from various
+  sources, including network telemetry {{?RFC9232}} and external feeds, and identify
+  the gap between user intent and the existing network status. Leveraging machine
+  learning and other data analytics techniques, it also identifies
+  network fault, problem, incident, anomaly, and so on. Their distinction is further
+  discussed in {{?I-D.ietf-nmop-terminology}}.
+
 * Decision:
 : Based on the intent and network analysis, AI makes
   informed decisions. These decisions could involve dynamically adjusting network
@@ -276,14 +284,6 @@ They together form a close-loop of network operation and management.
   models (e.g., LLMs) that enable the AI agent to choose the best course of action
   to meet the specified intent. AI agent may also verify the correctness of the decision
   outcome by performing some network simulation or validation process.
-
-* Analysis:
-: The AI agent continuously analyzes vast amounts of network data from various
-  sources, including network telemetry {{?RFC9232}} and external feeds, and identify
-  the gap between user intent and the existing network status. Leveraging machine
-  learning and other data analytics techniques, it also identifies
-  network fault, problem, incident, anomaly, and so on. Their distinction is further
-  discussed in {{?I-D.ietf-nmop-terminology}}.
 
 * Awareness:
 : Awareness is achieved through real-time monitoring and data collection.
