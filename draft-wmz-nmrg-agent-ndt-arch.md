@@ -29,6 +29,11 @@ author:
     country: China
     email: bill.wu@huawei.com
  -
+    fullname: Cheng Zhou
+    organization: China Mobile
+    country: China
+    email: zhouchengyjy@chinamobile.com
+ -
     fullname: Luis M. Contreras
     organization: Telefonica
     email: luismiguel.contrerasmurillo@telefonica.com
@@ -38,10 +43,9 @@ author:
     country: China
     email: hans29@chinaunicom.cn
  -
-    fullname: Cheng Zhou
-    organization: China Mobile
-    country: China
-    email: zhouchengyjy@chinamobile.com
+  fullname: Lionel Tailhardat
+  organization: Orange Research
+  email: lionel.tailhardat@orange.com
  -
     fullname: Yong-Geun Hong
     organization: Daejeon University
@@ -125,6 +129,12 @@ coordinating the components that operate and manage the network:
 * Provide Network capacity planning and ensure that the network has sufficient capacity
   , resources, and infrastructure to meet current and future demands.
 
+* Provide simulation on fault scenarios, formulate recovery plans, and verify whether the plans
+  are applicable and effective so that the service will not be affected during disaster recovery
+  drill.
+
+* Support Fault and risk detection and provide network health check and network risk check.
+
 * Model the network configuration change and use a virtual topology model to test network changes
   and assess the effect of the network configuration changes on the network.
 
@@ -134,6 +144,10 @@ coordinating the components that operate and manage the network:
 
 * Model traffic flow across the network, including traffic generation, flow control, routing, and
   congestion control and evaluate traffic's impact on network performance.
+
+* Support generation of rectification solutions for potential network risks and provide
+  verification on the repair solution in seconds, including loop, address conflict, and security
+  policy conflict.
 
 This document describes an architecture for service-oriented AI for network
 operations, showing how these components work together. It provides a
