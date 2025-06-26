@@ -487,6 +487,25 @@ functionality without disrupting the entire system. Scalability and flexibility
 ensure that the architecture remains effective and relevant in the face of evolving
 network challenges.
 
+## Collaboration between small AI model and large AI model
+
+The architecture must be designed to support collaboration between small AI model and
+large AI model.
+
+In the past, we only support AI and machine learning technologies at the network level,
+e.g., we can use collected various different network data to provide network analysis and
+generate network insight.
+
+With more intelligence introduced into the network element, more GPU/NPU resource can be
+allocated for AI inference, this make collaboration between large AI model
+And small AI model become possible. On one hand, we can use accumulated field engineering
+expertise to train large AI model into one foundation model for fault management AI agent,
+On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
+in the intelligent network element to collect more fine granularity data or provide local processing
+for Collected data and summary report generation, Trend prediction, etc.
+With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
+controller interact with network element and has more quick response to network change.
+
 # AI Driven Network Operation: A collection of Use Cases
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
@@ -618,22 +637,6 @@ o Energy efficiency changing trend over the time of the day for the whole networ
 On the other hand, With the better observability to energy consumption statistics data
 and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
-
-## Collaboration between small AI model and large AI model
-
-In the past, we only support AI and machine learning technologies at the network level,
-e.g., we can use collected various different network data to provide network analysis and
-generate network insight.
-
-With more intelligence introduced into the network element, more GPU/NPU resource can be
-allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible. On one hand, we can use accumulated field engineering
-expertise to train large AI model into one foundation model for fault management AI agent,
-On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
-in the intelligent network element to collect more fine granularity data or provide local processing
-for Collected data and summary report generation, Trend prediction, etc.
-With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
-controller interact with network element and has more quick response to network change.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
