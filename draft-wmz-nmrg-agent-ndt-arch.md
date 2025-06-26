@@ -183,7 +183,7 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 
 Besides, this document defines the following terminology:
 
-AI Agent:
+Network AI Agent:
 : AI Agent is an autonomous system or entity with awareness of its environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
 based on its knowledge representation to achieve a set of service goals {{TMF-1251D}}.
@@ -201,11 +201,11 @@ capability to adapt and make decisions to achieve specific goals.
 
 An AI agent refers to a system or program that Large Language Models (LLM)s to interact
 with humans (or other AI Agents) for purposes of performing tasks {{I-D.rosenberg-ai-protocols}}.
-In the context of network operations and management, agents are increasingly being designed to
+In the context of network operations and management, Network AI agents are increasingly being designed to
 interact with physical world and act upon it based on tools {{Google-Agents-Whitepaper}} and
 perform network management tasks such as understanding user intent, generating network configurations,
 diagnosing and resolving network incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs
-also try to define terms related to AI agent in the context of network operations and management, e.g.,
+also try to define terms related to Network AI agent in the context of network operations and management, e.g.,
 TM Forum defines Autonomous Agent in {{TMF-1251D}} as one of AN (Autonomous Network) Terminologies.
 
 ## Network Digital Twin
@@ -263,25 +263,25 @@ They together form a close-loop of network operation and management.
 
 * Intent:
 : Intent is defined as a set of operational goals and outcomes defined in a declarative
-  manner without specifying how to achieve or implement them in {{?RFC9315}}. The AI Agent
+  manner without specifying how to achieve or implement them in {{?RFC9315}}. The Network AI Agent
   must accurately interpret and understand the user's high-level business or operational
   objectives, this involves translating declarative requirements into specific network
   instructions, e.g., configurations.
 
 * Knowledge:
-: The AI agent relies on a knowledge base that includes network policies,
+: The Network AI agent relies on a knowledge base that includes network policies,
   historical data, expert experience, and best practices in product manual. The
   knowledge is used to inform its analysis, decision-making, and execution processes.
-  Over time, the AI agent can expand its knowledge through machine learning,
+  Over time, the Network AI agent can expand its knowledge through machine learning,
   incorporating new data and experiences to improve its performance. For example,
   it learns which configurations are optimal for specific scenarios or how to
   respond most effectively to particular types of network incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 
 * Analysis:
-: The AI agent continuously analyzes vast amounts of network data from various
+: The Network AI agent continuously analyzes vast amounts of network data from various
   sources, including network telemetry {{?RFC9232}} and external feeds, and identify
   the gap between user intent and the existing network status. By integrating Network digital twin
-  {{?I-D.irtf-nmrg-network-digital-twin-arch}} with AI agent and leveraging machine learning and other data
+  {{?I-D.irtf-nmrg-network-digital-twin-arch}} with Network AI agent and leveraging machine learning and other data
   analytics techniques, it also identifies network fault, problem, incident, anomaly and perform data driven
   intelligent analysis such as service impact analysis, and so on. Their distinction is further discussed in
   {{?I-D.ietf-nmop-terminology}}.
@@ -289,33 +289,33 @@ They together form a close-loop of network operation and management.
 * Decision:
 : Based on the intent and network analysis, AI makes
   informed decisions. By integrating network digital twin {{?I-D.irtf-nmrg-network-digital-twin-arch}} and AI,
-		the intelligence decisions making can be realized. These decisions could involve dynamically adjusting network
+  the intelligence decisions making can be realized. These decisions could involve dynamically adjusting network
   parameters, e.g., rerouting traffic to avoid congestion. The decision-making
   process is driven by predefined policies, real-time data analysis, and AI
-  models (e.g., LLMs) that enable the AI agent to choose the best course of action
-  to meet the specified intent. AI agent may also verify the correctness of the decision
+  models (e.g., LLMs) that enable the Network AI agent to choose the best course of action
+  to meet the specified intent. Network AI agent may also verify the correctness of the decision
   outcome by performing some network simulation or validation process.
 
 * Awareness:
 : Awareness is achieved through real-time monitoring and data collection.
-  The AI agent maintains a comprehensive visibility of the network,
+  The Network AI agent maintains a comprehensive visibility of the network,
   enabling it to make context-aware decisions. Network operators can also use the
   awareness understand the exact cause of specific network issues and achieve closed-loop
   decision-making.
 
 * Execution:
-: Once a decision is made, the AI agent executes the necessary actions to implement
+: Once a decision is made, the Network AI agent executes the necessary actions to implement
   it. This could involve, e.g., sending configuration to network controllers or
   network devices through NETCONF/RESTCONF protocols. The execution is carried out
   in a controlled and precise manner to ensure that the network behaves as intended
-  without causing disruptions. The AI agent also verifies that the executed actions
+  without causing disruptions. The Network AI agent also verifies that the executed actions
   have the desired effect and makes the proper adjustments if needed.
 
 # Architecture Design
 
 ## Overall Architecture
 
-{{arch}} provides the overall architecture for integrating Network Digital Twin and Network Agent System.
+{{arch}} provides the overall architecture for integrating Network Digital Twin and Network AI Agent System.
 
 ~~~~
 +----------------------------------------------------------------------+
@@ -327,6 +327,7 @@ They together form a close-loop of network operation and management.
 |Autonomous Domain                         |                           |
 |                                          |                           |
 |     +----------------+        +-------v---------+    +------------+  |
+|     |                |        |    Network      |    |            |  |
 |     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
 |     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
 |     |                |   +---->    Decision)    |    |            |  |
@@ -350,7 +351,7 @@ They together form a close-loop of network operation and management.
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
 ~~~~
-{: #arch title="An Architecture for Integrating AI Agent with Network Digital Twin" artwork-align="center"}
+{: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
 
 ## Functional Components
 
@@ -381,11 +382,11 @@ Service Mapping Models, and a Network Digital Twin Management component. The
 Network Digital Twin collects the real-time operational and instrumentation data
 from network through the appropriate real network-facing input interfaces, and it
 delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
-to AI Agent(s) in {{arch}}.
+to Network AI Agent(s) in {{arch}}.
 
-#### AI Agent(s)
+#### Network AI Agent(s)
 
-AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which is responsible
+Network AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network operations.
 It leverages the inference of LLM, the simulation of Network Digital Twin, and the
 contextual and domain-specific knowledge provided by Knowledge Base to accomplish
@@ -394,7 +395,7 @@ specific network operation task.
 Agents could be scenario-oriented and classified according to the function they perform.
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
-(e.g., deployment, update, and retirement of AI Agent), Agent registration,
+(e.g., deployment, update, and retirement of Network AI Agent), Agent registration,
 Agent discovery, and so on. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
 industry may help with multi-agents coordination.
 
@@ -417,7 +418,7 @@ through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
-and AI Agent(s) to provide with up-to-date information about the current state of
+and Network AI Agent(s) to provide with up-to-date information about the current state of
 the physical network.
 
 #### Execution
@@ -434,7 +435,7 @@ This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
 with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} may also achieve some local close loop without relying on external AI or
 human intervention. It is also possible for the Leightweight AI to coordinate with
-AI Agent(s) to enhance the automation and efficiency of network operations. The
+AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
 and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
 
@@ -458,9 +459,9 @@ decisions, where human judgement is essential to avoid potential errors or ethic
 
 Standardized protocols and interfaces facilitate smooth communication and ensures
 different systems and devices from various vendors can work together seamlessly.
-The interfaces between AI Agent(s) and Network Digital Twin are the application-facing
+The interfaces between Network AI Agent(s) and Network Digital Twin are the application-facing
 interfaces as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
-There are some ongoing efforts that are working on the standardization of AI Agent
+There are some ongoing efforts that are working on the standardization of Network AI Agent
 communication {{?I-D.rosenberg-ai-protocols}}.
 
 ### Feedback-driven Improvement
@@ -469,7 +470,7 @@ The architecture should incorporate mechanism for continuous improvement based o
 feedback. This includes collecting data on AI decisions, network performance,
 and user feedback to identify areas for enhancement. By analyzing the feedback,
 the system can adapt and optimize its operations over time, leading to better
-performance and more accurate decision-making. For example, if an AI Agent fails
+performance and more accurate decision-making. For example, if a Network AI Agent fails
 to accurately identify the exact cause of a network incident, the relevant records
 can be submitted as negative samples to the LLM which provides inference services,
 this allows the LLM to be trained on these negative samples for optimization.
@@ -488,7 +489,7 @@ network challenges.
 
 # AI Driven Network Operation: A collection of Use Cases
 
-AI Agent could help in the following phases which are usually mentioned in network management:
+Network AI Agent could help in the following phases which are usually mentioned in network management:
 
 * Network Planning and Design: includes the understanding of user intent,
          generation of solutions, and simulation for decision-making.
@@ -516,11 +517,11 @@ Network configuration change leveraging AI and Network Digital Twin may experien
 
 Step 1:
 :  The network operator inputs the intent of network configuration change into the
-   AI Agent using natural language. The network operator may simply explain the
+   Network AI Agent using natural language. The network operator may simply explain the
    objectives and requirements of the changes.
 
 Step 2:
-: AI Agent first verifies the identity of the user requesting the change and checks the user's
+: Network AI Agent first verifies the identity of the user requesting the change and checks the user's
   permissions to make certain types of network changes against predefined rules
   or policies. It then understands and parses the initial intent of the request,
   and leverages the powerful knowledge and reasoning capabilities of LLM to generate
@@ -528,7 +529,7 @@ Step 2:
   multiple possible network configuration change plans if possible.
 
 Step 3:
-: AI Agent communicates with the Network Digital Twin to validate the suggested
+: Network AI Agent communicates with the Network Digital Twin to validate the suggested
   configuration change, including the syntax and semantics of the configuration,
   verification of effected application and resources. The network digital Twin
   may generate a report indicating the validation result, and suggested
@@ -536,28 +537,28 @@ Step 3:
   the current physical network operational state.
 
 Step 4:
-: AI Agent may generate a configuration change plan and submit to the network operator
-  for approval. Based on the feedback from the operator, AI Agent then further decides
+: Network AI Agent may generate a configuration change plan and submit to the network operator
+  for approval. Based on the feedback from the operator, Network AI Agent then further decides
   whether to optimize the change plan or deliver the plan to the Execution component
   to conduct the physical network configuration change.
 
 ## Network Troubleshooting
 
-AI Agent could assist in network troubleshooting in the following significant aspects:
+Network AI Agent could assist in network troubleshooting in the following significant aspects:
 
 * Fault Identification:
-: AI Agent continuously monitors and aggregates data from various sources, the
+: Network AI Agent continuously monitors and aggregates data from various sources, the
   comprehensive data collection provides a holistic view of the network operational
-  state. By analyzing the real-time data, AI Agent could detect network
+  state. By analyzing the real-time data, Network AI Agent could detect network
   anomalies swiftly, which enables the prompt identification of potential issues
   before they escalate into major faults, minimizing downtime or service disruptions.
   In some cases, the Leightweight AI located in the Network Element may handle some
   simple fault identification tasks (e.g., optical module fault automatic identification)
-  to enhance the awareness, while the AI Agent and LLM could leverage their powerful
+  to enhance the awareness, while the Network AI Agent and LLM could leverage their powerful
   processing capabilities to analyze the time-domain data collected from the optical module.
 
 * Fault Diagnosis:
-: Once a fault is identified, AI Agent delves into diagnosing the exact cause, it
+: Once a fault is identified, Network AI Agent delves into diagnosing the exact cause, it
   may also invoke some existing operations such as "incident-diagnose" RPC defined
   in {{?I-D.ietf-nmop-network-incident-yang}}. By correlating symptoms and/or
   applying AI models trained on historical data, it can narrow down the potential
@@ -565,11 +566,11 @@ AI Agent could assist in network troubleshooting in the following significant as
   and reduces the time needed to address the issue.
 
 * Fault Repair:
-: After diagnosing the fault, AI Agent can generate targeted repair solutions.
+: After diagnosing the fault, Network AI Agent can generate targeted repair solutions.
   These solutions range from specific configuration adjustments to more complex
-  fixes (e.g., hardware replacement). AI Agent would also communicate with
+  fixes (e.g., hardware replacement). Network AI Agent would also communicate with
   the Network Digital Twin to simulate the proposed repair solutions and get feedback
-  from the Network Digital Twin. In advanced setups, AI Agent may automatically execute
+  from the Network Digital Twin. In advanced setups, Network AI Agent may automatically execute
   these repairs, ensuring quick restoration of normal operations and enhancing
   the overall reliability and efficiency of network management. But it may also
   first present the fault details and repair advice to the network operator for review,
@@ -577,7 +578,7 @@ AI Agent could assist in network troubleshooting in the following significant as
 
 ## Network Optimization
 
-Network optimization is often introduced due to the AI Agent's awareness of some potential
+Network optimization is often introduced due to the Network AI Agent's awareness of some potential
 network faults or anomalies through continuously monitoring of network operational
 state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
@@ -588,10 +589,10 @@ network optimization strategies. For instance, once the network congestion somet
 in the future is predicted, it may proactively optimize the network configuration,
 or suggest scaling up to meet specific demands.
 
-Before the network optimization is conducted, AI Agent implements and evaluates
+Before the network optimization is conducted, Network AI Agent implements and evaluates
 the optimization solution using the Network Digital Twin. This may need repeated
 trials and validations based on specific evaluation criteria, before the optimal
-strategy could be selected. AI Agent may also first present the suggested network
+strategy could be selected. Network AI Agent may also first present the suggested network
 optimization solution to the network operator for review, and apply it to the
 physical network after obtaining approval from the network operator.
 
@@ -615,7 +616,7 @@ o The total energy consumption changing trend over the time of the day, for all 
 o Energy efficiency changing trend over the time of the day for the whole network.
 
 On the other hand, With the better observability to energy consumption statistics data
-and energy efficiency statistics data, the AI Agent can know which part of the network
+and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
 
 ## Collaboration between small AI model and large AI model
@@ -631,7 +632,7 @@ expertise to train large AI model into one foundation model for fault management
 On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
 in the intelligent network element to collect more fine granularity data or provide local processing
 for Collected data and summary report generation, Trend prediction, etc.
-With collaboration between large AI model and small AI model, we can allow AI Agent within the Network
+With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
 
 # Challenges of Integrating Service-oriented AI into Network Management
