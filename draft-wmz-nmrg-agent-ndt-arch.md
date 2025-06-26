@@ -70,7 +70,7 @@ informative:
   TMF-1251D:
     title: "AN Agent Architecture v1.0.0"
     target: https://www.tmforum.org/resources/introductory-guide/ig1251d-an-agent-architecture-v1-0-0/
-    date:May 2025
+    date: May 2025
 
   MCP:
     title: Model Context Protocol
