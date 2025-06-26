@@ -1248,6 +1248,9 @@ intent-based networking to meet the needs of the network service.<a href="#secti
 </li>
                 </ul>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-collaboration-between-small" class="internal xref">Collaboration between small AI model and large AI model</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
@@ -1264,9 +1267,6 @@ intent-based networking to meet the needs of the network service.<a href="#secti
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
                 <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-network-level-energy-effici" class="internal xref">Network level Energy Efficiency Management</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
-                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-collaboration-between-small" class="internal xref">Collaboration between small AI model and large AI model</a></p>
 </li>
             </ul>
 </li>
@@ -1850,6 +1850,27 @@ network challenges.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
+<div id="collaboration-between-small-ai-model-and-large-ai-model">
+<section id="section-5.4">
+        <h3 id="name-collaboration-between-small">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-collaboration-between-small" class="section-name selfRef">Collaboration between small AI model and large AI model</a>
+        </h3>
+<p id="section-5.4-1">The architecture must be designed to support collaboration between small AI model and
+large AI model.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.4-2">In the past, we only support AI and machine learning technologies at the network level,
+e.g., we can use collected various different network data to provide network analysis and
+generate network insight.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.4-3">With more intelligence introduced into the network element, more GPU/NPU resource can be
+allocated for AI inference, this make collaboration between large AI model
+And small AI model become possible. On one hand, we can use accumulated field engineering
+expertise to train large AI model into one foundation model for fault management AI agent,
+On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
+in the intelligent network element to collect more fine granularity data or provide local processing
+for Collected data and summary report generation, Trend prediction, etc.
+With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
+controller interact with network element and has more quick response to network change.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="ai-driven-network-operation-a-collection-of-use-cases">
@@ -2031,25 +2052,6 @@ GREEN Network AI Agent, but also allow them see<a href="#section-6.4-2" class="p
 <p id="section-6.4-6">On the other hand, With the better observability to energy consumption statistics data
 and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.<a href="#section-6.4-6" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="collaboration-between-small-ai-model-and-large-ai-model">
-<section id="section-6.5">
-        <h3 id="name-collaboration-between-small">
-<a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-collaboration-between-small" class="section-name selfRef">Collaboration between small AI model and large AI model</a>
-        </h3>
-<p id="section-6.5-1">In the past, we only support AI and machine learning technologies at the network level,
-e.g., we can use collected various different network data to provide network analysis and
-generate network insight.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
-<p id="section-6.5-2">With more intelligence introduced into the network element, more GPU/NPU resource can be
-allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible. On one hand, we can use accumulated field engineering
-expertise to train large AI model into one foundation model for fault management AI agent,
-On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
-in the intelligent network element to collect more fine granularity data or provide local processing
-for Collected data and summary report generation, Trend prediction, etc.
-With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
-controller interact with network element and has more quick response to network change.<a href="#section-6.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

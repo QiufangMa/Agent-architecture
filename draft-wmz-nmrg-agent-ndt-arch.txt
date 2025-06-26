@@ -100,12 +100,12 @@ Table of Contents
        5.3.2.  Interoperability via Open Standards
        5.3.3.  Feedback-driven Improvement
        5.3.4.  Scalability and Flexibility
+     5.4.  Collaboration between small AI model and large AI model
    6.  AI Driven Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
      6.3.  Network Optimization
      6.4.  Network level Energy Efficiency Management
-     6.5.  Collaboration between small AI model and large AI model
    7.  Challenges of Integrating Service-oriented AI into Network
            Management
      7.1.  Hallucination
@@ -569,6 +569,30 @@ Table of Contents
    architecture remains effective and relevant in the face of evolving
    network challenges.
 
+5.4.  Collaboration between small AI model and large AI model
+
+   The architecture must be designed to support collaboration between
+   small AI model and large AI model.
+
+   In the past, we only support AI and machine learning technologies at
+   the network level, e.g., we can use collected various different
+   network data to provide network analysis and generate network
+   insight.
+
+   With more intelligence introduced into the network element, more GPU/
+   NPU resource can be allocated for AI inference, this make
+   collaboration between large AI model And small AI model become
+   possible.  On one hand, we can use accumulated field engineering
+   expertise to train large AI model into one foundation model for fault
+   management AI agent, On the other hand, we can deploy small AI model,
+   leverage hardware resource or chipset resource in the intelligent
+   network element to collect more fine granularity data or provide
+   local processing for Collected data and summary report generation,
+   Trend prediction, etc.  With collaboration between large AI model and
+   small AI model, we can allow Network AI Agent within the Network
+   controller interact with network element and has more quick response
+   to network change.
+
 6.  AI Driven Network Operation: A collection of Use Cases
 
    Network AI Agent could help in the following phases which are usually
@@ -730,27 +754,6 @@ Table of Contents
    consumption statistics data and energy efficiency statistics data,
    the Network AI Agent can know which part of the network need to be
    adjusted or optimized based on network status change.
-
-6.5.  Collaboration between small AI model and large AI model
-
-   In the past, we only support AI and machine learning technologies at
-   the network level, e.g., we can use collected various different
-   network data to provide network analysis and generate network
-   insight.
-
-   With more intelligence introduced into the network element, more GPU/
-   NPU resource can be allocated for AI inference, this make
-   collaboration between large AI model And small AI model become
-   possible.  On one hand, we can use accumulated field engineering
-   expertise to train large AI model into one foundation model for fault
-   management AI agent, On the other hand, we can deploy small AI model,
-   leverage hardware resource or chipset resource in the intelligent
-   network element to collect more fine granularity data or provide
-   local processing for Collected data and summary report generation,
-   Trend prediction, etc.  With collaboration between large AI model and
-   small AI model, we can allow Network AI Agent within the Network
-   controller interact with network element and has more quick response
-   to network change.
 
 7.  Challenges of Integrating Service-oriented AI into Network
     Management
