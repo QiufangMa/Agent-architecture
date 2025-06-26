@@ -83,8 +83,9 @@ informative:
     date: April 2025
 
   Google-Agents-Whitepaper:
-    title: Agents
+    title: "Agents"
     target: https://www.kaggle.com/whitepaper-agents
+    date: 2024
 
 --- abstract
 
