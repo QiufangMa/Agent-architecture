@@ -67,6 +67,11 @@ informative:
     target: https://projects.tmforum.org/wiki/display/PUB/IG1258+Autonomous+Networks+Glossary+v1.2.0
     date: May 2025
 
+  TMF-1251D:
+    title: "AN Agent Architecture v1.0.0"
+    target: https://www.tmforum.org/resources/introductory-guide/ig1251d-an-agent-architecture-v1-0-0/
+    date:May 2025
+
   MCP:
     title: Model Context Protocol
     target: https://modelcontextprotocol.io/
@@ -76,6 +81,10 @@ informative:
     title: Agent2Agent (A2A) protocol
     target: https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a
     date: April 2025
+
+  Google-Agents-Whitepaper:
+    title: Agents
+    target: https://www.kaggle.com/whitepaper-agents
 
 --- abstract
 
@@ -177,7 +186,7 @@ Besides, this document defines the following terminology:
 AI Agent:
 : AI Agent is an autonomous system or entity with awareness of its environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
-based on its knowledge representation to achieve a set of service goals.
+based on its knowledge representation to achieve a set of service goals {{TMF-1251D}}.
 
 # Introduction of Concepts
 
@@ -190,13 +199,14 @@ subfield of AI that uses generative models such as Large Language Models (LLMs) 
 generate new and original content such as text, images, videos, or other forms of data with the
 capability to adapt and make decisions to achieve specific goals.
 
-An AI agent refers to a system or program that uses AI to perform tasks on behalf of users. In
-the context of network operations and management, agents are increasingly being designed to
-perform tasks such as understanding user intent, generating network configurations, diagnosing
-and resolving network incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs
-also try to define terms related to AI agent in the context of network operations
-and management, e.g., TM Forum defines Autonomous Agent in {{TMF-1258}} as AN (Autonomous Network)
-Terminology.
+An AI agent refers to a system or program that Large Language Models (LLM)s to interact
+with humans (or other AI Agents) for purposes of performing tasks {{I-D.rosenberg-ai-protocols}}.
+In the context of network operations and management, agents are increasingly being designed to
+interact with physical world and act upon it based on tools {{Google-Agents-Whitepaper}} and
+perform network management tasks such as understanding user intent, generating network configurations,
+diagnosing and resolving network incidents {{?I-D.ietf-nmop-network-incident-yang}}. Meanwhile, other SDOs
+also try to define terms related to AI agent in the context of network operations and management, e.g.,
+TM Forum defines Autonomous Agent in {{TMF-1251D}} as one of AN (Autonomous Network) Terminologies.
 
 ## Network Digital Twin
 
