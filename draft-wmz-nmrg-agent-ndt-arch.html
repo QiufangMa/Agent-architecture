@@ -1533,71 +1533,73 @@ instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow
 </li>
         <li class="normal" id="section-4-3.2">
           <span class="break"></span><dl class="dlParallel" id="section-4-3.2.1">
-            <dt id="section-4-3.2.1.1">Analysis:</dt>
+            <dt id="section-4-3.2.1.1">Knowledge:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.2.1.2">
-              <p id="section-4-3.2.1.2.1">The AI agent continuously analyzes vast amounts of network data from various
-sources, including network telemetry <span>[<a href="#RFC9232" class="cite xref">RFC9232</a>]</span> and external feeds, and identify
-the gap between user intent and the existing network status. Leveraging machine
-learning and other data analytics techniques, it also identifies
-network fault, problem, incident, anomaly, and so on. Their distinction is further
-discussed in <span>[<a href="#I-D.ietf-nmop-terminology" class="cite xref">I-D.ietf-nmop-terminology</a>]</span>.<a href="#section-4-3.2.1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4-3.2.1.2.1">The AI agent relies on a knowledge base that includes network policies,
+historical data, expert experience, and best practices in product manual. The
+knowledge is used to inform its analysis, decision-making, and execution processes.
+Over time, the AI agent can expand its knowledge through machine learning,
+incorporating new data and experiences to improve its performance. For example,
+it learns which configurations are optimal for specific scenarios or how to
+respond most effectively to particular types of network incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.<a href="#section-4-3.2.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
 </li>
         <li class="normal" id="section-4-3.3">
           <span class="break"></span><dl class="dlParallel" id="section-4-3.3.1">
-            <dt id="section-4-3.3.1.1">Decision:</dt>
+            <dt id="section-4-3.3.1.1">Analysis:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.3.1.2">
-              <p id="section-4-3.3.1.2.1">Based on the intent and network analysis, AI makes
-informed decisions. These decisions could involve dynamically adjusting network
-parameters, e.g., rerouting traffic to avoid congestion. The decision-making
-process is driven by predefined policies, real-time data analysis, and AI
-models (e.g., LLMs) that enable the AI agent to choose the best course of action
-to meet the specified intent. AI agent may also verify the correctness of the decision
-outcome by performing some network simulation or validation process.<a href="#section-4-3.3.1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4-3.3.1.2.1">The AI agent continuously analyzes vast amounts of network data from various
+sources, including network telemetry <span>[<a href="#RFC9232" class="cite xref">RFC9232</a>]</span> and external feeds, and identify
+the gap between user intent and the existing network status. By integrating Network digital twin
+<span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> with AI agent and leveraging machine learning and other data
+analytics techniques, it also identifies network fault, problem, incident, anomaly and perform data driven
+intelligent analysis such as service impact analysis, and so on. Their distinction is further discussed in
+<span>[<a href="#I-D.ietf-nmop-terminology" class="cite xref">I-D.ietf-nmop-terminology</a>]</span>.<a href="#section-4-3.3.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
 </li>
         <li class="normal" id="section-4-3.4">
           <span class="break"></span><dl class="dlParallel" id="section-4-3.4.1">
-            <dt id="section-4-3.4.1.1">Awareness:</dt>
+            <dt id="section-4-3.4.1.1">Decision:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.4.1.2">
-              <p id="section-4-3.4.1.2.1">Awareness is achieved through real-time monitoring and data collection.
-The AI agent maintains a comprehensive visibility of the network,
-enabling it to make context-aware decisions. Network operators can also use the
-awareness understand the exact cause of specific network issues and achieve closed-loop
-decision-making.<a href="#section-4-3.4.1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4-3.4.1.2.1">Based on the intent and network analysis, AI makes
+informed decisions. By integrating network digital twin <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> and AI,
+            the intelligence decisions making can be realized. These decisions could involve dynamically adjusting network
+parameters, e.g., rerouting traffic to avoid congestion. The decision-making
+process is driven by predefined policies, real-time data analysis, and AI
+models (e.g., LLMs) that enable the AI agent to choose the best course of action
+to meet the specified intent. AI agent may also verify the correctness of the decision
+outcome by performing some network simulation or validation process.<a href="#section-4-3.4.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
 </li>
         <li class="normal" id="section-4-3.5">
           <span class="break"></span><dl class="dlParallel" id="section-4-3.5.1">
-            <dt id="section-4-3.5.1.1">Execution:</dt>
+            <dt id="section-4-3.5.1.1">Awareness:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.5.1.2">
-              <p id="section-4-3.5.1.2.1">Once a decision is made, the AI agent executes the necessary actions to implement
-it. This could involve, e.g., sending configuration to network controllers or
-network devices through NETCONF/RESTCONF protocols. The execution is carried out
-in a controlled and precise manner to ensure that the network behaves as intended
-without causing disruptions. The AI agent also verifies that the executed actions
-have the desired effect and makes the proper adjustments if needed.<a href="#section-4-3.5.1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4-3.5.1.2.1">Awareness is achieved through real-time monitoring and data collection.
+The AI agent maintains a comprehensive visibility of the network,
+enabling it to make context-aware decisions. Network operators can also use the
+awareness understand the exact cause of specific network issues and achieve closed-loop
+decision-making.<a href="#section-4-3.5.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
 </li>
         <li class="normal" id="section-4-3.6">
           <span class="break"></span><dl class="dlParallel" id="section-4-3.6.1">
-            <dt id="section-4-3.6.1.1">Knowledge:</dt>
+            <dt id="section-4-3.6.1.1">Execution:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.6.1.2">
-              <p id="section-4-3.6.1.2.1">The AI agent relies on a knowledge base that includes network policies,
-historical data, expert experience, and best practices in product manual. The
-knowledge is used to inform its analysis, decision-making, and execution processes.
-Over time, the AI agent can expand its knowledge through machine learning,
-incorporating new data and experiences to improve its performance. For example,
-it learns which configurations are optimal for specific scenarios or how to
-respond most effectively to particular types of network incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.<a href="#section-4-3.6.1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4-3.6.1.2.1">Once a decision is made, the AI agent executes the necessary actions to implement
+it. This could involve, e.g., sending configuration to network controllers or
+network devices through NETCONF/RESTCONF protocols. The execution is carried out
+in a controlled and precise manner to ensure that the network behaves as intended
+without causing disruptions. The AI agent also verifies that the executed actions
+have the desired effect and makes the proper adjustments if needed.<a href="#section-4-3.6.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
