@@ -289,7 +289,7 @@ Table of Contents
            |                  +---------+                      |
            |                                                   |
            | +-----------+                       +-----------+ |
-           | |  Decision |                       | Analysis  | |
+           | |  Analysis |                       | Decision  | |
            | +-----------+       --------        +-----------+ |
            |                 ////        \\\\                  |
            |                |AI Driven Network|                |
@@ -316,6 +316,15 @@ Table of Contents
          declarative requirements into specific network instructions,
          e.g., configurations.
 
+   *  Analysis:  The AI agent continuously analyzes vast amounts of
+         network data from various sources, including network telemetry
+         [RFC9232] and external feeds, and identify the gap between user
+         intent and the existing network status.  Leveraging machine
+         learning and other data analytics techniques, it also
+         identifies network fault, problem, incident, anomaly, and so
+         on.  Their distinction is further discussed in
+         [I-D.ietf-nmop-terminology].
+
    *  Decision:  Based on the intent and network analysis, AI makes
          informed decisions.  These decisions could involve dynamically
          adjusting network parameters, e.g., rerouting traffic to avoid
@@ -325,15 +334,6 @@ Table of Contents
          of action to meet the specified intent.  AI agent may also
          verify the correctness of the decision outcome by performing
          some network simulation or validation process.
-
-   *  Analysis:  The AI agent continuously analyzes vast amounts of
-         network data from various sources, including network telemetry
-         [RFC9232] and external feeds, and identify the gap between user
-         intent and the existing network status.  Leveraging machine
-         learning and other data analytics techniques, it also
-         identifies network fault, problem, incident, anomaly, and so
-         on.  Their distinction is further discussed in
-         [I-D.ietf-nmop-terminology].
 
    *  Awareness:  Awareness is achieved through real-time monitoring and
          data collection.  The AI agent maintains a comprehensive
