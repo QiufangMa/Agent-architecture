@@ -851,7 +851,7 @@ Table of Contents
               a2a>.
 
    [Google-Agents-Whitepaper]
-              "Agents", n.d.,
+              "Agents", 2024,
               <https://www.kaggle.com/whitepaper-agents>.
 
    [I-D.ietf-nmop-network-incident-yang]
