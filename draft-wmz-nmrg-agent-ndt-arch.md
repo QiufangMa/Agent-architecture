@@ -268,17 +268,28 @@ They together form a close-loop of network operation and management.
   objectives, this involves translating declarative requirements into specific network
   instructions, e.g., configurations.
 
+* Knowledge:
+: The AI agent relies on a knowledge base that includes network policies,
+  historical data, expert experience, and best practices in product manual. The
+  knowledge is used to inform its analysis, decision-making, and execution processes.
+  Over time, the AI agent can expand its knowledge through machine learning,
+  incorporating new data and experiences to improve its performance. For example,
+  it learns which configurations are optimal for specific scenarios or how to
+  respond most effectively to particular types of network incidents {{?I-D.ietf-nmop-network-incident-yang}}.
+
 * Analysis:
 : The AI agent continuously analyzes vast amounts of network data from various
   sources, including network telemetry {{?RFC9232}} and external feeds, and identify
-  the gap between user intent and the existing network status. Leveraging machine
-  learning and other data analytics techniques, it also identifies
-  network fault, problem, incident, anomaly, and so on. Their distinction is further
-  discussed in {{?I-D.ietf-nmop-terminology}}.
+  the gap between user intent and the existing network status. By integrating Network digital twin
+  {{?I-D.irtf-nmrg-network-digital-twin-arch}} with AI agent and leveraging machine learning and other data
+  analytics techniques, it also identifies network fault, problem, incident, anomaly and perform data driven
+  intelligent analysis such as service impact analysis, and so on. Their distinction is further discussed in
+  {{?I-D.ietf-nmop-terminology}}.
 
 * Decision:
 : Based on the intent and network analysis, AI makes
-  informed decisions. These decisions could involve dynamically adjusting network
+  informed decisions. By integrating network digital twin {{?I-D.irtf-nmrg-network-digital-twin-arch}} and AI,
+		the intelligence decisions making can be realized. These decisions could involve dynamically adjusting network
   parameters, e.g., rerouting traffic to avoid congestion. The decision-making
   process is driven by predefined policies, real-time data analysis, and AI
   models (e.g., LLMs) that enable the AI agent to choose the best course of action
@@ -299,15 +310,6 @@ They together form a close-loop of network operation and management.
   in a controlled and precise manner to ensure that the network behaves as intended
   without causing disruptions. The AI agent also verifies that the executed actions
   have the desired effect and makes the proper adjustments if needed.
-
-* Knowledge:
-: The AI agent relies on a knowledge base that includes network policies,
-  historical data, expert experience, and best practices in product manual. The
-  knowledge is used to inform its analysis, decision-making, and execution processes.
-  Over time, the AI agent can expand its knowledge through machine learning,
-  incorporating new data and experiences to improve its performance. For example,
-  it learns which configurations are optimal for specific scenarios or how to
-  respond most effectively to particular types of network incidents {{?I-D.ietf-nmop-network-incident-yang}}.
 
 # Architecture Design
 
