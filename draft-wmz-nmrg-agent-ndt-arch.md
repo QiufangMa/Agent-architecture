@@ -639,7 +639,7 @@ On the other hand, With the better observability to energy consumption statistic
 and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
 
-## Network Security Drills 
+## Network Security Drills
 
 The AI Agent can help construct a dynamic attack-defense verification system
 in network security drills through NDT and AI reasoning capabilities. It uses
