@@ -639,6 +639,28 @@ On the other hand, With the better observability to energy consumption statistic
 and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
 
+## Network Security Drills 
+
+The AI Agent can help construct a dynamic attack-defense verification system
+in network security drills through NDT and AI reasoning capabilities. It uses
+generative AI to automatically generate diversified attack paths, models
+network topologies with graph neural networks, covers attack stages such as
+reconnaissance and penetration, and dynamically adjusts strategies via reinforcement
+learning to simulate the adaptive characteristics of network attacks. The
+virtual range built based on the NDT can 1:1 map the production environment,
+supporting simulations of composite scenarios like ransomware chain attacks
+and supply chain attacks—such as simulating the entire process of Conti
+virus laterally penetrating to domain controllers through weak passwords.
+
+During drills, the AI Agent automatically deploys virtual environments with
+vulnerabilities, collects defense response data in real time through NDT,
+and generates attack path heatmaps and repair suggestions. This capability
+can further verify emergency response processes, inject real-time threat
+intelligence to dynamically update drill scenarios, and simulate end-to-end
+automated deployment, vulnerability injection, and real-time analysis of
+security drills, enhancing the proactive verification ability of defense
+systems against real-world threats.
+
 # Challenges of Integrating Service-oriented AI into Network Management
 
 In addition to the research challenges in coupling AI and network management
