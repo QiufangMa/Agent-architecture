@@ -697,7 +697,7 @@ specific change is being suggested. The lack of interpretability can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
-## Fast Decision-making ##
+## Fast Decision-making
 
 In network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
