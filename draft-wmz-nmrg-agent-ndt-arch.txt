@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 28 December 2025                                   China Mobile
+Expires: 2 January 2026                                     China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 28 December 2025                                   China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                            26 June 2025
+                                                             1 July 2025
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2025.
+   This Internet-Draft will expire on 2 January 2026.
 
 Copyright Notice
 
@@ -112,6 +112,7 @@ Table of Contents
      7.2.  Security
      7.3.  Data Quality and Consistency
      7.4.  Interpretability and Explainability
+     7.5.  Fast Decision-making
    8.  Security Considerations
    9.  IANA Considerations
    10. References
@@ -822,6 +823,23 @@ Table of Contents
    suggested.  The lack of interpretability can hinder the adoption of
    AI Driven Network Management and make it challenging to identify
    potential issues with AI-generated recommendations.
+
+7.5.  Fast Decision-making
+
+   In network operation and maintenance scenarios with high real-time
+   requirements, such as scheduling strategy optimization and critical
+   fault repair, the rapid generation of network optimization decisions
+   is crucial.  However, AI Agents based on large models adopt a "Token-
+   based" generation and reasoning approach, which is limited by
+   computing power and algorithms, resulting in generally slow reasoning
+   speeds.  In addition, the simulation and verification process of
+   Network Digital Twin (NDT) further increases decision latency, which
+   leads to long end-to-end decision-making time in complex scenarios
+   and is difficult to meet the real-time requirements of services.  To
+   improve decision efficiency, continuous efforts are needed in
+   lightweight NDT modeling algorithms, optimizing large model reasoning
+   frameworks (such as quantization technology and parallel computing),
+   and deploying high-performance AI acceleration hardware.
 
 8.  Security Considerations
 

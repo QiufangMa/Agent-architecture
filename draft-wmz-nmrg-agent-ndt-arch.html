@@ -1065,11 +1065,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">AI Agent architecture</td>
-<td class="right">June 2025</td>
+<td class="right">July 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu, et al.</td>
-<td class="center">Expires 28 December 2025</td>
+<td class="center">Expires 2 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1082,12 +1082,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-wmz-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-06-26" class="published">26 June 2025</time>
+<time datetime="2025-07-01" class="published">1 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-12-28">28 December 2025</time></dd>
+<dd class="expires"><time datetime="2026-01-02">2 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1165,7 +1165,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 2 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1284,6 +1284,9 @@ intent-based networking to meet the needs of the network service.<a href="#secti
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
                 <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-interpretability-and-explai" class="internal xref">Interpretability and Explainability</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.5">
+                <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-fast-decision-making" class="internal xref">Fast Decision-making</a></p>
 </li>
             </ul>
 </li>
@@ -2130,6 +2133,25 @@ change to optimize the network performance, operators may wonder why that
 specific change is being suggested. The lack of interpretability can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="fast-decision-making">
+<section id="section-7.5">
+        <h3 id="name-fast-decision-making">
+<a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-fast-decision-making" class="section-name selfRef">Fast Decision-making</a>
+        </h3>
+<p id="section-7.5-1">In network operation and maintenance scenarios with high real-time requirements,
+such as scheduling strategy optimization and critical fault repair, the rapid
+generation of network optimization decisions is crucial. However, AI Agents based
+on large models adopt a "Token-based" generation and reasoning approach, which is
+limited by computing power and algorithms, resulting in generally slow reasoning
+speeds. In addition, the simulation and verification process of Network Digital
+Twin (NDT) further increases decision latency, which leads to long end-to-end
+decision-making time in complex scenarios and is difficult to meet the real-time
+requirements of services. To improve decision efficiency, continuous efforts are
+needed in lightweight NDT modeling algorithms, optimizing large model reasoning
+frameworks (such as quantization technology and parallel computing), and deploying
+high-performance AI acceleration hardware.<a href="#section-7.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
