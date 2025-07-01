@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:55:17.611866+00:00",
+  "timestamp": "2025-07-01T01:56:37.394025+00:00",
   "repo": "QiufangMa/Agent-architecture",
   "labels": [
     {
@@ -483,6 +483,99 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOOc-8is6cnddv",
+      "title": "Update-1 draft-wmz-nmrg-agent-ndt-arch.md",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/18",
+      "state": "OPEN",
+      "author": "cheneyzhoucheng",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Add 'Fast Decision-making' sub-section",
+      "createdAt": "2025-06-30T02:57:01Z",
+      "updatedAt": "2025-06-30T03:32:29Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "9840bf1c2640fd09afcda7479ccdeb59cf15ed2a",
+      "headRepository": "cheneyzhoucheng/Agent-architecture",
+      "headRefName": "patch-1",
+      "headRefOid": "2241877f71b3e2c4b1ec5ce890fc618972814119",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOc-8is6xAvbw",
+          "commit": {
+            "abbreviatedOid": "a24a9e4"
+          },
+          "author": "cheneyzhoucheng",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "To add challenge of 'Fast Decision-making' in section 7.",
+          "createdAt": "2025-06-30T03:02:18Z",
+          "updatedAt": "2025-06-30T03:02:18Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOc-8is6xA2dJ",
+          "commit": {
+            "abbreviatedOid": "2241877"
+          },
+          "author": "cheneyzhoucheng",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "remove redundant charecters \"##\"",
+          "createdAt": "2025-06-30T03:32:29Z",
+          "updatedAt": "2025-06-30T03:32:29Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOOc-8is6cnlOe",
+      "title": "Update-2 draft-wmz-nmrg-agent-ndt-arch.md",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/19",
+      "state": "OPEN",
+      "author": "cheneyzhoucheng",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Add 'Network Security Drills' and 'Fault Prediction' in section 6",
+      "createdAt": "2025-06-30T03:23:48Z",
+      "updatedAt": "2025-06-30T04:00:44Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "9840bf1c2640fd09afcda7479ccdeb59cf15ed2a",
+      "headRepository": "cheneyzhoucheng/Agent-architecture",
+      "headRefName": "patch-2",
+      "headRefOid": "2714ea43daf857185ec5f06889b9854e504f4100",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOc-8is6xA_0O",
+          "commit": {
+            "abbreviatedOid": "2714ea4"
+          },
+          "author": "cheneyzhoucheng",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "Add 'Network Security Drills' and 'Fault Prediction' in section 6",
+          "createdAt": "2025-06-30T04:00:44Z",
+          "updatedAt": "2025-06-30T04:00:44Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
