@@ -596,6 +596,19 @@ Network AI Agent could assist in network troubleshooting in the following signif
   first present the fault details and repair advice to the network operator for review,
   and proceed to carry out the repair task once it is confirmed.
 
+* Fault Prediction
+: As an advanced enhancement of fault management capabilities, fault prediction aims to
+  reduce network risks through proactive management that prevents problems before they
+  occur. Before a fault actually occurs, the NDT constructs a dynamic simulation model
+  by collecting real-time multi-dimensional operational state data, including network
+  topology, traffic load, and device performance indicators. Based on the network data,
+  AI Agent uses large models and machine learning algorithms (such as time-series
+  prediction models and anomaly detection models) to reason and analyze potential
+  faults—for example, predicting the risk of physical link interruption based on optical
+  cable signal attenuation data. Furthermore, the AI Agent generates recommended operations
+  to avoid faults and validates them through simulation in the NDT, thereby achieving
+  predictive maintenance of the network.
+
 ## Network Optimization
 
 Network optimization is often introduced due to the Network AI Agent's awareness of some potential
@@ -638,6 +651,28 @@ o Energy efficiency changing trend over the time of the day for the whole networ
 On the other hand, With the better observability to energy consumption statistics data
 and energy efficiency statistics data, the Network AI Agent can know which part of the network
 need to be adjusted or optimized based on network status change.
+
+## Network Security Drills
+
+The AI Agent can help construct a dynamic attack-defense verification system
+in network security drills through NDT and AI reasoning capabilities. It uses
+generative AI to automatically generate diversified attack paths, models
+network topologies with graph neural networks, covers attack stages such as
+reconnaissance and penetration, and dynamically adjusts strategies via reinforcement
+learning to simulate the adaptive characteristics of network attacks. The
+virtual range built based on the NDT can 1:1 map the production environment,
+supporting simulations of composite scenarios like ransomware chain attacks
+and supply chain attacks—such as simulating the entire process of Conti
+virus laterally penetrating to domain controllers through weak passwords.
+
+During drills, the AI Agent automatically deploys virtual environments with
+vulnerabilities, collects defense response data in real time through NDT,
+and generates attack path heatmaps and repair suggestions. This capability
+can further verify emergency response processes, inject real-time threat
+intelligence to dynamically update drill scenarios, and simulate end-to-end
+automated deployment, vulnerability injection, and real-time analysis of
+security drills, enhancing the proactive verification ability of defense
+systems against real-world threats.
 
 # Challenges of Integrating Service-oriented AI into Network Management
 
