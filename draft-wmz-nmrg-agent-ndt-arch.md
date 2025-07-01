@@ -697,6 +697,21 @@ specific change is being suggested. The lack of interpretability can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
+## Fast Decision-making
+
+In network operation and maintenance scenarios with high real-time requirements,
+such as scheduling strategy optimization and critical fault repair, the rapid
+generation of network optimization decisions is crucial. However, AI Agents based
+on large models adopt a "Token-based" generation and reasoning approach, which is
+limited by computing power and algorithms, resulting in generally slow reasoning
+speeds. In addition, the simulation and verification process of Network Digital
+Twin (NDT) further increases decision latency, which leads to long end-to-end
+decision-making time in complex scenarios and is difficult to meet the real-time
+requirements of services. To improve decision efficiency, continuous efforts are
+needed in lightweight NDT modeling algorithms, optimizing large model reasoning
+frameworks (such as quantization technology and parallel computing), and deploying
+high-performance AI acceleration hardware.
+
 # Security Considerations
 
 TODO Security
