@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 2 January 2026                                     China Mobile
+Expires: 8 January 2026                                     China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 2 January 2026                                     China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                             1 July 2025
+                                                             7 July 2025
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 January 2026.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
@@ -160,7 +160,7 @@ Table of Contents
       goals and that the services provided meet the agreed-upon Service
       Level Agreements (SLAs).
 
-   *  Provide Network capacity planning and ensure that the network has
+   *  Provide network capacity planning and ensure that the network has
       sufficient capacity , resources, and infrastructure to meet
       current and future demands.
 
@@ -168,7 +168,7 @@ Table of Contents
       and verify whether the plans are applicable and effective so that
       the service will not be affected during disaster recovery drill.
 
-   *  Support Fault and risk detection and provide network health check
+   *  Support fault and risk detection and provide network health check
       and network risk check.
 
    *  Model the network configuration change and use a virtual topology
@@ -918,9 +918,9 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-04, 14 June 2025,
+              incident-yang-05, 6 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-04>.
+              network-incident-yang-05>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
@@ -942,9 +942,9 @@ Table of Contents
               Q., Boucadair, M., and C. Jacquenet, "Network Digital
               Twin: Concepts and Reference Architecture", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
-              twin-arch-10, 28 February 2025,
+              twin-arch-11, 6 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
-              network-digital-twin-arch-10>.
+              network-digital-twin-arch-11>.
 
    [I-D.rosenberg-ai-protocols]
               Rosenberg, J. and C. F. Jennings, "Framework, Use Cases
