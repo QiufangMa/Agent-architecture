@@ -136,14 +136,14 @@ coordinating the components that operate and manage the network:
   network change or network optimization aligns with business goals and that the services provided
   meet the agreed-upon Service Level Agreements (SLAs).
 
-* Provide Network capacity planning and ensure that the network has sufficient capacity
+* Provide network capacity planning and ensure that the network has sufficient capacity
   , resources, and infrastructure to meet current and future demands.
 
 * Provide simulation on fault scenarios, formulate recovery plans, and verify whether the plans
   are applicable and effective so that the service will not be affected during disaster recovery
   drill.
 
-* Support Fault and risk detection and provide network health check and network risk check.
+* Support fault and risk detection and provide network health check and network risk check.
 
 * Model the network configuration change and use a virtual topology model to test network changes
   and assess the effect of the network configuration changes on the network.
