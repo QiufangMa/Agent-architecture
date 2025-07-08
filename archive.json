@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-03T01:46:16.930908+00:00",
+  "timestamp": "2025-07-08T01:46:48.826700+00:00",
   "repo": "QiufangMa/Agent-architecture",
   "labels": [
     {
@@ -580,6 +580,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOOc-8is6dtBde",
+      "title": "Editorial changes",
+      "url": "https://github.com/QiufangMa/Agent-architecture/pull/20",
+      "state": "MERGED",
+      "author": "billwuqin",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-07T07:56:42Z",
+      "updatedAt": "2025-07-07T07:57:18Z",
+      "baseRepository": "QiufangMa/Agent-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "986a6503e036a96e458453371c58bb74175c55c3",
+      "headRepository": "QiufangMa/Agent-architecture",
+      "headRefName": "billwuqin-patch-10",
+      "headRefOid": "54b20c4d3cfcfdb45df02c2f6e8f43b58eb5a2dd",
+      "closedAt": "2025-07-07T07:57:18Z",
+      "mergedAt": "2025-07-07T07:57:18Z",
+      "mergedBy": "billwuqin",
+      "mergeCommit": {
+        "oid": "648c61da7566053ebc8aadbe58940c9fba99eed7"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
