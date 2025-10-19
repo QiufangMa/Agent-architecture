@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 28 December 2025                                   China Mobile
+Expires: 22 April 2026                                      China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 28 December 2025                                   China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                            26 June 2025
+                                                         19 October 2025
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2025.
+   This Internet-Draft will expire on 22 April 2026.
 
 Copyright Notice
 
@@ -100,18 +100,20 @@ Table of Contents
        5.3.2.  Interoperability via Open Standards
        5.3.3.  Feedback-driven Improvement
        5.3.4.  Scalability and Flexibility
+     5.4.  Collaboration between small AI model and large AI model
    6.  AI Driven Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
      6.3.  Network Optimization
      6.4.  Network level Energy Efficiency Management
-     6.5.  Collaboration between small AI model and large AI model
+     6.5.  Network Security Drills
    7.  Challenges of Integrating Service-oriented AI into Network
            Management
      7.1.  Hallucination
      7.2.  Security
      7.3.  Data Quality and Consistency
      7.4.  Interpretability and Explainability
+     7.5.  Fast Decision-making
    8.  Security Considerations
    9.  IANA Considerations
    10. References
@@ -158,7 +160,7 @@ Table of Contents
       goals and that the services provided meet the agreed-upon Service
       Level Agreements (SLAs).
 
-   *  Provide Network capacity planning and ensure that the network has
+   *  Provide network capacity planning and ensure that the network has
       sufficient capacity , resources, and infrastructure to meet
       current and future demands.
 
@@ -166,7 +168,7 @@ Table of Contents
       and verify whether the plans are applicable and effective so that
       the service will not be affected during disaster recovery drill.
 
-   *  Support Fault and risk detection and provide network health check
+   *  Support fault and risk detection and provide network health check
       and network risk check.
 
    *  Model the network configuration change and use a virtual topology
@@ -471,14 +473,14 @@ Table of Contents
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
-   knowledge and provides the necessary knowledge and memory that helps
-   AI Agent(s) make more accurate and context-aware decisions.  It also
-   helps mitigate the hallucination problems that can arise in large-
-   scale models, which enhances the accuracy of task execution.
-   Additionally, the Knowledge Base plays a key role in providing the
-   data needed for techniques like Retrieval-Augmented Generation (RAG),
-   which further boosts the system's ability to generate reliable and
-   relevant outputs.
+   knowledge and and chain of thoughts, provides the necessary knowledge
+   and memory that helps AI Agent(s) make more accurate and practive
+   context-aware decisions.  It also helps mitigate the hallucination
+   problems that can arise in large-scale models, which enhances the
+   accuracy of task execution.  Additionally, the Knowledge Base plays a
+   key role in providing the data needed for techniques like Retrieval-
+   Augmented Generation (RAG), which further boosts the system's ability
+   to generate reliable and relevant outputs.
 
 5.2.2.4.  Data Collection
 
@@ -568,6 +570,30 @@ Table of Contents
    the entire system.  Scalability and flexibility ensure that the
    architecture remains effective and relevant in the face of evolving
    network challenges.
+
+5.4.  Collaboration between small AI model and large AI model
+
+   The architecture must be designed to support collaboration between
+   small AI model and large AI model.
+
+   In the past, we only support AI and machine learning technologies at
+   the network level, e.g., we can use collected various different
+   network data to provide network analysis and generate network
+   insight.
+
+   With more intelligence introduced into the network element, more GPU/
+   NPU resource can be allocated for AI inference, this make
+   collaboration between large AI model And small AI model become
+   possible.  On one hand, we can use accumulated field engineering
+   expertise to train large AI model into one foundation model for fault
+   management AI agent, On the other hand, we can deploy small AI model,
+   leverage hardware resource or chipset resource in the intelligent
+   network element to collect more fine granularity data or provide
+   local processing for Collected data and summary report generation,
+   Trend prediction, etc.  With collaboration between large AI model and
+   small AI model, we can allow Network AI Agent within the Network
+   controller interact with network element and has more quick response
+   to network change.
 
 6.  AI Driven Network Operation: A collection of Use Cases
 
@@ -679,6 +705,22 @@ Table of Contents
          and repair advice to the network operator for review, and
          proceed to carry out the repair task once it is confirmed.
 
+   *  Fault Prediction  As an advanced enhancement of fault management
+         capabilities, fault prediction aims to reduce network risks
+         through proactive management that prevents problems before they
+         occur.  Before a fault actually occurs, the NDT constructs a
+         dynamic simulation model by collecting real-time multi-
+         dimensional operational state data, including network topology,
+         traffic load, and device performance indicators.  Based on the
+         network data, AI Agent uses large models and machine learning
+         algorithms (such as time-series prediction models and anomaly
+         detection models) to reason and analyze potential faults—for
+         example, predicting the risk of physical link interruption
+         based on optical cable signal attenuation data.  Furthermore,
+         the AI Agent generates recommended operations to avoid faults
+         and validates them through simulation in the NDT, thereby
+         achieving predictive maintenance of the network.
+
 6.3.  Network Optimization
 
    Network optimization is often introduced due to the Network AI
@@ -731,26 +773,30 @@ Table of Contents
    the Network AI Agent can know which part of the network need to be
    adjusted or optimized based on network status change.
 
-6.5.  Collaboration between small AI model and large AI model
+6.5.  Network Security Drills
 
-   In the past, we only support AI and machine learning technologies at
-   the network level, e.g., we can use collected various different
-   network data to provide network analysis and generate network
-   insight.
+   The AI Agent can help construct a dynamic attack-defense verification
+   system in network security drills through NDT and AI reasoning
+   capabilities.  It uses generative AI to automatically generate
+   diversified attack paths, models network topologies with graph neural
+   networks, covers attack stages such as reconnaissance and
+   penetration, and dynamically adjusts strategies via reinforcement
+   learning to simulate the adaptive characteristics of network attacks.
+   The virtual range built based on the NDT can 1:1 map the production
+   environment, supporting simulations of composite scenarios like
+   ransomware chain attacks and supply chain attacks—such as simulating
+   the entire process of Conti virus laterally penetrating to domain
+   controllers through weak passwords.
 
-   With more intelligence introduced into the network element, more GPU/
-   NPU resource can be allocated for AI inference, this make
-   collaboration between large AI model And small AI model become
-   possible.  On one hand, we can use accumulated field engineering
-   expertise to train large AI model into one foundation model for fault
-   management AI agent, On the other hand, we can deploy small AI model,
-   leverage hardware resource or chipset resource in the intelligent
-   network element to collect more fine granularity data or provide
-   local processing for Collected data and summary report generation,
-   Trend prediction, etc.  With collaboration between large AI model and
-   small AI model, we can allow Network AI Agent within the Network
-   controller interact with network element and has more quick response
-   to network change.
+   During drills, the AI Agent automatically deploys virtual
+   environments with vulnerabilities, collects defense response data in
+   real time through NDT, and generates attack path heatmaps and repair
+   suggestions.  This capability can further verify emergency response
+   processes, inject real-time threat intelligence to dynamically update
+   drill scenarios, and simulate end-to-end automated deployment,
+   vulnerability injection, and real-time analysis of security drills,
+   enhancing the proactive verification ability of defense systems
+   against real-world threats.
 
 7.  Challenges of Integrating Service-oriented AI into Network
     Management
@@ -820,9 +866,43 @@ Table of Contents
    AI Driven Network Management and make it challenging to identify
    potential issues with AI-generated recommendations.
 
+7.5.  Fast Decision-making
+
+   In network operation and maintenance scenarios with high real-time
+   requirements, such as scheduling strategy optimization and critical
+   fault repair, the rapid generation of network optimization decisions
+   is crucial.  However, AI Agents based on large models adopt a "Token-
+   based" generation and reasoning approach, which is limited by
+   computing power and algorithms, resulting in generally slow reasoning
+   speeds.  In addition, the simulation and verification process of
+   Network Digital Twin (NDT) further increases decision latency, which
+   leads to long end-to-end decision-making time in complex scenarios
+   and is difficult to meet the real-time requirements of services.  To
+   improve decision efficiency, continuous efforts are needed in
+   lightweight NDT modeling algorithms, optimizing large model reasoning
+   frameworks (such as quantization technology and parallel computing),
+   and deploying high-performance AI acceleration hardware.
+
 8.  Security Considerations
 
-   TODO Security
+   The security consideration from
+   [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
+   the following architectural risks need to be considered:
+
+   *  Single point of failure: While the architecture provides
+      resiliency through its recovery capabilities, the digital twin
+      could become a single point of failure if not implemented with
+      sufficient redundancy and fault tolerance.
+
+   *  AI/ML model integrity: If the AI/ML models used by the digital
+      twin are compromised or poisoned with bad data, they could begin
+      making incorrect or malicious decisions.  Robust checks and
+      validation are necessary to ensure the integrity of these models.
+
+   *  Lifecycle security: The entire lifecycle of the agents and the
+      digital twin—from initial deployment and configuration to updates
+      and decommissioning—must be secured against unauthorized access
+      and manipulation.
 
 9.  IANA Considerations
 
@@ -848,23 +928,24 @@ Table of Contents
               a2a>.
 
    [Google-Agents-Whitepaper]
-              "Agents", n.d.,
+              "Agents", 2024,
               <https://www.kaggle.com/whitepaper-agents>.
 
    [I-D.ietf-nmop-network-incident-yang]
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-04, 14 June 2025,
+              incident-yang-06, 12 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-04>.
+              network-incident-yang-06>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
               Key Terms for Network Fault and Problem Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-terminology-
-              19, 18 June 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-nmop-terminology-19>.
+              23, 18 August 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
+              terminology-23>.
 
    [I-D.irtf-nmrg-ai-challenges]
               François, J., Clemm, A., Papadimitriou, D., Fernandes, S.,
@@ -879,9 +960,9 @@ Table of Contents
               Q., Boucadair, M., and C. Jacquenet, "Network Digital
               Twin: Concepts and Reference Architecture", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
-              twin-arch-10, 28 February 2025,
+              twin-arch-11, 6 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
-              network-digital-twin-arch-10>.
+              network-digital-twin-arch-11>.
 
    [I-D.rosenberg-ai-protocols]
               Rosenberg, J. and C. F. Jennings, "Framework, Use Cases
