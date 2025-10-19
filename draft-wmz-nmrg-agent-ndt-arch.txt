@@ -119,7 +119,8 @@ Table of Contents
    10. References
      10.1.  Normative References
      10.2.  Informative References
-   Acknowledgements
+   Appendix A.  Acknowledgements
+   Appendix B.  Changes between Revisions
    Contributors
    Authors' Addresses
 
@@ -1033,7 +1034,18 @@ Table of Contents
               <https://projects.tmforum.org/wiki/display/PUB/
               IG1258+Autonomous+Networks+Glossary+v1.2.0>.
 
-Acknowledgements
+Appendix A.  Acknowledgements
+
+   TBD
+
+Appendix B.  Changes between Revisions
+
+   v00 - v01
+
+* Add Security Consideration Section
+* Clarify the relation between knowlege and tools
+* Clarify the souce of knowlege
+* Clarify the key characteristics of Network AI Agent to adpat to the environment change.
 
 Contributors
 
