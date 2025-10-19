@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 8 January 2026                                     China Mobile
+Expires: 22 April 2026                                      China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 8 January 2026                                     China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                             7 July 2025
+                                                         19 October 2025
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2026.
+   This Internet-Draft will expire on 22 April 2026.
 
 Copyright Notice
 
@@ -473,14 +473,14 @@ Table of Contents
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
-   knowledge and provides the necessary knowledge and memory that helps
-   AI Agent(s) make more accurate and context-aware decisions.  It also
-   helps mitigate the hallucination problems that can arise in large-
-   scale models, which enhances the accuracy of task execution.
-   Additionally, the Knowledge Base plays a key role in providing the
-   data needed for techniques like Retrieval-Augmented Generation (RAG),
-   which further boosts the system's ability to generate reliable and
-   relevant outputs.
+   knowledge and and chain of thoughts, provides the necessary knowledge
+   and memory that helps AI Agent(s) make more accurate and practive
+   context-aware decisions.  It also helps mitigate the hallucination
+   problems that can arise in large-scale models, which enhances the
+   accuracy of task execution.  Additionally, the Knowledge Base plays a
+   key role in providing the data needed for techniques like Retrieval-
+   Augmented Generation (RAG), which further boosts the system's ability
+   to generate reliable and relevant outputs.
 
 5.2.2.4.  Data Collection
 
@@ -885,7 +885,24 @@ Table of Contents
 
 8.  Security Considerations
 
-   TODO Security
+   The security consideration from
+   [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
+   the following architectural risks need to be considered:
+
+   *  Single point of failure: While the architecture provides
+      resiliency through its recovery capabilities, the digital twin
+      could become a single point of failure if not implemented with
+      sufficient redundancy and fault tolerance.
+
+   *  AI/ML model integrity: If the AI/ML models used by the digital
+      twin are compromised or poisoned with bad data, they could begin
+      making incorrect or malicious decisions.  Robust checks and
+      validation are necessary to ensure the integrity of these models.
+
+   *  Lifecycle security: The entire lifecycle of the agents and the
+      digital twin—from initial deployment and configuration to updates
+      and decommissioning—must be secured against unauthorized access
+      and manipulation.
 
 9.  IANA Considerations
 
@@ -918,16 +935,17 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-05, 6 July 2025,
+              incident-yang-06, 12 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-05>.
+              network-incident-yang-06>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
               Key Terms for Network Fault and Problem Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-terminology-
-              19, 18 June 2025, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-nmop-terminology-19>.
+              23, 18 August 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
+              terminology-23>.
 
    [I-D.irtf-nmrg-ai-challenges]
               François, J., Clemm, A., Papadimitriou, D., Fernandes, S.,
