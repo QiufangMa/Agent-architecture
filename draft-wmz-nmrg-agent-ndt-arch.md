@@ -778,14 +778,16 @@ This document has no requests to IANA.
 --- back
 
 # Acknowledgements
-TBD
 
+This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
+Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
 
 # Changes between Revisions
 
   v00 - v01
 
-    * Add Security Consideration Section
-    * Clarify the relation between knowlege and tools
-    * Clarify the souce of knowlege
+    * Add Security Consideration Section;
+    * Add Acknowledge Section;
+    * Clarify the relation between knowlege and tools;
+    * Clarify the souce of knowlege;
     * Clarify the key characteristics of Network AI Agent to adpat to the environment change.
