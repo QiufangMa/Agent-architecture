@@ -271,8 +271,9 @@ They together form a close-loop of network operation and management.
 
 * Knowledge:
 : The Network AI agent relies on a knowledge base that includes network policies,
-  historical data, expert experience, and best practices in product manual. The
-  knowledge is used to inform its analysis, decision-making, and execution processes.
+  historical data, expert experience, extra-system experience (updates to LLMs/their implied ‘knowledge bases’)
+  and Manually or semi-manually entered knowledge,e.g.,new equipment spec sheets,best practices in product manual.
+  The knowledge is used to inform its analysis, decision-making, and execution processes.
   Over time, the Network AI agent can expand its knowledge through machine learning,
   incorporating new data and experiences to improve its performance. For example,
   it learns which configurations are optimal for specific scenarios or how to
@@ -411,6 +412,11 @@ can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
 the system's ability to generate reliable and relevant outputs.
+
+In case of coupling MCP with the nework management system, the new knowledge also can be used to
+support modification of the currently operating automation Closed Loop, such as:
+- Choice of tools (data, analytics, algorithms/decision processes, closed loops)
+- Orchestration of tools
 
 #### Data Collection
 
