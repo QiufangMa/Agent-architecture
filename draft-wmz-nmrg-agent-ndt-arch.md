@@ -403,9 +403,9 @@ industry may help with multi-agents coordination.
 #### Knowledge Base
 
 The Knowledge Base serves as a crucial repository of information within the
-architecture. It enables the injection of expert knowledge and provides the
-necessary knowledge and memory that helps AI Agent(s) make more accurate and
-context-aware decisions. It also helps mitigate the hallucination problems that
+architecture. It enables the injection of expert knowledge and and chain of thoughts,
+provides the necessary knowledge and memory that helps AI Agent(s) make more accurate and
+practive context-aware decisions. It also helps mitigate the hallucination problems that
 can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
@@ -749,7 +749,19 @@ high-performance AI acceleration hardware.
 
 # Security Considerations
 
-TODO Security
+The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} apply here. In addition, the following architectural risks need to be considered:
+
+- Single point of failure:
+  While the architecture provides resiliency through its recovery capabilities, the digital twin could become a single point of failure if not implemented with sufficient
+  redundancy and fault tolerance.
+
+- AI/ML model integrity:
+  If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust checks and
+   validation are necessary to ensure the integrity of these models.
+
+- Lifecycle security:
+  The entire lifecycle of the agents and the digital twin—from initial deployment and configuration to updates and decommissioning—must be secured
+  against unauthorized access and manipulation.
 
 # IANA Considerations
 
