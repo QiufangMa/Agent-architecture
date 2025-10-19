@@ -388,7 +388,8 @@ to Network AI Agent(s) in {{arch}}.
 #### Network AI Agent(s)
 
 Network AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network operations.
+for conducting AI-based analysis and making decisions regarding network operations and adapting
+to new circumstances through access to evolving knowledge and reasoning, planning.
 It leverages the inference of LLM, the simulation of Network Digital Twin, and the
 contextual and domain-specific knowledge provided by Knowledge Base to accomplish
 specific network operation task.
