@@ -780,11 +780,3 @@ This document has no requests to IANA.
 # Acknowledgements
 {:numbered="false"}
 
-# Changes between Revisions
-
-v00 - v01
-
-* Add Security Consideration Section
-* Clarify the relation between knowlege and tools
-* Clarify the souce of knowlege
-* Clarify the key characteristics of Network AI Agent to adpat to the environment change.
