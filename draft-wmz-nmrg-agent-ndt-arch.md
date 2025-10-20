@@ -506,13 +506,22 @@ generate network insight.
 
 With more intelligence introduced into the network element, more GPU/NPU resource can be
 allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible. On one hand, we can use accumulated field engineering
-expertise to train large AI model into one foundation model for fault management AI agent,
-On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
-in the intelligent network element to collect more fine granularity data or provide local processing
-for Collected data and summary report generation, Trend prediction, etc.
+And small AI model become possible. 
+
+Large AI models can provide basic logical reasoning and generalized analytical decision-making
+capabilities While specialized small AI models can provide efficient problem-solving capabilities
+in specialized areas.  The synergy between the two allows the AI agent to combine both multitasking
+generalization capabilities and domain expertise, thus minimizing the reliance on human intervention
+in the network management process.
+
+On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
+model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
+resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
+local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
+
+
 
 # AI Driven Network Operation: A collection of Use Cases
 
