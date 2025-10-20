@@ -506,7 +506,7 @@ generate network insight.
 
 With more intelligence introduced into the network element, more GPU/NPU resource can be
 allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible. 
+And small AI model become possible.
 
 Large AI models can provide basic logical reasoning and generalized analytical decision-making
 capabilities While specialized small AI models can provide efficient problem-solving capabilities
