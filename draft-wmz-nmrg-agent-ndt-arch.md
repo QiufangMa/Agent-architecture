@@ -3,10 +3,8 @@ title: "Network Digital Twin based Architecture for AI driven Network Operations
 abbrev: "AI Agent architecture"
 category: info
 
-# Network Digital Twin based Architecture for Service oriented AI for Network Operation
-# AI driven Network Digital Twin Management Framework
-# Integrating Generative AI with Network Digital Twin for Network Operation
-# Architecture for integrating Generative AI with Network Digital Twin
+# Network Digital Twin based Architecture for AI Driven Network Operation
+# Integrating Agentic AI with Network Digital Twin for Network Operation
 
 docname: draft-wmz-nmrg-agent-ndt-arch-latest
 submissiontype: IRTF  # also: "independent", "editorial", "IAB", or "IRTF"
@@ -91,14 +89,14 @@ informative:
 
 A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
 such as scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, it allows the network management
+a Network Digital Twin into network management together with Agentic AI, it allows the network management
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. Such environment that operates to meet these types of
 requirements is said to have AI driven Network Operations.
 
 AI driven Network Operations brings together existing technologies such
-as Network Digital Twin and AI which may be seen as the use of a toolbox
+as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.
 
 This document describes an architecture for AI driven network
@@ -123,13 +121,13 @@ check table entries.
 
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} has been proposed as
 a mean to provide a network emulation tool for scenario planning, impact analysis, and change
-management. Integrating a Network Digital Twin into network management together with AI, it
+management. Integrating a Network Digital Twin into network management together with Agentic AI, it
 allows network management activities to dynamically adapt to customer needs, network changes, as
 well as to automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. An environment that operates to meet these
 types of requirements is said to have service-oriented AI for network operations.
 
-Service-oriented AI for network operations provide the following capabilities to applications by
+AI Driven network operations provide the following capabilities to applications by
 coordinating the components that operate and manage the network:
 
 * Service intent and service assurance work together to ensure that the
@@ -159,7 +157,7 @@ coordinating the components that operate and manage the network:
   verification on the repair solution in seconds, including loop, address conflict, and security
   policy conflict.
 
-This document describes an architecture for service-oriented AI for network
+This document describes an architecture for AI Driven network
 operations, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
 intent-based networking to meet the needs of applications.
@@ -181,6 +179,8 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
  * Large Language Model (LLM)
 
  * Retrieval-Augmented Generation (RAG)
+
+ * Agentic AI
 
 Besides, this document defines the following terminology:
 
@@ -328,23 +328,17 @@ They together form a close-loop of network operation and management.
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------+        +-------v---------+    +------------+  |
-|     |                |        |    Network      |    |            |  |
-|     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
-|     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
-|     |                |   +---->    Decision)    |    |            |  |
-|     +------------^---+   |    +-----------+-----+    +------------+  |
+|     +----------------+        +-------v----------+    +------------+ |
+|     |                |        |    Network       |    |            | |
+|     |   Network      |        |   AI Agent(s)    |    | Knowledge  | |
+|     |  Digital Twin  <--------> (Intent&Analysis <----> Base       | |
+|     |                |   +---->&Decision&Execution)   |            | |
+|     +------------^---+   |    +-----------+-----+     +------------+ |
 |                  |       |                |                          |
 |                  |       |                |                          |
-|                +-+-------+------+   +-----v----------+               |
-|                |                |   |                |               |
-|                | Data Collection|   |    Execution   |               |
-|                |                |   |                |               |
-|                +--------^-------+   +----------------+               |
-                          |                      |
-+-------------------------+----------------------+---------------------+
-                          |                      |
-+-------------------------+----------------------v---------------------+
++------------------+------------------------+--------------------------+
+                   |       |                |
++------------------+-------+----------------v--------------------------+
 | Physical Network                                                     |
 |  +-------------+      +-------------------+  +-------------------+   |
 |  |             |      |  +---------------+|  |  +---------------+|   |
@@ -352,6 +346,39 @@ They together form a close-loop of network operation and management.
 |  |             |      |  +---------------+|  |  +---------------+|   |
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
+
++--------------------------------------------------------------+
+|                       Application                            |
++------------------------------+-------------------------------+
+                      Intent Interface
+                               |
++------------------------------+-------------------------------+
+|                                                              |
+| Autonomous Domain                                            |
+|                                            Agent Gateway     |
+|     +-------+        +---------+          +--------------+   |
+|     |Network|        | Network |          | Agent        |   |
+|     |Digital+--------+   AI    |----------|Orchestration |   |
+|     |Twin   |        | Agent   |          |& Management  |   |
+|     +---+---+        +----+----+          +---+----------+   |
+|         |          -+-----+-----+-----------+-+              |
+|         |       +---+----+  +---+----+  +---+----+           |
+|         |       | Task   |  |Task    |  | Task   |           |
+|         |       |AI Agent|  |AI Agent|  |AI Agent|           |
+|         |       +----+---+  +---+----+  +---+----+           |
+|         |            |          |           |                |
++---------+------------+----------+-----------+----------------+
+      Mgmt interface   |          |           |
+          |            |          |           |
++---------+------------+----------+-----------+----------------+
+| Physical Network                                             |
+|  +-------+      +-------------------+  +-------------------+ |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  |  NE   | ...  |NE| Lightweight AI||  |NE| Lightweight AI|| |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  +-------+      +-------------------+  +-------------------+ |
++--------------------------------------------------------------+
+
 ~~~~
 {: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
 
@@ -768,16 +795,16 @@ high-performance AI acceleration hardware.
 The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} apply here. In addition, the following architectural risks need to be considered:
 
 - Single point of failure:
-  While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of failure if not
-  implemented with sufficientcredundancy and fault tolerance.
+  While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of
+  failure if not implemented with sufficientcredundancy and fault tolerance.
 
 - AI/ML model integrity:
-  If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust checks and
-   validation are necessary to ensure the integrity of these models.
+  If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust
+  checks and validation are necessary to ensure the integrity of these models.
 
 - Lifecycle security:
-  The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must be secured
-  against unauthorized access and manipulation.
+  The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must
+  be secured against unauthorized access and manipulation.
 
 # IANA Considerations
 
