@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 22 April 2026                                      China Mobile
+Expires: 8 July 2026                                        China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 22 April 2026                                      China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         19 October 2025
+                                                          4 January 2026
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -25,16 +25,17 @@ Abstract
    A Network Digital Twin (NDT) provides a network emulation tool usable
    for different purposes such as scenario planning, impact analysis,
    and change management.  Integrating a Network Digital Twin into
-   network management together with AI, it allows the network management
-   activities to take user intent or service requirements as input,
-   automatically assess, model, and refine optimization strategies under
-   realistic conditions but in a risk-free environment.  Such
-   environment that operates to meet these types of requirements is said
-   to have AI driven Network Operations.
+   network management together with Agentic AI, it allows the network
+   management activities to take user intent or service requirements as
+   input, automatically assess, model, and refine optimization
+   strategies under realistic conditions but in a risk-free environment.
+   Such environment that operates to meet these types of requirements is
+   said to have AI driven Network Operations.
 
    AI driven Network Operations brings together existing technologies
-   such as Network Digital Twin and AI which may be seen as the use of a
-   toolbox of existing components enhanced with a few new elements.
+   such as Agentic AI and Network Digital Twin which may be seen as the
+   use of a toolbox of existing components enhanced with a few new
+   elements.
 
    This document describes an architecture for AI driven network
    operations and shows how these components work together.  It provides
@@ -68,11 +69,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 April 2026.
+   This Internet-Draft will expire on 8 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -119,7 +120,8 @@ Table of Contents
    10. References
      10.1.  Normative References
      10.2.  Informative References
-   Acknowledgements
+   Appendix A.  Acknowledgements
+   Appendix B.  Changes between Revisions
    Contributors
    Authors' Addresses
 
@@ -143,7 +145,7 @@ Table of Contents
    [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
    to provide a network emulation tool for scenario planning, impact
    analysis, and change management.  Integrating a Network Digital Twin
-   into network management together with AI, it allows network
+   into network management together with Agentic AI, it allows network
    management activities to dynamically adapt to customer needs, network
    changes, as well as to automatically assess, model, and refine
    optimization strategies under realistic conditions but in a risk-free
@@ -151,9 +153,9 @@ Table of Contents
    requirements is said to have service-oriented AI for network
    operations.
 
-   Service-oriented AI for network operations provide the following
-   capabilities to applications by coordinating the components that
-   operate and manage the network:
+   AI Driven network operations provide the following capabilities to
+   applications by coordinating the components that operate and manage
+   the network:
 
    *  Service intent and service assurance work together to ensure that
       the network change or network optimization aligns with business
@@ -189,11 +191,10 @@ Table of Contents
       seconds, including loop, address conflict, and security policy
       conflict.
 
-   This document describes an architecture for service-oriented AI for
-   network operations, showing how these components work together.  It
-   provides a cookbook of existing technologies to satisfy the
-   architecture and realize intent-based networking to meet the needs of
-   applications.
+   This document describes an architecture for AI Driven network
+   operations, showing how these components work together.  It provides
+   a cookbook of existing technologies to satisfy the architecture and
+   realize intent-based networking to meet the needs of applications.
 
 2.  Conventions and Definitions
 
@@ -217,6 +218,8 @@ Table of Contents
    *  Large Language Model (LLM)
 
    *  Retrieval-Augmented Generation (RAG)
+
+   *  Agentic AI
 
    Besides, this document defines the following terminology:
 
@@ -320,14 +323,17 @@ Table of Contents
 
    *  Knowledge:  The Network AI agent relies on a knowledge base that
          includes network policies, historical data, expert experience,
-         and best practices in product manual.  The knowledge is used to
-         inform its analysis, decision-making, and execution processes.
-         Over time, the Network AI agent can expand its knowledge
-         through machine learning, incorporating new data and
-         experiences to improve its performance.  For example, it learns
-         which configurations are optimal for specific scenarios or how
-         to respond most effectively to particular types of network
-         incidents [I-D.ietf-nmop-network-incident-yang].
+         extra-system experience (updates to LLMs/their implied
+         ‘knowledge bases’) and Manually or semi-manually entered
+         knowledge,e.g.,new equipment spec sheets,best practices in
+         product manual.  The knowledge is used to inform its analysis,
+         decision-making, and execution processes.  Over time, the
+         Network AI agent can expand its knowledge through machine
+         learning, incorporating new data and experiences to improve its
+         performance.  For example, it learns which configurations are
+         optimal for specific scenarios or how to respond most
+         effectively to particular types of network incidents
+         [I-D.ietf-nmop-network-incident-yang].
 
    *  Analysis:  The Network AI agent continuously analyzes vast amounts
          of network data from various sources, including network
@@ -386,23 +392,17 @@ Table of Contents
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------+        +-------v---------+    +------------+  |
-|     |                |        |    Network      |    |            |  |
-|     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
-|     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
-|     |                |   +---->    Decision)    |    |            |  |
-|     +------------^---+   |    +-----------+-----+    +------------+  |
+|     +----------------+        +-------v----------+    +------------+ |
+|     |                |        |    Network       |    |            | |
+|     |   Network      |        |   AI Agent(s)    |    | Knowledge  | |
+|     |  Digital Twin  <--------> (Intent&Analysis <----> Base       | |
+|     |                |   +---->&Decision&Execution)   |            | |
+|     +------------^---+   |    +-----------+-----+     +------------+ |
 |                  |       |                |                          |
 |                  |       |                |                          |
-|                +-+-------+------+   +-----v----------+               |
-|                |                |   |                |               |
-|                | Data Collection|   |    Execution   |               |
-|                |                |   |                |               |
-|                +--------^-------+   +----------------+               |
-                          |                      |
-+-------------------------+----------------------+---------------------+
-                          |                      |
-+-------------------------+----------------------v---------------------+
++------------------+------------------------+--------------------------+
+                   |       |                |
++------------------+-------+----------------v--------------------------+
 | Physical Network                                                     |
 |  +-------------+      +-------------------+  +-------------------+   |
 |  |             |      |  +---------------+|  |  +---------------+|   |
@@ -410,6 +410,38 @@ Table of Contents
 |  |             |      |  +---------------+|  |  +---------------+|   |
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
+
++--------------------------------------------------------------+
+|                       Application                            |
++------------------------------+-------------------------------+
+                      Intent Interface
+                               |
++------------------------------+-------------------------------+
+|                                                              |
+| Autonomous Domain                                            |
+|                                            Agent Gateway     |
+|     +-------+        +---------+          +--------------+   |
+|     |Network|        | Network |          | Agent        |   |
+|     |Digital+--------+   AI    |----------|Orchestration |   |
+|     |Twin   |        | Agent   |          |& Management  |   |
+|     +---+---+        +----+----+          +---+----------+   |
+|         |          -+-----+-----+-----------+-+              |
+|         |       +---+----+  +---+----+  +---+----+           |
+|         |       | Task   |  |Task    |  | Task   |           |
+|         |       |AI Agent|  |AI Agent|  |AI Agent|           |
+|         |       +----+---+  +---+----+  +---+----+           |
+|         |            |          |           |                |
++---------+------------+----------+-----------+----------------+
+      Mgmt interface   |          |           |
+          |            |          |           |
++---------+------------+----------+-----------+----------------+
+| Physical Network                                             |
+|  +-------+      +-------------------+  +-------------------+ |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  |  NE   | ...  |NE| Lightweight AI||  |NE| Lightweight AI|| |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  +-------+      +-------------------+  +-------------------+ |
++--------------------------------------------------------------+
 
    Figure 2: An Architecture for Integrating Network AI Agent with
                          Network Digital Twin
@@ -456,10 +488,12 @@ Table of Contents
 
    Network AI Agent(s) act(s) as the smart brain of the Autonomous
    Domain, which is responsible for conducting AI-based analysis and
-   making decisions regarding network operations.  It leverages the
-   inference of LLM, the simulation of Network Digital Twin, and the
-   contextual and domain-specific knowledge provided by Knowledge Base
-   to accomplish specific network operation task.
+   making decisions regarding network operations and adapting to new
+   circumstances through access to evolving knowledge and reasoning,
+   planning.  It leverages the inference of LLM, the simulation of
+   Network Digital Twin, and the contextual and domain-specific
+   knowledge provided by Knowledge Base to accomplish specific network
+   operation task.
 
    Agents could be scenario-oriented and classified according to the
    function they perform.  It is also possible for multiple Agents to
@@ -481,6 +515,12 @@ Table of Contents
    key role in providing the data needed for techniques like Retrieval-
    Augmented Generation (RAG), which further boosts the system's ability
    to generate reliable and relevant outputs.
+
+   In case of coupling MCP with the nework management system, the new
+   knowledge also can be used to support modification of the currently
+   operating automation Closed Loop, such as: - Choice of tools (data,
+   analytics, algorithms/decision processes, closed loops) -
+   Orchestration of tools
 
 5.2.2.4.  Data Collection
 
@@ -584,16 +624,26 @@ Table of Contents
    With more intelligence introduced into the network element, more GPU/
    NPU resource can be allocated for AI inference, this make
    collaboration between large AI model And small AI model become
-   possible.  On one hand, we can use accumulated field engineering
-   expertise to train large AI model into one foundation model for fault
-   management AI agent, On the other hand, we can deploy small AI model,
-   leverage hardware resource or chipset resource in the intelligent
-   network element to collect more fine granularity data or provide
-   local processing for Collected data and summary report generation,
-   Trend prediction, etc.  With collaboration between large AI model and
-   small AI model, we can allow Network AI Agent within the Network
-   controller interact with network element and has more quick response
-   to network change.
+   possible.
+
+   Large AI models can provide basic logical reasoning and generalized
+   analytical decision-making capabilities While specialized small AI
+   models can provide efficient problem-solving capabilities in
+   specialized areas.  The synergy between the two allows the AI agent
+   to combine both multitasking generalization capabilities and domain
+   expertise, thus minimizing the reliance on human intervention in the
+   network management process.
+
+   On one hand, we can use accumulated field engineering expertise to
+   train large AI model into one foundation model for fault management
+   AI agent, On the other hand, we can deploy small AI model, leverage
+   hardware resource or chipset resource in the intelligent network
+   element to collect more fine granularity data or provide local
+   processing for Collected data and summary report generation, Trend
+   prediction, etc.  With collaboration between large AI model and small
+   AI model, we can allow Network AI Agent within the Network controller
+   interact with network element and has more quick response to network
+   change.
 
 6.  AI Driven Network Operation: A collection of Use Cases
 
@@ -890,19 +940,19 @@ Table of Contents
    the following architectural risks need to be considered:
 
    *  Single point of failure: While the architecture provides
-      resiliency through its recovery capabilities, the digital twin
-      could become a single point of failure if not implemented with
-      sufficient redundancy and fault tolerance.
+      resiliency through its recovery capabilities, the network digital
+      twin or Network AI Agent could become a single point of failure if
+      not implemented with sufficientcredundancy and fault tolerance.
 
    *  AI/ML model integrity: If the AI/ML models used by the digital
       twin are compromised or poisoned with bad data, they could begin
       making incorrect or malicious decisions.  Robust checks and
       validation are necessary to ensure the integrity of these models.
 
-   *  Lifecycle security: The entire lifecycle of the agents and the
-      digital twin—from initial deployment and configuration to updates
-      and decommissioning—must be secured against unauthorized access
-      and manipulation.
+   *  Lifecycle security: The entire lifecycle of the network AI agents
+      and the network digital twin—from initial deployment and
+      configuration to updates and decommissioning—must be secured
+      against unauthorized access and manipulation.
 
 9.  IANA Considerations
 
@@ -935,9 +985,9 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-06, 12 October 2025,
+              incident-yang-07, 3 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-06>.
+              network-incident-yang-07>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
@@ -1022,7 +1072,21 @@ Table of Contents
               <https://projects.tmforum.org/wiki/display/PUB/
               IG1258+Autonomous+Networks+Glossary+v1.2.0>.
 
-Acknowledgements
+Appendix A.  Acknowledgements
+
+   This work has benefited from the discussions of NMRG interim meeting
+   on Agentic AI.  Thanks Chris Janz for wonderful comments and
+   discussion on proactive close loop.
+
+Appendix B.  Changes between Revisions
+
+   v00 - v01
+
+* Add Security Consideration Section;
+* Add Acknowledge Section;
+* Clarify the relation between knowlege and tools;
+* Clarify the souce of knowlege;
+* Clarify the key characteristics of Network AI Agent to adpat to the environment change.
 
 Contributors
 

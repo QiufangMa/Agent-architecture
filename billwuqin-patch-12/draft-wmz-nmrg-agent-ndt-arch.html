@@ -14,13 +14,13 @@
 <meta content="
        A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
 such as scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, it allows the network management
+a Network Digital Twin into network management together with Agentic AI, it allows the network management
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. Such environment that operates to meet these types of
 requirements is said to have AI driven Network Operations. 
        AI driven Network Operations brings together existing technologies such
-as Network Digital Twin and AI which may be seen as the use of a toolbox
+as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements. 
        This document describes an architecture for AI driven network
 operations and shows how these components work together. It provides a
@@ -38,12 +38,12 @@ intent-based networking to meet the needs of the network service.
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.5.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
     wcwidth 0.2.14
 -->
@@ -1064,11 +1064,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">AI Agent architecture</td>
-<td class="right">October 2025</td>
+<td class="right">January 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu, et al.</td>
-<td class="center">Expires 22 April 2026</td>
+<td class="center">Expires 8 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1081,12 +1081,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-wmz-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-19" class="published">19 October 2025</time>
+<time datetime="2026-01-04" class="published">4 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-22">22 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-08">8 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1121,13 +1121,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
 such as scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with AI, it allows the network management
+a Network Digital Twin into network management together with Agentic AI, it allows the network management
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. Such environment that operates to meet these types of
 requirements is said to have AI driven Network Operations.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <p id="section-abstract-2">AI driven Network Operations brings together existing technologies such
-as Network Digital Twin and AI which may be seen as the use of a toolbox
+as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 <p id="section-abstract-3">This document describes an architecture for AI driven network
 operations and shows how these components work together. It provides a
@@ -1164,7 +1164,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1173,7 +1173,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1310,13 +1310,16 @@ intent-based networking to meet the needs of the network service.<a href="#secti
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-changes-between-revisions" class="internal xref">Changes between Revisions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1338,12 +1341,12 @@ change. Then, after the change, they need to perform dialling tests, monitor tra
 check table entries.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">The Network Digital Twin (NDT) <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> has been proposed as
 a mean to provide a network emulation tool for scenario planning, impact analysis, and change
-management. Integrating a Network Digital Twin into network management together with AI, it
+management. Integrating a Network Digital Twin into network management together with Agentic AI, it
 allows network management activities to dynamically adapt to customer needs, network changes, as
 well as to automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. An environment that operates to meet these
 types of requirements is said to have service-oriented AI for network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">Service-oriented AI for network operations provide the following capabilities to applications by
+<p id="section-1-4">AI Driven network operations provide the following capabilities to applications by
 coordinating the components that operate and manage the network:<a href="#section-1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-5.1">
@@ -1382,7 +1385,7 @@ verification on the repair solution in seconds, including loop, address conflict
 policy conflict.<a href="#section-1-5.8.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-6">This document describes an architecture for service-oriented AI for network
+<p id="section-1-6">This document describes an architecture for AI Driven network
 operations, showing how these components work together. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
 intent-based networking to meet the needs of applications.<a href="#section-1-6" class="pilcrow">¶</a></p>
@@ -1416,6 +1419,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </li>
         <li class="normal" id="section-2-5.3">
           <p id="section-2-5.3.1">Retrieval-Augmented Generation (RAG)<a href="#section-2-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.4">
+          <p id="section-2-5.4.1">Agentic AI<a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-2-6">Besides, this document defines the following terminology:<a href="#section-2-6" class="pilcrow">¶</a></p>
@@ -1541,8 +1547,9 @@ instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow
             <dt id="section-4-3.2.1.1">Knowledge:</dt>
             <dd style="margin-left: 1.5em" id="section-4-3.2.1.2">
               <p id="section-4-3.2.1.2.1">The Network AI agent relies on a knowledge base that includes network policies,
-historical data, expert experience, and best practices in product manual. The
-knowledge is used to inform its analysis, decision-making, and execution processes.
+historical data, expert experience, extra-system experience (updates to LLMs/their implied ‘knowledge bases’)
+and Manually or semi-manually entered knowledge,e.g.,new equipment spec sheets,best practices in product manual.
+The knowledge is used to inform its analysis, decision-making, and execution processes.
 Over time, the Network AI agent can expand its knowledge through machine learning,
 incorporating new data and experiences to improve its performance. For example,
 it learns which configurations are optimal for specific scenarios or how to
@@ -1635,23 +1642,17 @@ have the desired effect and makes the proper adjustments if needed.<a href="#sec
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------+        +-------v---------+    +------------+  |
-|     |                |        |    Network      |    |            |  |
-|     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
-|     |  Digital Twin  &lt;--------&gt;   (Analysis &amp;   &lt;----&gt; Base       |  |
-|     |                |   +----&gt;    Decision)    |    |            |  |
-|     +------------^---+   |    +-----------+-----+    +------------+  |
+|     +----------------+        +-------v----------+    +------------+ |
+|     |                |        |    Network       |    |            | |
+|     |   Network      |        |   AI Agent(s)    |    | Knowledge  | |
+|     |  Digital Twin  &lt;--------&gt; (Intent&amp;Analysis &lt;----&gt; Base       | |
+|     |                |   +----&gt;&amp;Decision&amp;Execution)   |            | |
+|     +------------^---+   |    +-----------+-----+     +------------+ |
 |                  |       |                |                          |
 |                  |       |                |                          |
-|                +-+-------+------+   +-----v----------+               |
-|                |                |   |                |               |
-|                | Data Collection|   |    Execution   |               |
-|                |                |   |                |               |
-|                +--------^-------+   +----------------+               |
-                          |                      |
-+-------------------------+----------------------+---------------------+
-                          |                      |
-+-------------------------+----------------------v---------------------+
++------------------+------------------------+--------------------------+
+                   |       |                |
++------------------+-------+----------------v--------------------------+
 | Physical Network                                                     |
 |  +-------------+      +-------------------+  +-------------------+   |
 |  |             |      |  +---------------+|  |  +---------------+|   |
@@ -1659,6 +1660,39 @@ have the desired effect and makes the proper adjustments if needed.<a href="#sec
 |  |             |      |  +---------------+|  |  +---------------+|   |
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
+
++--------------------------------------------------------------+
+|                       Application                            |
++------------------------------+-------------------------------+
+                      Intent Interface
+                               |
++------------------------------+-------------------------------+
+|                                                              |
+| Autonomous Domain                                            |
+|                                            Agent Gateway     |
+|     +-------+        +---------+          +--------------+   |
+|     |Network|        | Network |          | Agent        |   |
+|     |Digital+--------+   AI    |----------|Orchestration |   |
+|     |Twin   |        | Agent   |          |&amp; Management  |   |
+|     +---+---+        +----+----+          +---+----------+   |
+|         |          -+-----+-----+-----------+-+              |
+|         |       +---+----+  +---+----+  +---+----+           |
+|         |       | Task   |  |Task    |  | Task   |           |
+|         |       |AI Agent|  |AI Agent|  |AI Agent|           |
+|         |       +----+---+  +---+----+  +---+----+           |
+|         |            |          |           |                |
++---------+------------+----------+-----------+----------------+
+      Mgmt interface   |          |           |
+          |            |          |           |
++---------+------------+----------+-----------+----------------+
+| Physical Network                                             |
+|  +-------+      +-------------------+  +-------------------+ |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  |  NE   | ...  |NE| Lightweight AI||  |NE| Lightweight AI|| |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  +-------+      +-------------------+  +-------------------+ |
++--------------------------------------------------------------+
+
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
@@ -1716,7 +1750,8 @@ to Network AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a
 <a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-network-ai-agents" class="section-name selfRef">Network AI Agent(s)</a>
             </h5>
 <p id="section-5.2.2.2-1">Network AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network operations.
+for conducting AI-based analysis and making decisions regarding network operations and adapting
+to new circumstances through access to evolving knowledge and reasoning, planning.
 It leverages the inference of LLM, the simulation of Network Digital Twin, and the
 contextual and domain-specific knowledge provided by Knowledge Base to accomplish
 specific network operation task.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
@@ -1741,6 +1776,10 @@ can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
 the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-2">In case of coupling MCP with the nework management system, the new knowledge also can be used to
+support modification of the currently operating automation Closed Loop, such as:
+- Choice of tools (data, analytics, algorithms/decision processes, closed loops)
+- Orchestration of tools<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="data-collection">
@@ -1867,13 +1906,18 @@ e.g., we can use collected various different network data to provide network ana
 generate network insight.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
 <p id="section-5.4-3">With more intelligence introduced into the network element, more GPU/NPU resource can be
 allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible. On one hand, we can use accumulated field engineering
-expertise to train large AI model into one foundation model for fault management AI agent,
-On the other hand, we can deploy small AI model, leverage hardware resource or chipset resource
-in the intelligent network element to collect more fine granularity data or provide local processing
-for Collected data and summary report generation, Trend prediction, etc.
+And small AI model become possible.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.4-4">Large AI models can provide basic logical reasoning and generalized analytical decision-making
+capabilities While specialized small AI models can provide efficient problem-solving capabilities
+in specialized areas.  The synergy between the two allows the AI agent to combine both multitasking
+generalization capabilities and domain expertise, thus minimizing the reliance on human intervention
+in the network management process.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.4-5">On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
+model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
+resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
+local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
-controller interact with network element and has more quick response to network change.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+controller interact with network element and has more quick response to network change.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2211,18 +2255,18 @@ high-performance AI acceleration hardware.<a href="#section-7.5-1" class="pilcro
 <ul class="normal">
 <li class="normal" id="section-8-2.1">
           <p id="section-8-2.1.1">Single point of failure:
-While the architecture provides resiliency through its recovery capabilities, the digital twin could become a single point of failure if not implemented with sufficient
-redundancy and fault tolerance.<a href="#section-8-2.1.1" class="pilcrow">¶</a></p>
+While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of
+failure if not implemented with sufficientcredundancy and fault tolerance.<a href="#section-8-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-8-2.2">
           <p id="section-8-2.2.1">AI/ML model integrity:
-If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust checks and
- validation are necessary to ensure the integrity of these models.<a href="#section-8-2.2.1" class="pilcrow">¶</a></p>
+If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust
+checks and validation are necessary to ensure the integrity of these models.<a href="#section-8-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-8-2.3">
           <p id="section-8-2.3.1">Lifecycle security:
-The entire lifecycle of the agents and the digital twin—from initial deployment and configuration to updates and decommissioning—must be secured
-against unauthorized access and manipulation.<a href="#section-8-2.3.1" class="pilcrow">¶</a></p>
+The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must
+be secured against unauthorized access and manipulation.<a href="#section-8-2.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
@@ -2273,7 +2317,7 @@ against unauthorized access and manipulation.<a href="#section-8-2.3.1" class="p
 <dd class="break"></dd>
 <dt id="I-D.ietf-nmop-network-incident-yang">[I-D.ietf-nmop-network-incident-yang]</dt>
         <dd>
-<span class="refAuthor">Hu, T.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Davis, N.</span>, and <span class="refAuthor">C. Feng</span>, <span class="refTitle">"A YANG Data Model for Network Incident Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-network-incident-yang-06</span>, <time datetime="2025-10-12" class="refDate">12 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-06">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-06</a>&gt;</span>. </dd>
+<span class="refAuthor">Hu, T.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Davis, N.</span>, and <span class="refAuthor">C. Feng</span>, <span class="refTitle">"A YANG Data Model for Network Incident Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-network-incident-yang-07</span>, <time datetime="2026-01-03" class="refDate">3 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-07">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-07</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-nmop-terminology">[I-D.ietf-nmop-terminology]</dt>
         <dd>
@@ -2343,12 +2387,31 @@ against unauthorized access and manipulation.<a href="#section-8-2.3.1" class="p
 <div id="acknowledgements">
 <section id="appendix-A">
       <h2 id="name-acknowledgements">
-<a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
-    </h2>
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+      </h2>
+<p id="appendix-A-1">This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
+Thanks Chris Janz for wonderful comments and discussion on proactive close loop.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="changes-between-revisions">
+<section id="appendix-B">
+      <h2 id="name-changes-between-revisions">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-changes-between-revisions" class="section-name selfRef">Changes between Revisions</a>
+      </h2>
+<p id="appendix-B-1">v00 - v01<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-B-2">
+<pre>
+* Add Security Consideration Section;
+* Add Acknowledge Section;
+* Clarify the relation between knowlege and tools;
+* Clarify the souce of knowlege;
+* Clarify the key characteristics of Network AI Agent to adpat to the environment change.
+</pre><a href="#appendix-B-2" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="contributors">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-contributors">
 <a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
@@ -2363,7 +2426,7 @@ against unauthorized access and manipulation.<a href="#section-8-2.3.1" class="p
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-C">
+<section id="appendix-D">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
