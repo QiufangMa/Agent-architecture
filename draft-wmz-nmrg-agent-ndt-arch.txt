@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 23 April 2026                                      China Mobile
+Expires: 10 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 23 April 2026                                      China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         20 October 2025
+                                                          6 January 2026
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -25,16 +25,17 @@ Abstract
    A Network Digital Twin (NDT) provides a network emulation tool usable
    for different purposes such as scenario planning, impact analysis,
    and change management.  Integrating a Network Digital Twin into
-   network management together with AI, it allows the network management
-   activities to take user intent or service requirements as input,
-   automatically assess, model, and refine optimization strategies under
-   realistic conditions but in a risk-free environment.  Such
-   environment that operates to meet these types of requirements is said
-   to have AI driven Network Operations.
+   network management together with Agentic AI, it allows the network
+   management activities to take user intent or service requirements as
+   input, automatically assess, model, and refine optimization
+   strategies under realistic conditions but in a risk-free environment.
+   Such environment that operates to meet these types of requirements is
+   said to have AI driven Network Operations.
 
    AI driven Network Operations brings together existing technologies
-   such as Network Digital Twin and AI which may be seen as the use of a
-   toolbox of existing components enhanced with a few new elements.
+   such as Agentic AI and Network Digital Twin which may be seen as the
+   use of a toolbox of existing components enhanced with a few new
+   elements.
 
    This document describes an architecture for AI driven network
    operations and shows how these components work together.  It provides
@@ -68,11 +69,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 April 2026.
+   This Internet-Draft will expire on 10 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -144,7 +145,7 @@ Table of Contents
    [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
    to provide a network emulation tool for scenario planning, impact
    analysis, and change management.  Integrating a Network Digital Twin
-   into network management together with AI, it allows network
+   into network management together with Agentic AI, it allows network
    management activities to dynamically adapt to customer needs, network
    changes, as well as to automatically assess, model, and refine
    optimization strategies under realistic conditions but in a risk-free
@@ -152,9 +153,9 @@ Table of Contents
    requirements is said to have service-oriented AI for network
    operations.
 
-   Service-oriented AI for network operations provide the following
-   capabilities to applications by coordinating the components that
-   operate and manage the network:
+   AI Driven network operations provide the following capabilities to
+   applications by coordinating the components that operate and manage
+   the network:
 
    *  Service intent and service assurance work together to ensure that
       the network change or network optimization aligns with business
@@ -190,11 +191,10 @@ Table of Contents
       seconds, including loop, address conflict, and security policy
       conflict.
 
-   This document describes an architecture for service-oriented AI for
-   network operations, showing how these components work together.  It
-   provides a cookbook of existing technologies to satisfy the
-   architecture and realize intent-based networking to meet the needs of
-   applications.
+   This document describes an architecture for AI Driven network
+   operations, showing how these components work together.  It provides
+   a cookbook of existing technologies to satisfy the architecture and
+   realize intent-based networking to meet the needs of applications.
 
 2.  Conventions and Definitions
 
@@ -218,6 +218,8 @@ Table of Contents
    *  Large Language Model (LLM)
 
    *  Retrieval-Augmented Generation (RAG)
+
+   *  Agentic AI
 
    Besides, this document defines the following terminology:
 
@@ -390,23 +392,17 @@ Table of Contents
 +------------------------------------------+---------------------------+
 |Autonomous Domain                         |                           |
 |                                          |                           |
-|     +----------------+        +-------v---------+    +------------+  |
-|     |                |        |    Network      |    |            |  |
-|     |   Network      |        |   AI Agent(s)   |    | Knowledge  |  |
-|     |  Digital Twin  <-------->   (Analysis &   <----> Base       |  |
-|     |                |   +---->    Decision)    |    |            |  |
-|     +------------^---+   |    +-----------+-----+    +------------+  |
+|     +----------------+        +-------v----------+    +------------+ |
+|     |                |        |    Network       |    |            | |
+|     |   Network      |        |   AI Agent(s)    |    | Knowledge  | |
+|     |  Digital Twin  <--------> (Intent&Analysis <----> Base       | |
+|     |                |   +---->&Decision&Execution)   |            | |
+|     +------------^---+   |    +-----------+-----+     +------------+ |
 |                  |       |                |                          |
 |                  |       |                |                          |
-|                +-+-------+------+   +-----v----------+               |
-|                |                |   |                |               |
-|                | Data Collection|   |    Execution   |               |
-|                |                |   |                |               |
-|                +--------^-------+   +----------------+               |
-                          |                      |
-+-------------------------+----------------------+---------------------+
-                          |                      |
-+-------------------------+----------------------v---------------------+
++------------------+------------------------+--------------------------+
+                   |       |                |
++------------------+-------+----------------v--------------------------+
 | Physical Network                                                     |
 |  +-------------+      +-------------------+  +-------------------+   |
 |  |             |      |  +---------------+|  |  +---------------+|   |
@@ -414,6 +410,38 @@ Table of Contents
 |  |             |      |  +---------------+|  |  +---------------+|   |
 |  +-------------+      +-------------------+  +-------------------+   |
 +----------------------------------------------------------------------+
+
++--------------------------------------------------------------+
+|                       Application                            |
++------------------------------+-------------------------------+
+                      Intent Interface
+                               |
++------------------------------+-------------------------------+
+|                                                              |
+| Autonomous Domain                                            |
+|                                            Agent Gateway     |
+|     +-------+        +---------+          +--------------+   |
+|     |Network|        | Network |          | Agent        |   |
+|     |Digital+--------+   AI    |----------|Orchestration |   |
+|     |Twin   |        | Agent   |          |& Management  |   |
+|     +---+---+        +----+----+          +---+----------+   |
+|         |          -+-----+-----+-----------+-+              |
+|         |       +---+----+  +---+----+  +---+----+           |
+|         |       | Task   |  |Task    |  | Task   |           |
+|         |       |AI Agent|  |AI Agent|  |AI Agent|           |
+|         |       +----+---+  +---+----+  +---+----+           |
+|         |            |          |           |                |
++---------+------------+----------+-----------+----------------+
+      Mgmt interface   |          |           |
+          |            |          |           |
++---------+------------+----------+-----------+----------------+
+| Physical Network                                             |
+|  +-------+      +-------------------+  +-------------------+ |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  |  NE   | ...  |NE| Lightweight AI||  |NE| Lightweight AI|| |
+|  |       |      |  +---------------+|  |  +---------------+| |
+|  +-------+      +-------------------+  +-------------------+ |
++--------------------------------------------------------------+
 
    Figure 2: An Architecture for Integrating Network AI Agent with
                          Network Digital Twin
@@ -957,9 +985,9 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-06, 12 October 2025,
+              incident-yang-07, 3 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-06>.
+              network-incident-yang-07>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
