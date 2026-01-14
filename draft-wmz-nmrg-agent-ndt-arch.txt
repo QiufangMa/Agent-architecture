@@ -385,7 +385,7 @@ Table of Contents
    Digital Twin and Network AI Agent System.
 
 +------------------------------------------------------------------------+
-|                         AI Application                                 |
+|                         AI Applications                                |
 +-------------------------------------^----------------------------------+
                                       |
                                       | Intent
@@ -394,7 +394,7 @@ Table of Contents
 | +---------+   +---------------------+------------+  +----------------+ |
 | |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
 | |         |   |             +-------v-------+    |  |+--------------+| |
-| | Network |   |             |Principal Agent|    |  || Registration || |
+| | Network |   |             |Aggregate Agent|    |  || Registration || |
 | |         |   |             +--------^------+    |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
 | |         <--->           +-----+----+---------+ <-->|Authentication|| |
