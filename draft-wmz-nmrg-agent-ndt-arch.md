@@ -321,7 +321,7 @@ They together form a close-loop of network operation and management.
 
 ~~~~
 +------------------------------------------------------------------------+
-|                         AI Application                                 |
+|                         AI Applications                                |
 +-------------------------------------^----------------------------------+
                                       |
                                       | Intent
@@ -330,7 +330,7 @@ They together form a close-loop of network operation and management.
 | +---------+   +---------------------+------------+  +----------------+ |
 | |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
 | |         |   |             +-------v-------+    |  |+--------------+| |
-| | Network |   |             |Principal Agent|    |  || Registration || |
+| | Network |   |             |Aggregate Agent|    |  || Registration || |
 | |         |   |             +--------^------+    |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
 | |         <--->           +-----+----+---------+ <-->|Authentication|| |
