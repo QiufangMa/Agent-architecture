@@ -369,7 +369,7 @@ This section describes the functional components shown as boxes in
 Figure 2.  The interactions between those components, the functional
 interfaces, are described in Section 5.3.
 
-### Application
+### AI Applications
 
 One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
 as the top-level coordinator and manages the interactions across different autonomous domains.
