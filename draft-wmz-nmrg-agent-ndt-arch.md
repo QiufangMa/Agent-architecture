@@ -505,7 +505,7 @@ the physical network.
 Once network decisions are made and confirmed, the Multi-Agent System performs
 specific actions to the physical network, e.g., modify specific configuration on
 network controllers or network devices through protocols like NETCONF {{?RFC6241}}
-,RESTCONF {{?RFC8040}}, MCP. It is the component that makes the planned control and
+,RESTCONF {{?RFC8040}}, MCP {{MCP}}. It is the component that makes the planned control and
 management changes a reality in the real physical network.
 
 ### Feedback-driven Improvement
