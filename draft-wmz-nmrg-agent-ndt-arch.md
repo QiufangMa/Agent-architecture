@@ -329,9 +329,9 @@ They together form a close-loop of network operation and management.
 |Autonomous Domain                    |                                  |
 | +---------+   +---------------------+------------+  +----------------+ |
 | |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v-------+    |  |+--------------+| |
-| | Network |   |             |Aggregate Agent|    |  || Registration || |
-| |         |   |             +--------^------+    |  |+--------------+| |
+| |         |   |             +-------v--------+   |  |+--------------+| |
+| | Network |   |             |Network AI Agent|   |  || Registration || |
+| |         |   |             +--------^-------+   |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
 | |         <--->           +-----+----+---------+ <-->|Authentication|| |
 | | Twin    |   |           |          |         | |  |+--------------+| |
