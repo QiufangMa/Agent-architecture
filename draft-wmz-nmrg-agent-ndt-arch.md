@@ -317,7 +317,16 @@ They together form a close-loop of network operation and management.
 
 ## Overall Architecture
 
-{{arch}} provides the overall architecture for integrating Network Digital Twin and Network AI Agent System.
+{{arch}} provides the overall architecture for integrating Network
+Digital Twin and Network AI Agent System. The components and
+functional interfaces are discussed in Sections 5.2 and 5.3,
+respectively. The use cases described in Section 6 show how
+different components are used selectively to provide different
+services.  It is important to understand that the relationships and
+interfaces shown between components in this figure are illustrative
+of some of the common or likely interactions; however, this figure
+does not preclude other interfaces and relationships as necessary to
+realize specific functionality. 
 
 ~~~~
 +------------------------------------------------------------------------+
@@ -355,6 +364,10 @@ They together form a close-loop of network operation and management.
 {: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
 
 ## Functional Components
+
+This section describes the functional components shown as boxes in
+Figure 2.  The interactions between those components, the functional
+interfaces, are described in Section 5.3.
 
 ### Application
 
