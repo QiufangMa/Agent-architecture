@@ -97,12 +97,12 @@ Table of Contents
        5.2.2.  Autonomous Domain
        5.2.3.  Physical Network
      5.3.  Functional Interfaces
-     5.4.  Architecture Requirements
-       5.4.1.  Human-in-the-loop
-       5.4.2.  Interoperability via Open Standards
-       5.4.3.  Feedback-driven Improvement
-       5.4.4.  Scalability and Flexibility
-     5.5.  Collaboration between small AI model and large AI model
+       5.3.1.  Human out of the loop
+       5.3.2.  Intent based Network Management
+       5.3.3.  Data Collection
+       5.3.4.  Configuration and Programmatic Interfaces
+       5.3.5.  Feedback-driven Improvement
+       5.3.6.  Collaboration between small AI model and large AI model
    6.  AI Driven Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
@@ -245,12 +245,12 @@ Table of Contents
 
    An AI agent refers to a system or program that Large Language Models
    (LLM)s to interact with humans (or other AI Agents) for purposes of
-   performing tasks [I-D.rosenberg-ai-protocols].  In the context of
-   network operations and management, Network AI agents are increasingly
-   being designed to interact with physical world and act upon it based
-   on tools [Google-Agents-Whitepaper] and perform network management
-   tasks such as understanding user intent, generating network
-   configurations, diagnosing and resolving network incidents
+   performing tasks.  In the context of network operations and
+   management, Network AI agents are increasingly being designed to
+   interact with physical world and act upon it based on tools
+   [Google-Agents-Whitepaper] and perform network management tasks such
+   as understanding user intent, generating network configurations,
+   diagnosing and resolving network incidents
    [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
    try to define terms related to Network AI agent in the context of
    network operations and management, e.g., TM Forum defines Autonomous
@@ -517,27 +517,6 @@ Table of Contents
    analytics, algorithms/decision processes, closed loops) -
    Orchestration of tools
 
-5.2.2.4.  Data Collection
-
-   Data Collection component is responsible for gathering data from the
-   physical network through various different tools and methods (e.g.,
-   IPFIX [RFC7011], YANG-push [RFC8639],[RFC8641], BMP [RFC7854]).  It
-   collects various types of network data including configuration data,
-   operational data, network topology, routing data, logs, and trace on
-   management plane, control plane, and forwarding plane as needed.  The
-   collected data is fed into the Network Digital Twin and Network AI
-   Agent(s) to provide with up-to-date information about the current
-   state of the physical network.
-
-5.2.2.5.  Execution
-
-   Once network decisions are made and confirmed, the Execution
-   component performs specific actions to the physical network, e.g.,
-   modify specific configuration on network controllers or network
-   devices through protocols like NETCONF [RFC6241] and RESTCONF
-   [RFC8040].  It is the component that makes the planned control and
-   management changes a reality in the real physical network.
-
 5.2.3.  Physical Network
 
    This is the actual hardware and infrastructure that makes up the
@@ -569,35 +548,54 @@ Table of Contents
    interfaces described below might not be visible as specific
    relationships in Figure 2, but they can nevertheless exist.
 
-5.4.  Architecture Requirements
-
-   There are a couple of key requirements of the architecture to
-   integrate Network Digital Twin with service-oriented AI which are
-   crucial in ensuring the proposed architecture can handle the complex
-   and dynamic network scenarios for network operations and management.
-
-5.4.1.  Human-in-the-loop
+5.3.1.  Human out of the loop
 
    This allows human experts to provide guidance and make critical
    decisions when necessary.  By involving human in the process, the
    architecture can leverage their insights and experience, ensuring AI
    actions align with organizational goals.
 
-   Human-in-the-loop is also helpful to provide a safeguard for complex
+   Human out of loop is also helpful to provide a safeguard for complex
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
-5.4.2.  Interoperability via Open Standards
+5.3.2.  Intent based Network Management
+
+   Intent based Network Management interface helps in delivering
+   application requests to the AI Driven network operation platform and
+   exposing the various platform capabilities to network applications.
 
    Standardized protocols and interfaces facilitate smooth communication
-   and ensures different systems and devices from various vendors can
-   work together seamlessly.  The interfaces between Network AI Agent(s)
-   and Network Digital Twin are the application-facing interfaces as
-   defined in [I-D.irtf-nmrg-network-digital-twin-arch].  There are some
-   ongoing efforts that are working on the standardization of Network AI
-   Agent communication [I-D.rosenberg-ai-protocols].
+   between applications and AI driven network operation platform and
+   ensures different systems from various vendors can work together
+   seamlessly.  The interfaces between Network AI Agent(s) and Network
+   Digital Twin are the application-facing interfaces as defined in
+   [I-D.irtf-nmrg-network-digital-twin-arch].  The interfaces between
+   Network applications and Network AI Agent can adopt IG1453 Agent to
+   Agent Protocol for Telecoms (A2A-T) specified by TM Forum.
 
-5.4.3.  Feedback-driven Improvement
+5.3.3.  Data Collection
+
+   Data Collection interface is responsible for gathering data from the
+   physical network through various different tools and methods (e.g.,
+   IPFIX [RFC7011], YANG-push [RFC8639],[RFC8641], BMP [RFC7854]).  It
+   collects various types of network data including configuration data,
+   operational data, network topology, routing data, logs, and trace on
+   management plane, control plane, and forwarding plane as needed.  The
+   collected data is fed into the Network Digital Twin and Network AI
+   Agent(s) to provide with up-to-date information about the current
+   state of the physical network.
+
+5.3.4.  Configuration and Programmatic Interfaces
+
+   Once network decisions are made and confirmed, the Multi-Agent System
+   performs specific actions to the physical network, e.g., modify
+   specific configuration on network controllers or network devices
+   through protocols like NETCONF [RFC6241] ,RESTCONF [RFC8040], MCP.
+   It is the component that makes the planned control and management
+   changes a reality in the real physical network.
+
+5.3.5.  Feedback-driven Improvement
 
    The architecture should incorporate mechanism for continuous
    improvement based on feedback.  This includes collecting data on AI
@@ -612,18 +610,7 @@ Table of Contents
    improvement also enables the architecture to evolve with changing
    network conditions and requirements.
 
-5.4.4.  Scalability and Flexibility
-
-   The architecture must be designed to scale efficiently to accommodate
-   growing network demands and increasing data volumes.  It should also
-   be flexible enough to adapt to new network scenarios and operational
-   requirements.  This means that components should be modular, allowing
-   for easy addition or modification of functionality without disrupting
-   the entire system.  Scalability and flexibility ensure that the
-   architecture remains effective and relevant in the face of evolving
-   network challenges.
-
-5.5.  Collaboration between small AI model and large AI model
+5.3.6.  Collaboration between small AI model and large AI model
 
    The architecture must be designed to support collaboration between
    small AI model and large AI model.
@@ -1025,13 +1012,6 @@ Table of Contents
               twin-arch-11, 6 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
               network-digital-twin-arch-11>.
-
-   [I-D.rosenberg-ai-protocols]
-              Rosenberg, J. and C. F. Jennings, "Framework, Use Cases
-              and Requirements for AI Agent Protocols", Work in
-              Progress, Internet-Draft, draft-rosenberg-ai-protocols-00,
-              5 May 2025, <https://datatracker.ietf.org/doc/html/draft-
-              rosenberg-ai-protocols-00>.
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
