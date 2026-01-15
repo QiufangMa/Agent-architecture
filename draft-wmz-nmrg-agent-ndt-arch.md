@@ -372,17 +372,10 @@ interfaces, are described in Section 5.3.
 
 ### Network Applications
 
-One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
-as the top-level coordinator and manages the interactions across different autonomous domains.
-Multi-domain orchestrator may invoke Network Digital Twin to perform functions such as analyze,
-diagnose, optimize, control, and emulate as per {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
-It also provide means to convey user intent to each autonomous domain through a user-facing
-Graphical User Interface (GUI) or machine-to-machine North Bound Interface (NBI).
-
 Various network applications at the service level can effectively run over
 a AI driven Network operation platform to to implement either conventional
 or innovative network operations, with low cost and less service
-impact on real networks. 
+impact on real networks.
 
 A network application may be a software tool that a user
 uses to make requests to the network to set up specific services such as
