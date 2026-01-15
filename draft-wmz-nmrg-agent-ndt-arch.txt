@@ -93,7 +93,7 @@ Table of Contents
    5.  Architecture Design
      5.1.  Overall Architecture
      5.2.  Functional Components
-       5.2.1.  Application
+       5.2.1.  AI Applications
        5.2.2.  Autonomous Domain
        5.2.3.  Physical Network
      5.3.  Architecture Requirements
@@ -433,7 +433,7 @@ Table of Contents
    Figure 2.  The interactions between those components, the functional
    interfaces, are described in Section 5.3.
 
-5.2.1.  Application
+5.2.1.  AI Applications
 
    One of example application is multi-domain orchestrator.  Multi-
    domain orchestrator serves as the top-level coordinator and manages
