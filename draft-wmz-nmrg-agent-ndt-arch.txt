@@ -96,12 +96,13 @@ Table of Contents
        5.2.1.  Network Applications
        5.2.2.  Autonomous Domain
        5.2.3.  Physical Network
-     5.3.  Architecture Requirements
-       5.3.1.  Human-in-the-loop
-       5.3.2.  Interoperability via Open Standards
-       5.3.3.  Feedback-driven Improvement
-       5.3.4.  Scalability and Flexibility
-     5.4.  Collaboration between small AI model and large AI model
+     5.3.  Functional Interfaces
+     5.4.  Architecture Requirements
+       5.4.1.  Human-in-the-loop
+       5.4.2.  Interoperability via Open Standards
+       5.4.3.  Feedback-driven Improvement
+       5.4.4.  Scalability and Flexibility
+     5.5.  Collaboration between small AI model and large AI model
    6.  AI Driven Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
@@ -551,14 +552,31 @@ Table of Contents
    re-training) through monitoring and continuous optimization based on
    feedback from LLM.
 
-5.3.  Architecture Requirements
+5.3.  Functional Interfaces
+
+   This section describes the interfaces between functional components
+   that might be externalized in an implementation allowing the
+   components to be distributed across platforms.  Where existing
+   protocols might provide all or most of the necessary capabilities,
+   they are noted.
+
+   As noted at the top of Section 5.1, it is important to understand
+   that the relationships and interfaces shown between components in
+   Figure 2 are illustrative of some of the common or likely
+   interactions; however, this figure and the descriptions in the
+   subsections below do not preclude other interfaces and relationships
+   as necessary to realize specific functionality.  Thus, some of the
+   interfaces described below might not be visible as specific
+   relationships in Figure 2, but they can nevertheless exist.
+
+5.4.  Architecture Requirements
 
    There are a couple of key requirements of the architecture to
    integrate Network Digital Twin with service-oriented AI which are
    crucial in ensuring the proposed architecture can handle the complex
    and dynamic network scenarios for network operations and management.
 
-5.3.1.  Human-in-the-loop
+5.4.1.  Human-in-the-loop
 
    This allows human experts to provide guidance and make critical
    decisions when necessary.  By involving human in the process, the
@@ -569,7 +587,7 @@ Table of Contents
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
-5.3.2.  Interoperability via Open Standards
+5.4.2.  Interoperability via Open Standards
 
    Standardized protocols and interfaces facilitate smooth communication
    and ensures different systems and devices from various vendors can
@@ -579,7 +597,7 @@ Table of Contents
    ongoing efforts that are working on the standardization of Network AI
    Agent communication [I-D.rosenberg-ai-protocols].
 
-5.3.3.  Feedback-driven Improvement
+5.4.3.  Feedback-driven Improvement
 
    The architecture should incorporate mechanism for continuous
    improvement based on feedback.  This includes collecting data on AI
@@ -594,7 +612,7 @@ Table of Contents
    improvement also enables the architecture to evolve with changing
    network conditions and requirements.
 
-5.3.4.  Scalability and Flexibility
+5.4.4.  Scalability and Flexibility
 
    The architecture must be designed to scale efficiently to accommodate
    growing network demands and increasing data volumes.  It should also
@@ -605,7 +623,7 @@ Table of Contents
    architecture remains effective and relevant in the face of evolving
    network challenges.
 
-5.4.  Collaboration between small AI model and large AI model
+5.5.  Collaboration between small AI model and large AI model
 
    The architecture must be designed to support collaboration between
    small AI model and large AI model.
