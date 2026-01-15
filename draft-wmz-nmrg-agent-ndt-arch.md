@@ -326,7 +326,7 @@ services.  It is important to understand that the relationships and
 interfaces shown between components in this figure are illustrative
 of some of the common or likely interactions; however, this figure
 does not preclude other interfaces and relationships as necessary to
-realize specific functionality. 
+realize specific functionality.
 
 ~~~~
 +------------------------------------------------------------------------+
