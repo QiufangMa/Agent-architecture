@@ -439,25 +439,6 @@ support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
 - Orchestration of tools
 
-#### Data Collection
-
-Data Collection component is responsible for gathering data from the physical network
-through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
-  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}).
-It collects various types of network data including configuration data, operational data,
-network topology, routing data, logs, and trace on management plane, control plane, and
-forwarding plane as needed. The collected data is fed into the Network Digital Twin
-and Network AI Agent(s) to provide with up-to-date information about the current state of
-the physical network.
-
-#### Execution
-
-Once network decisions are made and confirmed, the Execution component performs
-specific actions to the physical network, e.g., modify specific configuration on
-network controllers or network devices through protocols like NETCONF {{?RFC6241}}
-and RESTCONF {{?RFC8040}}. It is the component that makes the planned control and
-management changes a reality in the real physical network.
-
 ### Physical Network
 
 This is the actual hardware and infrastructure that makes up the network, which
@@ -485,30 +466,47 @@ as necessary to realize specific functionality.  Thus, some of the
 interfaces described below might not be visible as specific
 relationships in Figure 2, but they can nevertheless exist.
 
-## Architecture Requirements
-
-There are a couple of key requirements of the architecture to integrate
-Network Digital Twin with service-oriented AI which are crucial in
-ensuring the proposed architecture can handle the complex and dynamic network scenarios
-for network operations and management.
-
-### Human-in-the-loop
+### Human out of the loop
 
 This allows human experts to provide guidance and make critical decisions when necessary.
 By involving human in the process, the architecture can leverage their insights and
 experience, ensuring AI actions align with organizational goals.
 
-Human-in-the-loop is also helpful to provide a safeguard for complex or sensitive
+Human out of loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
-### Interoperability via Open Standards
+### Intent based Network Management
 
-Standardized protocols and interfaces facilitate smooth communication and ensures
-different systems and devices from various vendors can work together seamlessly.
+Intent based Network Management interface helps in delivering application
+requests to the AI Driven network operation platform and exposing the
+various platform capabilities to network applications.
+
+Standardized protocols and interfaces facilitate smooth communication between applications
+and AI driven network operation platform and ensures different systems from various
+vendors can work together seamlessly.
 The interfaces between Network AI Agent(s) and Network Digital Twin are the application-facing
 interfaces as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
-There are some ongoing efforts that are working on the standardization of Network AI Agent
-communication {{?I-D.rosenberg-ai-protocols}}.
+The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
+Protocol for Telecoms (A2A-T) specified by TM Forum.
+
+### Data Collection
+
+Data Collection interface is responsible for gathering data from the physical network
+through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
+  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}).
+It collects various types of network data including configuration data, operational data,
+network topology, routing data, logs, and trace on management plane, control plane, and
+forwarding plane as needed. The collected data is fed into the Network Digital Twin
+and Network AI Agent(s) to provide with up-to-date information about the current state of
+the physical network.
+
+### Configuration and Programmatic Interfaces
+
+Once network decisions are made and confirmed, the Multi-Agent System performs
+specific actions to the physical network, e.g., modify specific configuration on
+network controllers or network devices through protocols like NETCONF {{?RFC6241}}
+,RESTCONF {{?RFC8040}}, MCP. It is the component that makes the planned control and
+management changes a reality in the real physical network.
 
 ### Feedback-driven Improvement
 
@@ -523,17 +521,7 @@ this allows the LLM to be trained on these negative samples for optimization.
 Feedback-driven improvement also enables the architecture to evolve with changing
 network conditions and requirements.
 
-### Scalability and Flexibility
-
-The architecture must be designed to scale efficiently to accommodate growing
-network demands and increasing data volumes. It should also be flexible enough
-to adapt to new network scenarios and operational requirements. This means that
-components should be modular, allowing for easy addition or modification of
-functionality without disrupting the entire system. Scalability and flexibility
-ensure that the architecture remains effective and relevant in the face of evolving
-network challenges.
-
-## Collaboration between small AI model and large AI model
+### Collaboration between small AI model and large AI model
 
 The architecture must be designed to support collaboration between small AI model and
 large AI model.
@@ -558,7 +546,6 @@ resource or chipset resource in the intelligent network element to collect more 
 local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
-
 
 
 # AI Driven Network Operation: A collection of Use Cases
