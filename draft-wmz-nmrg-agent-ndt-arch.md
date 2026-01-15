@@ -547,7 +547,6 @@ local processing for Collected data and summary report generation, Trend predict
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
 
-
 # AI Driven Network Operation: A collection of Use Cases
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
