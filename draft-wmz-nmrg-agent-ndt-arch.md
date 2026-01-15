@@ -3,7 +3,6 @@ title: "Network Digital Twin based Architecture for AI driven Network Operations
 abbrev: "AI Agent architecture"
 category: info
 
-# Network Digital Twin based Architecture for AI Driven Network Operation
 # Integrating Agentic AI with Network Digital Twin for Network Operation
 
 docname: draft-wmz-nmrg-agent-ndt-arch-latest
@@ -468,6 +467,23 @@ human intervention. It is also possible for the Leightweight AI to coordinate wi
 AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
 and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
+
+## Functional Interfaces
+
+This section describes the interfaces between functional components
+that might be externalized in an implementation allowing the
+components to be distributed across platforms.  Where existing
+protocols might provide all or most of the necessary capabilities,
+they are noted.
+
+As noted at the top of Section 5.1, it is important to understand
+that the relationships and interfaces shown between components in
+Figure 2 are illustrative of some of the common or likely
+interactions; however, this figure and the descriptions in the
+subsections below do not preclude other interfaces and relationships
+as necessary to realize specific functionality.  Thus, some of the
+interfaces described below might not be visible as specific
+relationships in Figure 2, but they can nevertheless exist.
 
 ## Architecture Requirements
 
