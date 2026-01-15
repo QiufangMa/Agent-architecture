@@ -329,10 +329,11 @@ does not preclude other interfaces and relationships as necessary to
 realize specific functionality.
 
 ~~~~
-+------------------------------------------------------------------------+
-|                         AI Applications                                |
-+-------------------------------------^----------------------------------+
-                                      |
++-----------------------------------------------------------------------+
+|   +-------+   +-------+          +-------+           Network          |
+|   | App 1 |   | App 2 |   ...    | App n |         Applications       |
+|   +-------+   +-------+          +-------+                            |
++-------------------------------------+---------------------------------+
                                       | Intent
 +-------------------------------------+----------------------------------+
 |Autonomous Domain                    |                                  |
@@ -369,7 +370,7 @@ This section describes the functional components shown as boxes in
 Figure 2.  The interactions between those components, the functional
 interfaces, are described in Section 5.3.
 
-### AI Applications
+### Network Applications
 
 One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
 as the top-level coordinator and manages the interactions across different autonomous domains.
@@ -377,6 +378,22 @@ Multi-domain orchestrator may invoke Network Digital Twin to perform functions s
 diagnose, optimize, control, and emulate as per {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
 It also provide means to convey user intent to each autonomous domain through a user-facing
 Graphical User Interface (GUI) or machine-to-machine North Bound Interface (NBI).
+
+Various network applications at the service level can effectively run over
+a AI driven Network operation platform to to implement either conventional
+or innovative network operations, with low cost and less service
+impact on real networks. 
+
+A network application may be a software tool that a user
+uses to make requests to the network to set up specific services such as
+end-to-end connections or scheduled bandwidth reservations or NOC Application
+/Service AI Agent Application that is responsible for monitoring, managing, and
+maintaining the health, performance, and availability of complex networks.
+
+Network applications make requests that need to be addressed by the AI driven network.
+Such requests are exchanged through a northbound intent interface (e.g., Restful
+API, Natural Language Programming Interface(NLPI),A2A), so that they can be applied
+by multi-agent system at the appropriate twin instance(s).
 
 ### Autonomous Domain
 
