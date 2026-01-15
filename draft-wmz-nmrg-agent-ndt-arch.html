@@ -1220,7 +1220,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-functional-components" class="internal xref">Functional Components</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-ai-applications" class="internal xref">AI Applications</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-network-applications" class="internal xref">Network Applications</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
                     <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-autonomous-domain" class="internal xref">Autonomous Domain</a></p>
@@ -1643,10 +1643,11 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
 <figure id="figure-2">
           <div class="alignCenter art-text artwork" id="section-5.1-2.1">
 <pre>
-+------------------------------------------------------------------------+
-|                         AI Applications                                |
-+-------------------------------------^----------------------------------+
-                                      |
++-----------------------------------------------------------------------+
+|   +-------+   +-------+          +-------+           Network          |
+|   | App 1 |   | App 2 |   ...    | App n |         Applications       |
+|   +-------+   +-------+          +-------+                            |
++-------------------------------------+---------------------------------+
                                       | Intent
 +-------------------------------------+----------------------------------+
 |Autonomous Domain                    |                                  |
@@ -1690,17 +1691,24 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
 <p id="section-5.2-1">This section describes the functional components shown as boxes in
 Figure 2.  The interactions between those components, the functional
 interfaces, are described in Section 5.3.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<div id="ai-applications">
+<div id="network-applications">
 <section id="section-5.2.1">
-          <h4 id="name-ai-applications">
-<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-ai-applications" class="section-name selfRef">AI Applications</a>
+          <h4 id="name-network-applications">
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-network-applications" class="section-name selfRef">Network Applications</a>
           </h4>
-<p id="section-5.2.1-1">One of example application is multi-domain orchestrator. Multi-domain orchestrator serves
-as the top-level coordinator and manages the interactions across different autonomous domains.
-Multi-domain orchestrator may invoke Network Digital Twin to perform functions such as analyze,
-diagnose, optimize, control, and emulate as per <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.
-It also provide means to convey user intent to each autonomous domain through a user-facing
-Graphical User Interface (GUI) or machine-to-machine North Bound Interface (NBI).<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-1">Various network applications at the service level can effectively run over
+a AI driven Network operation platform to to implement either conventional
+or innovative network operations, with low cost and less service
+impact on real networks.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-2">A network application may be a software tool that a user
+uses to make requests to the network to set up specific services such as
+end-to-end connections or scheduled bandwidth reservations or NOC Application
+/Service AI Agent Application that is responsible for monitoring, managing, and
+maintaining the health, performance, and availability of complex networks.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-3">Network applications make requests that need to be addressed by the AI driven network.
+Such requests are exchanged through a northbound intent interface (e.g., Restful
+API, Natural Language Programming Interface(NLPI),A2A), so that they can be applied
+by multi-agent system at the appropriate twin instance(s).<a href="#section-5.2.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="autonomous-domain">
