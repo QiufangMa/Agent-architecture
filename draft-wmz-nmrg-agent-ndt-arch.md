@@ -200,7 +200,7 @@ generate new and original content such as text, images, videos, or other forms o
 capability to adapt and make decisions to achieve specific goals.
 
 An AI agent refers to a system or program that Large Language Models (LLM)s to interact
-with humans (or other AI Agents) for purposes of performing tasks {{I-D.rosenberg-ai-protocols}}.
+with humans (or other AI Agents) for purposes of performing tasks.
 In the context of network operations and management, Network AI agents are increasingly being designed to
 interact with physical world and act upon it based on tools {{Google-Agents-Whitepaper}} and
 perform network management tasks such as understanding user intent, generating network configurations,
