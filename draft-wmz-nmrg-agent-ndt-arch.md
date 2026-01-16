@@ -84,6 +84,11 @@ informative:
     target: https://www.kaggle.com/whitepaper-agents
     date: 2024
 
+  A2A-T:
+    title: Agent to Agent Protocol for Telecoms (A2A-T)
+    target: https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/
+    date: 2025
+
 --- abstract
 
 A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
@@ -179,14 +184,20 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 
  * Retrieval-Augmented Generation (RAG)
 
- * Agentic AI
+ * Agentic AI {{?I-D.hong-nmrg-agenticai-ps}}
 
 Besides, this document defines the following terminology:
 
 Network AI Agent:
-: AI Agent is an autonomous system or entity with awareness of its environment, capable of
+: Network AI Agent is an autonomous system or entity with awareness of its environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
 based on its knowledge representation to achieve a set of service goals {{TMF-1251D}}.
+In addition, it is able of planning the tasks and decomponse the tasks into several sub-tasks
+and coordinate with Task agent for these sub-tasks.
+
+Task AI Agent:
+: Task AI Agent is responsible for coordinating with Network AI Agent in the multi-Agent System
+and executing specific task assigned by Network AI Agent.
 
 # Introduction of Concepts
 
@@ -384,7 +395,7 @@ maintaining the health, performance, and availability of complex networks.
 
 Network applications make requests that need to be addressed by the AI driven network.
 Such requests are exchanged through a northbound intent interface (e.g., Restful
-API, Natural Language Programming Interface(NLPI),A2A), so that they can be applied
+API, Natural Language Programming Interface(NLPI),A2A, A2A-T), so that they can be applied
 by multi-agent system at the appropriate twin instance(s).
 
 ### Autonomous Domain
@@ -420,7 +431,7 @@ Agents could be scenario-oriented and classified according to the function they 
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
 (e.g., deployment, update, and retirement of Network AI Agent), Agent registration,
-Agent discovery, and so on. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
+Agent discovery, and so on. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}, A2A-T {{A2A-T}}) in the
 industry may help with multi-agents coordination.
 
 #### Knowledge Base
@@ -806,7 +817,6 @@ The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} app
 # IANA Considerations
 
 This document has no requests to IANA.
-
 
 --- back
 
