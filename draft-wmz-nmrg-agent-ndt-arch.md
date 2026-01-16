@@ -314,12 +314,12 @@ They together form a close-loop of network operation and management.
 
 # Architecture Design
 
-## Overall Architecture
+## Overall Architecture {#overall-arch}
 
 {{arch}} provides the overall architecture for integrating Network
 Digital Twin and Network AI Agent System. The components and
-functional interfaces are discussed in Sections 5.2 and 5.3,
-respectively. The use cases described in Section 6 show how
+functional interfaces are discussed in {{functional-components}} and {{functional-interfaces}},
+respectively. The use cases described in {{uc}} show how
 different components are used selectively to provide different
 services.  It is important to understand that the relationships and
 interfaces shown between components in this figure are illustrative
@@ -363,11 +363,11 @@ realize specific functionality.
 ~~~~
 {: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
 
-## Functional Components
+## Functional Components {#functional-components}
 
 This section describes the functional components shown as boxes in
-Figure 2.  The interactions between those components, the functional
-interfaces, are described in Section 5.3.
+{{arch}}.  The interactions between those components, the functional
+interfaces, are described in {{functional-interfaces}}.
 
 ### Network Applications
 
@@ -449,7 +449,7 @@ AI Agent(s) to enhance the automation and efficiency of network operations. The 
 Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
 and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
 
-## Functional Interfaces
+## Functional Interfaces {#functional-interfaces}
 
 This section describes the interfaces between functional components
 that might be externalized in an implementation allowing the
@@ -457,39 +457,61 @@ components to be distributed across platforms.  Where existing
 protocols might provide all or most of the necessary capabilities,
 they are noted.
 
-As noted at the top of Section 5.1, it is important to understand
+As noted in {{overall-arch}}, it is important to understand
 that the relationships and interfaces shown between components in
-Figure 2 are illustrative of some of the common or likely
+{{arch}} are illustrative of some of the common or likely
 interactions; however, this figure and the descriptions in the
 subsections below do not preclude other interfaces and relationships
 as necessary to realize specific functionality.  Thus, some of the
 interfaces described below might not be visible as specific
-relationships in Figure 2, but they can nevertheless exist.
+relationships in {{arch}}, but they can nevertheless exist.
 
-### Human out of the loop
+### Human Interaction Interface
 
-This allows human experts to provide guidance and make critical decisions when necessary.
-By involving human in the process, the architecture can leverage their insights and
-experience, ensuring AI actions align with organizational goals.
+Network operators can use natual language to express high-levev operational objectives,
+report issues, or initiate specific tasks.
+
+The architecture allows human experts to monitor, guide, approve, or intervene in the
+AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.
 
 Human out of loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
-### Intent based Network Management
+This typically uses natural lanaguage as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
 
-Intent based Network Management interface helps in delivering application
+### Application to Autonomous Domain Interface
+
+Intent based Network Management helps in delivering application
 requests to the AI Driven network operation platform and exposing the
 various platform capabilities to network applications.
 
 Standardized protocols and interfaces facilitate smooth communication between applications
 and AI driven network operation platform and ensures different systems from various
 vendors can work together seamlessly.
-The interfaces between Network AI Agent(s) and Network Digital Twin are the application-facing
-interfaces as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
 The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
 Protocol for Telecoms (A2A-T) specified by TM Forum.
 
-### Data Collection
+### Multi-Agent System to Agent Gateway Interface
+
+The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.
+
+Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
+A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.
+
+Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
+Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.
+
+Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
+Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
+
+### Multi-Agent System to Network Digital Twin Interface
+
+The interface between Multi-Agent System and Network Digital Twin are the application-facing
+interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
+
+### Autonomous Domain to Physical Network Interface
+
+#### Data Collection
 
 Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
@@ -500,14 +522,15 @@ forwarding plane as needed. The collected data is fed into the Network Digital T
 and Network AI Agent(s) to provide with up-to-date information about the current state of
 the physical network.
 
-### Configuration and Programmatic Interfaces
+#### Configuration
 
 Once network decisions are made and confirmed, the Multi-Agent System performs
 specific actions to the physical network, e.g., modify specific configuration on
 network controllers or network devices through protocols like NETCONF {{?RFC6241}}
-,RESTCONF {{?RFC8040}}, MCP {{MCP}}. It is the component that makes the planned control and
+, RESTCONF {{?RFC8040}}, MCP {{MCP}}. It is the component that makes the planned control and
 management changes a reality in the real physical network.
 
+<!--
 ### Feedback-driven Improvement
 
 The architecture should incorporate mechanism for continuous improvement based on
@@ -521,7 +544,7 @@ this allows the LLM to be trained on these negative samples for optimization.
 Feedback-driven improvement also enables the architecture to evolve with changing
 network conditions and requirements.
 
-### Collaboration between small AI model and large AI model
+### Collaboration between Leightweight AI Model and Large Language Model
 
 The architecture must be designed to support collaboration between small AI model and
 large AI model.
@@ -546,8 +569,9 @@ resource or chipset resource in the intelligent network element to collect more 
 local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
+-->
 
-# AI Driven Network Operation: A collection of Use Cases
+# AI Driven Network Operation: A collection of Use Cases {#uc}
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
 
