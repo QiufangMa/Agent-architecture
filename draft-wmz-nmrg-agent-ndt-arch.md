@@ -224,7 +224,7 @@ Twin through standardized interfaces (see
 {{Section 9.4 of ?I-D.irtf-nmrg-network-digital-twin-arch}}), the Network Digital
 Twin exposes the various capabilities to network applications.
 
-# Characteristics of AI driven Network Operations
+# Characteristics of AI driven Network Operations {#characteristics}
 
 AIOPS was first defined by Gartner in 2016, combining "artificial intelligence"
 and "IT operations" to describe the application of AI and machine learning to
@@ -547,7 +547,29 @@ local processing for Collected data and summary report generation, Trend predict
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
 
-# AI Driven Network Operation: A collection of Use Cases
+# AI Driven Network Operations: Relationship Between Characteristics and Functional Components
+
+The architecture in {{arch}} provides a concrete implementation framework to realize the six key characteristics of AI-driven network operations described in {{characteristics}}. Each characteristic is directly supported by specific functional components within the Autonomous Domain. The following clarifies how the architecture operationalizes these characteristics:
+
+ * Intent:
+ : The Network Application​s Layer conveys a high-level user intent via northbound interfaces. The Network AI Agent​ interprets this intent and translates it into actionable network operation tasks to each task Agent.
+
+ * Knowledge:
+ : The Knowledge Base​ in Agent Gateway serves as the central repository for domain-specific knowledge, expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
+
+ * Analysis:
+ : The AI Agent​ in Multi-Agent System performs intelligent analysis using data and tools. It leverages the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.
+
+ * Decision:
+ : The AI Agent in Multi-Agent System​ makes informed decisions based on its analysis results. It utilizes the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.
+
+ * Awareness:
+ : The AI Agent in Multi-Agent System gathers data from the Physical Network, it may also fetch data from the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.
+
+ * Execution:
+ ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
+
+# AI Driven Network Operations: A collection of Use Cases
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
 
