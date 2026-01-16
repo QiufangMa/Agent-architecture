@@ -328,11 +328,11 @@ does not preclude other interfaces and relationships as necessary to
 realize specific functionality.
 
 ~~~~
-+-----------------------------------------------------------------------+
-|   +-------+   +-------+          +-------+           Network          |
-|   | App 1 |   | App 2 |   ...    | App n |         Applications       |
-|   +-------+   +-------+          +-------+                            |
-+-------------------------------------+---------------------------------+
++------------------------------------------------------------------------+
+|   +-------+   +-------+          +-------+           Network           |
+|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
+|   +-------+   +-------+          +-------+                             |
++-------------------------------------^----------------------------------+
                                       | Intent
 +-------------------------------------+----------------------------------+
 |Autonomous Domain                    |                                  |
@@ -342,7 +342,7 @@ realize specific functionality.
 | | Network |   |             |Network AI Agent|   |  || Registration || |
 | |         |   |             +--------^-------+   |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +-----+----+---------+ <-->|Authentication|| |
+| |         <--->           +----------+---------+ <-->|Authentication|| |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
 | |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Knowledge Base|| |
@@ -354,7 +354,7 @@ realize specific functionality.
 | |Physical Network                                            |       | |
 | |      +---------+    +------------------+             +-----v---+   | |
 | |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|agent||   | |
+| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
 | |      |         |    |                  |             |  +-----+|   | |
 | |      +---------+    +------------------+             +---------+   | |
 | +---------------- ---------------------------------------------------+ |
@@ -366,8 +366,8 @@ realize specific functionality.
 ## Functional Components
 
 This section describes the functional components shown as boxes in
-Figure 2.  The interactions between those components, the functional
-interfaces, are described in Section 5.3.
+{{arch}}.  The interactions between those components, the functional
+interfaces, are described in {{functional-interface}}.
 
 ### Network Applications
 
@@ -384,13 +384,13 @@ maintaining the health, performance, and availability of complex networks.
 
 Network applications make requests that need to be addressed by the AI driven network.
 Such requests are exchanged through a northbound intent interface (e.g., Restful
-API, Natural Language Programming Interface(NLPI),A2A), so that they can be applied
+API, Natural Language Programming Interface(NLPI), A2A{{A2A}}), so that they can be applied
 by multi-agent system at the appropriate twin instance(s).
 
 ### Autonomous Domain
 
-An autonomous domain is a self-governing unit that achieves NDT and AI driven network
-autonomous management.
+An autonomous domain is a self-governing network that integrates NDT and AI driven
+capabilities to achieve autonomous network management. It comprises the following sub-components.
 
 #### Network Digital Twin
 
@@ -407,49 +407,63 @@ from network through the appropriate real network-facing input interfaces, and i
 delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
 to Network AI Agent(s) in {{arch}}.
 
-#### Network AI Agent(s)
+#### Multi-Agent System
 
-Network AI Agent(s) act(s) as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network operations and adapting
-to new circumstances through access to evolving knowledge and reasoning, planning.
-It leverages the inference of LLM, the simulation of Network Digital Twin, and the
-contextual and domain-specific knowledge provided by Knowledge Base to accomplish
-specific network operation task.
+Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
+for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.
 
-Agents could be scenario-oriented and classified according to the function they perform.
-It is also possible for multiple Agents to collaborate in some scenarios.
-Multi-Agents management is needed to handle the agent instance lifecycle
-(e.g., deployment, update, and retirement of Network AI Agent), Agent registration,
-Agent discovery, and so on. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
+The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
+to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
+Task Agents can adapt to new circumstances through access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge Base to accomplish specific network operation task. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
 industry may help with multi-agents coordination.
 
-#### Knowledge Base
+#### Agent Gateway
+
+The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, and knowledge base.
+
+##### Registration
+
+AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
+own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
+
+{{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.
+
+##### Authentication
+
+Authentication component enforces trusted inter-Agent communication by verifying
+the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
+to issue each AI Agent its own authentication credentials to establish trusted communication.
+
+Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.
+
+It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.
+
+##### Knowledge Base
 
 The Knowledge Base serves as a crucial repository of information within the
 architecture. It enables the injection of expert knowledge and and chain of thoughts,
-provides the necessary knowledge and memory that helps AI Agent(s) make more accurate and
+provides the necessary knowledge and memory that helps Agents make more accurate and
 practive context-aware decisions. It also helps mitigate the hallucination problems that
 can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
 the system's ability to generate reliable and relevant outputs.
 
-In case of coupling MCP with the nework management system, the new knowledge also can be used to
+In case of coupling MCP {{MCP}} with the nework management system, the new knowledge also can be used to
 support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
 - Orchestration of tools
 
-### Physical Network
+#### Physical Network
 
 This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
-with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} may also achieve some local close loop without relying on external AI or
-human intervention. It is also possible for the Leightweight AI to coordinate with
+with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} or AI Agent may also achieve some local close loop without relying on human intervention. It is also possible for Lightweight AI or AI Agent to coordinate with other
 AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
 and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
 
-## Functional Interfaces
+## Functional Interfaces {#functional-interface}
 
 This section describes the interfaces between functional components
 that might be externalized in an implementation allowing the
