@@ -1427,16 +1427,24 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
           <p id="section-2-5.3.1">Retrieval-Augmented Generation (RAG)<a href="#section-2-5.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-2-5.4">
-          <p id="section-2-5.4.1">Agentic AI<a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
+          <p id="section-2-5.4.1">Agentic AI <span>[<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span><a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-2-6">Besides, this document defines the following terminology:<a href="#section-2-6" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-2-7">
         <dt id="section-2-7.1">Network AI Agent:</dt>
         <dd style="margin-left: 1.5em" id="section-2-7.2">
-          <p id="section-2-7.2.1">AI Agent is an autonomous system or entity with awareness of its environment, capable of
+          <p id="section-2-7.2.1">Network AI Agent is an autonomous system or entity with awareness of its environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
-based on its knowledge representation to achieve a set of service goals <span>[<a href="#TMF-1251D" class="cite xref">TMF-1251D</a>]</span>.<a href="#section-2-7.2.1" class="pilcrow">¶</a></p>
+based on its knowledge representation to achieve a set of service goals <span>[<a href="#TMF-1251D" class="cite xref">TMF-1251D</a>]</span>.
+In addition, it is able of planning the tasks and decomponse the tasks into several sub-tasks
+and coordinate with Task agent for these sub-tasks.<a href="#section-2-7.2.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-7.3">Task AI Agent:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-7.4">
+          <p id="section-2-7.4.1">Task AI Agent is responsible for coordinating with Network AI Agent in the multi-Agent System
+and executing specific task assigned by Network AI Agent.<a href="#section-2-7.4.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -1713,7 +1721,7 @@ end-to-end connections or scheduled bandwidth reservations or NOC Application
 maintaining the health, performance, and availability of complex networks.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1-3">Network applications make requests that need to be addressed by the AI driven network.
 Such requests are exchanged through a northbound intent interface (e.g., Restful
-API, Natural Language Programming Interface(NLPI),A2A), so that they can be applied
+API, Natural Language Programming Interface(NLPI),A2A, A2A-T), so that they can be applied
 by multi-agent system at the appropriate twin instance(s).<a href="#section-5.2.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1757,7 +1765,7 @@ specific network operation task.<a href="#section-5.2.2.2-1" class="pilcrow">¶<
 It is also possible for multiple Agents to collaborate in some scenarios.
 Multi-Agents management is needed to handle the agent instance lifecycle
 (e.g., deployment, update, and retirement of Network AI Agent), Agent registration,
-Agent discovery, and so on. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>) in the
+Agent discovery, and so on. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, A2A-T <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span>) in the
 industry may help with multi-agents coordination.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2367,9 +2375,17 @@ be secured against unauthorized access and manipulation.<a href="#section-9-2.3.
         <dd>
 <span class="refTitle">"Agent2Agent (A2A) protocol"</span>, <time datetime="2025-04" class="refDate">April 2025</time>, <span>&lt;<a href="https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a">https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="A2A-T">[A2A-T]</dt>
+        <dd>
+<span class="refTitle">"Agent to Agent Protocol for Telecoms (A2A-T)"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/">https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="Google-Agents-Whitepaper">[Google-Agents-Whitepaper]</dt>
         <dd>
 <span class="refTitle">"Agents"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.kaggle.com/whitepaper-agents">https://www.kaggle.com/whitepaper-agents</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.hong-nmrg-agenticai-ps">[I-D.hong-nmrg-agenticai-ps]</dt>
+        <dd>
+<span class="refAuthor">Hong, Y.</span>, <span class="refAuthor">Youn, J.</span>, <span class="refAuthor">Wu, Q.</span>, and <span class="refAuthor">B. Claise</span>, <span class="refTitle">"Motivations and Problem Statement of Agentic AI for network management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-hong-nmrg-agenticai-ps-00</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00">https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-nmop-network-incident-yang">[I-D.ietf-nmop-network-incident-yang]</dt>
         <dd>
