@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 10 July 2026                                       China Mobile
+Expires: 20 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 10 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                          6 January 2026
+                                                         16 January 2026
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 July 2026.
+   This Internet-Draft will expire on 20 July 2026.
 
 Copyright Notice
 
@@ -93,15 +93,15 @@ Table of Contents
    5.  Architecture Design
      5.1.  Overall Architecture
      5.2.  Functional Components
-       5.2.1.  Application
+       5.2.1.  Network Applications
        5.2.2.  Autonomous Domain
-       5.2.3.  Physical Network
-     5.3.  Architecture Requirements
-       5.3.1.  Human-in-the-loop
-       5.3.2.  Interoperability via Open Standards
-       5.3.3.  Feedback-driven Improvement
-       5.3.4.  Scalability and Flexibility
-     5.4.  Collaboration between small AI model and large AI model
+     5.3.  Functional Interfaces
+       5.3.1.  Human out of the loop
+       5.3.2.  Intent based Network Management
+       5.3.3.  Data Collection
+       5.3.4.  Configuration and Programmatic Interfaces
+       5.3.5.  Feedback-driven Improvement
+       5.3.6.  Collaboration between small AI model and large AI model
    6.  AI Driven Network Operation: A collection of Use Cases
      6.1.  Network Configuration Change
      6.2.  Network Troubleshooting
@@ -244,12 +244,12 @@ Table of Contents
 
    An AI agent refers to a system or program that Large Language Models
    (LLM)s to interact with humans (or other AI Agents) for purposes of
-   performing tasks [I-D.rosenberg-ai-protocols].  In the context of
-   network operations and management, Network AI agents are increasingly
-   being designed to interact with physical world and act upon it based
-   on tools [Google-Agents-Whitepaper] and perform network management
-   tasks such as understanding user intent, generating network
-   configurations, diagnosing and resolving network incidents
+   performing tasks.  In the context of network operations and
+   management, Network AI agents are increasingly being designed to
+   interact with physical world and act upon it based on tools
+   [Google-Agents-Whitepaper] and perform network management tasks such
+   as understanding user intent, generating network configurations,
+   diagnosing and resolving network incidents
    [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
    try to define terms related to Network AI agent in the context of
    network operations and management, e.g., TM Forum defines Autonomous
@@ -382,22 +382,31 @@ Table of Contents
 5.1.  Overall Architecture
 
    Figure 2 provides the overall architecture for integrating Network
-   Digital Twin and Network AI Agent System.
+   Digital Twin and Network AI Agent System.  The components and
+   functional interfaces are discussed in Sections 5.2 and 5.3,
+   respectively.  The use cases described in Section 6 show how
+   different components are used selectively to provide different
+   services.  It is important to understand that the relationships and
+   interfaces shown between components in this figure are illustrative
+   of some of the common or likely interactions; however, this figure
+   does not preclude other interfaces and relationships as necessary to
+   realize specific functionality.
 
 +------------------------------------------------------------------------+
-|                         AI Application                                 |
+|   +-------+   +-------+          +-------+           Network           |
+|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
+|   +-------+   +-------+          +-------+                             |
 +-------------------------------------^----------------------------------+
-                                      |
                                       | Intent
 +-------------------------------------+----------------------------------+
 |Autonomous Domain                    |                                  |
 | +---------+   +---------------------+------------+  +----------------+ |
 | |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v-------+    |  |+--------------+| |
-| | Network |   |             |Principal Agent|    |  || Registration || |
-| |         |   |             +--------^------+    |  |+--------------+| |
+| |         |   |             +-------v--------+   |  |+--------------+| |
+| | Network |   |             |Network AI Agent|   |  || Registration || |
+| |         |   |             +--------^-------+   |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +-----+----+---------+ <-->|Authentication|| |
+| |         <--->           +----------+---------+ <-->|Authentication|| |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
 | |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Knowledge Base|| |
@@ -409,7 +418,7 @@ Table of Contents
 | |Physical Network                                            |       | |
 | |      +---------+    +------------------+             +-----v---+   | |
 | |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|agent||   | |
+| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
 | |      |         |    |                  |             |  +-----+|   | |
 | |      +---------+    +------------------+             +---------+   | |
 | +---------------- ---------------------------------------------------+ |
@@ -421,22 +430,35 @@ Table of Contents
 
 5.2.  Functional Components
 
-5.2.1.  Application
+   This section describes the functional components shown as boxes in
+   Figure 2.  The interactions between those components, the functional
+   interfaces, are described in Section 5.3.
 
-   One of example application is multi-domain orchestrator.  Multi-
-   domain orchestrator serves as the top-level coordinator and manages
-   the interactions across different autonomous domains.  Multi-domain
-   orchestrator may invoke Network Digital Twin to perform functions
-   such as analyze, diagnose, optimize, control, and emulate as per
-   [I-D.irtf-nmrg-network-digital-twin-arch].  It also provide means to
-   convey user intent to each autonomous domain through a user-facing
-   Graphical User Interface (GUI) or machine-to-machine North Bound
-   Interface (NBI).
+5.2.1.  Network Applications
+
+   Various network applications at the service level can effectively run
+   over a AI driven Network operation platform to to implement either
+   conventional or innovative network operations, with low cost and less
+   service impact on real networks.
+
+   A network application may be a software tool that a user uses to make
+   requests to the network to set up specific services such as end-to-
+   end connections or scheduled bandwidth reservations or NOC
+   Application /Service AI Agent Application that is responsible for
+   monitoring, managing, and maintaining the health, performance, and
+   availability of complex networks.
+
+   Network applications make requests that need to be addressed by the
+   AI driven network.  Such requests are exchanged through a northbound
+   intent interface (e.g., Restful API, Natural Language Programming
+   Interface(NLPI), A2A[A2A]), so that they can be applied by multi-
+   agent system at the appropriate twin instance(s).
 
 5.2.2.  Autonomous Domain
 
-   An autonomous domain is a self-governing unit that achieves NDT and
-   AI driven network autonomous management.
+   An autonomous domain is a self-governing network that integrates NDT
+   and AI driven capabilities to achieve autonomous network management.
+   It comprises the following sub-components.
 
 5.2.2.1.  Network Digital Twin
 
@@ -457,47 +479,141 @@ Table of Contents
    services through appropriate application-facing output interfaces,
    which is the interfaces to Network AI Agent(s) in Figure 2.
 
-5.2.2.2.  Network AI Agent(s)
+5.2.2.2.  Multi-Agent System
 
-   Network AI Agent(s) act(s) as the smart brain of the Autonomous
-   Domain, which is responsible for conducting AI-based analysis and
-   making decisions regarding network operations and adapting to new
+   Multi-Agent system acts as the smart brain of the Autonomous Domain,
+   which is responsible for conducting AI-based analysis and making
+   decisions regarding network management operations.  It usually
+   comprises a Network AI Agent and one or multiple task agents.
+
+   The Network AI Agent coordinates cross-task-agent collaboration,
+   aligns tasks with user intent, and supervises the task execution of
+   each task agent.  And task agents are designed to perform specific
+   functionalities, they could be scenario-oriented and classified
+   according to the function they perform.  Task Agents can adapt to new
    circumstances through access to evolving knowledge and reasoning,
    planning.  It leverages the inference of LLM, the simulation of
    Network Digital Twin, and the contextual and domain-specific
    knowledge provided by Knowledge Base to accomplish specific network
-   operation task.
-
-   Agents could be scenario-oriented and classified according to the
-   function they perform.  It is also possible for multiple Agents to
-   collaborate in some scenarios.  Multi-Agents management is needed to
-   handle the agent instance lifecycle (e.g., deployment, update, and
-   retirement of Network AI Agent), Agent registration, Agent discovery,
-   and so on.  Some ongoing efforts (MCP [MCP], A2A [A2A]) in the
+   operation task.  Some ongoing efforts (MCP [MCP], A2A [A2A]) in the
    industry may help with multi-agents coordination.
 
-5.2.2.3.  Knowledge Base
+5.2.2.3.  Agent Gateway
+
+   The Agent Gateway, which serves as a central management hub, provides
+   essential services for the Multi-Agent System, including agent
+   registration/discovery, authentication, and knowledge base.
+
+5.2.2.3.1.  Registration
+
+   AI Agents need to first discover each other and understand their
+   capabilities to collaborate.  Agent Registration manages the process
+   by which new agents could join the system, making them discoverable
+   and available.  Each Agent instance submits its own metadata
+   information including URI, supported authentication methods, and
+   capabilities to the Agent Registry.  And the consumer Agent (e.g.,
+   the Network AI Agent) could query or subscribe to the Agent Registry
+   to find appropriate Agents for task execution.
+
+   [A2A] implements Agent Registration by providing the Agent Card
+   mechanism to ensure Agents from different vendors can register and
+   discover other Agents they need.
+
+5.2.2.3.2.  Authentication
+
+   Authentication component enforces trusted inter-Agent communication
+   by verifying the identity of AI Agents.  Some existing authentication
+   methods such as OAuth 2.0, allow to issue each AI Agent its own
+   authentication credentials to establish trusted communication.
+
+   Standardized protocols like TLS (Transport Level Security) could be
+   leveraged to protect sensitive data exchanged between AI Agents.
+
+   It is also worth noting that once authenticated, authorization
+   defines the specific tools and data an agent can access, which often
+   using a Least Privilege access control method.  It is also
+   recommended to log every Agent decision and tooling call to maintain
+   audit trail.
+
+5.2.2.3.3.  Knowledge Base
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
    knowledge and and chain of thoughts, provides the necessary knowledge
-   and memory that helps AI Agent(s) make more accurate and practive
-   context-aware decisions.  It also helps mitigate the hallucination
-   problems that can arise in large-scale models, which enhances the
-   accuracy of task execution.  Additionally, the Knowledge Base plays a
-   key role in providing the data needed for techniques like Retrieval-
-   Augmented Generation (RAG), which further boosts the system's ability
-   to generate reliable and relevant outputs.
+   and memory that helps Agents make more accurate and practive context-
+   aware decisions.  It also helps mitigate the hallucination problems
+   that can arise in large-scale models, which enhances the accuracy of
+   task execution.  Additionally, the Knowledge Base plays a key role in
+   providing the data needed for techniques like Retrieval-Augmented
+   Generation (RAG), which further boosts the system's ability to
+   generate reliable and relevant outputs.
 
-   In case of coupling MCP with the nework management system, the new
-   knowledge also can be used to support modification of the currently
-   operating automation Closed Loop, such as: - Choice of tools (data,
-   analytics, algorithms/decision processes, closed loops) -
-   Orchestration of tools
+   In case of coupling MCP [MCP] with the nework management system, the
+   new knowledge also can be used to support modification of the
+   currently operating automation Closed Loop, such as: - Choice of
+   tools (data, analytics, algorithms/decision processes, closed loops)
+   - Orchestration of tools
 
-5.2.2.4.  Data Collection
+5.2.2.4.  Physical Network
 
-   Data Collection component is responsible for gathering data from the
+   This is the actual hardware and infrastructure that makes up the
+   network, which includes a set of network devices and wiring.  In a
+   physical network, Network Elements (NEs) with Lightweight AI
+   [I-D.irtf-nmrg-ai-challenges] or AI Agent may also achieve some local
+   close loop without relying on human intervention.  It is also
+   possible for Lightweight AI or AI Agent to coordinate with other AI
+   Agent(s) to enhance the automation and efficiency of network
+   operations.  The Network Leightweight AI models could be trained,
+   validated, deployed, and executed on Network Elements, and further
+   refined (e.g., model re-training) through monitoring and continuous
+   optimization based on feedback from LLM.
+
+5.3.  Functional Interfaces
+
+   This section describes the interfaces between functional components
+   that might be externalized in an implementation allowing the
+   components to be distributed across platforms.  Where existing
+   protocols might provide all or most of the necessary capabilities,
+   they are noted.
+
+   As noted at the top of Section 5.1, it is important to understand
+   that the relationships and interfaces shown between components in
+   Figure 2 are illustrative of some of the common or likely
+   interactions; however, this figure and the descriptions in the
+   subsections below do not preclude other interfaces and relationships
+   as necessary to realize specific functionality.  Thus, some of the
+   interfaces described below might not be visible as specific
+   relationships in Figure 2, but they can nevertheless exist.
+
+5.3.1.  Human out of the loop
+
+   This allows human experts to provide guidance and make critical
+   decisions when necessary.  By involving human in the process, the
+   architecture can leverage their insights and experience, ensuring AI
+   actions align with organizational goals.
+
+   Human out of loop is also helpful to provide a safeguard for complex
+   or sensitive decisions, where human judgement is essential to avoid
+   potential errors or ethical dilemmas.
+
+5.3.2.  Intent based Network Management
+
+   Intent based Network Management interface helps in delivering
+   application requests to the AI Driven network operation platform and
+   exposing the various platform capabilities to network applications.
+
+   Standardized protocols and interfaces facilitate smooth communication
+   between applications and AI driven network operation platform and
+   ensures different systems from various vendors can work together
+   seamlessly.  The interfaces between Network AI Agent(s) and Network
+   Digital Twin are the application-facing interfaces as defined in
+   [I-D.irtf-nmrg-network-digital-twin-arch].  The interfaces between
+   Network applications and Network AI Agent can adopt IG1453 Agent to
+   Agent Protocol for Telecoms (A2A-T) specified by TM Forum.
+
+5.3.3.  Data Collection
+
+   Data Collection interface is responsible for gathering data from the
    physical network through various different tools and methods (e.g.,
    IPFIX [RFC7011], YANG-push [RFC8639],[RFC8641], BMP [RFC7854]).  It
    collects various types of network data including configuration data,
@@ -507,58 +623,16 @@ Table of Contents
    Agent(s) to provide with up-to-date information about the current
    state of the physical network.
 
-5.2.2.5.  Execution
+5.3.4.  Configuration and Programmatic Interfaces
 
-   Once network decisions are made and confirmed, the Execution
-   component performs specific actions to the physical network, e.g.,
-   modify specific configuration on network controllers or network
-   devices through protocols like NETCONF [RFC6241] and RESTCONF
-   [RFC8040].  It is the component that makes the planned control and
+   Once network decisions are made and confirmed, the Multi-Agent System
+   performs specific actions to the physical network, e.g., modify
+   specific configuration on network controllers or network devices
+   through protocols like NETCONF [RFC6241] ,RESTCONF [RFC8040], MCP
+   [MCP].  It is the component that makes the planned control and
    management changes a reality in the real physical network.
 
-5.2.3.  Physical Network
-
-   This is the actual hardware and infrastructure that makes up the
-   network, which includes a set of network devices and wiring.  In a
-   physical network, Network Elements (NEs) with Lightweight AI
-   [I-D.irtf-nmrg-ai-challenges] may also achieve some local close loop
-   without relying on external AI or human intervention.  It is also
-   possible for the Leightweight AI to coordinate with AI Agent(s) to
-   enhance the automation and efficiency of network operations.  The
-   Network Leightweight AI models could be trained, validated, deployed,
-   and executed on Network Elements, and further refined (e.g., model
-   re-training) through monitoring and continuous optimization based on
-   feedback from LLM.
-
-5.3.  Architecture Requirements
-
-   There are a couple of key requirements of the architecture to
-   integrate Network Digital Twin with service-oriented AI which are
-   crucial in ensuring the proposed architecture can handle the complex
-   and dynamic network scenarios for network operations and management.
-
-5.3.1.  Human-in-the-loop
-
-   This allows human experts to provide guidance and make critical
-   decisions when necessary.  By involving human in the process, the
-   architecture can leverage their insights and experience, ensuring AI
-   actions align with organizational goals.
-
-   Human-in-the-loop is also helpful to provide a safeguard for complex
-   or sensitive decisions, where human judgement is essential to avoid
-   potential errors or ethical dilemmas.
-
-5.3.2.  Interoperability via Open Standards
-
-   Standardized protocols and interfaces facilitate smooth communication
-   and ensures different systems and devices from various vendors can
-   work together seamlessly.  The interfaces between Network AI Agent(s)
-   and Network Digital Twin are the application-facing interfaces as
-   defined in [I-D.irtf-nmrg-network-digital-twin-arch].  There are some
-   ongoing efforts that are working on the standardization of Network AI
-   Agent communication [I-D.rosenberg-ai-protocols].
-
-5.3.3.  Feedback-driven Improvement
+5.3.5.  Feedback-driven Improvement
 
    The architecture should incorporate mechanism for continuous
    improvement based on feedback.  This includes collecting data on AI
@@ -573,18 +647,7 @@ Table of Contents
    improvement also enables the architecture to evolve with changing
    network conditions and requirements.
 
-5.3.4.  Scalability and Flexibility
-
-   The architecture must be designed to scale efficiently to accommodate
-   growing network demands and increasing data volumes.  It should also
-   be flexible enough to adapt to new network scenarios and operational
-   requirements.  This means that components should be modular, allowing
-   for easy addition or modification of functionality without disrupting
-   the entire system.  Scalability and flexibility ensure that the
-   architecture remains effective and relevant in the face of evolving
-   network challenges.
-
-5.4.  Collaboration between small AI model and large AI model
+5.3.6.  Collaboration between small AI model and large AI model
 
    The architecture must be designed to support collaboration between
    small AI model and large AI model.
@@ -986,13 +1049,6 @@ Table of Contents
               twin-arch-11, 6 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
               network-digital-twin-arch-11>.
-
-   [I-D.rosenberg-ai-protocols]
-              Rosenberg, J. and C. F. Jennings, "Framework, Use Cases
-              and Requirements for AI Agent Protocols", Work in
-              Progress, Internet-Draft, draft-rosenberg-ai-protocols-00,
-              5 May 2025, <https://datatracker.ietf.org/doc/html/draft-
-              rosenberg-ai-protocols-00>.
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
