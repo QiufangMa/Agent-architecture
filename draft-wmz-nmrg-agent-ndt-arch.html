@@ -1231,22 +1231,19 @@ intent-based networking to meet the needs of the network service.<a href="#secti
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-functional-interfaces" class="internal xref">Functional Interfaces</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
-                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-human-out-of-the-loop" class="internal xref">Human out of the loop</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-human-interaction-interface" class="internal xref">Human Interaction Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
-                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-intent-based-network-manage" class="internal xref">Intent based Network Management</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-application-to-autonomous-d" class="internal xref">Application to Autonomous Domain Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
-                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-data-collection" class="internal xref">Data Collection</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-multi-agent-system-to-agent" class="internal xref">Multi-Agent System to Agent Gateway Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.4">
-                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-configuration-and-programma" class="internal xref">Configuration and Programmatic Interfaces</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-multi-agent-system-to-netwo" class="internal xref">Multi-Agent System to Network Digital Twin Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.5">
-                    <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-feedback-driven-improvement" class="internal xref">Feedback-driven Improvement</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.6">
-                    <p id="section-toc.1-1.5.2.3.2.6.1"><a href="#section-5.3.6" class="auto internal xref">5.3.6</a>.  <a href="#name-collaboration-between-small" class="internal xref">Collaboration between small AI model and large AI model</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-autonomous-domain-to-physic" class="internal xref">Autonomous Domain to Physical Network Interface</a></p>
 </li>
                 </ul>
 </li>
@@ -1635,15 +1632,15 @@ have the desired effect and makes the proper adjustments if needed.<a href="#sec
       <h2 id="name-architecture-design">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-architecture-design" class="section-name selfRef">Architecture Design</a>
       </h2>
-<div id="overall-architecture">
+<div id="overall-arch">
 <section id="section-5.1">
         <h3 id="name-overall-architecture">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overall-architecture" class="section-name selfRef">Overall Architecture</a>
         </h3>
 <p id="section-5.1-1"><a href="#arch" class="auto internal xref">Figure 2</a> provides the overall architecture for integrating Network
 Digital Twin and Network AI Agent System. The components and
-functional interfaces are discussed in Sections 5.2 and 5.3,
-respectively. The use cases described in Section 6 show how
+functional interfaces are discussed in <a href="#functional-components" class="auto internal xref">Section 5.2</a> and <a href="#functional-interfaces" class="auto internal xref">Section 5.3</a>,
+respectively. The use cases described in <a href="#uc" class="auto internal xref">Section 7</a> show how
 different components are used selectively to provide different
 services.  It is important to understand that the relationships and
 interfaces shown between components in this figure are illustrative
@@ -1701,7 +1698,7 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
         </h3>
 <p id="section-5.2-1">This section describes the functional components shown as boxes in
 <a href="#arch" class="auto internal xref">Figure 2</a>.  The interactions between those components, the functional
-interfaces, are described in <a href="#functional-interface" class="auto internal xref">Section 5.3</a>.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+interfaces, are described in <a href="#functional-interfaces" class="auto internal xref">Section 5.3</a>.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <div id="network-applications">
 <section id="section-5.2.1">
           <h4 id="name-network-applications">
@@ -1826,7 +1823,7 @@ and further refined (e.g., model re-training) through monitoring and continuous 
 </div>
 </section>
 </div>
-<div id="functional-interface">
+<div id="functional-interfaces">
 <section id="section-5.3">
         <h3 id="name-functional-interfaces">
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-functional-interfaces" class="section-name selfRef">Functional Interfaces</a>
@@ -1836,111 +1833,98 @@ that might be externalized in an implementation allowing the
 components to be distributed across platforms.  Where existing
 protocols might provide all or most of the necessary capabilities,
 they are noted.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.3-2">As noted at the top of Section 5.1, it is important to understand
+<p id="section-5.3-2">As noted in <a href="#overall-arch" class="auto internal xref">Section 5.1</a>, it is important to understand
 that the relationships and interfaces shown between components in
-Figure 2 are illustrative of some of the common or likely
+<a href="#arch" class="auto internal xref">Figure 2</a> are illustrative of some of the common or likely
 interactions; however, this figure and the descriptions in the
 subsections below do not preclude other interfaces and relationships
 as necessary to realize specific functionality.  Thus, some of the
 interfaces described below might not be visible as specific
-relationships in Figure 2, but they can nevertheless exist.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
-<div id="human-out-of-the-loop">
+relationships in <a href="#arch" class="auto internal xref">Figure 2</a>, but they can nevertheless exist.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<div id="human-interaction-interface">
 <section id="section-5.3.1">
-          <h4 id="name-human-out-of-the-loop">
-<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-human-out-of-the-loop" class="section-name selfRef">Human out of the loop</a>
+          <h4 id="name-human-interaction-interface">
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-human-interaction-interface" class="section-name selfRef">Human Interaction Interface</a>
           </h4>
-<p id="section-5.3.1-1">This allows human experts to provide guidance and make critical decisions when necessary.
-By involving human in the process, the architecture can leverage their insights and
-experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.3.1-2">Human out of loop is also helpful to provide a safeguard for complex or sensitive
-decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-1">Network operators can use natual language to express high-levev operational objectives,
+report issues, or initiate specific tasks.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-2">The architecture allows human experts to monitor, guide, approve, or intervene in the
+AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-3">Human out of loop is also helpful to provide a safeguard for complex or sensitive
+decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-4">This typically uses natural lanaguage as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, and RESTful API can be leveraged.<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="intent-based-network-management">
+<div id="application-to-autonomous-domain-interface">
 <section id="section-5.3.2">
-          <h4 id="name-intent-based-network-manage">
-<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-intent-based-network-manage" class="section-name selfRef">Intent based Network Management</a>
+          <h4 id="name-application-to-autonomous-d">
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-application-to-autonomous-d" class="section-name selfRef">Application to Autonomous Domain Interface</a>
           </h4>
-<p id="section-5.3.2-1">Intent based Network Management interface helps in delivering application
+<p id="section-5.3.2-1">Intent based Network Management helps in delivering application
 requests to the AI Driven network operation platform and exposing the
 various platform capabilities to network applications.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.3.2-2">Standardized protocols and interfaces facilitate smooth communication between applications
 and AI driven network operation platform and ensures different systems from various
 vendors can work together seamlessly.
-The interfaces between Network AI Agent(s) and Network Digital Twin are the application-facing
-interfaces as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.
 The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
 Protocol for Telecoms (A2A-T) specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="data-collection">
+<div id="multi-agent-system-to-agent-gateway-interface">
 <section id="section-5.3.3">
-          <h4 id="name-data-collection">
-<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
+          <h4 id="name-multi-agent-system-to-agent">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-multi-agent-system-to-agent" class="section-name selfRef">Multi-Agent System to Agent Gateway Interface</a>
           </h4>
-<p id="section-5.3.3-1">Data Collection interface is responsible for gathering data from the physical network
+<p id="section-5.3.3-1">The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.3-2">Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
+A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.3-3">Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
+Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.<a href="#section-5.3.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.3-4">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
+Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.3-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="multi-agent-system-to-network-digital-twin-interface">
+<section id="section-5.3.4">
+          <h4 id="name-multi-agent-system-to-netwo">
+<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-multi-agent-system-to-netwo" class="section-name selfRef">Multi-Agent System to Network Digital Twin Interface</a>
+          </h4>
+<p id="section-5.3.4-1">The interface between Multi-Agent System and Network Digital Twin are the application-facing
+interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="autonomous-domain-to-physical-network-interface">
+<section id="section-5.3.5">
+          <h4 id="name-autonomous-domain-to-physic">
+<a href="#section-5.3.5" class="section-number selfRef">5.3.5. </a><a href="#name-autonomous-domain-to-physic" class="section-name selfRef">Autonomous Domain to Physical Network Interface</a>
+          </h4>
+<div id="data-collection">
+<section id="section-5.3.5.1">
+            <h5 id="name-data-collection">
+<a href="#section-5.3.5.1" class="section-number selfRef">5.3.5.1. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
+            </h5>
+<p id="section-5.3.5.1-1">Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX <span>[<a href="#RFC7011" class="cite xref">RFC7011</a>]</span>, YANG-push
   <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>).
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
 and Network AI Agent(s) to provide with up-to-date information about the current state of
-the physical network.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
+the physical network.<a href="#section-5.3.5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="configuration-and-programmatic-interfaces">
-<section id="section-5.3.4">
-          <h4 id="name-configuration-and-programma">
-<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-configuration-and-programma" class="section-name selfRef">Configuration and Programmatic Interfaces</a>
-          </h4>
-<p id="section-5.3.4-1">Once network decisions are made and confirmed, the Multi-Agent System performs
+<div id="configuration">
+<section id="section-5.3.5.2">
+            <h5 id="name-configuration">
+<a href="#section-5.3.5.2" class="section-number selfRef">5.3.5.2. </a><a href="#name-configuration" class="section-name selfRef">Configuration</a>
+            </h5>
+<p id="section-5.3.5.2-1">Once network decisions are made and confirmed, the Multi-Agent System performs
 specific actions to the physical network, e.g., modify specific configuration on
 network controllers or network devices through protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span>
-,RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>, MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>. It is the component that makes the planned control and
-management changes a reality in the real physical network.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
+, RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>, MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>. It is the component that makes the planned control and
+management changes a reality in the real physical network.<a href="#section-5.3.5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="feedback-driven-improvement">
-<section id="section-5.3.5">
-          <h4 id="name-feedback-driven-improvement">
-<a href="#section-5.3.5" class="section-number selfRef">5.3.5. </a><a href="#name-feedback-driven-improvement" class="section-name selfRef">Feedback-driven Improvement</a>
-          </h4>
-<p id="section-5.3.5-1">The architecture should incorporate mechanism for continuous improvement based on
-feedback. This includes collecting data on AI decisions, network performance,
-and user feedback to identify areas for enhancement. By analyzing the feedback,
-the system can adapt and optimize its operations over time, leading to better
-performance and more accurate decision-making. For example, if a Network AI Agent fails
-to accurately identify the exact cause of a network incident, the relevant records
-can be submitted as negative samples to the LLM which provides inference services,
-this allows the LLM to be trained on these negative samples for optimization.
-Feedback-driven improvement also enables the architecture to evolve with changing
-network conditions and requirements.<a href="#section-5.3.5-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="collaboration-between-small-ai-model-and-large-ai-model">
-<section id="section-5.3.6">
-          <h4 id="name-collaboration-between-small">
-<a href="#section-5.3.6" class="section-number selfRef">5.3.6. </a><a href="#name-collaboration-between-small" class="section-name selfRef">Collaboration between small AI model and large AI model</a>
-          </h4>
-<p id="section-5.3.6-1">The architecture must be designed to support collaboration between small AI model and
-large AI model.<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
-<p id="section-5.3.6-2">In the past, we only support AI and machine learning technologies at the network level,
-e.g., we can use collected various different network data to provide network analysis and
-generate network insight.<a href="#section-5.3.6-2" class="pilcrow">¶</a></p>
-<p id="section-5.3.6-3">With more intelligence introduced into the network element, more GPU/NPU resource can be
-allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible.<a href="#section-5.3.6-3" class="pilcrow">¶</a></p>
-<p id="section-5.3.6-4">Large AI models can provide basic logical reasoning and generalized analytical decision-making
-capabilities While specialized small AI models can provide efficient problem-solving capabilities
-in specialized areas.  The synergy between the two allows the AI agent to combine both multitasking
-generalization capabilities and domain expertise, thus minimizing the reliance on human intervention
-in the network management process.<a href="#section-5.3.6-4" class="pilcrow">¶</a></p>
-<p id="section-5.3.6-5">On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
-model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
-resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
-local processing for Collected data and summary report generation, Trend prediction, etc.
-With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
-controller interact with network element and has more quick response to network change.<a href="#section-5.3.6-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2006,7 +1990,7 @@ controller interact with network element and has more quick response to network 
       </ul>
 </section>
 </div>
-<div id="ai-driven-network-operations-a-collection-of-use-cases">
+<div id="uc">
 <section id="section-7">
       <h2 id="name-ai-driven-network-operations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-ai-driven-network-operations" class="section-name selfRef">AI Driven Network Operations: A collection of Use Cases</a>
