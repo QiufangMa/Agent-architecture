@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 20 July 2026                                       China Mobile
+Expires: 23 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 20 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         16 January 2026
+                                                         19 January 2026
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 July 2026.
+   This Internet-Draft will expire on 23 July 2026.
 
 Copyright Notice
 
@@ -102,24 +102,26 @@ Table of Contents
        5.3.4.  Configuration and Programmatic Interfaces
        5.3.5.  Feedback-driven Improvement
        5.3.6.  Collaboration between small AI model and large AI model
-   6.  AI Driven Network Operation: A collection of Use Cases
-     6.1.  Network Configuration Change
-     6.2.  Network Troubleshooting
-     6.3.  Network Optimization
-     6.4.  Network level Energy Efficiency Management
-     6.5.  Network Security Drills
-   7.  Challenges of Integrating Service-oriented AI into Network
+   6.  AI Driven Network Operations: Relationship Between
+           Characteristics and Functional Components
+   7.  AI Driven Network Operations: A collection of Use Cases
+     7.1.  Network Configuration Change
+     7.2.  Network Troubleshooting
+     7.3.  Network Optimization
+     7.4.  Network level Energy Efficiency Management
+     7.5.  Network Security Drills
+   8.  Challenges of Integrating Service-oriented AI into Network
            Management
-     7.1.  Hallucination
-     7.2.  Security
-     7.3.  Data Quality and Consistency
-     7.4.  Interpretability and Explainability
-     7.5.  Fast Decision-making
-   8.  Security Considerations
-   9.  IANA Considerations
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+     8.1.  Hallucination
+     8.2.  Security
+     8.3.  Data Quality and Consistency
+     8.4.  Interpretability and Explainability
+     8.5.  Fast Decision-making
+   9.  Security Considerations
+   10. IANA Considerations
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Appendix A.  Acknowledgements
    Appendix B.  Changes between Revisions
    Contributors
@@ -219,15 +221,21 @@ Table of Contents
 
    *  Retrieval-Augmented Generation (RAG)
 
-   *  Agentic AI
+   *  Agentic AI [I-D.hong-nmrg-agenticai-ps]
 
    Besides, this document defines the following terminology:
 
-   Network AI Agent:  AI Agent is an autonomous system or entity with
-      awareness of its environment, capable of conducting analysis,
+   Network AI Agent:  Network AI Agent is an autonomous system or entity
+      with awareness of its environment, capable of conducting analysis,
       making decisions, and executing actions with specific intent based
       on its knowledge representation to achieve a set of service goals
-      [TMF-1251D].
+      [TMF-1251D].  In addition, it is able of planning the tasks and
+      decomponse the tasks into several sub-tasks and coordinate with
+      Task agent for these sub-tasks.
+
+   Task AI Agent:  Task AI Agent is responsible for coordinating with
+      Network AI Agent in the multi-Agent System and executing specific
+      task assigned by Network AI Agent.
 
 3.  Introduction of Concepts
 
@@ -451,7 +459,7 @@ Table of Contents
    Network applications make requests that need to be addressed by the
    AI driven network.  Such requests are exchanged through a northbound
    intent interface (e.g., Restful API, Natural Language Programming
-   Interface(NLPI), A2A[A2A]), so that they can be applied by multi-
+   Interface(NLPI),A2A, A2A-T), so that they can be applied by multi-
    agent system at the appropriate twin instance(s).
 
 5.2.2.  Autonomous Domain
@@ -681,7 +689,51 @@ Table of Contents
    interact with network element and has more quick response to network
    change.
 
-6.  AI Driven Network Operation: A collection of Use Cases
+6.  AI Driven Network Operations: Relationship Between Characteristics
+    and Functional Components
+
+   The architecture in Figure 2 provides a concrete implementation
+   framework to realize the six key characteristics of AI-driven network
+   operations described in Section 4.  Each characteristic is directly
+   supported by specific functional components within the Autonomous
+   Domain.  The following clarifies how the architecture operationalizes
+   these characteristics:
+
+   *  Intent:  The Network Applications Layer conveys a high-level user
+         intent via northbound interfaces.  The Network AI Agent
+         interprets this intent and translates it into actionable
+         network operation tasks to each task Agent.
+
+   *  Knowledge:  The Knowledge Base in Agent Gateway serves as the
+         central repository for domain-specific knowledge, expert rules,
+         and historical data.  It provides the necessary context and
+         long/short memory to support accurate decision-making by task
+         Agents.
+
+   *  Analysis:  The AI Agent in Multi-Agent System performs intelligent
+         analysis using data and tools.  It leverages the Network
+         Digital Twin to simulate and validate scenarios, enabling data-
+         driven insights and gap analysis between intent and current
+         network state.
+
+   *  Decision:  The AI Agent in Multi-Agent System makes informed
+         decisions based on its analysis results.  It utilizes the
+         Network Digital Twin for risk-free validation before finalizing
+         decisions.  The decision may be sent to human operators for
+         confirmation before actions are taken.
+
+   *  Awareness:  The AI Agent in Multi-Agent System gathers data from
+         the Physical Network, it may also fetch data from the Network
+         Digital Twin which maintains a dynamic, virtual representation
+         of Physical Network.  Together, they provide comprehensive
+         network visibility and context-aware awareness.
+
+   *  Execution: ：The AI Agent in Multi-Agent System implements
+      validated decisions by applying configurations or control actions
+      to the Physical Network via southbound interfaces such as NETCONF,
+      RESTCONF, or Model Context Protocol [MCP].
+
+7.  AI Driven Network Operations: A collection of Use Cases
 
    Network AI Agent could help in the following phases which are usually
    mentioned in network management:
@@ -712,7 +764,7 @@ Table of Contents
    explicit feedback, it may adjust and optimize the management strategy
    if necessary.
 
-6.1.  Network Configuration Change
+7.1.  Network Configuration Change
 
    Network configuration changes are needed in scenarios such as
    optimizing network or service performance, provisioning new network
@@ -750,7 +802,7 @@ Table of Contents
       Execution component to conduct the physical network configuration
       change.
 
-6.2.  Network Troubleshooting
+7.2.  Network Troubleshooting
 
    Network AI Agent could assist in network troubleshooting in the
    following significant aspects:
@@ -807,7 +859,7 @@ Table of Contents
          and validates them through simulation in the NDT, thereby
          achieving predictive maintenance of the network.
 
-6.3.  Network Optimization
+7.3.  Network Optimization
 
    Network optimization is often introduced due to the Network AI
    Agent's awareness of some potential network faults or anomalies
@@ -831,7 +883,7 @@ Table of Contents
    apply it to the physical network after obtaining approval from the
    network operator.
 
-6.4.  Network level Energy Efficiency Management
+7.4.  Network level Energy Efficiency Management
 
    Network level Energy Efficiency refer to a set of processes used to
    discover a inventory of capabilities, use specific metrics to monitor
@@ -859,7 +911,7 @@ Table of Contents
    the Network AI Agent can know which part of the network need to be
    adjusted or optimized based on network status change.
 
-6.5.  Network Security Drills
+7.5.  Network Security Drills
 
    The AI Agent can help construct a dynamic attack-defense verification
    system in network security drills through NDT and AI reasoning
@@ -884,7 +936,7 @@ Table of Contents
    enhancing the proactive verification ability of defense systems
    against real-world threats.
 
-7.  Challenges of Integrating Service-oriented AI into Network
+8.  Challenges of Integrating Service-oriented AI into Network
     Management
 
    In addition to the research challenges in coupling AI and network
@@ -892,7 +944,7 @@ Table of Contents
    also identifies some challenges that need to be considered when
    integrating service-oriented AI into network management.
 
-7.1.  Hallucination
+8.1.  Hallucination
 
    Hallucination refers to the generation of AI responses that are
    incorrect, irrelevant, or even nonsensical in relation to the input
@@ -906,7 +958,7 @@ Table of Contents
    these hallucinations to ensure the reliability of AI-driven network
    management actions.
 
-7.2.  Security
+8.2.  Security
 
    Integrating AI into network management introduces new security
    challenges.  Large volumes of network data needs to be accessed to
@@ -924,7 +976,7 @@ Table of Contents
    architecture is essential to prevent unauthorized access and maintain
    the security of the network infrastructure.
 
-7.3.  Data Quality and Consistency
+8.3.  Data Quality and Consistency
 
    The performance of AI models heavily relies on the quality and
    consistency of the data they're trained on.  In network management
@@ -939,7 +991,7 @@ Table of Contents
    challenge in providing reliable inputs for AI-driven network
    management.
 
-7.4.  Interpretability and Explainability
+8.4.  Interpretability and Explainability
 
    AI-generated decisions can sometimes be difficult to interpret and
    explain, as the AI model structure and the parameter settings make it
@@ -952,7 +1004,7 @@ Table of Contents
    AI Driven Network Management and make it challenging to identify
    potential issues with AI-generated recommendations.
 
-7.5.  Fast Decision-making
+8.5.  Fast Decision-making
 
    In network operation and maintenance scenarios with high real-time
    requirements, such as scheduling strategy optimization and critical
@@ -969,7 +1021,7 @@ Table of Contents
    frameworks (such as quantization technology and parallel computing),
    and deploying high-performance AI acceleration hardware.
 
-8.  Security Considerations
+9.  Security Considerations
 
    The security consideration from
    [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
@@ -990,13 +1042,13 @@ Table of Contents
       configuration to updates and decommissioning—must be secured
       against unauthorized access and manipulation.
 
-9.  IANA Considerations
+10.  IANA Considerations
 
    This document has no requests to IANA.
 
-10.  References
+11.  References
 
-10.1.  Normative References
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1007,15 +1059,28 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [A2A]      "Agent2Agent (A2A) protocol", April 2025, <https://google-
               a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-
               a2a>.
 
+   [A2A-T]    "Agent to Agent Protocol for Telecoms (A2A-T)", 2025,
+              <https://www.tmforum.org/resources/introductory-guide/
+              ig1453-agent-to-agent-protocol-for-telecoms-a2a-
+              t-v1-0-0/>.
+
    [Google-Agents-Whitepaper]
               "Agents", 2024,
               <https://www.kaggle.com/whitepaper-agents>.
+
+   [I-D.hong-nmrg-agenticai-ps]
+              Hong, Y., Youn, J., Wu, Q., and B. Claise, "Motivations
+              and Problem Statement of Agentic AI for network
+              management", Work in Progress, Internet-Draft, draft-hong-
+              nmrg-agenticai-ps-00, 20 October 2025,
+              <https://datatracker.ietf.org/doc/html/draft-hong-nmrg-
+              agenticai-ps-00>.
 
    [I-D.ietf-nmop-network-incident-yang]
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
