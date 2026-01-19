@@ -618,7 +618,7 @@ The architecture in {{arch}} provides a concrete implementation framework to rea
  * Execution:
  ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
 
-# AI Driven Network Operations: A collection of Use Cases {{#uc}}
+# AI Driven Network Operations: A collection of Use Cases {#uc}
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
 
