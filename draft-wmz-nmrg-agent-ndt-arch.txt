@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 23 July 2026                                       China Mobile
+Expires: 25 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 23 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         19 January 2026
+                                                         21 January 2026
 
 
 Network Digital Twin based Architecture for AI driven Network Operations
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 July 2026.
+   This Internet-Draft will expire on 25 July 2026.
 
 Copyright Notice
 
@@ -96,7 +96,7 @@ Table of Contents
        5.2.1.  Network Applications
        5.2.2.  Autonomous Domain
      5.3.  Functional Interfaces
-       5.3.1.  Human Interaction Interface
+       5.3.1.  Human in the Loop
        5.3.2.  Application to Autonomous Domain Interface
        5.3.3.  Multi-Agent System to Agent Gateway Interface
        5.3.4.  Multi-Agent System to Network Digital Twin Interface
@@ -592,10 +592,7 @@ Table of Contents
    might not be visible as specific relationships in Figure 2, but they
    can nevertheless exist.
 
-5.3.1.  Human Interaction Interface
-
-   Network operators can use natual language to express high-levev
-   operational objectives, report issues, or initiate specific tasks.
+5.3.1.  Human in the Loop
 
    The architecture allows human experts to monitor, guide, approve, or
    intervene in the AI driven network operations.  Human may provide
@@ -603,7 +600,7 @@ Table of Contents
    human in the process, the architecture can leverage their insights
    and experience, ensuring AI actions align with organizational goals.
 
-   Human out of loop is also helpful to provide a safeguard for complex
+   Human in the loop is also helpful to provide a safeguard for complex
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
