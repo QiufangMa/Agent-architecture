@@ -640,7 +640,7 @@ continuously monitors the network by data collection. Based on the result of net
 running analysis and user explicit feedback, it may adjust and optimize the
 management strategy if necessary.
 
-## Network Configuration Change
+## Multi-Agent Collaboration on Network Configuration Change
 
 Network configuration changes are needed in scenarios such as optimizing network
 or service performance, provisioning new network services, or resolving network incidents/faults.
@@ -687,14 +687,16 @@ Step 2:
 : Network AI Agent first verifies the identity of the user requesting the change and checks the user's
   permissions to make certain types of network changes against predefined rules
   or policies. It then understands and parses the initial intent of the request,
-  and leverages the powerful knowledge and reasoning capabilities of LLM to generate
+  by leveraging the powerful knowledge and reasoning capabilities of LLM and decompose the tasks into
+  configuration generation task, configuration distribution task, configuration validation task and assign
+  to corresponding task agents. Configuration generation Task Agent first generates
   initial suggestions for specific network configuration update, which may include
   multiple possible network configuration change plans if possible.
 
 Step 3:
-: Network AI Agent communicates with the Network Digital Twin to validate the suggested
-  configuration change, including the syntax and semantics of the configuration,
-  verification of effected application and resources. The network digital Twin
+: Network AI Agent further communicates with the Configuration Validation task agent and Network Digital Twin
+  task agent to validate the suggested configuration change, including the syntax and semantics of the configuration,
+  verification of effected application and resources. The network digital Twin task agent
   may generate a report indicating the validation result, and suggested
   configuration fix when the validation fails after network simulation leveraging
   the current physical network operational state.
@@ -702,8 +704,10 @@ Step 3:
 Step 4:
 : Network AI Agent may generate a configuration change plan and submit to the network operator
   for approval. Based on the feedback from the operator, Network AI Agent then further decides
-  whether to optimize the change plan or deliver the plan to the Execution component
-  to conduct the physical network configuration change.
+  whether to optimize the change plan or deliver the plan to the Configuration Distribution task agent
+  to conduct the physical network configuration change. The configuration distribution task agent
+  may further communicate with resource allocation task agent to obtain network resource (e.g.,vlan, IP subnet)
+  allocated by resource allocation task agent.
 
 ## Network Troubleshooting
 
