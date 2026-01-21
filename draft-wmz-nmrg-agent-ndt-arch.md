@@ -651,8 +651,9 @@ or service performance, provisioning new network services, or resolving network 
                  +-----+------+
                        |Intent                      +---------+
                        |                            |         |
-      Network  +-------V---------+                  |         |
-      AI Agent |     Goal        |                  |         |
+               +-------V---------+                  |         |
+               |Network AI Agent |                  |         |
+               |     Goal        |                  |         |
        +-------| Task-1,Task-2   +------------------>         |
        |       |   ... Task-n    +-------+          | Network |
        |       +-------+---------+       |          | Digital |
