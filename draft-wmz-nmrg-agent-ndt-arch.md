@@ -730,7 +730,7 @@ Step 4:
 +--------------+ +-----------+  +----------+ +------------+
 
 ~~~~
-{: #faultuc title="Network Troubleshooting Usage Example" artwork-align="center"}
+{: #faultuc title="Intent based Network Troubleshooting Usage Example" artwork-align="center"}
 
 The network operator inputs the intent of network configuration change into the Network AI Agent using natural language.
 Network AI Agent could plan and decompose network troubleshooting tasks and coordinate with fault identification task agent,
@@ -780,7 +780,32 @@ the following significant aspects:
   to avoid faults and validates them through simulation in the network digital twin task agent, thereby achieving
   predictive maintenance of the network.
 
-## Network Optimization
+## Multi-Agent Collaboration on Network Optimization
+
+~~~~
+
+                     |
+                     |
+             Human   |
+            Operator |Intent
+                     |                    +---------+
+            +--------V--------+           | Network |
+            | Network AI Agent|           | Digital |
+            |     Goal        |           |  Twin   |
+            | Task-1,Task-2   +----------->  Task   |
+            | ....Task-n      |           |  Agent  |
+            +--------+--------+           +---------+
+                     |
+          +----------+----------------+
+          |                           |
+  +-------+------+            +-------+-------+
+  | Optimization |            |  Optimization |
+  |  Generation  |            |  Distribution |
+  | Task Agent   |            | Task Agent    |
+  +--------------+            +---------------+
+
+~~~~
+{: #optimuc title="Intent based Network Optimization Usage Example" artwork-align="center"}
 
 Network optimization is often introduced due to the Network AI Agent's awareness of some potential
 network faults or anomalies through continuously monitoring of network operational
@@ -788,17 +813,17 @@ state, e.g., AI models may predicts network congestion by analyzing historical
 and real-time network traffic data. It may also be triggered by the network operator
 actively inputting the network optimization intent.
 
-Based on the analysis of network data and user's intent (if any), AI Agent proposes
-network optimization strategies. For instance, once the network congestion sometime
-in the future is predicted, it may proactively optimize the network configuration,
-or suggest scaling up to meet specific demands.
+Based on the analysis of network data and user's intent (if any), Network AI Agent collaborate with
+Optimization Solution Generation Task Agent to propose network optimization strategies. For instance,
+once the network congestion sometime in the future is predicted, it may proactively optimize the network
+configuration, or suggest scaling up to meet specific demands.
 
-Before the network optimization is conducted, Network AI Agent implements and evaluates
-the optimization solution using the Network Digital Twin. This may need repeated
-trials and validations based on specific evaluation criteria, before the optimal
-strategy could be selected. Network AI Agent may also first present the suggested network
-optimization solution to the network operator for review, and apply it to the
-physical network after obtaining approval from the network operator.
+Before the network optimization is conducted, Network AI Agent coordinates with the network digital twin task
+agent to implement and evaluate the optimization solution using the Network Digital Twin platform. This may need
+repeated trials and validations based on specific evaluation criteria, before the optimal strategy could be
+selected. Network AI Agent may also first present the suggested network optimization solution to the network
+operator for review, and apply it to the physical network through optimization solution distribution task agent
+after obtaining approval from the network operator.
 
 ## Network level Energy Efficiency Management
 
@@ -820,26 +845,27 @@ o The total energy consumption changing trend over the time of the day, for all 
 o Energy efficiency changing trend over the time of the day for the whole network.
 
 On the other hand, With the better observability to energy consumption statistics data
-and energy efficiency statistics data, the Network AI Agent can know which part of the network
-need to be adjusted or optimized based on network status change.
+and energy efficiency statistics data, the Network AI Agent can collaborate with network
+digital twin task agent to know which part of the network need to be adjusted or optimized
+based on network status change.
 
 ## Network Security Drills
 
-The AI Agent can help construct a dynamic attack-defense verification system
-in network security drills through NDT and AI reasoning capabilities. It uses
-generative AI to automatically generate diversified attack paths, models
-network topologies with graph neural networks, covers attack stages such as
-reconnaissance and penetration, and dynamically adjusts strategies via reinforcement
-learning to simulate the adaptive characteristics of network attacks. The
-virtual range built based on the NDT can 1:1 map the production environment,
-supporting simulations of composite scenarios like ransomware chain attacks
-and supply chain attacks—such as simulating the entire process of Conti
-virus laterally penetrating to domain controllers through weak passwords.
+The Network AI Agent can work with network digital twin task agent help construct a
+dynamic attack-defense verification system in network security drills through NDT and
+AI reasoning capabilities. The nework digital twin task agent uses generative AI to
+automatically generate diversified attack paths, models network topologies with graph
+neural networks, covers attack stages such as reconnaissance and penetration, and
+dynamically adjusts strategies via reinforcement learning to simulate the adaptive
+characteristics of network attacks. The virtual range built based on the NDT can
+1:1 map the production environment, supporting simulations of composite scenarios
+like ransomware chain attacks and supply chain attacks— such as simulating the entire
+process of Contivirus laterally penetrating to domain controllers through weak passwords.
 
-During drills, the AI Agent automatically deploys virtual environments with
-vulnerabilities, collects defense response data in real time through NDT,
-and generates attack path heatmaps and repair suggestions. This capability
-can further verify emergency response processes, inject real-time threat
+During drills, the Network AI Agent can work with the network digital twin task agent
+automatically deploys virtual environments with vulnerabilities, collects defense response
+data in real time through NDT, and generates attack path heatmaps and repair suggestions.
+This capability can further verify emergency response processes, inject real-time threat
 intelligence to dynamically update drill scenarios, and simulate end-to-end
 automated deployment, vulnerability injection, and real-time analysis of
 security drills, enhancing the proactive verification ability of defense
