@@ -776,8 +776,8 @@ Table of Contents
          Operator ----->  AI Agent  |
                        |            |
                        +-----+------+
-                             |Intent                      +---------+
-                             |                            |         |
+                             |Configuration               +---------+
+                             |Change Intent               |         |
                      +-------V---------+                  |         |
                      |Network AI Agent |                  |         |
                      |     Goal        |                  |         |
@@ -844,7 +844,7 @@ Table of Contents
 7.2.  Multi-Agent Collaboration on Network Troubleshooting
 
                                   |
-                          Human   |
+                          Human   |Network Troubeshooting
                          Operator |Intent
                                   |                    +---------+
                          +--------V--------+           | Network |
@@ -936,7 +936,7 @@ Table of Contents
 
                                 |
                                 |
-                        Human   |
+                        Human   |Network Optimization
                        Operator |Intent
                                 |                    +---------+
                        +--------V--------+           | Network |
