@@ -591,6 +591,7 @@ resource or chipset resource in the intelligent network element to collect more 
 local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
+-->
 
 # AI Driven Network Operations: Relationship Between Characteristics and Functional Components
 
