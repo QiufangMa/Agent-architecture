@@ -768,7 +768,7 @@ Table of Contents
    services, or resolving network incidents/faults.
 
                        +------------+
-           Human       |   OSS      |
+         Network       |   OSS      |
          Operator ----->  AI Agent  |
                        |            |
                        +-----+------+
@@ -839,11 +839,33 @@ Table of Contents
 
 7.2.  Multi-Agent Collaboration on Network Troubleshooting
 
-   Network AI Agent could plan and decompose network troubleshooting
-   tasks and coordinate with fault identification task agent, fault
-   diagnosis task agent, fault repair task agent and fault prediction
-   task agent to assist in network troubleshooting in the following
-   significant aspects:
+                                  |
+                          Human   |
+                         Operator |Intent
+                                  |                    +---------+
+                         +--------V--------+           | Network |
+                         | Network AI Agent|           | Digital |
+                         |     Goal        |           |  Twin   |
+                         | Task-1,Task-2   +----------->  Task   |
+                         | ....Task-n      |           |  Agent  |
+                         +--------+--------+           +---------+
+                                  |
+            |------------------+--+-----------+------------+
+        +---+----------+ +-----+-----+  +-----+----+ +-----+------+
+        |    Fault     | |   Fault   |  |   Fault  | |   Fault    |
+        |Identification| | Diagnosis |  |  Repair  | | Prediction |
+        | Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
+        +--------------+ +-----------+  +----------+ +------------+
+
+              Figure 4: Network Troubleshooting Usage Example
+
+   The network operator inputs the intent of network configuration
+   change into the Network AI Agent using natural language.  Network AI
+   Agent could plan and decompose network troubleshooting tasks and
+   coordinate with fault identification task agent, fault diagnosis task
+   agent, fault repair task agent and fault prediction task agent to
+   assist in network troubleshooting in the following significant
+   aspects:
 
    *  Fault Identification:  Network AI Agent coordinates with fault
          identification task agent continuously monitors and aggregates
