@@ -774,8 +774,9 @@ Table of Contents
                        +-----+------+
                              |Intent                      +---------+
                              |                            |         |
-            Network  +-------V---------+                  |         |
-            AI Agent |     Goal        |                  |         |
+                     +-------V---------+                  |         |
+                     |Network AI Agent |                  |         |
+                     |     Goal        |                  |         |
              +-------| Task-1,Task-2   +------------------>         |
              |       |   ... Task-n    +-------+          | Network |
              |       +-------+---------+       |          | Digital |
