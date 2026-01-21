@@ -1256,7 +1256,7 @@ intent-based networking to meet the needs of the network service.<a href="#secti
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-ai-driven-network-operations" class="internal xref">AI Driven Network Operations: A collection of Use Cases</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-network-configuration-chang" class="internal xref">Network Configuration Change</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-multi-agent-collaboration-o" class="internal xref">Multi-Agent Collaboration on Network Configuration Change</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-network-troubleshooting" class="internal xref">Network Troubleshooting</a></p>
@@ -2022,10 +2022,10 @@ management changes a reality in the real physical network.<a href="#section-5.3.
 continuously monitors the network by data collection. Based on the result of network
 running analysis and user explicit feedback, it may adjust and optimize the
 management strategy if necessary.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<div id="network-configuration-change">
+<div id="multi-agent-collaboration-on-network-configuration-change">
 <section id="section-7.1">
-        <h3 id="name-network-configuration-chang">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-network-configuration-chang" class="section-name selfRef">Network Configuration Change</a>
+        <h3 id="name-multi-agent-collaboration-o">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-multi-agent-collaboration-o" class="section-name selfRef">Multi-Agent Collaboration on Network Configuration Change</a>
         </h3>
 <p id="section-7.1-1">Network configuration changes are needed in scenarios such as optimizing network
 or service performance, provisioning new network services, or resolving network incidents/faults.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
@@ -2079,16 +2079,18 @@ objectives and requirements of the changes.<a href="#section-7.1-4.2.1" class="p
             <p id="section-7.1-4.4.1">Network AI Agent first verifies the identity of the user requesting the change and checks the user's
 permissions to make certain types of network changes against predefined rules
 or policies. It then understands and parses the initial intent of the request,
-and leverages the powerful knowledge and reasoning capabilities of LLM to generate
+by leveraging the powerful knowledge and reasoning capabilities of LLM and decompose the tasks into
+configuration generation task, configuration distribution task, configuration validation task and assign
+to corresponding task agents. Configuration generation Task Agent first generates
 initial suggestions for specific network configuration update, which may include
 multiple possible network configuration change plans if possible.<a href="#section-7.1-4.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-7.1-4.5">Step 3:</dt>
           <dd style="margin-left: 1.5em" id="section-7.1-4.6">
-            <p id="section-7.1-4.6.1">Network AI Agent communicates with the Network Digital Twin to validate the suggested
-configuration change, including the syntax and semantics of the configuration,
-verification of effected application and resources. The network digital Twin
+            <p id="section-7.1-4.6.1">Network AI Agent further communicates with the Configuration Validation task agent and Network Digital Twin
+task agent to validate the suggested configuration change, including the syntax and semantics of the configuration,
+verification of effected application and resources. The network digital Twin task agent
 may generate a report indicating the validation result, and suggested
 configuration fix when the validation fails after network simulation leveraging
 the current physical network operational state.<a href="#section-7.1-4.6.1" class="pilcrow">¶</a></p>
@@ -2098,8 +2100,10 @@ the current physical network operational state.<a href="#section-7.1-4.6.1" clas
           <dd style="margin-left: 1.5em" id="section-7.1-4.8">
             <p id="section-7.1-4.8.1">Network AI Agent may generate a configuration change plan and submit to the network operator
 for approval. Based on the feedback from the operator, Network AI Agent then further decides
-whether to optimize the change plan or deliver the plan to the Execution component
-to conduct the physical network configuration change.<a href="#section-7.1-4.8.1" class="pilcrow">¶</a></p>
+whether to optimize the change plan or deliver the plan to the Configuration Distribution task agent
+to conduct the physical network configuration change. The configuration distribution task agent
+may further communicate with resource allocation task agent to obtain network resource (e.g.,vlan, IP subnet)
+allocated by resource allocation task agent.<a href="#section-7.1-4.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
