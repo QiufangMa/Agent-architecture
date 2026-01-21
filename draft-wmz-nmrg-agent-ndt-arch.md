@@ -645,7 +645,7 @@ or service performance, provisioning new network services, or resolving network 
 ~~~~
 
                  +------------+
-     Human       |   OSS      |
+   Network       |   OSS      |
    Operator ----->  AI Agent  |
                  |            |
                  +-----+------+
@@ -709,6 +709,30 @@ Step 4:
 
 ## Multi-Agent Collaboration on Network Troubleshooting
 
+~~~~
+
+                          |
+                  Human   |
+                 Operator |Intent
+                          |                    +---------+
+                 +--------V--------+           | Network |
+                 | Network AI Agent|           | Digital |
+                 |     Goal        |           |  Twin   |
+                 | Task-1,Task-2   +----------->  Task   |
+                 | ....Task-n      |           |  Agent  |
+                 +--------+--------+           +---------+
+                          |
+    |------------------+--+-----------+------------+
++---+----------+ +-----+-----+  +-----+----+ +-----+------+
+|    Fault     | |   Fault   |  |   Fault  | |   Fault    |
+|Identification| | Diagnosis |  |  Repair  | | Prediction |
+| Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
++--------------+ +-----------+  +----------+ +------------+
+
+~~~~
+{: #faultuc title="Network Troubleshooting Usage Example" artwork-align="center"}
+
+The network operator inputs the intent of network configuration change into the Network AI Agent using natural language.
 Network AI Agent could plan and decompose network troubleshooting tasks and coordinate with fault identification task agent,
 fault diagnosis task agent, fault repair task agent and fault prediction task agent to assist in network troubleshooting in
 the following significant aspects:
