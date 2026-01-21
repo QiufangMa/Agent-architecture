@@ -103,10 +103,10 @@ AI driven Network Operations brings together existing technologies such
 as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
 of existing components enhanced with a few new elements.
 
-This document describes an architecture for AI driven network
-operations and shows how these components work together. It provides a
+This document describes an architecture for AI driven network operations and shows how these
+components work together with network digital twin and AI capabilities. It provides a
 cookbook of existing technologies to satisfy the architecture and realize
-intent-based networking to meet the needs of the network service.
+intent-based network management to meet the needs of the network service.
 
 --- middle
 
@@ -161,10 +161,9 @@ coordinating the components that operate and manage the network:
   verification on the repair solution in seconds, including loop, address conflict, and security
   policy conflict.
 
-This document describes an architecture for AI Driven network
-operations, showing how these components work together. It provides a
-cookbook of existing technologies to satisfy the architecture and realize
-intent-based networking to meet the needs of applications.
+This document describes an architecture for AI Driven network operations, showing how these components
+work together with network digital and AI capabilities. It provides a cookbook of existing technologies
+to satisfy the architecture and realize intent-based networking to meet the needs of applications.
 
 # Conventions and Definitions
 
