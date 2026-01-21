@@ -644,7 +644,39 @@ management strategy if necessary.
 
 Network configuration changes are needed in scenarios such as optimizing network
 or service performance, provisioning new network services, or resolving network incidents/faults.
-Network configuration change leveraging AI and Network Digital Twin may experience the following typical steps:
+
+~~~~
+
+                 +------------+
+     Human       |   OSS      |
+   Operator ----->  AI Agent  |
+                 |            |
+                 +-----+------+
+                       |Intent                      +---------+
+                       |                            |         |
+      Network  +-------V---------+                  |         |
+      AI Agent |     Goal        |                  |         |
+       +-------| Task-1,Task-2   +------------------>         |
+       |       |   ... Task-n    +-------+          | Network |
+       |       +-------+---------+       |          | Digital |
+       |               |                 |          |  Twin   |
+       |               |                 |          |  Task   |
+ +-----V------+  +-----V-------+  +------V----+     |  Agent  |
+ |   Config   |  |  Config     |  |  Config   <----->         |
+ | Generation |  | Distribution|  |Validation |     |         |
+ | Task Agent |  |  Task Agent |  | Task Agent|     |         |
+ +------------+  +-------------+  +-----^-----+     +---------+
+                                        |
+                                 +------V------+
+                                 |  Resource   |
+                                 | Allocation  |
+                                 | Task Agent  |
+                                 +-------------+
+
+~~~~
+{: #changeuc title="Intent Based Network Configuration Change Usage Example" artwork-align="center"}
+
+Network configuration change leveraging Network AI Agent and Network Digital Twin may experience the following typical steps:
 
 Step 1:
 :  The network operator inputs the intent of network configuration change into the
