@@ -17,7 +17,8 @@ Expires: 25 July 2026                                       China Mobile
                                                          21 January 2026
 
 
-Network Digital Twin based Architecture for AI driven Network Operations
+  Network Digital Twin and Agentic AI based Architecture for AI driven
+                           Network Operations
                   draft-wmz-nmrg-agent-ndt-arch-latest
 
 Abstract
@@ -39,9 +40,9 @@ Abstract
 
    This document describes an architecture for AI driven network
    operations and shows how these components work together with network
-   digital twin and AI capabilities.  It provides a cookbook of existing
-   technologies to satisfy the architecture and realize intent-based
-   network management to meet the needs of the network service.
+   digital twin and Agentic AI capabilities.  It provides a cookbook of
+   existing technologies to satisfy the architecture and realize intent-
+   based network management to meet the needs of the network service.
 
 Discussion Venues
 
@@ -145,14 +146,16 @@ Table of Contents
    The Network Digital Twin (NDT)
    [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
    to provide a network emulation tool for scenario planning, impact
-   analysis, and change management.  Integrating a Network Digital Twin
-   into network management together with Agentic AI, it allows network
-   management activities to dynamically adapt to customer needs, network
-   changes, as well as to automatically assess, model, and refine
-   optimization strategies under realistic conditions but in a risk-free
-   environment.  An environment that operates to meet these types of
-   requirements is said to have service-oriented AI for network
-   operations.
+   analysis, and change management.  Agentic AI introduces disruptive
+   paradim to the network management and allow delcarative intent
+   interpretation, multi-step action, multi-agent coordination.
+   Integrating a Network Digital Twin into network management together
+   with Agentic AI, it allows network management activities to
+   dynamically adapt to customer needs, network changes, as well as to
+   automatically assess, model, and refine optimization strategies under
+   realistic conditions but in a risk-free environment.  An environment
+   that operates to meet these types of requirements is said to have AI
+   driven network operations.
 
    AI Driven network operations provide the following capabilities to
    applications by coordinating the components that operate and manage
