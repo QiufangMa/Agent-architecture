@@ -491,15 +491,12 @@ as necessary to realize specific functionality.  Thus, some of the
 interfaces described below might not be visible as specific
 relationships in {{arch}}, but they can nevertheless exist.
 
-### Human Interaction Interface
-
-Network operators can use natual language to express high-levev operational objectives,
-report issues, or initiate specific tasks.
+### Human in the Loop
 
 The architecture allows human experts to monitor, guide, approve, or intervene in the
 AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.
 
-Human out of loop is also helpful to provide a safeguard for complex or sensitive
+Human in the loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
 This typically uses natural lanaguage as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
