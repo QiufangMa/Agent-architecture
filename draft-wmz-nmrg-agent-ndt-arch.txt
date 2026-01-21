@@ -38,10 +38,10 @@ Abstract
    elements.
 
    This document describes an architecture for AI driven network
-   operations and shows how these components work together.  It provides
-   a cookbook of existing technologies to satisfy the architecture and
-   realize intent-based networking to meet the needs of the network
-   service.
+   operations and shows how these components work together with network
+   digital twin and AI capabilities.  It provides a cookbook of existing
+   technologies to satisfy the architecture and realize intent-based
+   network management to meet the needs of the network service.
 
 Discussion Venues
 
@@ -193,9 +193,10 @@ Table of Contents
       conflict.
 
    This document describes an architecture for AI Driven network
-   operations, showing how these components work together.  It provides
-   a cookbook of existing technologies to satisfy the architecture and
-   realize intent-based networking to meet the needs of applications.
+   operations, showing how these components work together with network
+   digital and AI capabilities.  It provides a cookbook of existing
+   technologies to satisfy the architecture and realize intent-based
+   networking to meet the needs of applications.
 
 2.  Conventions and Definitions
 
