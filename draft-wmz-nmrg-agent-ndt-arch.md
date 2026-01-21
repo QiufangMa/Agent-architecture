@@ -649,8 +649,8 @@ or service performance, provisioning new network services, or resolving network 
    Operator ----->  AI Agent  |
                  |            |
                  +-----+------+
-                       |Intent                      +---------+
-                       |                            |         |
+                       |Configuration               +---------+
+                       |Change Intent               |         |
                +-------V---------+                  |         |
                |Network AI Agent |                  |         |
                |     Goal        |                  |         |
@@ -712,7 +712,7 @@ Step 4:
 ~~~~
 
                           |
-                  Human   |
+                  Human   |Network Troubeshooting
                  Operator |Intent
                           |                    +---------+
                  +--------V--------+           | Network |
@@ -786,7 +786,7 @@ the following significant aspects:
 
                      |
                      |
-             Human   |
+             Human   |Network Optimization
             Operator |Intent
                      |                    +---------+
             +--------V--------+           | Network |
