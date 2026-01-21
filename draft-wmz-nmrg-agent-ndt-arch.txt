@@ -105,7 +105,7 @@ Table of Contents
            Characteristics and Functional Components
    7.  AI Driven Network Operations: A collection of Use Cases
      7.1.  Multi-Agent Collaboration on Network Configuration Change
-     7.2.  Network Troubleshooting
+     7.2.  Multi-Agent Collaboration on Network Troubleshooting
      7.3.  Network Optimization
      7.4.  Network level Energy Efficiency Management
      7.5.  Network Security Drills
@@ -837,62 +837,74 @@ Table of Contents
       to obtain network resource (e.g.,vlan, IP subnet) allocated by
       resource allocation task agent.
 
-7.2.  Network Troubleshooting
+7.2.  Multi-Agent Collaboration on Network Troubleshooting
 
-   Network AI Agent could assist in network troubleshooting in the
-   following significant aspects:
+   Network AI Agent could plan and decompose network troubleshooting
+   tasks and coordinate with fault identification task agent, fault
+   diagnosis task agent, fault repair task agent and fault prediction
+   task agent to assist in network troubleshooting in the following
+   significant aspects:
 
-   *  Fault Identification:  Network AI Agent continuously monitors and
-         aggregates data from various sources, the comprehensive data
-         collection provides a holistic view of the network operational
-         state.  By analyzing the real-time data, Network AI Agent could
-         detect network anomalies swiftly, which enables the prompt
-         identification of potential issues before they escalate into
-         major faults, minimizing downtime or service disruptions.  In
-         some cases, the Leightweight AI located in the Network Element
-         may handle some simple fault identification tasks (e.g.,
-         optical module fault automatic identification) to enhance the
-         awareness, while the Network AI Agent and LLM could leverage
-         their powerful processing capabilities to analyze the time-
-         domain data collected from the optical module.
+   *  Fault Identification:  Network AI Agent coordinates with fault
+         identification task agent continuously monitors and aggregates
+         data from various sources, the comprehensive data collection
+         provides a holistic view of the network operational state.  By
+         analyzing the real-time data, fault identification task Agent
+         could detect network anomalies swiftly, which enables the
+         prompt identification of potential issues before they escalate
+         into major faults, minimizing downtime or service disruptions.
+         In some cases, the Leightweight AI located in the Network
+         Element may handle some simple fault identification tasks
+         (e.g., optical module fault automatic identification) to
+         enhance the awareness, while the fault identification task
+         agent and LLM could leverage their powerful processing
+         capabilities to analyze the time-domain data collected from the
+         optical module.
 
    *  Fault Diagnosis:  Once a fault is identified, Network AI Agent
-         delves into diagnosing the exact cause, it may also invoke some
-         existing operations such as "incident-diagnose" RPC defined in
-         [I-D.ietf-nmop-network-incident-yang].  By correlating symptoms
-         and/or applying AI models trained on historical data, it can
-         narrow down the potential causes and pinpoint the exact cause,
-         which accelerates the diagnosis process and reduces the time
-         needed to address the issue.
+         coordinate with fault diagnosis task agent to delve into
+         diagnosing the exact cause, fault diagnosis task agent may also
+         invoke some existing operations such as "incident-diagnose" RPC
+         defined in [I-D.ietf-nmop-network-incident-yang].  By
+         correlating symptoms and/or applying AI models trained on
+         historical data, fault diagnosis task agent can narrow down the
+         potential causes and pinpoint the exact cause, which
+         accelerates the diagnosis process and reduces the time needed
+         to address the issue.
 
    *  Fault Repair:  After diagnosing the fault, Network AI Agent can
-         generate targeted repair solutions.  These solutions range from
-         specific configuration adjustments to more complex fixes (e.g.,
-         hardware replacement).  Network AI Agent would also communicate
-         with the Network Digital Twin to simulate the proposed repair
-         solutions and get feedback from the Network Digital Twin.  In
-         advanced setups, Network AI Agent may automatically execute
-         these repairs, ensuring quick restoration of normal operations
-         and enhancing the overall reliability and efficiency of network
-         management.  But it may also first present the fault details
-         and repair advice to the network operator for review, and
-         proceed to carry out the repair task once it is confirmed.
+         coordinate with fault repair task agent to generate targeted
+         repair solutions.  These solutions range from specific
+         configuration adjustments to more complex fixes (e.g., hardware
+         replacement).  Fault Repair task Agent would also communicate
+         with the Network Digital Twin task agent to simulate the
+         proposed repair solutions and get feedback from the Network
+         Digital Twin task agent.  In advanced setups, fault repair task
+         agent may automatically execute these repairs, ensuring quick
+         restoration of normal operations and enhancing the overall
+         reliability and efficiency of network management.  But the
+         fault repair task agent may also first present the fault
+         details and repair advice to the network operator for review,
+         and proceed to carry out the repair task once it is confirmed.
 
    *  Fault Prediction  As an advanced enhancement of fault management
          capabilities, fault prediction aims to reduce network risks
          through proactive management that prevents problems before they
-         occur.  Before a fault actually occurs, the NDT constructs a
-         dynamic simulation model by collecting real-time multi-
-         dimensional operational state data, including network topology,
-         traffic load, and device performance indicators.  Based on the
-         network data, AI Agent uses large models and machine learning
-         algorithms (such as time-series prediction models and anomaly
-         detection models) to reason and analyze potential faults—for
-         example, predicting the risk of physical link interruption
-         based on optical cable signal attenuation data.  Furthermore,
-         the AI Agent generates recommended operations to avoid faults
-         and validates them through simulation in the NDT, thereby
-         achieving predictive maintenance of the network.
+         occur.  Before a fault actually occurs, the fault prediction
+         task agent can coordiante with network digital twin task agent
+         to construct a dynamic simulation model by collecting real-time
+         multi-dimensional operational state data, including network
+         topology, traffic load, and device performance indicators.
+         Based on the network data, the fault predication task agent
+         uses large models and machine learning algorithms (such as
+         time-series prediction models and anomaly detection models) to
+         reason and analyze potential faults—for example, predicting the
+         risk of physical link interruption based on optical cable
+         signal attenuation data.  Furthermore, the fault prediction
+         task Agent generates recommended operations to avoid faults and
+         validates them through simulation in the network digital twin
+         task agent, thereby achieving predictive maintenance of the
+         network.
 
 7.3.  Network Optimization
 
