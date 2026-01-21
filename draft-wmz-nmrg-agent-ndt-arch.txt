@@ -104,7 +104,7 @@ Table of Contents
    6.  AI Driven Network Operations: Relationship Between
            Characteristics and Functional Components
    7.  AI Driven Network Operations: A collection of Use Cases
-     7.1.  Network Configuration Change
+     7.1.  Multi-Agent Collaboration on Network Configuration Change
      7.2.  Network Troubleshooting
      7.3.  Network Optimization
      7.4.  Network level Energy Efficiency Management
@@ -761,13 +761,42 @@ Table of Contents
    explicit feedback, it may adjust and optimize the management strategy
    if necessary.
 
-7.1.  Network Configuration Change
+7.1.  Multi-Agent Collaboration on Network Configuration Change
 
    Network configuration changes are needed in scenarios such as
    optimizing network or service performance, provisioning new network
-   services, or resolving network incidents/faults.  Network
-   configuration change leveraging AI and Network Digital Twin may
-   experience the following typical steps:
+   services, or resolving network incidents/faults.
+
+                       +------------+
+           Human       |   OSS      |
+         Operator ----->  AI Agent  |
+                       |            |
+                       +-----+------+
+                             |Intent                      +---------+
+                             |                            |         |
+            Network  +-------V---------+                  |         |
+            AI Agent |     Goal        |                  |         |
+             +-------| Task-1,Task-2   +------------------>         |
+             |       |   ... Task-n    +-------+          | Network |
+             |       +-------+---------+       |          | Digital |
+             |               |                 |          |  Twin   |
+             |               |                 |          |  Task   |
+       +-----V------+  +-----V-------+  +------V----+     |  Agent  |
+       |   Config   |  |  Config     |  |  Config   <----->         |
+       | Generation |  | Distribution|  |Validation |     |         |
+       | Task Agent |  |  Task Agent |  | Task Agent|     |         |
+       +------------+  +-------------+  +-----^-----+     +---------+
+                                              |
+                                       +------V------+
+                                       |  Resource   |
+                                       | Allocation  |
+                                       | Task Agent  |
+                                       +-------------+
+
+     Figure 3: Intent Based Network Configuration Change Usage Example
+
+   Network configuration change leveraging Network AI Agent and Network
+   Digital Twin may experience the following typical steps:
 
    Step 1:  The network operator inputs the intent of network
       configuration change into the Network AI Agent using natural
@@ -778,26 +807,34 @@ Table of Contents
       requesting the change and checks the user's permissions to make
       certain types of network changes against predefined rules or
       policies.  It then understands and parses the initial intent of
-      the request, and leverages the powerful knowledge and reasoning
-      capabilities of LLM to generate initial suggestions for specific
-      network configuration update, which may include multiple possible
-      network configuration change plans if possible.
+      the request, by leveraging the powerful knowledge and reasoning
+      capabilities of LLM and decompose the tasks into configuration
+      generation task, configuration distribution task, configuration
+      validation task and assign to corresponding task agents.
+      Configuration generation Task Agent first generates initial
+      suggestions for specific network configuration update, which may
+      include multiple possible network configuration change plans if
+      possible.
 
-   Step 3:  Network AI Agent communicates with the Network Digital Twin
-      to validate the suggested configuration change, including the
-      syntax and semantics of the configuration, verification of
-      effected application and resources.  The network digital Twin may
-      generate a report indicating the validation result, and suggested
-      configuration fix when the validation fails after network
-      simulation leveraging the current physical network operational
-      state.
+   Step 3:  Network AI Agent further communicates with the Configuration
+      Validation task agent and Network Digital Twin task agent to
+      validate the suggested configuration change, including the syntax
+      and semantics of the configuration, verification of effected
+      application and resources.  The network digital Twin task agent
+      may generate a report indicating the validation result, and
+      suggested configuration fix when the validation fails after
+      network simulation leveraging the current physical network
+      operational state.
 
    Step 4:  Network AI Agent may generate a configuration change plan
       and submit to the network operator for approval.  Based on the
       feedback from the operator, Network AI Agent then further decides
       whether to optimize the change plan or deliver the plan to the
-      Execution component to conduct the physical network configuration
-      change.
+      Configuration Distribution task agent to conduct the physical
+      network configuration change.  The configuration distribution task
+      agent may further communicate with resource allocation task agent
+      to obtain network resource (e.g.,vlan, IP subnet) allocated by
+      resource allocation task agent.
 
 7.2.  Network Troubleshooting
 
