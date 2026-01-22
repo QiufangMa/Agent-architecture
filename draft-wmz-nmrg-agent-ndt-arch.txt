@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 25 July 2026                                       China Mobile
+Expires: 26 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 25 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         21 January 2026
+                                                         22 January 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 July 2026.
+   This Internet-Draft will expire on 26 July 2026.
 
 Copyright Notice
 
@@ -417,13 +417,15 @@ Table of Contents
 | | Network |   |             |Network AI Agent|   |  || Registration || |
 | |         |   |             +--------^-------+   |  |+--------------+| |
 | | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +----------+---------+ <-->|Authentication|| |
+| |         <--->           +----------+---------+ <-->|   Security   || |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
 | |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Knowledge Base|| |
 | |         |   | +------------+ +------------+    |  |+--------------+| |
+| |         |   |                                  |  |+--------------+| |
+| |         |   |                                  |  ||Observability || |
+| |         |   |                                  |  |+--------------+| |
 | +----^----+   +-----------------^----------------+  +--------^-------+ |
-|      |                          |                            |         |
 |      |                          |                            |         |
 | +----v--------------------------v----------------------------|-------+ |
 | |Physical Network                                            |       | |
@@ -433,7 +435,6 @@ Table of Contents
 | |      |         |    |                  |             |  +-----+|   | |
 | |      +---------+    +------------------+             +---------+   | |
 | +---------------- ---------------------------------------------------+ |
-|                                                                        |
 +------------------------------------------------------------------------+
 
    Figure 2: An Architecture for Integrating Network AI Agent with
