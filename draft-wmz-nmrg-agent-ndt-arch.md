@@ -892,7 +892,7 @@ automated deployment, vulnerability injection, and real-time analysis of
 security drills, enhancing the proactive verification ability of defense
 systems against real-world threats.
 
-# Challenges of Integrating Service-oriented AI into Network Management
+# Challenges of Integrating Network Digital Twin and Agentic AI into Network Management
 
 In addition to the research challenges in coupling AI and network management
 specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
