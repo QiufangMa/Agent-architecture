@@ -356,10 +356,10 @@ realize specific functionality.
 | |         <--->           +----------+---------+ <-->|   Security   || |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Knowledge Base|| |
+| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Observability || |
 | |         |   | +------------+ +------------+    |  |+--------------+| |
 | |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Observability || |
+| |         |   |                                  |  ||Knowledge Base | |
 | |         |   |                                  |  |+--------------+| |
 | +----^----+   +-----------------^----------------+  +--------^-------+ |
 |      |                          |                            |         |
@@ -436,19 +436,27 @@ The Agent Gateway, which serves as a central management hub, provides essential 
 ##### Registration
 
 AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
-own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
+own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
 
 {{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.
 
-##### Authentication
+##### Security
 
-Authentication component enforces trusted inter-Agent communication by verifying
-the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
+Security component enforces trusted inter-Agent communication by verifying the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.
 
 Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.
 
-It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.
+It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
+a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.
+
+#### Observability
+
+Observability component can collect logs, metrics and traces for each agents within autonomous domain from the Agent Gateway and provides end to end
+visibility into progress, failures, and network performance such as latency.
+
+In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity,e.g., it can discern
+whether a human-in-the-loop approved an action or if the agent acted autonomously.
 
 ##### Knowledge Base
 
