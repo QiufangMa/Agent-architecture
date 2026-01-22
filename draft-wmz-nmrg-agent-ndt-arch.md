@@ -201,7 +201,7 @@ and executing specific task assigned by Network AI Agent.
 
 # Introduction of Concepts
 
-## Generative AI and AI Agent
+## Generative AI and Agentic AI
 
 The integration of AI into network operations has marked a significant leap forward in
 the pursuit of network automation and intelligence, while generative AI further
@@ -210,8 +210,8 @@ subfield of AI that uses generative models such as Large Language Models (LLMs) 
 generate new and original content such as text, images, videos, or other forms of data with the
 capability to adapt and make decisions to achieve specific goals.
 
-An AI agent refers to a system or program that Large Language Models (LLM)s to interact
-with humans (or other AI Agents) for purposes of performing tasks.
+Agentic AI refers to the broader category of AI systems that exhibit "agency"—the ability to act
+independently and iteratively to perform tasks without constant human prompting {{?I-D.hong-nmrg-agenticai-ps}}.
 In the context of network operations and management, Network AI agents are increasingly being designed to
 interact with physical world and act upon it based on tools {{Google-Agents-Whitepaper}} and
 perform network management tasks such as understanding user intent, generating network configurations,
