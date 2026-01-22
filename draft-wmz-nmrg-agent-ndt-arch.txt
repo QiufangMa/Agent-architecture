@@ -88,7 +88,7 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Introduction of Concepts
-     3.1.  Generative AI and AI Agent
+     3.1.  Generative AI and Agentic AI
      3.2.  Network Digital Twin
    4.  Characteristics of AI driven Network Operations
    5.  Architecture Design
@@ -249,7 +249,7 @@ Table of Contents
 
 3.  Introduction of Concepts
 
-3.1.  Generative AI and AI Agent
+3.1.  Generative AI and Agentic AI
 
    The integration of AI into network operations has marked a
    significant leap forward in the pursuit of network automation and
@@ -260,18 +260,19 @@ Table of Contents
    images, videos, or other forms of data with the capability to adapt
    and make decisions to achieve specific goals.
 
-   An AI agent refers to a system or program that Large Language Models
-   (LLM)s to interact with humans (or other AI Agents) for purposes of
-   performing tasks.  In the context of network operations and
-   management, Network AI agents are increasingly being designed to
-   interact with physical world and act upon it based on tools
-   [Google-Agents-Whitepaper] and perform network management tasks such
-   as understanding user intent, generating network configurations,
-   diagnosing and resolving network incidents
-   [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
-   try to define terms related to Network AI agent in the context of
-   network operations and management, e.g., TM Forum defines Autonomous
-   Agent in [TMF-1251D] as one of AN (Autonomous Network) Terminologies.
+   Agentic AI refers to the broader category of AI systems that exhibit
+   "agency"—the ability to act independently and iteratively to perform
+   tasks without constant human prompting [I-D.hong-nmrg-agenticai-ps].
+   In the context of network operations and management, Network AI
+   agents are increasingly being designed to interact with physical
+   world and act upon it based on tools [Google-Agents-Whitepaper] and
+   perform network management tasks such as understanding user intent,
+   generating network configurations, diagnosing and resolving network
+   incidents [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other
+   SDOs also try to define terms related to Network AI agent in the
+   context of network operations and management, e.g., TM Forum defines
+   Autonomous Agent in [TMF-1251D] as one of AN (Autonomous Network)
+   Terminologies.
 
 3.2.  Network Digital Twin
 
