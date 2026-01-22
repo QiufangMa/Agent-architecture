@@ -1237,10 +1237,10 @@ intent-based network management to meet the needs of the network service.<a href
                     <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-application-to-network-ai-a" class="internal xref">Application to Network AI Agent Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
-                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-network-ai-agent-to-network" class="internal xref">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-network-ai-agent-to-task-ai" class="internal xref">Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.4">
-                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-network-ai-agent-to-task-ai" class="internal xref">Network AI Agent to Task AI Agent Interface</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-network-ai-agent-to-network" class="internal xref">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.5">
                     <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-network-ai-agent-task-ai-ag" class="internal xref">Network AI Agent/Task AI Agent to Agent Gateway Interface</a></p>
@@ -1253,6 +1253,9 @@ intent-based network management to meet the needs of the network service.<a href
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.8">
                     <p id="section-toc.1-1.5.2.3.2.8.1"><a href="#section-5.3.8" class="auto internal xref">5.3.8</a>.  <a href="#name-task-ai-agent-to-physical-n" class="internal xref">Task AI Agent to Physical Network Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.9">
+                    <p id="section-toc.1-1.5.2.3.2.9.1"><a href="#section-5.3.9" class="auto internal xref">5.3.9</a>.  <a href="#name-feedback-driven-improvement" class="internal xref">Feedback-driven Improvement Interface</a></p>
 </li>
                 </ul>
 </li>
@@ -1886,21 +1889,23 @@ various platform capabilities to network applications.<a href="#section-5.3.2-1"
 and AI driven network operation platform and ensures different systems from various
 vendors can work together seamlessly.
 The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
-Protocol for Telecoms (A2A-T) specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
+Protocol for Telecoms (A2A-T) <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span> specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-task-ai-agent-interface-single-autonomous-domain">
+<section id="section-5.3.3">
+          <h4 id="name-network-ai-agent-to-task-ai">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-network-ai-agent-to-task-ai" class="section-name selfRef">Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)</a>
+          </h4>
+<p id="section-5.3.3-1">This interface governs the coordination and task delegation within the Multi-Agent System of a single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this interface to decompose high-level goals into specific tasks and assign them to specialized Task Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for task assignment, progress monitoring, and result aggregation. This coordination can be implemented using protocols like <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span>.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-ai-agent-to-network-ai-agent-interface-cross-autonomous-domain">
-<section id="section-5.3.3">
-          <h4 id="name-network-ai-agent-to-network">
-<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-network-ai-agent-to-network" class="section-name selfRef">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a>
-        </h4>
-</section>
-</div>
-<div id="network-ai-agent-to-task-ai-agent-interface">
 <section id="section-5.3.4">
-          <h4 id="name-network-ai-agent-to-task-ai">
-<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-network-ai-agent-to-task-ai" class="section-name selfRef">Network AI Agent to Task AI Agent Interface</a>
-        </h4>
+          <h4 id="name-network-ai-agent-to-network">
+<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-network-ai-agent-to-network" class="section-name selfRef">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a>
+          </h4>
+<p id="section-5.3.4-1">This interface enables collaboration and information exchange between Network AI Agents residing in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents can negotiate resource allocation, share summarized domain-specific insights (while preserving detail isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives. Standardized protocols like A2A-T <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span>, designed for agent interoperability in telecommunication area, are candidate technologies for implementing this cross-domain interface, ensuring secure and reliable interaction between autonomous systems from different administrative domains.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-ai-agenttask-ai-agent-to-agent-gateway-interface">
@@ -1913,8 +1918,7 @@ Protocol for Telecoms (A2A-T) specified by TM Forum.<a href="#section-5.3.2-2" c
 A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.5-2" class="pilcrow">¶</a></p>
 <p id="section-5.3.5-3">Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
 Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.<a href="#section-5.3.5-3" class="pilcrow">¶</a></p>
-<p id="section-5.3.5-4">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
-Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.5-4" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-4">The interface between AI Agent and Knowledge Base is specified in <a href="#interface2knowledge" class="auto internal xref">Section 5.3.7</a>.<a href="#section-5.3.5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-ai-agent-to-network-digital-twin-interface">
@@ -1923,14 +1927,17 @@ Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or
 <a href="#section-5.3.6" class="section-number selfRef">5.3.6. </a><a href="#name-network-ai-agent-to-network-" class="section-name selfRef">Network AI Agent to Network Digital Twin Interface</a>
           </h4>
 <p id="section-5.3.6-1">The interface between Multi-Agent System and Network Digital Twin are the application-facing
-interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
+interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. Furthermore, the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="network-ai-agent-to-knowledge-base-interface">
+<div id="interface2knowledge">
 <section id="section-5.3.7">
           <h4 id="name-network-ai-agent-to-knowled">
 <a href="#section-5.3.7" class="section-number selfRef">5.3.7. </a><a href="#name-network-ai-agent-to-knowled" class="section-name selfRef">Network AI Agent to Knowledge Base Interface</a>
-        </h4>
+          </h4>
+<p id="section-5.3.7-1">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.<a href="#section-5.3.7-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.7-2">Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.7-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.7-3">Additionally, the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> could also serve as a standardized interface for AI Agents to dynamically access and utilize a wide range of tools and data sources provided by the Knowledge Base. It enables the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can invoke, significantly enhancing their reasoning and problem-solving capabilities.<a href="#section-5.3.7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="task-ai-agent-to-physical-network-interface">
@@ -1945,7 +1952,7 @@ interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch
             </h5>
 <p id="section-5.3.8.1-1">Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX <span>[<a href="#RFC7011" class="cite xref">RFC7011</a>]</span>, YANG-push
-  <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>).
+  <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>, and MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>).
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
@@ -1965,6 +1972,44 @@ network controllers or network devices through protocols like NETCONF <span>[<a 
 management changes a reality in the real physical network.<a href="#section-5.3.8.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="lightweight-ai-and-large-ai-model-collaboration-interface">
+<section id="section-5.3.8.3">
+            <h5 id="name-lightweight-ai-and-large-ai">
+<a href="#section-5.3.8.3" class="section-number selfRef">5.3.8.3. </a><a href="#name-lightweight-ai-and-large-ai" class="section-name selfRef">Lightweight AI and Large AI Model Collaboration Interface</a>
+            </h5>
+<p id="section-5.3.8.3-1">Collaboration between small AI model and large AI model is also designed to be supported by this interface.<a href="#section-5.3.8.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-2">In the past, we only support AI and machine learning technologies at the network level, e.g., we can use collected various different network data to provide network analysis and
+generate network insight. With more intelligence introduced into the network element, more GPU/NPU resource can be allocated for AI inference, this make collaboration between large AI model and small AI model possible.<a href="#section-5.3.8.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-3">Large AI models can provide basic logical reasoning and generalized analytical decision-making
+capabilities While specialized small AI models can provide efficient problem-solving capabilities
+in specialized areas.  The synergy between the two allows the AI agent to combine both multitasking
+generalization capabilities and domain expertise, thus minimizing the reliance on human intervention
+in the network management process.<a href="#section-5.3.8.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-4">On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
+model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
+resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
+local processing for Collected data and summary report generation, Trend prediction, etc.
+With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
+controller interact with network element and has more quick response to network change.<a href="#section-5.3.8.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-5">This collaboration, facilitated by APIs or agent communication protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, combines the generalization power of large models with the efficiency and low-latency of specialized small models, leading to quicker and more context-aware responses to network change.<a href="#section-5.3.8.3-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="feedback-driven-improvement-interface">
+<section id="section-5.3.9">
+          <h4 id="name-feedback-driven-improvement">
+<a href="#section-5.3.9" class="section-number selfRef">5.3.9. </a><a href="#name-feedback-driven-improvement" class="section-name selfRef">Feedback-driven Improvement Interface</a>
+          </h4>
+<p id="section-5.3.9-1">The architecture should incorporate mechanism for continuous improvement based on
+feedback. This includes collecting data on AI decisions, network performance,
+and user feedback to identify areas for enhancement. By analyzing the feedback,
+the system can adapt and optimize its operations over time, leading to better
+performance and more accurate decision-making. For example, if a Network AI Agent fails
+to accurately identify the exact cause of a network incident, the relevant records
+can be submitted as negative samples to the LLM which provides inference services,
+this allows the LLM to be trained on these negative samples for optimization.<a href="#section-5.3.9-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.9-2">This interface is implemented through a combination of system interfaces that collect, process, and apply feedback. Operational feedback—including the outcomes of AI decisions, network state metrics—is collected as structured data via system logging streams (e.g., in JSON format) and message queues (e.g., Kafka). This data is then consumed by analytics components and machine learning platforms through APIs (e.g., RESTful, gRPC) to refine AI models, for instance, by using failure records as negative samples for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime system via model serving and configuration management interfaces, closing the improvement loop.<a href="#section-5.3.9-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
