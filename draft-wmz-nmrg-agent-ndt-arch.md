@@ -520,11 +520,17 @@ Standardized protocols and interfaces facilitate smooth communication between ap
 and AI driven network operation platform and ensures different systems from various
 vendors can work together seamlessly.
 The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
-Protocol for Telecoms (A2A-T) specified by TM Forum.
+Protocol for Telecoms (A2A-T) {{A2A-T}} specified by TM Forum.
+
+
+### Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)
+
+This interface governs the coordination and task delegation within the Multi-Agent System of a single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this interface to decompose high-level goals into specific tasks and assign them to specialized Task Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for task assignment, progress monitoring, and result aggregation. This coordination can be implemented using protocols like {{A2A-T}}.
 
 ### Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)
 
-### Network AI Agent to Task AI Agent Interface
+This interface enables collaboration and information exchange between Network AI Agents residing in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents can negotiate resource allocation, share summarized domain-specific insights (while preserving detail isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives. Standardized protocols like A2A-T {{A2A-T}}, designed for agent interoperability in telecommunication area, are candidate technologies for implementing this cross-domain interface, ensuring secure and reliable interaction between autonomous systems from different administrative domains.
+
 
 ### Network AI Agent/Task AI Agent to Agent Gateway Interface
 
@@ -536,15 +542,20 @@ A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability amo
 Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
 Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.
 
-Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
-Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
+The interface between AI Agent and Knowledge Base is specified in {{interface2knowledge}}.
 
 ### Network AI Agent to Network Digital Twin Interface
 
 The interface between Multi-Agent System and Network Digital Twin are the application-facing
-interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
+interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}. Furthermore, the Model Context Protocol (MCP) {{MCP}} can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.
 
-### Network AI Agent to Knowledge Base Interface
+### Network AI Agent to Knowledge Base Interface {#interface2knowledge}
+
+Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
+
+Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
+
+Additionally, the Model Context Protocol (MCP) {{MCP}} could also serve as a standardized interface for AI Agents to dynamically access and utilize a wide range of tools and data sources provided by the Knowledge Base. It enables the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can invoke, significantly enhancing their reasoning and problem-solving capabilities.
 
 ### Task AI Agent to Physical Network Interface
 
@@ -552,7 +563,7 @@ interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
 
 Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
-  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}).
+  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}, and MCP {{MCP}}).
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
@@ -567,32 +578,12 @@ network controllers or network devices through protocols like NETCONF {{?RFC6241
 , RESTCONF {{?RFC8040}}, MCP {{MCP}}. It is the component that makes the planned control and
 management changes a reality in the real physical network.
 
-<!--
-### Feedback-driven Improvement
+#### Lightweight AI and Large AI Model Collaboration Interface
 
-The architecture should incorporate mechanism for continuous improvement based on
-feedback. This includes collecting data on AI decisions, network performance,
-and user feedback to identify areas for enhancement. By analyzing the feedback,
-the system can adapt and optimize its operations over time, leading to better
-performance and more accurate decision-making. For example, if a Network AI Agent fails
-to accurately identify the exact cause of a network incident, the relevant records
-can be submitted as negative samples to the LLM which provides inference services,
-this allows the LLM to be trained on these negative samples for optimization.
-Feedback-driven improvement also enables the architecture to evolve with changing
-network conditions and requirements.
+Collaboration between small AI model and large AI model is also designed to be supported by this interface.
 
-### Collaboration between Leightweight AI Model and Large Language Model
-
-The architecture must be designed to support collaboration between small AI model and
-large AI model.
-
-In the past, we only support AI and machine learning technologies at the network level,
-e.g., we can use collected various different network data to provide network analysis and
-generate network insight.
-
-With more intelligence introduced into the network element, more GPU/NPU resource can be
-allocated for AI inference, this make collaboration between large AI model
-And small AI model become possible.
+In the past, we only support AI and machine learning technologies at the network level, e.g., we can use collected various different network data to provide network analysis and
+generate network insight. With more intelligence introduced into the network element, more GPU/NPU resource can be allocated for AI inference, this make collaboration between large AI model and small AI model possible.
 
 Large AI models can provide basic logical reasoning and generalized analytical decision-making
 capabilities While specialized small AI models can provide efficient problem-solving capabilities
@@ -606,7 +597,22 @@ resource or chipset resource in the intelligent network element to collect more 
 local processing for Collected data and summary report generation, Trend prediction, etc.
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
--->
+
+This collaboration, facilitated by APIs or agent communication protocols like A2A {{A2A}}, combines the generalization power of large models with the efficiency and low-latency of specialized small models, leading to quicker and more context-aware responses to network change.
+
+### Feedback-driven Improvement Interface
+
+The architecture should incorporate mechanism for continuous improvement based on
+feedback. This includes collecting data on AI decisions, network performance,
+and user feedback to identify areas for enhancement. By analyzing the feedback,
+the system can adapt and optimize its operations over time, leading to better
+performance and more accurate decision-making. For example, if a Network AI Agent fails
+to accurately identify the exact cause of a network incident, the relevant records
+can be submitted as negative samples to the LLM which provides inference services,
+this allows the LLM to be trained on these negative samples for optimization.
+
+This interface is implemented through a combination of system interfaces that collect, process, and apply feedback. Operational feedback—including the outcomes of AI decisions, network state metrics—is collected as structured data via system logging streams (e.g., in JSON format) and message queues (e.g., Kafka). This data is then consumed by analytics components and machine learning platforms through APIs (e.g., RESTful, gRPC) to refine AI models, for instance, by using failure records as negative samples for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime system via model serving and configuration management interfaces, closing the improvement loop.
+
 
 # AI Driven Network Operations: Relationship Between Characteristics and Functional Components
 
