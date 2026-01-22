@@ -420,10 +420,10 @@ Table of Contents
 | |         <--->           +----------+---------+ <-->|   Security   || |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Knowledge Base|| |
+| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Observability || |
 | |         |   | +------------+ +------------+    |  |+--------------+| |
 | |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Observability || |
+| |         |   |                                  |  ||Knowledge Base | |
 | |         |   |                                  |  |+--------------+| |
 | +----^----+   +-----------------^----------------+  +--------^-------+ |
 |      |                          |                            |         |
@@ -524,17 +524,17 @@ Table of Contents
    and available.  Each Agent instance submits its own metadata
    information including URI, supported authentication methods, and
    capabilities to the Agent Registry.  And the consumer Agent (e.g.,
-   the Network AI Agent) could query or subscribe to the Agent Registry
-   to find appropriate Agents for task execution.
+   the Network AI Agent or task agent) could query or subscribe to the
+   Agent Registry to find appropriate Agents for task execution.
 
    [A2A] implements Agent Registration by providing the Agent Card
    mechanism to ensure Agents from different vendors can register and
    discover other Agents they need.
 
-5.2.2.3.2.  Authentication
+5.2.2.3.2.  Security
 
-   Authentication component enforces trusted inter-Agent communication
-   by verifying the identity of AI Agents.  Some existing authentication
+   Security component enforces trusted inter-Agent communication by
+   verifying the identity of AI Agents.  Some existing authentication
    methods such as OAuth 2.0, allow to issue each AI Agent its own
    authentication credentials to establish trusted communication.
 
@@ -547,7 +547,19 @@ Table of Contents
    recommended to log every Agent decision and tooling call to maintain
    audit trail.
 
-5.2.2.3.3.  Knowledge Base
+5.2.2.4.  Observability
+
+   Observability component can collect logs, metrics and traces for each
+   agents within autonomous domain from the Agent Gateway and provides
+   end to end visibility into progress, failures, and network
+   performance such as latency.
+
+   In addition, it can also make sure every action is governed by
+   declarative policy, logged, and traceable for operational
+   integrity,e.g., it can discern whether a human-in-the-loop approved
+   an action or if the agent acted autonomously.
+
+5.2.2.4.1.  Knowledge Base
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
@@ -566,7 +578,7 @@ Table of Contents
    tools (data, analytics, algorithms/decision processes, closed loops)
    - Orchestration of tools
 
-5.2.2.4.  Physical Network
+5.2.2.5.  Physical Network
 
    This is the actual hardware and infrastructure that makes up the
    network, which includes a set of network devices and wiring.  In a

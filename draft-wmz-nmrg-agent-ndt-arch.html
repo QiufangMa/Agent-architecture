@@ -45,7 +45,7 @@ intent-based network management to meet the needs of the network service.
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.3.0
 -->
 <link href="draft-wmz-nmrg-agent-ndt-arch.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1279,7 +1279,7 @@ intent-based network management to meet the needs of the network service.<a href
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-hallucination" class="internal xref">Hallucination</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-security" class="internal xref">Security</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-security-2" class="internal xref">Security</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
                 <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-data-quality-and-consistenc" class="internal xref">Data Quality and Consistency</a></p>
@@ -1668,10 +1668,10 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
 | |         &lt;---&gt;           +----------+---------+ &lt;--&gt;|   Security   || |
 | | Twin    |   |           |          |         | |  |+--------------+| |
 | |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1&lt;-&gt;Task Agent 2| ...|  ||Knowledge Base|| |
+| |         |   | |Task Agent 1&lt;-&gt;Task Agent 2| ...|  ||Observability || |
 | |         |   | +------------+ +------------+    |  |+--------------+| |
 | |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Observability || |
+| |         |   |                                  |  ||Knowledge Base | |
 | |         |   |                                  |  |+--------------+| |
 | +----^----+   +-----------------^----------------+  +--------^-------+ |
 |      |                          |                            |         |
@@ -1770,54 +1770,65 @@ industry may help with multi-agents coordination.<a href="#section-5.2.2.2-2" cl
 <a href="#section-5.2.2.3.1" class="section-number selfRef">5.2.2.3.1. </a><a href="#name-registration" class="section-name selfRef">Registration</a>
               </h6>
 <p id="section-5.2.2.3.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
-own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.3.1-1" class="pilcrow">¶</a></p>
+own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.3.1-2"><span>[<a href="#A2A" class="cite xref">A2A</a>]</span> implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.<a href="#section-5.2.2.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="authentication">
+<div id="security">
 <section id="section-5.2.2.3.2">
-              <h6 id="name-authentication">
-<a href="#section-5.2.2.3.2" class="section-number selfRef">5.2.2.3.2. </a><a href="#name-authentication" class="section-name selfRef">Authentication</a>
+              <h6 id="name-security">
+<a href="#section-5.2.2.3.2" class="section-number selfRef">5.2.2.3.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
               </h6>
-<p id="section-5.2.2.3.2-1">Authentication component enforces trusted inter-Agent communication by verifying
-the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
+<p id="section-5.2.2.3.2-1">Security component enforces trusted inter-Agent communication by verifying the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.<a href="#section-5.2.2.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.3.2-2">Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.<a href="#section-5.2.2.3.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3.2-3">It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.<a href="#section-5.2.2.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3.2-3">It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
+a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.<a href="#section-5.2.2.3.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
+</section>
+</div>
+<div id="observability">
+<section id="section-5.2.2.4">
+            <h5 id="name-observability">
+<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
+            </h5>
+<p id="section-5.2.2.4-1">Observability component can collect logs, metrics and traces for each agents within autonomous domain from the Agent Gateway and provides end to end
+visibility into progress, failures, and network performance such as latency.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-2">In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity,e.g., it can discern
+whether a human-in-the-loop approved an action or if the agent acted autonomously.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
 <div id="knowledge-base">
-<section id="section-5.2.2.3.3">
+<section id="section-5.2.2.4.1">
               <h6 id="name-knowledge-base">
-<a href="#section-5.2.2.3.3" class="section-number selfRef">5.2.2.3.3. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
+<a href="#section-5.2.2.4.1" class="section-number selfRef">5.2.2.4.1. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
               </h6>
-<p id="section-5.2.2.3.3-1">The Knowledge Base serves as a crucial repository of information within the
+<p id="section-5.2.2.4.1-1">The Knowledge Base serves as a crucial repository of information within the
 architecture. It enables the injection of expert knowledge and and chain of thoughts,
 provides the necessary knowledge and memory that helps Agents make more accurate and
 practive context-aware decisions. It also helps mitigate the hallucination problems that
 can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
-the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.3.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3.3-2">In case of coupling MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> with the nework management system, the new knowledge also can be used to
+the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4.1-2">In case of coupling MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> with the nework management system, the new knowledge also can be used to
 support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
-- Orchestration of tools<a href="#section-5.2.2.3.3-2" class="pilcrow">¶</a></p>
+- Orchestration of tools<a href="#section-5.2.2.4.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="physical-network">
-<section id="section-5.2.2.4">
+<section id="section-5.2.2.5">
             <h5 id="name-physical-network">
-<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
+<a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
             </h5>
-<p id="section-5.2.2.4-1">This is the actual hardware and infrastructure that makes up the network, which
+<p id="section-5.2.2.5-1">This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
 with Lightweight AI <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span> or AI Agent may also achieve some local close loop without relying on human intervention. It is also possible for Lightweight AI or AI Agent to coordinate with other
 AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Leightweight AI models could be trained, validated, deployed, and executed on Network Elements,
-and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2344,10 +2355,10 @@ in identifying and correcting these hallucinations to ensure the reliability of
 AI-driven network management actions.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="security">
+<div id="security-1">
 <section id="section-8.2">
-        <h3 id="name-security">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
+        <h3 id="name-security-2">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-security-2" class="section-name selfRef">Security</a>
         </h3>
 <p id="section-8.2-1">Integrating AI into network management introduces new security challenges. Large
 volumes of network data needs to be accessed to learn network behaviors and make
