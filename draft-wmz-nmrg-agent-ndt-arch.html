@@ -1234,16 +1234,25 @@ intent-based network management to meet the needs of the network service.<a href
                     <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-human-in-the-loop" class="internal xref">Human in the Loop</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
-                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-application-to-autonomous-d" class="internal xref">Application to Autonomous Domain Interface</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-application-to-network-ai-a" class="internal xref">Application to Network AI Agent Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
-                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-multi-agent-system-to-agent" class="internal xref">Multi-Agent System to Agent Gateway Interface</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-network-ai-agent-to-network" class="internal xref">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.4">
-                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-multi-agent-system-to-netwo" class="internal xref">Multi-Agent System to Network Digital Twin Interface</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-network-ai-agent-to-task-ai" class="internal xref">Network AI Agent to Task AI Agent Interface</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.5">
-                    <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-autonomous-domain-to-physic" class="internal xref">Autonomous Domain to Physical Network Interface</a></p>
+                    <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-network-ai-agent-task-ai-ag" class="internal xref">Network AI Agent/Task AI Agent to Agent Gateway Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.6">
+                    <p id="section-toc.1-1.5.2.3.2.6.1"><a href="#section-5.3.6" class="auto internal xref">5.3.6</a>.  <a href="#name-network-ai-agent-to-network-" class="internal xref">Network AI Agent to Network Digital Twin Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.7">
+                    <p id="section-toc.1-1.5.2.3.2.7.1"><a href="#section-5.3.7" class="auto internal xref">5.3.7</a>.  <a href="#name-network-ai-agent-to-knowled" class="internal xref">Network AI Agent to Knowledge Base Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.8">
+                    <p id="section-toc.1-1.5.2.3.2.8.1"><a href="#section-5.3.8" class="auto internal xref">5.3.8</a>.  <a href="#name-task-ai-agent-to-physical-n" class="internal xref">Task AI Agent to Physical Network Interface</a></p>
 </li>
                 </ul>
 </li>
@@ -1865,10 +1874,10 @@ decisions, where human judgement is essential to avoid potential errors or ethic
 <p id="section-5.3.1-3">This typically uses natural lanaguage as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, and RESTful API can be leveraged.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="application-to-autonomous-domain-interface">
+<div id="application-to-network-ai-agent-interface">
 <section id="section-5.3.2">
-          <h4 id="name-application-to-autonomous-d">
-<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-application-to-autonomous-d" class="section-name selfRef">Application to Autonomous Domain Interface</a>
+          <h4 id="name-application-to-network-ai-a">
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-application-to-network-ai-a" class="section-name selfRef">Application to Network AI Agent Interface</a>
           </h4>
 <p id="section-5.3.2-1">Intent based Network Management helps in delivering application
 requests to the AI Driven network operation platform and exposing the
@@ -1880,59 +1889,80 @@ The interfaces between Network applications and Network AI Agent can adopt IG145
 Protocol for Telecoms (A2A-T) specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="multi-agent-system-to-agent-gateway-interface">
+<div id="network-ai-agent-to-network-ai-agent-interface-cross-autonomous-domain">
 <section id="section-5.3.3">
-          <h4 id="name-multi-agent-system-to-agent">
-<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-multi-agent-system-to-agent" class="section-name selfRef">Multi-Agent System to Agent Gateway Interface</a>
-          </h4>
-<p id="section-5.3.3-1">The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.3.3-2">Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
-A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.3.3-3">Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
-Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.<a href="#section-5.3.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.3.3-4">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
-Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.3-4" class="pilcrow">¶</a></p>
+          <h4 id="name-network-ai-agent-to-network">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-network-ai-agent-to-network" class="section-name selfRef">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a>
+        </h4>
 </section>
 </div>
-<div id="multi-agent-system-to-network-digital-twin-interface">
+<div id="network-ai-agent-to-task-ai-agent-interface">
 <section id="section-5.3.4">
-          <h4 id="name-multi-agent-system-to-netwo">
-<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-multi-agent-system-to-netwo" class="section-name selfRef">Multi-Agent System to Network Digital Twin Interface</a>
-          </h4>
-<p id="section-5.3.4-1">The interface between Multi-Agent System and Network Digital Twin are the application-facing
-interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
+          <h4 id="name-network-ai-agent-to-task-ai">
+<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-network-ai-agent-to-task-ai" class="section-name selfRef">Network AI Agent to Task AI Agent Interface</a>
+        </h4>
 </section>
 </div>
-<div id="autonomous-domain-to-physical-network-interface">
+<div id="network-ai-agenttask-ai-agent-to-agent-gateway-interface">
 <section id="section-5.3.5">
-          <h4 id="name-autonomous-domain-to-physic">
-<a href="#section-5.3.5" class="section-number selfRef">5.3.5. </a><a href="#name-autonomous-domain-to-physic" class="section-name selfRef">Autonomous Domain to Physical Network Interface</a>
+          <h4 id="name-network-ai-agent-task-ai-ag">
+<a href="#section-5.3.5" class="section-number selfRef">5.3.5. </a><a href="#name-network-ai-agent-task-ai-ag" class="section-name selfRef">Network AI Agent/Task AI Agent to Agent Gateway Interface</a>
+          </h4>
+<p id="section-5.3.5-1">The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.<a href="#section-5.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-2">Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
+A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.5-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-3">Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
+Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.<a href="#section-5.3.5-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-4">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
+Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.5-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-network-digital-twin-interface">
+<section id="section-5.3.6">
+          <h4 id="name-network-ai-agent-to-network-">
+<a href="#section-5.3.6" class="section-number selfRef">5.3.6. </a><a href="#name-network-ai-agent-to-network-" class="section-name selfRef">Network AI Agent to Network Digital Twin Interface</a>
+          </h4>
+<p id="section-5.3.6-1">The interface between Multi-Agent System and Network Digital Twin are the application-facing
+interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>.<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-knowledge-base-interface">
+<section id="section-5.3.7">
+          <h4 id="name-network-ai-agent-to-knowled">
+<a href="#section-5.3.7" class="section-number selfRef">5.3.7. </a><a href="#name-network-ai-agent-to-knowled" class="section-name selfRef">Network AI Agent to Knowledge Base Interface</a>
+        </h4>
+</section>
+</div>
+<div id="task-ai-agent-to-physical-network-interface">
+<section id="section-5.3.8">
+          <h4 id="name-task-ai-agent-to-physical-n">
+<a href="#section-5.3.8" class="section-number selfRef">5.3.8. </a><a href="#name-task-ai-agent-to-physical-n" class="section-name selfRef">Task AI Agent to Physical Network Interface</a>
           </h4>
 <div id="data-collection">
-<section id="section-5.3.5.1">
+<section id="section-5.3.8.1">
             <h5 id="name-data-collection">
-<a href="#section-5.3.5.1" class="section-number selfRef">5.3.5.1. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
+<a href="#section-5.3.8.1" class="section-number selfRef">5.3.8.1. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
             </h5>
-<p id="section-5.3.5.1-1">Data Collection interface is responsible for gathering data from the physical network
+<p id="section-5.3.8.1-1">Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX <span>[<a href="#RFC7011" class="cite xref">RFC7011</a>]</span>, YANG-push
   <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>).
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
 and Network AI Agent(s) to provide with up-to-date information about the current state of
-the physical network.<a href="#section-5.3.5.1-1" class="pilcrow">¶</a></p>
+the physical network.<a href="#section-5.3.8.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="configuration">
-<section id="section-5.3.5.2">
+<section id="section-5.3.8.2">
             <h5 id="name-configuration">
-<a href="#section-5.3.5.2" class="section-number selfRef">5.3.5.2. </a><a href="#name-configuration" class="section-name selfRef">Configuration</a>
+<a href="#section-5.3.8.2" class="section-number selfRef">5.3.8.2. </a><a href="#name-configuration" class="section-name selfRef">Configuration</a>
             </h5>
-<p id="section-5.3.5.2-1">Once network decisions are made and confirmed, the Multi-Agent System performs
+<p id="section-5.3.8.2-1">Once network decisions are made and confirmed, the Multi-Agent System performs
 specific actions to the physical network, e.g., modify specific configuration on
 network controllers or network devices through protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span>
 , RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>, MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>. It is the component that makes the planned control and
-management changes a reality in the real physical network.<a href="#section-5.3.5.2-1" class="pilcrow">¶</a></p>
+management changes a reality in the real physical network.<a href="#section-5.3.8.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

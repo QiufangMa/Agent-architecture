@@ -98,10 +98,15 @@ Table of Contents
        5.2.2.  Autonomous Domain
      5.3.  Functional Interfaces
        5.3.1.  Human in the Loop
-       5.3.2.  Application to Autonomous Domain Interface
-       5.3.3.  Multi-Agent System to Agent Gateway Interface
-       5.3.4.  Multi-Agent System to Network Digital Twin Interface
-       5.3.5.  Autonomous Domain to Physical Network Interface
+       5.3.2.  Application to Network AI Agent Interface
+       5.3.3.  Network AI Agent to Network AI Agent Interface (Cross
+               Autonomous Domain)
+       5.3.4.  Network AI Agent to Task AI Agent Interface
+       5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway
+               Interface
+       5.3.6.  Network AI Agent to Network Digital Twin Interface
+       5.3.7.  Network AI Agent to Knowledge Base Interface
+       5.3.8.  Task AI Agent to Physical Network Interface
    6.  AI Driven Network Operations: Relationship Between
            Characteristics and Functional Components
    7.  AI Driven Network Operations: A collection of Use Cases
@@ -628,7 +633,7 @@ Table of Contents
    workflows.  Protocols like A2A [A2A], and RESTful API can be
    leveraged.
 
-5.3.2.  Application to Autonomous Domain Interface
+5.3.2.  Application to Network AI Agent Interface
 
    Intent based Network Management helps in delivering application
    requests to the AI Driven network operation platform and exposing the
@@ -641,7 +646,12 @@ Table of Contents
    AI Agent can adopt IG1453 Agent to Agent Protocol for Telecoms (A2A-
    T) specified by TM Forum.
 
-5.3.3.  Multi-Agent System to Agent Gateway Interface
+5.3.3.  Network AI Agent to Network AI Agent Interface (Cross Autonomous
+        Domain)
+
+5.3.4.  Network AI Agent to Task AI Agent Interface
+
+5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway Interface
 
    The interface between Multi-Agent System and Agent Gateway serves as
    the management bridge which encompasses a set of services designed to
@@ -674,15 +684,17 @@ Table of Contents
    message systems (e.g., Kafka) can also be employed for data ingestion
    and real-time knowledge synchronization across distributed Agents.
 
-5.3.4.  Multi-Agent System to Network Digital Twin Interface
+5.3.6.  Network AI Agent to Network Digital Twin Interface
 
    The interface between Multi-Agent System and Network Digital Twin are
    the application-facing interface as defined in
    [I-D.irtf-nmrg-network-digital-twin-arch].
 
-5.3.5.  Autonomous Domain to Physical Network Interface
+5.3.7.  Network AI Agent to Knowledge Base Interface
 
-5.3.5.1.  Data Collection
+5.3.8.  Task AI Agent to Physical Network Interface
+
+5.3.8.1.  Data Collection
 
    Data Collection interface is responsible for gathering data from the
    physical network through various different tools and methods (e.g.,
@@ -694,7 +706,7 @@ Table of Contents
    Agent(s) to provide with up-to-date information about the current
    state of the physical network.
 
-5.3.5.2.  Configuration
+5.3.8.2.  Configuration
 
    Once network decisions are made and confirmed, the Multi-Agent System
    performs specific actions to the physical network, e.g., modify
