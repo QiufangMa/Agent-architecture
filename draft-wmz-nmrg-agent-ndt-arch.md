@@ -510,7 +510,7 @@ decisions, where human judgement is essential to avoid potential errors or ethic
 
 This typically uses natural lanaguage as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
 
-### Application to Autonomous Domain Interface
+### Application to Network AI Agent Interface
 
 Intent based Network Management helps in delivering application
 requests to the AI Driven network operation platform and exposing the
@@ -522,7 +522,11 @@ vendors can work together seamlessly.
 The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
 Protocol for Telecoms (A2A-T) specified by TM Forum.
 
-### Multi-Agent System to Agent Gateway Interface
+### Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)
+
+### Network AI Agent to Task AI Agent Interface
+
+### Network AI Agent/Task AI Agent to Agent Gateway Interface
 
 The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.
 
@@ -535,12 +539,14 @@ Protocols like Transport Layer Security (TLS) could be leveraged for in-transit 
 Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
 Interfaces such as Cypher or SPARQL with schema-defind data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
 
-### Multi-Agent System to Network Digital Twin Interface
+### Network AI Agent to Network Digital Twin Interface
 
 The interface between Multi-Agent System and Network Digital Twin are the application-facing
 interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}.
 
-### Autonomous Domain to Physical Network Interface
+### Network AI Agent to Knowledge Base Interface
+
+### Task AI Agent to Physical Network Interface
 
 #### Data Collection
 
