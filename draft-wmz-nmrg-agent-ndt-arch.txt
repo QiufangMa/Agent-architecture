@@ -117,8 +117,8 @@ Table of Contents
      7.3.  Multi-Agent Collaboration on Network Optimization
      7.4.  Network level Energy Efficiency Management
      7.5.  Network Security Drills
-   8.  Challenges of Integrating Service-oriented AI into Network
-           Management
+   8.  Challenges of Integrating Network Digital Twin and Agentic AI
+           into Network Management
      8.1.  Hallucination
      8.2.  Security
      8.3.  Data Quality and Consistency
@@ -1168,8 +1168,8 @@ Table of Contents
    proactive verification ability of defense systems against real-world
    threats.
 
-8.  Challenges of Integrating Service-oriented AI into Network
-    Management
+8.  Challenges of Integrating Network Digital Twin and Agentic AI into
+    Network Management
 
    In addition to the research challenges in coupling AI and network
    management specified in [I-D.irtf-nmrg-ai-challenges], this document
