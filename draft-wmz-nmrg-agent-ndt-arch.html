@@ -1278,7 +1278,7 @@ intent-based network management to meet the needs of the network service.<a href
                 <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-multi-agent-collaboration-on-" class="internal xref">Multi-Agent Collaboration on Network Optimization</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
-                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-network-level-energy-effici" class="internal xref">Network level Energy Efficiency Management in the entire network</a></p>
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-network-level-energy-effici" class="internal xref">Network level Energy Efficiency Management in the IP+Optical network</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.5">
                 <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-network-security-drills-hum" class="internal xref">Network Security Drills (Human in the Loop)</a></p>
@@ -2356,34 +2356,31 @@ operator for review, and apply it to the physical network through optimization s
 after obtaining approval from the network operator.<a href="#section-7.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="network-level-energy-efficiency-management-in-the-entire-network">
+<div id="network-level-energy-efficiency-management-in-the-ipoptical-network">
 <section id="section-7.4">
         <h3 id="name-network-level-energy-effici">
-<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-network-level-energy-effici" class="section-name selfRef">Network level Energy Efficiency Management in the entire network</a>
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-network-level-energy-effici" class="section-name selfRef">Network level Energy Efficiency Management in the IP+Optical network</a>
         </h3>
 <span id="name-intent-based-network-level-"></span><div id="greenuc">
 <figure id="figure-6">
           <div class="alignCenter art-text artwork" id="section-7.4-1.1">
 <pre>
-                     |
-                     |
-             Human   |
-            Operator |Intent
-            +--------+--------+
-            | Network AI Agent|
-            |     Goal        |
-            | Task-1,Task-2   &lt;
+            +-----------------+
+            |  Multi-Domain   |
+            |    AI Agent     |
+            |  GREEN Goal     |
+            | Task-1,Task-2   |
             | ....Task-n      |
             +--------+--------+
                      |
-       +-------------+----+-----------------+-
-       |                  |                 |
- +-----+------+    +------+-----+     +-----+-------+
- |   Campus   |    |     WAN    |     | Data Center |
- |   Network  |    |   Network  |     |   Network   |
- |   GREEN    |    |   GREEN    |     |   GREEN     |
- | Task Agent |    | Task Agent |     | Task Agent  |
- +------------+    +------------+     +-------------+
+       +-------------+--------------+
+       |                            |
+ +-----+------+              +------+-----+
+ |    IP      |              |   Optical  |
+ |   Domain   |              |   Domain   |
+ |   Network  |              |   Network  |
+ |   AI Agent |              |   AI Agent |
+ +------------+              +------------+
 
 </pre>
 </div>
@@ -2393,19 +2390,19 @@ after obtaining approval from the network operator.<a href="#section-7.3-4" clas
 </div>
 <p id="section-7.4-2">Network level Energy Efficiency refer to a set of processes used to discover a inventory
 of capabilities, use specific metrics to monitor and assess energy consumption of the
-entire network (e.g., campus network, WAN network, Data Center Network) , operate, and
-control the use of available energy in an optimized manner while achieving the network’s
-functional and performance requirements by improving overall network utilization.<a href="#section-7.4-2" class="pilcrow">¶</a></p>
-<p id="section-7.4-3">Network level Energy Efficiency can work together with GREEN Task Agent in each network to
+entire IP+Optical network , operate, and control the use of available energy in an optimized
+manner while achieving the network’s functional and performance requirements by improving
+overall network utilization.<a href="#section-7.4-2" class="pilcrow">¶</a></p>
+<p id="section-7.4-3">Multi-Domain AI Agent can work together with network AI Agent in each autonomous domain to
 allow network operators not only see real time energy consumption in the network devices of
 large scale network through interaction with the GREEN Network AI Agent, but also allow them see<a href="#section-7.4-3" class="pilcrow">¶</a></p>
 <p id="section-7.4-4">o which network devices enable energy saving, which devices not,which are legacy ones,<a href="#section-7.4-4" class="pilcrow">¶</a></p>
 <p id="section-7.4-5">o The total energy consumption changing trend over the time of the day, for all network
    devices,<a href="#section-7.4-5" class="pilcrow">¶</a></p>
 <p id="section-7.4-6">o Energy efficiency changing trend over the time of the day for the whole network.<a href="#section-7.4-6" class="pilcrow">¶</a></p>
-<p id="section-7.4-7">On the other hand, With the better observability to energy consumption statistics data
-and energy efficiency statistics data, the Network AI Agent can collaborate with network
-digital twin task agent to know which part of the network need to be adjusted or optimized
+<p id="section-7.4-7">On the other hand, With the end to end observability to energy consumption statistics data
+and energy efficiency statistics data, the Network AI Agent in each autonomous domain can
+collaborate with network digital twin to know which part of the network need to be adjusted or optimized
 based on network status change.<a href="#section-7.4-7" class="pilcrow">¶</a></p>
 </section>
 </div>
