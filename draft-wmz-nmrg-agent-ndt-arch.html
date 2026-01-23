@@ -1665,37 +1665,39 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
           <div class="alignCenter art-text artwork" id="section-5.1-2.1">
 <pre>
 +------------------------------------------------------------------------+
-|   +-------+   +-------+          +-------+           Network           |
-|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
-|   +-------+   +-------+          +-------+                             |
-+-------------------------------------^----------------------------------+
-                                      | Intent
-+-------------------------------------+----------------------------------+
-|Autonomous Domain                    |                                  |
-| +---------+   +---------------------+------------+  +----------------+ |
-| |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v--------+   |  |+--------------+| |
-| | Network |   |             |Network AI Agent|   |  || Registration || |
-| |         |   |             +--------^-------+   |  |+--------------+| |
-| | Digital |   |                      |           |  |+--------------+| |
-| |         &lt;---&gt;           +----------+---------+ &lt;--&gt;|   Security   || |
-| | Twin    |   |           |          |         | |  |+--------------+| |
-| |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1&lt;-&gt;Task Agent 2| ...|  ||Observability || |
-| |         |   | +------------+ +------------+    |  |+--------------+| |
-| |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Knowledge Base | |
-| |         |   |                                  |  |+--------------+| |
-| +----^----+   +-----------------^----------------+  +--------^-------+ |
-|      |                          |                            |         |
-| +----v--------------------------v----------------------------|-------+ |
-| |Physical Network                                            |       | |
-| |      +---------+    +------------------+             +-----v---+   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      +---------+    +------------------+             +---------+   | |
-| +---------------- ---------------------------------------------------+ |
+|Network Applications                                                    |
+|            +-------+   +-------+          +-------+                    |
+|            | App 1 |   | App 2 |   ...    | App n |                    |
+|            +-------+   +-------+          +-------+                    |
++-------------------------^----------------------------------------------+
+                          | Intent
++-------------------------+----------------------------------------------+
+|Autonomous Domain        |                                              |
+|+------------------------+-----------------------+   +----------------+ |
+||Multi-Agent System      |                       |   |  Agent Gateway | |
+||                +-------v--------+              |   |                | |
+||                |Network AI Agent|              |   |+--------------+| |
+||                +-------^--------+              |   || Registration || |
+||                        |                       |   |+--------------+| |
+||       +----------------+------------+--------+ &lt;---&gt;+--------------+| |
+||       |                |            |        | |   ||   Security   || |
+||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
+|||Task Agent 1&lt;-&gt;Task Agent 2&lt;-&gt;Task Agent 3| ...&lt;-+ |+--------------+| |
+||+------------+ +------------+ +------------+    | | ||Observability || |
+|+-----------------------^------------------------+ | |+--------------+| |
+|                        |                          | |+--------------+| |
+|+-----------------------v------------------------+ | ||Knowledge Base | |
+||            Network Digital Twin                | | |+--------------+| |
+|+-----------------------^------------------------+ | +------^---------+ |
+|                        |                          |        |           |
+|+--------------------------------------------------v--------+---------+ |
+||Physical Network                                           |         | |
+||      +---------+    +------------------+             +----v----+    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      |   NE    |    |NE(lightweight AI)|     ...     |NE|Agent||    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      +---------+    +------------------+             +---------+    | |
+|+----------------+----------------------------------------------------+ |
 +------------------------------------------------------------------------+
 </pre>
 </div>
@@ -1740,95 +1742,95 @@ by multi-agent system at the appropriate twin instance(s).<a href="#section-5.2.
           </h4>
 <p id="section-5.2.2-1">An autonomous domain is a self-governing network that integrates NDT and AI driven
 capabilities to achieve autonomous network management. It comprises the following sub-components.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
-<div id="network-digital-twin-1">
-<section id="section-5.2.2.1">
-            <h5 id="name-network-digital-twin-2">
-<a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-network-digital-twin-2" class="section-name selfRef">Network Digital Twin</a>
-            </h5>
-<p id="section-5.2.2.1-1">A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
-network and business types, scale, and complexity. It simulates the behavior, performance,
-and characteristics of the actual network, which could help in validation and testing
-scenarios, analyzing and predicting network behavior without affecting the real physical network.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.1-2">As described in <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11#section-7" class="relref">Section 7</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>, the core
-functional components of an Network Digital Twin includes Data Repository,
-Service Mapping Models, and a Network Digital Twin Management component. The
-Network Digital Twin collects the real-time operational and instrumentation data
-from network through the appropriate real network-facing input interfaces, and it
-delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
-to Network AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="multi-agent-system">
-<section id="section-5.2.2.2">
+<section id="section-5.2.2.1">
             <h5 id="name-multi-agent-system">
-<a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-multi-agent-system" class="section-name selfRef">Multi-Agent System</a>
+<a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-multi-agent-system" class="section-name selfRef">Multi-Agent System</a>
             </h5>
-<p id="section-5.2.2.2-1">Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2-2">The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
+<p id="section-5.2.2.1-1">Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
+for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.1-2">The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
 to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
 Task Agents can adapt to new circumstances through access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge Base to accomplish specific network operation task. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>) in the
-industry may help with multi-agents coordination.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></p>
+industry may help with multi-agents coordination.<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="agent-gateway">
-<section id="section-5.2.2.3">
+<section id="section-5.2.2.2">
             <h5 id="name-agent-gateway">
-<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-agent-gateway" class="section-name selfRef">Agent Gateway</a>
+<a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-agent-gateway" class="section-name selfRef">Agent Gateway</a>
             </h5>
-<p id="section-5.2.2.3-1">The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, and knowledge base.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2-1">The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, and knowledge base.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
 <div id="registration">
-<section id="section-5.2.2.3.1">
+<section id="section-5.2.2.2.1">
               <h6 id="name-registration">
-<a href="#section-5.2.2.3.1" class="section-number selfRef">5.2.2.3.1. </a><a href="#name-registration" class="section-name selfRef">Registration</a>
+<a href="#section-5.2.2.2.1" class="section-number selfRef">5.2.2.2.1. </a><a href="#name-registration" class="section-name selfRef">Registration</a>
               </h6>
-<p id="section-5.2.2.3.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
-own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3.1-2"><span>[<a href="#A2A" class="cite xref">A2A</a>]</span> implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.<a href="#section-5.2.2.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
+own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.1-2"><span>[<a href="#A2A" class="cite xref">A2A</a>]</span> implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.<a href="#section-5.2.2.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security">
-<section id="section-5.2.2.3.2">
+<section id="section-5.2.2.2.2">
               <h6 id="name-security">
-<a href="#section-5.2.2.3.2" class="section-number selfRef">5.2.2.3.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
+<a href="#section-5.2.2.2.2" class="section-number selfRef">5.2.2.2.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
               </h6>
-<p id="section-5.2.2.3.2-1">Security component enforces trusted inter-Agent communication by verifying the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
-to issue each AI Agent its own authentication credentials to establish trusted communication.<a href="#section-5.2.2.3.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3.2-2">Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.<a href="#section-5.2.2.3.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3.2-3">It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
-a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.<a href="#section-5.2.2.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.2-1">Security component enforces trusted inter-Agent communication by verifying the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
+to issue each AI Agent its own authentication credentials to establish trusted communication.<a href="#section-5.2.2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.2-2">Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.<a href="#section-5.2.2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.2-3">It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
+a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.<a href="#section-5.2.2.2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="observability">
-<section id="section-5.2.2.4">
+<section id="section-5.2.2.3">
             <h5 id="name-observability">
-<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
+<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
             </h5>
-<p id="section-5.2.2.4-1">Observability component can collect logs, metrics and traces for each agents within autonomous domain from the Agent Gateway and provides end to end
-visibility into progress, failures, and network performance such as latency.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4-2">In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity,e.g., it can discern
-whether a human-in-the-loop approved an action or if the agent acted autonomously.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-1">Observability component can collect logs, metrics and traces for each agents within autonomous domain from the Agent Gateway and provides end to end
+visibility into progress, failures, and network performance such as latency.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-2">In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity,e.g., it can discern
+whether a human-in-the-loop approved an action or if the agent acted autonomously.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
 <div id="knowledge-base">
-<section id="section-5.2.2.4.1">
+<section id="section-5.2.2.3.1">
               <h6 id="name-knowledge-base">
-<a href="#section-5.2.2.4.1" class="section-number selfRef">5.2.2.4.1. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
+<a href="#section-5.2.2.3.1" class="section-number selfRef">5.2.2.3.1. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
               </h6>
-<p id="section-5.2.2.4.1-1">The Knowledge Base serves as a crucial repository of information within the
+<p id="section-5.2.2.3.1-1">The Knowledge Base serves as a crucial repository of information within the
 architecture. It enables the injection of expert knowledge and and chain of thoughts,
 provides the necessary knowledge and memory that helps Agents make more accurate and
 practive context-aware decisions. It also helps mitigate the hallucination problems that
 can arise in large-scale models, which enhances the accuracy of task execution.
 Additionally, the Knowledge Base plays a key role in providing the data needed
 for techniques like Retrieval-Augmented Generation (RAG), which further boosts
-the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.4.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.4.1-2">In case of coupling MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> with the nework management system, the new knowledge also can be used to
+the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3.1-2">In case of coupling MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> with the nework management system, the new knowledge also can be used to
 support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
-- Orchestration of tools<a href="#section-5.2.2.4.1-2" class="pilcrow">¶</a></p>
+- Orchestration of tools<a href="#section-5.2.2.3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
+</section>
+</div>
+<div id="network-digital-twin-1">
+<section id="section-5.2.2.4">
+            <h5 id="name-network-digital-twin-2">
+<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-network-digital-twin-2" class="section-name selfRef">Network Digital Twin</a>
+            </h5>
+<p id="section-5.2.2.4-1">A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the actual network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-2">As described in <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11#section-7" class="relref">Section 7</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to Network AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="physical-network">
@@ -2480,14 +2482,14 @@ systems against real-world threats.<a href="#section-7.5-3" class="pilcrow">¶</
 <p id="section-8-1">In addition to the research challenges in coupling AI and network management
 specified in <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span>, this document
 also identifies some challenges that need to be considered when integrating
-service-oriented AI into network management.<a href="#section-8-1" class="pilcrow">¶</a></p>
+agentic AI for network operations.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <div id="hallucination">
 <section id="section-8.1">
         <h3 id="name-hallucination">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-hallucination" class="section-name selfRef">Hallucination</a>
         </h3>
 <p id="section-8.1-1">Hallucination refers to the generation of AI responses that are incorrect, irrelevant,
-or even nonsensical in relation to the input or context provided.
+or even nonsensical in relation to the input or context provided. As <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-3.2.1" class="relref">Section 3.2.1</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span> states, agentic AI relies on large language models (LLMs) as its reasoning foundation, and the lack of effective mechanisms in LLM-based decision-making increases the risk of hallucination.
 Although Gen-AI can produce seemingly impressive results at first glance, there's
 a risk of them being completely wrong at times. These hallucinations can lead to
 incorrect decisions and actions in network management. For example, if the AI
@@ -2502,7 +2504,7 @@ AI-driven network management actions.<a href="#section-8.1-1" class="pilcrow">¶
         <h3 id="name-security-2">
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-security-2" class="section-name selfRef">Security</a>
         </h3>
-<p id="section-8.2-1">Integrating AI into network management introduces new security challenges. Large
+<p id="section-8.2-1">Integrating AI into network management introduces new security challenges, which could align with the problem illustrated in <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.3" class="relref">Section 4.3</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>. Large
 volumes of network data needs to be accessed to learn network behaviors and make
 accurate decisions. Protecting sensitive network data and ensuring the integrity
 of AI-generated decisions are crucial. Besides, AI systems can become targets for attacks
@@ -2521,7 +2523,7 @@ security of the network infrastructure.<a href="#section-8.2-1" class="pilcrow">
         <h3 id="name-data-quality-and-consistenc">
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-data-quality-and-consistenc" class="section-name selfRef">Data Quality and Consistency</a>
         </h3>
-<p id="section-8.3-1">The performance of AI models heavily relies on the quality and consistency of the
+<p id="section-8.3-1">As highlighted in <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.4" class="relref">Section 4.4</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>, the performance of AI models heavily relies on the quality and consistency of the
 data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
@@ -2543,7 +2545,7 @@ its internal decision-making logic. Network operators need to understand the
 reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
-specific change is being suggested. The lack of interpretability can hinder
+specific change is being suggested. The lack of interpretability (e.g., <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>) can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.<a href="#section-8.4-1" class="pilcrow">¶</a></p>
 </section>
@@ -2553,7 +2555,7 @@ potential issues with AI-generated recommendations.<a href="#section-8.4-1" clas
         <h3 id="name-fast-decision-making">
 <a href="#section-8.5" class="section-number selfRef">8.5. </a><a href="#name-fast-decision-making" class="section-name selfRef">Fast Decision-making</a>
         </h3>
-<p id="section-8.5-1">In network operation and maintenance scenarios with high real-time requirements,
+<p id="section-8.5-1">As <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.1" class="relref">Section 4.1</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span> points out, centralized AI systems could face high latency issues, which are incompatible with real-time network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
 generation of network optimization decisions is crucial. However, AI Agents based
 on large models adopt a "Token-based" generation and reasoning approach, which is
