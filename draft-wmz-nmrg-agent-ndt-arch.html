@@ -2383,21 +2383,41 @@ based on network status change.<a href="#section-7.4-6" class="pilcrow">¶</a></
         <h3 id="name-network-security-drills-hum">
 <a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-network-security-drills-hum" class="section-name selfRef">Network Security Drills (Human in the Loop)</a>
         </h3>
-<div class="alignLeft art-text artwork" id="section-7.5-1">
+<span id="name-intent-based-network-securi"></span><div id="secuc">
+<figure id="figure-6">
+          <div class="alignCenter art-text artwork" id="section-7.5-1.1">
 <pre>
-                         +----------------+       Human
-                         | Agent Gateway  |      Operator
-    +-----------------+  |                |     /---------\
-    | Network AI Agent|  |+--------------+|     | Analyze |
-    |     Goal        |  ||              ||     | Define  |
-    | Task-1,Task-2   &lt;--&gt;|Observability |&lt;-----&gt; Inject  |
-    | ....Task-n      |  ||              ||     \---------/
-    +-------+---------+  |+--------------+|
-            |            |                |
-            |            +---------^------+
-            |                      |  +--------------V----------------------V---------+  | Dynamic Attack and Defense Verification System|  |        Based on Network Digital Twin          |  |      +---------+      +---------+             |  |      | Dynamic |      | Dynamic |             |  |      | Security|      |Security |             |  |      | Attack  |      |Defense  |             |  |      |  Task   |      |  Task   |             |  |      |  Agent  |      |  Agent  |             |  |      +---------+      +---------+             |  +--------------------^--------------------------+
-                  |Data Collection  +--------------------+--------------------------+  |            Network Infrastructure             |  +-----------------------------------------------+
-</pre><a href="#section-7.5-1" class="pilcrow">¶</a>
+                     +----------------+   Human
+                     | Agent Gateway  |  Operator
++-----------------+  |                | /---------\
+| Network AI Agent|  |+--------------+| | Analyze |
+|     Goal        |  ||              || | Define  |
+| Task-1,Task-2   &lt;--&gt;|Observability |&lt;-&gt; Inject  |
+| ....Task-n      |  ||              || \---------/
++-------+---------+  |+--------------+|
+        |            |                |
+        |            +---------^------+
+        |                      |
++-------V------ ---------------V----------------+
+| Dynamic Attack and Defense Verification System|
+|        Based on Network Digital Twin          |
+|      +---------+      +---------+             |
+|      | Dynamic |      | Dynamic |             |
+|      | Security|      |Security |             |
+|      | Attack  |      |Defense  |             |
+|      |  Task   |      |  Task   |             |
+|      |  Agent  |      |  Agent  |             |
+|      +---------+      +---------+             |
++--------------------^--------------------------+
+                     |Data Collection
++--------------------+--------------------------+
+|            Network Infrastructure             |
++-----------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<a href="#name-intent-based-network-securi" class="selfRef">Intent based Network Security Drill Usage Example</a>
+          </figcaption></figure>
 </div>
 <p id="section-7.5-2">The human operator can work together with the Network AI Agent to conduct Network security
 Drill. The human operator can instruct the Network AI Agent with specific injection policy
