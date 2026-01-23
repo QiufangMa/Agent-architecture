@@ -870,22 +870,53 @@ and energy efficiency statistics data, the Network AI Agent can collaborate with
 digital twin task agent to know which part of the network need to be adjusted or optimized
 based on network status change.
 
-## Network Security Drills
+## Network Security Drills (Human in the Loop)
 
-The Network AI Agent can work with network digital twin task agent help construct a
-dynamic attack-defense verification system in network security drills through NDT and
-AI reasoning capabilities. The nework digital twin task agent uses generative AI to
-automatically generate diversified attack paths, models network topologies with graph
-neural networks, covers attack stages such as reconnaissance and penetration, and
-dynamically adjusts strategies via reinforcement learning to simulate the adaptive
+
+                             +----------------+       Human
+                             | Agent Gateway  |      Operator
+        +-----------------+  |                |     /---------\
+        | Network AI Agent|  |+--------------+|     | Analyze |
+        |     Goal        |  ||              ||     | Define  |
+        | Task-1,Task-2   <-->|Observability |<-----> Inject  |
+        | ....Task-n      |  ||              ||     \---------/
+        +-------+---------+  |+--------------+|
+                |            |                |
+                |            +---------^------+
+                |                      |
+ +--------------V----------------------V---------+
+ | Dynamic Attack and Defense Verification System|
+ |        Based on Network Digital Twin          |
+ |      +---------+      +---------+             |
+ |      | Dynamic |      | Dynamic |             |
+ |      | Security|      |Security |             |
+ |      | Attack  |      |Defense  |             |
+ |      |  Task   |      |  Task   |             |
+ |      |  Agent  |      |  Agent  |             |
+ |      +---------+      +---------+             |
+ +--------------------^--------------------------+
+                      |Data Collection
+ +--------------------+--------------------------+
+ |            Network Infrastructure             |
+ +-----------------------------------------------+
+
+The human operator can work together with the Network AI Agent to conduct Network security
+Drill. The human operator can instruct the Network AI Agent with specific injection policy
+to work with network digital twin help construct a dynamic attack-defense verification system in
+network security drills through NDT and AI reasoning capabilities. The dynamic attack-defense verification
+system comprise dynamic security attack task agent and dynamic security defense task agent which are
+responsible security risk attack task and security risk defense task respectively assigned by the network
+AI agent. The dynamic security attack task agent uses generative AI to automatically generate diversified
+attack paths, models network topologies with graph neural networks, covers attack stages such as reconnaissance
+and penetration, and dynamically adjusts strategies via reinforcement learning to simulate the adaptive
 characteristics of network attacks. The virtual range built based on the NDT can
 1:1 map the production environment, supporting simulations of composite scenarios
-like ransomware chain attacks and supply chain attacks— such as simulating the entire
+like ransomware chain attacks and supply chain attacks — such as simulating the entire
 process of Contivirus laterally penetrating to domain controllers through weak passwords.
 
-During drills, the Network AI Agent can work with the network digital twin task agent
-automatically deploys virtual environments with vulnerabilities, collects defense response
-data in real time through NDT, and generates attack path heatmaps and repair suggestions.
+During drills, Human operator can instruct the Network AI Agent to work with the dynamic security
+defense task agent to automatically deploy virtual environments with vulnerabilities, collect defense response
+data in real time through NDT, and generate attack path heatmaps and repair suggestions.
 This capability can further verify emergency response processes, inject real-time threat
 intelligence to dynamically update drill scenarios, and simulate end-to-end
 automated deployment, vulnerability injection, and real-time analysis of
