@@ -340,37 +340,39 @@ realize specific functionality.
 
 ~~~~
 +------------------------------------------------------------------------+
-|   +-------+   +-------+          +-------+           Network           |
-|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
-|   +-------+   +-------+          +-------+                             |
-+-------------------------------------^----------------------------------+
-                                      | Intent
-+-------------------------------------+----------------------------------+
-|Autonomous Domain                    |                                  |
-| +---------+   +---------------------+------------+  +----------------+ |
-| |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v--------+   |  |+--------------+| |
-| | Network |   |             |Network AI Agent|   |  || Registration || |
-| |         |   |             +--------^-------+   |  |+--------------+| |
-| | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +----------+---------+ <-->|   Security   || |
-| | Twin    |   |           |          |         | |  |+--------------+| |
-| |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Observability || |
-| |         |   | +------------+ +------------+    |  |+--------------+| |
-| |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Knowledge Base | |
-| |         |   |                                  |  |+--------------+| |
-| +----^----+   +-----------------^----------------+  +--------^-------+ |
-|      |                          |                            |         |
-| +----v--------------------------v----------------------------|-------+ |
-| |Physical Network                                            |       | |
-| |      +---------+    +------------------+             +-----v---+   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      +---------+    +------------------+             +---------+   | |
-| +---------------- ---------------------------------------------------+ |
+|Network Applications                                                    |
+|            +-------+   +-------+          +-------+                    |
+|            | App 1 |   | App 2 |   ...    | App n |                    |
+|            +-------+   +-------+          +-------+                    |
++-------------------------^----------------------------------------------+
+                          | Intent
++-------------------------+----------------------------------------------+
+|Autonomous Domain        |                                              |
+|+------------------------+-----------------------+   +----------------+ |
+||Multi-Agent System      |                       |   |  Agent Gateway | |
+||                +-------v--------+              |   |                | |
+||                |Network AI Agent|              |   |+--------------+| |
+||                +-------^--------+              |   || Registration || |
+||                        |                       |   |+--------------+| |
+||       +----------------+------------+--------+ <--->+--------------+| |
+||       |                |            |        | |   ||   Security   || |
+||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
+|||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
+||+------------+ +------------+ +------------+    | | ||Observability || |
+|+-----------------------^------------------------+ | |+--------------+| |
+|                        |                          | |+--------------+| |
+|+-----------------------v------------------------+ | ||Knowledge Base | |
+||            Network Digital Twin                | | |+--------------+| |
+|+-----------------------^------------------------+ | +------^---------+ |
+|                        |                          |        |           |
+|+--------------------------------------------------v--------+---------+ |
+||Physical Network                                           |         | |
+||      +---------+    +------------------+             +----v----+    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      |   NE    |    |NE(lightweight AI)|     ...     |NE|Agent||    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      +---------+    +------------------+             +---------+    | |
+|+----------------+----------------------------------------------------+ |
 +------------------------------------------------------------------------+
 ~~~~
 {: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
@@ -404,20 +406,6 @@ by multi-agent system at the appropriate twin instance(s).
 An autonomous domain is a self-governing network that integrates NDT and AI driven
 capabilities to achieve autonomous network management. It comprises the following sub-components.
 
-#### Network Digital Twin
-
-A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
-network and business types, scale, and complexity. It simulates the behavior, performance,
-and characteristics of the actual network, which could help in validation and testing
-scenarios, analyzing and predicting network behavior without affecting the real physical network.
-
-As described in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
-functional components of an Network Digital Twin includes Data Repository,
-Service Mapping Models, and a Network Digital Twin Management component. The
-Network Digital Twin collects the real-time operational and instrumentation data
-from network through the appropriate real network-facing input interfaces, and it
-delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
-to Network AI Agent(s) in {{arch}}.
 
 #### Multi-Agent System
 
@@ -473,6 +461,21 @@ In case of coupling MCP {{MCP}} with the nework management system, the new knowl
 support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
 - Orchestration of tools
+
+#### Network Digital Twin
+
+A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the actual network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.
+
+As described in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to Network AI Agent(s) in {{arch}}.
 
 #### Physical Network
 
