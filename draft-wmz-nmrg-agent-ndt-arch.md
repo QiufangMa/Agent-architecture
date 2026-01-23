@@ -957,12 +957,12 @@ systems against real-world threats.
 In addition to the research challenges in coupling AI and network management
 specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
 also identifies some challenges that need to be considered when integrating
-service-oriented AI into network management.
+agentic AI for network operations.
 
 ## Hallucination
 
 Hallucination refers to the generation of AI responses that are incorrect, irrelevant,
-or even nonsensical in relation to the input or context provided.
+or even nonsensical in relation to the input or context provided. As {{Section 3.2.1 of ?I-D.hong-nmrg-agenticai-ps}} states, agentic AI relies on large language models (LLMs) as its reasoning foundation, and the lack of effective mechanisms in LLM-based decision-making increases the risk of hallucination.
 Although Gen-AI can produce seemingly impressive results at first glance, there's
 a risk of them being completely wrong at times. These hallucinations can lead to
 incorrect decisions and actions in network management. For example, if the AI
@@ -973,7 +973,7 @@ AI-driven network management actions.
 
 ## Security
 
-Integrating AI into network management introduces new security challenges. Large
+Integrating AI into network management introduces new security challenges, which could align with the problem illustrated in {{Section 4.3 of ?I-D.hong-nmrg-agenticai-ps}}. Large
 volumes of network data needs to be accessed to learn network behaviors and make
 accurate decisions. Protecting sensitive network data and ensuring the integrity
 of AI-generated decisions are crucial. Besides, AI systems can become targets for attacks
@@ -988,7 +988,7 @@ security of the network infrastructure.
 
 ## Data Quality and Consistency
 
-The performance of AI models heavily relies on the quality and consistency of the
+As highlighted in {{Section 4.4 of ?I-D.hong-nmrg-agenticai-ps}}, the performance of AI models heavily relies on the quality and consistency of the
 data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
@@ -1006,13 +1006,13 @@ its internal decision-making logic. Network operators need to understand the
 reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
-specific change is being suggested. The lack of interpretability can hinder
+specific change is being suggested. The lack of interpretability (e.g., {{Section 4.2 of ?I-D.hong-nmrg-agenticai-ps}}) can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
 ## Fast Decision-making
 
-In network operation and maintenance scenarios with high real-time requirements,
+As {{Section 4.1 of ?I-D.hong-nmrg-agenticai-ps}} points out, centralized AI systems could face high latency issues, which are incompatible with real-time network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
 generation of network optimization decisions is crucial. However, AI Agents based
 on large models adopt a "Token-based" generation and reasoning approach, which is
