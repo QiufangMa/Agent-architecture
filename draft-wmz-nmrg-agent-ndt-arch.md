@@ -873,32 +873,36 @@ based on network status change.
 ## Network Security Drills (Human in the Loop)
 
 
-                             +----------------+       Human
-                             | Agent Gateway  |      Operator
-        +-----------------+  |                |     /---------\
-        | Network AI Agent|  |+--------------+|     | Analyze |
-        |     Goal        |  ||              ||     | Define  |
-        | Task-1,Task-2   <-->|Observability |<-----> Inject  |
-        | ....Task-n      |  ||              ||     \---------/
-        +-------+---------+  |+--------------+|
-                |            |                |
-                |            +---------^------+
-                |                      |
- +--------------V----------------------V---------+
- | Dynamic Attack and Defense Verification System|
- |        Based on Network Digital Twin          |
- |      +---------+      +---------+             |
- |      | Dynamic |      | Dynamic |             |
- |      | Security|      |Security |             |
- |      | Attack  |      |Defense  |             |
- |      |  Task   |      |  Task   |             |
- |      |  Agent  |      |  Agent  |             |
- |      +---------+      +---------+             |
- +--------------------^--------------------------+
-                      |Data Collection
- +--------------------+--------------------------+
- |            Network Infrastructure             |
- +-----------------------------------------------+
+~~~~
+
+                     +----------------+   Human
+                     | Agent Gateway  |  Operator
++-----------------+  |                | /---------\
+| Network AI Agent|  |+--------------+| | Analyze |
+|     Goal        |  ||              || | Define  |
+| Task-1,Task-2   <-->|Observability |<-> Inject  |
+| ....Task-n      |  ||              || \---------/
++-------+---------+  |+--------------+|
+        |            |                |
+        |            +---------^------+
+        |                      |
++-------V------ ---------------V----------------+
+| Dynamic Attack and Defense Verification System|
+|        Based on Network Digital Twin          |
+|      +---------+      +---------+             |
+|      | Dynamic |      | Dynamic |             |
+|      | Security|      |Security |             |
+|      | Attack  |      |Defense  |             |
+|      |  Task   |      |  Task   |             |
+|      |  Agent  |      |  Agent  |             |
+|      +---------+      +---------+             |
++--------------------^--------------------------+
+                     |Data Collection
++--------------------+--------------------------+
+|            Network Infrastructure             |
++-----------------------------------------------+
+~~~~
+{: #secuc title="Intent based Network Security Drill Usage Example" artwork-align="center"}
 
 The human operator can work together with the Network AI Agent to conduct Network security
 Drill. The human operator can instruct the Network AI Agent with specific injection policy
