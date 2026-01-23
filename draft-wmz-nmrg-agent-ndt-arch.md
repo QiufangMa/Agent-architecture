@@ -340,37 +340,39 @@ realize specific functionality.
 
 ~~~~
 +------------------------------------------------------------------------+
-|   +-------+   +-------+          +-------+           Network           |
-|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
-|   +-------+   +-------+          +-------+                             |
-+-------------------------------------^----------------------------------+
-                                      | Intent
-+-------------------------------------+----------------------------------+
-|Autonomous Domain                    |                                  |
-| +---------+   +---------------------+------------+  +----------------+ |
-| |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v--------+   |  |+--------------+| |
-| | Network |   |             |Network AI Agent|   |  || Registration || |
-| |         |   |             +--------^-------+   |  |+--------------+| |
-| | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +----------+---------+ <-->|   Security   || |
-| | Twin    |   |           |          |         | |  |+--------------+| |
-| |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Observability || |
-| |         |   | +------------+ +------------+    |  |+--------------+| |
-| |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Knowledge Base | |
-| |         |   |                                  |  |+--------------+| |
-| +----^----+   +-----------------^----------------+  +--------^-------+ |
-|      |                          |                            |         |
-| +----v--------------------------v----------------------------|-------+ |
-| |Physical Network                                            |       | |
-| |      +---------+    +------------------+             +-----v---+   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      +---------+    +------------------+             +---------+   | |
-| +---------------- ---------------------------------------------------+ |
+|Network Applications                                                    |
+|            +-------+   +-------+          +-------+                    |
+|            | App 1 |   | App 2 |   ...    | App n |                    |
+|            +-------+   +-------+          +-------+                    |
++-------------------------^----------------------------------------------+
+                          | Intent
++-------------------------+----------------------------------------------+
+|Autonomous Domain        |                                              |
+|+------------------------+-----------------------+   +----------------+ |
+||Multi-Agent System      |                       |   |  Agent Gateway | |
+||                +-------v--------+              |   |                | |
+||                |Network AI Agent|              |   |+--------------+| |
+||                +-------^--------+              |   || Registration || |
+||                        |                       |   |+--------------+| |
+||       +----------------+------------+--------+ <--->+--------------+| |
+||       |                |            |        | |   ||   Security   || |
+||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
+|||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
+||+------------+ +------------+ +------------+    | | ||Observability || |
+|+-----------------------^------------------------+ | |+--------------+| |
+|                        |                          | |+--------------+| |
+|+-----------------------v------------------------+ | ||Knowledge Base | |
+||            Network Digital Twin                | | |+--------------+| |
+|+-----------------------^------------------------+ | +------^---------+ |
+|                        |                          |        |           |
+|+--------------------------------------------------v--------+---------+ |
+||Physical Network                                           |         | |
+||      +---------+    +------------------+             +----v----+    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      |   NE    |    |NE(lightweight AI)|     ...     |NE|Agent||    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      +---------+    +------------------+             +---------+    | |
+|+----------------+----------------------------------------------------+ |
 +------------------------------------------------------------------------+
 ~~~~
 {: #arch title="An Architecture for Integrating Network AI Agent with Network Digital Twin" artwork-align="center"}
@@ -404,20 +406,6 @@ by multi-agent system at the appropriate twin instance(s).
 An autonomous domain is a self-governing network that integrates NDT and AI driven
 capabilities to achieve autonomous network management. It comprises the following sub-components.
 
-#### Network Digital Twin
-
-A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
-network and business types, scale, and complexity. It simulates the behavior, performance,
-and characteristics of the actual network, which could help in validation and testing
-scenarios, analyzing and predicting network behavior without affecting the real physical network.
-
-As described in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
-functional components of an Network Digital Twin includes Data Repository,
-Service Mapping Models, and a Network Digital Twin Management component. The
-Network Digital Twin collects the real-time operational and instrumentation data
-from network through the appropriate real network-facing input interfaces, and it
-delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
-to Network AI Agent(s) in {{arch}}.
 
 #### Multi-Agent System
 
@@ -473,6 +461,21 @@ In case of coupling MCP {{MCP}} with the nework management system, the new knowl
 support modification of the currently operating automation Closed Loop, such as:
 - Choice of tools (data, analytics, algorithms/decision processes, closed loops)
 - Orchestration of tools
+
+#### Network Digital Twin
+
+A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the actual network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.
+
+As described in {{Section 7 of ?I-D.irtf-nmrg-network-digital-twin-arch}}, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to Network AI Agent(s) in {{arch}}.
 
 #### Physical Network
 
@@ -954,12 +957,12 @@ systems against real-world threats.
 In addition to the research challenges in coupling AI and network management
 specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
 also identifies some challenges that need to be considered when integrating
-service-oriented AI into network management.
+agentic AI for network operations.
 
 ## Hallucination
 
 Hallucination refers to the generation of AI responses that are incorrect, irrelevant,
-or even nonsensical in relation to the input or context provided.
+or even nonsensical in relation to the input or context provided. As {{Section 3.2.1 of ?I-D.hong-nmrg-agenticai-ps}} states, agentic AI relies on large language models (LLMs) as its reasoning foundation, and the lack of effective mechanisms in LLM-based decision-making increases the risk of hallucination.
 Although Gen-AI can produce seemingly impressive results at first glance, there's
 a risk of them being completely wrong at times. These hallucinations can lead to
 incorrect decisions and actions in network management. For example, if the AI
@@ -970,7 +973,7 @@ AI-driven network management actions.
 
 ## Security
 
-Integrating AI into network management introduces new security challenges. Large
+Integrating AI into network management introduces new security challenges, which could align with the problem illustrated in {{Section 4.3 of ?I-D.hong-nmrg-agenticai-ps}}. Large
 volumes of network data needs to be accessed to learn network behaviors and make
 accurate decisions. Protecting sensitive network data and ensuring the integrity
 of AI-generated decisions are crucial. Besides, AI systems can become targets for attacks
@@ -985,7 +988,7 @@ security of the network infrastructure.
 
 ## Data Quality and Consistency
 
-The performance of AI models heavily relies on the quality and consistency of the
+As highlighted in {{Section 4.4 of ?I-D.hong-nmrg-agenticai-ps}}, the performance of AI models heavily relies on the quality and consistency of the
 data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
@@ -1003,13 +1006,13 @@ its internal decision-making logic. Network operators need to understand the
 reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
-specific change is being suggested. The lack of interpretability can hinder
+specific change is being suggested. The lack of interpretability (e.g., {{Section 4.2 of ?I-D.hong-nmrg-agenticai-ps}}) can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.
 
 ## Fast Decision-making
 
-In network operation and maintenance scenarios with high real-time requirements,
+As {{Section 4.1 of ?I-D.hong-nmrg-agenticai-ps}} points out, centralized AI systems could face high latency issues, which are incompatible with real-time network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
 generation of network optimization decisions is crucial. However, AI Agents based
 on large models adopt a "Token-based" generation and reasoning approach, which is
