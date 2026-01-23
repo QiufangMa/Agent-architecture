@@ -1068,7 +1068,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu, et al.</td>
-<td class="center">Expires 26 July 2026</td>
+<td class="center">Expires 27 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1081,12 +1081,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-wmz-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-22" class="published">22 January 2026</time>
+<time datetime="2026-01-23" class="published">23 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-26">26 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-27">27 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1164,7 +1164,7 @@ intent-based network management to meet the needs of the network service.<a href
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1280,7 +1280,7 @@ intent-based network management to meet the needs of the network service.<a href
                 <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-network-level-energy-effici" class="internal xref">Network level Energy Efficiency Management</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.5">
-                <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-network-security-drills" class="internal xref">Network Security Drills</a></p>
+                <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-network-security-drills-hum" class="internal xref">Network Security Drills (Human in the Loop)</a></p>
 </li>
             </ul>
 </li>
@@ -2378,29 +2378,48 @@ digital twin task agent to know which part of the network need to be adjusted or
 based on network status change.<a href="#section-7.4-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="network-security-drills">
+<div id="network-security-drills-human-in-the-loop">
 <section id="section-7.5">
-        <h3 id="name-network-security-drills">
-<a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-network-security-drills" class="section-name selfRef">Network Security Drills</a>
+        <h3 id="name-network-security-drills-hum">
+<a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-network-security-drills-hum" class="section-name selfRef">Network Security Drills (Human in the Loop)</a>
         </h3>
-<p id="section-7.5-1">The Network AI Agent can work with network digital twin task agent help construct a
-dynamic attack-defense verification system in network security drills through NDT and
-AI reasoning capabilities. The nework digital twin task agent uses generative AI to
-automatically generate diversified attack paths, models network topologies with graph
-neural networks, covers attack stages such as reconnaissance and penetration, and
-dynamically adjusts strategies via reinforcement learning to simulate the adaptive
+<div class="alignLeft art-text artwork" id="section-7.5-1">
+<pre>
+                         +----------------+       Human
+                         | Agent Gateway  |      Operator
+    +-----------------+  |                |     /---------\
+    | Network AI Agent|  |+--------------+|     | Analyze |
+    |     Goal        |  ||              ||     | Define  |
+    | Task-1,Task-2   &lt;--&gt;|Observability |&lt;-----&gt; Inject  |
+    | ....Task-n      |  ||              ||     \---------/
+    +-------+---------+  |+--------------+|
+            |            |                |
+            |            +---------^------+
+            |                      |  +--------------V----------------------V---------+  | Dynamic Attack and Defense Verification System|  |        Based on Network Digital Twin          |  |      +---------+      +---------+             |  |      | Dynamic |      | Dynamic |             |  |      | Security|      |Security |             |  |      | Attack  |      |Defense  |             |  |      |  Task   |      |  Task   |             |  |      |  Agent  |      |  Agent  |             |  |      +---------+      +---------+             |  +--------------------^--------------------------+
+                  |Data Collection  +--------------------+--------------------------+  |            Network Infrastructure             |  +-----------------------------------------------+
+</pre><a href="#section-7.5-1" class="pilcrow">¶</a>
+</div>
+<p id="section-7.5-2">The human operator can work together with the Network AI Agent to conduct Network security
+Drill. The human operator can instruct the Network AI Agent with specific injection policy
+to work with network digital twin help construct a dynamic attack-defense verification system in
+network security drills through NDT and AI reasoning capabilities. The dynamic attack-defense verification
+system comprise dynamic security attack task agent and dynamic security defense task agent which are
+responsible security risk attack task and security risk defense task respectively assigned by the network
+AI agent. The dynamic security attack task agent uses generative AI to automatically generate diversified
+attack paths, models network topologies with graph neural networks, covers attack stages such as reconnaissance
+and penetration, and dynamically adjusts strategies via reinforcement learning to simulate the adaptive
 characteristics of network attacks. The virtual range built based on the NDT can
 1:1 map the production environment, supporting simulations of composite scenarios
-like ransomware chain attacks and supply chain attacks— such as simulating the entire
-process of Contivirus laterally penetrating to domain controllers through weak passwords.<a href="#section-7.5-1" class="pilcrow">¶</a></p>
-<p id="section-7.5-2">During drills, the Network AI Agent can work with the network digital twin task agent
-automatically deploys virtual environments with vulnerabilities, collects defense response
-data in real time through NDT, and generates attack path heatmaps and repair suggestions.
+like ransomware chain attacks and supply chain attacks — such as simulating the entire
+process of Contivirus laterally penetrating to domain controllers through weak passwords.<a href="#section-7.5-2" class="pilcrow">¶</a></p>
+<p id="section-7.5-3">During drills, Human operator can instruct the Network AI Agent to work with the dynamic security
+defense task agent to automatically deploy virtual environments with vulnerabilities, collect defense response
+data in real time through NDT, and generate attack path heatmaps and repair suggestions.
 This capability can further verify emergency response processes, inject real-time threat
 intelligence to dynamically update drill scenarios, and simulate end-to-end
 automated deployment, vulnerability injection, and real-time analysis of
 security drills, enhancing the proactive verification ability of defense
-systems against real-world threats.<a href="#section-7.5-2" class="pilcrow">¶</a></p>
+systems against real-world threats.<a href="#section-7.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
