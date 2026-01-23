@@ -2482,14 +2482,14 @@ systems against real-world threats.<a href="#section-7.5-3" class="pilcrow">¶</
 <p id="section-8-1">In addition to the research challenges in coupling AI and network management
 specified in <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span>, this document
 also identifies some challenges that need to be considered when integrating
-service-oriented AI into network management.<a href="#section-8-1" class="pilcrow">¶</a></p>
+agentic AI for network operations.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <div id="hallucination">
 <section id="section-8.1">
         <h3 id="name-hallucination">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-hallucination" class="section-name selfRef">Hallucination</a>
         </h3>
 <p id="section-8.1-1">Hallucination refers to the generation of AI responses that are incorrect, irrelevant,
-or even nonsensical in relation to the input or context provided.
+or even nonsensical in relation to the input or context provided. As <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-3.2.1" class="relref">Section 3.2.1</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span> states, agentic AI relies on large language models (LLMs) as its reasoning foundation, and the lack of effective mechanisms in LLM-based decision-making increases the risk of hallucination.
 Although Gen-AI can produce seemingly impressive results at first glance, there's
 a risk of them being completely wrong at times. These hallucinations can lead to
 incorrect decisions and actions in network management. For example, if the AI
@@ -2504,7 +2504,7 @@ AI-driven network management actions.<a href="#section-8.1-1" class="pilcrow">¶
         <h3 id="name-security-2">
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-security-2" class="section-name selfRef">Security</a>
         </h3>
-<p id="section-8.2-1">Integrating AI into network management introduces new security challenges. Large
+<p id="section-8.2-1">Integrating AI into network management introduces new security challenges, which could align with the problem illustrated in <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.3" class="relref">Section 4.3</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>. Large
 volumes of network data needs to be accessed to learn network behaviors and make
 accurate decisions. Protecting sensitive network data and ensuring the integrity
 of AI-generated decisions are crucial. Besides, AI systems can become targets for attacks
@@ -2523,7 +2523,7 @@ security of the network infrastructure.<a href="#section-8.2-1" class="pilcrow">
         <h3 id="name-data-quality-and-consistenc">
 <a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-data-quality-and-consistenc" class="section-name selfRef">Data Quality and Consistency</a>
         </h3>
-<p id="section-8.3-1">The performance of AI models heavily relies on the quality and consistency of the
+<p id="section-8.3-1">As highlighted in <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.4" class="relref">Section 4.4</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>, the performance of AI models heavily relies on the quality and consistency of the
 data they're trained on. In network management area, data sources can be diverse
 and heterogeneous, leading to potential issues such as data inconsistencies,
 missing, or outdated data. Poor-quality data may result in inaccurate
@@ -2545,7 +2545,7 @@ its internal decision-making logic. Network operators need to understand the
 reasoning behind AI-driven decisions to trust and effectively
 utilize them. For example, if an AI system recommends a particular configuration
 change to optimize the network performance, operators may wonder why that
-specific change is being suggested. The lack of interpretability can hinder
+specific change is being suggested. The lack of interpretability (e.g., <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.2" class="relref">Section 4.2</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>) can hinder
 the adoption of AI Driven Network Management and make it challenging to identify
 potential issues with AI-generated recommendations.<a href="#section-8.4-1" class="pilcrow">¶</a></p>
 </section>
@@ -2555,7 +2555,7 @@ potential issues with AI-generated recommendations.<a href="#section-8.4-1" clas
         <h3 id="name-fast-decision-making">
 <a href="#section-8.5" class="section-number selfRef">8.5. </a><a href="#name-fast-decision-making" class="section-name selfRef">Fast Decision-making</a>
         </h3>
-<p id="section-8.5-1">In network operation and maintenance scenarios with high real-time requirements,
+<p id="section-8.5-1">As <span><a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00#section-4.1" class="relref">Section 4.1</a> of [<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span> points out, centralized AI systems could face high latency issues, which are incompatible with real-time network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
 generation of network optimization decisions is crucial. However, AI Agents based
 on large models adopt a "Token-based" generation and reasoning approach, which is
