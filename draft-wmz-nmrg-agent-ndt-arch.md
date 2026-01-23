@@ -846,17 +846,42 @@ selected. Network AI Agent may also first present the suggested network optimiza
 operator for review, and apply it to the physical network through optimization solution distribution task agent
 after obtaining approval from the network operator.
 
-## Network level Energy Efficiency Management
+## Network level Energy Efficiency Management in the entire network
+
+~~~~
+
+                     |
+                     |
+             Human   |
+            Operator |Intent
+            +--------+--------+
+            | Network AI Agent|
+            |     Goal        |
+            | Task-1,Task-2   <
+            | ....Task-n      |
+            +--------+--------+
+                     |
+       +-------------+----+-----------------+-
+       |                  |                 |
+ +-----+------+    +------+-----+     +-----+-------+
+ |   Campus   |    |     WAN    |     | Data Center |
+ |   Network  |    |   Network  |     |   Network   |
+ |   GREEN    |    |   GREEN    |     |   GREEN     |
+ | Task Agent |    | Task Agent |     | Task Agent  |
+ +------------+    +------------+     +-------------+
+
+~~~~
+{: #greenuc title="Intent based Network level Energy Efficiency Management Usage Example" artwork-align="center"}
 
 Network level Energy Efficiency refer to a set of processes used to discover a inventory
 of capabilities, use specific metrics to monitor and assess energy consumption of the
-network , operate, and control the use of available energy in an optimized manner while
-achieving the network’s functional and performance requirements by improving overall network
-utilization.
+entire network (e.g., campus network, WAN network, Data Center Network) , operate, and
+control the use of available energy in an optimized manner while achieving the network’s
+functional and performance requirements by improving overall network utilization.
 
-Network level Energy Efficiency allows network operators not only see real time energy
-consumption in the network devices of large scale network through interaction with the
-GREEN Network AI Agent, but also allow them see
+Network level Energy Efficiency can work together with GREEN Task Agent in each network to
+allow network operators not only see real time energy consumption in the network devices of
+large scale network through interaction with the GREEN Network AI Agent, but also allow them see
 
 o which network devices enable energy saving, which devices not,which are legacy ones,
 
