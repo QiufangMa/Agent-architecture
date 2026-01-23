@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 26 July 2026                                       China Mobile
+Expires: 27 July 2026                                       China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 26 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         22 January 2026
+                                                         23 January 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 July 2026.
+   This Internet-Draft will expire on 27 July 2026.
 
 Copyright Notice
 
@@ -88,7 +88,7 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Introduction of Concepts
-     3.1.  Generative AI and AI Agent
+     3.1.  Generative AI and Agentic AI
      3.2.  Network Digital Twin
    4.  Characteristics of AI driven Network Operations
    5.  Architecture Design
@@ -115,10 +115,11 @@ Table of Contents
      7.1.  Multi-Agent Collaboration on Network Configuration Change
      7.2.  Multi-Agent Collaboration on Network Troubleshooting
      7.3.  Multi-Agent Collaboration on Network Optimization
-     7.4.  Network level Energy Efficiency Management
-     7.5.  Network Security Drills
-   8.  Challenges of Integrating Service-oriented AI into Network
-           Management
+     7.4.  Network level Energy Efficiency Management in the
+           IP+Optical network
+     7.5.  Network Security Drills (Human in the Loop)
+   8.  Challenges of Integrating Network Digital Twin and Agentic AI
+           into Network Management
      8.1.  Hallucination
      8.2.  Security
      8.3.  Data Quality and Consistency
@@ -249,7 +250,7 @@ Table of Contents
 
 3.  Introduction of Concepts
 
-3.1.  Generative AI and AI Agent
+3.1.  Generative AI and Agentic AI
 
    The integration of AI into network operations has marked a
    significant leap forward in the pursuit of network automation and
@@ -260,18 +261,19 @@ Table of Contents
    images, videos, or other forms of data with the capability to adapt
    and make decisions to achieve specific goals.
 
-   An AI agent refers to a system or program that Large Language Models
-   (LLM)s to interact with humans (or other AI Agents) for purposes of
-   performing tasks.  In the context of network operations and
-   management, Network AI agents are increasingly being designed to
-   interact with physical world and act upon it based on tools
-   [Google-Agents-Whitepaper] and perform network management tasks such
-   as understanding user intent, generating network configurations,
-   diagnosing and resolving network incidents
-   [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other SDOs also
-   try to define terms related to Network AI agent in the context of
-   network operations and management, e.g., TM Forum defines Autonomous
-   Agent in [TMF-1251D] as one of AN (Autonomous Network) Terminologies.
+   Agentic AI refers to the broader category of AI systems that exhibit
+   "agency"—the ability to act independently and iteratively to perform
+   tasks without constant human prompting [I-D.hong-nmrg-agenticai-ps].
+   In the context of network operations and management, Network AI
+   agents are increasingly being designed to interact with physical
+   world and act upon it based on tools [Google-Agents-Whitepaper] and
+   perform network management tasks such as understanding user intent,
+   generating network configurations, diagnosing and resolving network
+   incidents [I-D.ietf-nmop-network-incident-yang].  Meanwhile, other
+   SDOs also try to define terms related to Network AI agent in the
+   context of network operations and management, e.g., TM Forum defines
+   Autonomous Agent in [TMF-1251D] as one of AN (Autonomous Network)
+   Terminologies.
 
 3.2.  Network Digital Twin
 
@@ -411,37 +413,39 @@ Table of Contents
    realize specific functionality.
 
 +------------------------------------------------------------------------+
-|   +-------+   +-------+          +-------+           Network           |
-|   | App 1 |   | App 2 |   ...    | App n |         Applications        |
-|   +-------+   +-------+          +-------+                             |
-+-------------------------------------^----------------------------------+
-                                      | Intent
-+-------------------------------------+----------------------------------+
-|Autonomous Domain                    |                                  |
-| +---------+   +---------------------+------------+  +----------------+ |
-| |         |   |Multi-Agent System   |            |  |  Agent Gateway | |
-| |         |   |             +-------v--------+   |  |+--------------+| |
-| | Network |   |             |Network AI Agent|   |  || Registration || |
-| |         |   |             +--------^-------+   |  |+--------------+| |
-| | Digital |   |                      |           |  |+--------------+| |
-| |         <--->           +----------+---------+ <-->|   Security   || |
-| | Twin    |   |           |          |         | |  |+--------------+| |
-| |         |   | +---------v--+ +-----v------+  v |  |+--------------+| |
-| |         |   | |Task Agent 1<->Task Agent 2| ...|  ||Observability || |
-| |         |   | +------------+ +------------+    |  |+--------------+| |
-| |         |   |                                  |  |+--------------+| |
-| |         |   |                                  |  ||Knowledge Base | |
-| |         |   |                                  |  |+--------------+| |
-| +----^----+   +-----------------^----------------+  +--------^-------+ |
-|      |                          |                            |         |
-| +----v--------------------------v----------------------------|-------+ |
-| |Physical Network                                            |       | |
-| |      +---------+    +------------------+             +-----v---+   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      |   NE    |    |NE(lightweight AI)|    ...      |NE|Agent||   | |
-| |      |         |    |                  |             |  +-----+|   | |
-| |      +---------+    +------------------+             +---------+   | |
-| +---------------- ---------------------------------------------------+ |
+|Network Applications                                                    |
+|            +-------+   +-------+          +-------+                    |
+|            | App 1 |   | App 2 |   ...    | App n |                    |
+|            +-------+   +-------+          +-------+                    |
++-------------------------^----------------------------------------------+
+                          | Intent
++-------------------------+----------------------------------------------+
+|Autonomous Domain        |                                              |
+|+------------------------+-----------------------+   +----------------+ |
+||Multi-Agent System      |                       |   |  Agent Gateway | |
+||                +-------v--------+              |   |                | |
+||                |Network AI Agent|              |   |+--------------+| |
+||                +-------^--------+              |   || Registration || |
+||                        |                       |   |+--------------+| |
+||       +----------------+------------+--------+ <--->+--------------+| |
+||       |                |            |        | |   ||   Security   || |
+||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
+|||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
+||+------------+ +------------+ +------------+    | | ||Observability || |
+|+-----------------------^------------------------+ | |+--------------+| |
+|                        |                          | |+--------------+| |
+|+-----------------------v------------------------+ | ||Knowledge Base | |
+||            Network Digital Twin                | | |+--------------+| |
+|+-----------------------^------------------------+ | +------^---------+ |
+|                        |                          |        |           |
+|+--------------------------------------------------v--------+---------+ |
+||Physical Network                                           |         | |
+||      +---------+    +------------------+             +----v----+    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      |   NE    |    |NE(lightweight AI)|     ...     |NE|Agent||    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      +---------+    +------------------+             +---------+    | |
+|+----------------+----------------------------------------------------+ |
 +------------------------------------------------------------------------+
 
    Figure 2: An Architecture for Integrating Network AI Agent with
@@ -479,26 +483,7 @@ Table of Contents
    and AI driven capabilities to achieve autonomous network management.
    It comprises the following sub-components.
 
-5.2.2.1.  Network Digital Twin
-
-   A Network Digital Twin provides an enhanced and optimized solution in
-   the face of increasing network and business types, scale, and
-   complexity.  It simulates the behavior, performance, and
-   characteristics of the actual network, which could help in validation
-   and testing scenarios, analyzing and predicting network behavior
-   without affecting the real physical network.
-
-   As described in Section 7 of
-   [I-D.irtf-nmrg-network-digital-twin-arch], the core functional
-   components of an Network Digital Twin includes Data Repository,
-   Service Mapping Models, and a Network Digital Twin Management
-   component.  The Network Digital Twin collects the real-time
-   operational and instrumentation data from network through the
-   appropriate real network-facing input interfaces, and it delivers NDT
-   services through appropriate application-facing output interfaces,
-   which is the interfaces to Network AI Agent(s) in Figure 2.
-
-5.2.2.2.  Multi-Agent System
+5.2.2.1.  Multi-Agent System
 
    Multi-Agent system acts as the smart brain of the Autonomous Domain,
    which is responsible for conducting AI-based analysis and making
@@ -517,13 +502,13 @@ Table of Contents
    operation task.  Some ongoing efforts (MCP [MCP], A2A [A2A]) in the
    industry may help with multi-agents coordination.
 
-5.2.2.3.  Agent Gateway
+5.2.2.2.  Agent Gateway
 
    The Agent Gateway, which serves as a central management hub, provides
    essential services for the Multi-Agent System, including agent
    registration/discovery, authentication, and knowledge base.
 
-5.2.2.3.1.  Registration
+5.2.2.2.1.  Registration
 
    AI Agents need to first discover each other and understand their
    capabilities to collaborate.  Agent Registration manages the process
@@ -538,7 +523,7 @@ Table of Contents
    mechanism to ensure Agents from different vendors can register and
    discover other Agents they need.
 
-5.2.2.3.2.  Security
+5.2.2.2.2.  Security
 
    Security component enforces trusted inter-Agent communication by
    verifying the identity of AI Agents.  Some existing authentication
@@ -554,7 +539,7 @@ Table of Contents
    recommended to log every Agent decision and tooling call to maintain
    audit trail.
 
-5.2.2.4.  Observability
+5.2.2.3.  Observability
 
    Observability component can collect logs, metrics and traces for each
    agents within autonomous domain from the Agent Gateway and provides
@@ -566,7 +551,7 @@ Table of Contents
    integrity,e.g., it can discern whether a human-in-the-loop approved
    an action or if the agent acted autonomously.
 
-5.2.2.4.1.  Knowledge Base
+5.2.2.3.1.  Knowledge Base
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
@@ -584,6 +569,25 @@ Table of Contents
    currently operating automation Closed Loop, such as: - Choice of
    tools (data, analytics, algorithms/decision processes, closed loops)
    - Orchestration of tools
+
+5.2.2.4.  Network Digital Twin
+
+   A Network Digital Twin provides an enhanced and optimized solution in
+   the face of increasing network and business types, scale, and
+   complexity.  It simulates the behavior, performance, and
+   characteristics of the actual network, which could help in validation
+   and testing scenarios, analyzing and predicting network behavior
+   without affecting the real physical network.
+
+   As described in Section 7 of
+   [I-D.irtf-nmrg-network-digital-twin-arch], the core functional
+   components of an Network Digital Twin includes Data Repository,
+   Service Mapping Models, and a Network Digital Twin Management
+   component.  The Network Digital Twin collects the real-time
+   operational and instrumentation data from network through the
+   appropriate real network-facing input interfaces, and it delivers NDT
+   services through appropriate application-facing output interfaces,
+   which is the interfaces to Network AI Agent(s) in Figure 2.
 
 5.2.2.5.  Physical Network
 
@@ -1111,19 +1115,41 @@ Table of Contents
    distribution task agent after obtaining approval from the network
    operator.
 
-7.4.  Network level Energy Efficiency Management
+7.4.  Network level Energy Efficiency Management in the IP+Optical
+      network
+
+                            +-----------------+
+                            |  Multi-Domain   |
+                            |    AI Agent     |
+                            |  GREEN Goal     |
+                            | Task-1,Task-2   |
+                            | ....Task-n      |
+                            +--------+--------+
+                                     |
+                       +-------------+--------------+
+                       |                            |
+                 +-----+------+              +------+-----+
+                 |    IP      |              |   Optical  |
+                 |   Domain   |              |   Domain   |
+                 |   Network  |              |   Network  |
+                 |   AI Agent |              |   AI Agent |
+                 +------------+              +------------+
+
+     Figure 6: Intent based Network level Energy Efficiency Management
+                               Usage Example
 
    Network level Energy Efficiency refer to a set of processes used to
    discover a inventory of capabilities, use specific metrics to monitor
-   and assess energy consumption of the network , operate, and control
-   the use of available energy in an optimized manner while achieving
-   the network’s functional and performance requirements by improving
-   overall network utilization.
+   and assess energy consumption of the entire IP+Optical network ,
+   operate, and control the use of available energy in an optimized
+   manner while achieving the network’s functional and performance
+   requirements by improving overall network utilization.
 
-   Network level Energy Efficiency allows network operators not only see
-   real time energy consumption in the network devices of large scale
-   network through interaction with the GREEN Network AI Agent, but also
-   allow them see
+   Multi-Domain AI Agent can work together with network AI Agent in each
+   autonomous domain to allow network operators not only see real time
+   energy consumption in the network devices of large scale network
+   through interaction with the GREEN Network AI Agent, but also allow
+   them see
 
    o which network devices enable energy saving, which devices not,which
    are legacy ones,
@@ -1134,41 +1160,76 @@ Table of Contents
    o Energy efficiency changing trend over the time of the day for the
    whole network.
 
-   On the other hand, With the better observability to energy
+   On the other hand, With the end to end observability to energy
    consumption statistics data and energy efficiency statistics data,
-   the Network AI Agent can collaborate with network digital twin task
-   agent to know which part of the network need to be adjusted or
-   optimized based on network status change.
+   the Network AI Agent in each autonomous domain can collaborate with
+   network digital twin to know which part of the network need to be
+   adjusted or optimized based on network status change.
 
-7.5.  Network Security Drills
+7.5.  Network Security Drills (Human in the Loop)
 
-   The Network AI Agent can work with network digital twin task agent
-   help construct a dynamic attack-defense verification system in
-   network security drills through NDT and AI reasoning capabilities.
-   The nework digital twin task agent uses generative AI to
-   automatically generate diversified attack paths, models network
+                                 +----------------+   Human
+                                 | Agent Gateway  |  Operator
+            +-----------------+  |                | /---------\
+            | Network AI Agent|  |+--------------+| | Analyze |
+            |     Goal        |  ||              || | Define  |
+            | Task-1,Task-2   <-->|Observability |<-> Inject  |
+            | ....Task-n      |  ||              || \---------/
+            +-------+---------+  |+--------------+|
+                    |            |                |
+                    |            +---------^------+
+                    |                      |
+            +-------V------ ---------------V----------------+
+            | Dynamic Attack and Defense Verification System|
+            |        Based on Network Digital Twin          |
+            |      +---------+      +---------+             |
+            |      | Dynamic |      | Dynamic |             |
+            |      | Security|      |Security |             |
+            |      | Attack  |      |Defense  |             |
+            |      |  Task   |      |  Task   |             |
+            |      |  Agent  |      |  Agent  |             |
+            |      +---------+      +---------+             |
+            +--------------------^--------------------------+
+                                 |Data Collection
+            +--------------------+--------------------------+
+            |            Network Infrastructure             |
+            +-----------------------------------------------+
+
+        Figure 7: Intent based Network Security Drill Usage Example
+
+   The human operator can work together with the Network AI Agent to
+   conduct Network security Drill.  The human operator can instruct the
+   Network AI Agent with specific injection policy to work with network
+   digital twin help construct a dynamic attack-defense verification
+   system in network security drills through NDT and AI reasoning
+   capabilities.  The dynamic attack-defense verification system
+   comprise dynamic security attack task agent and dynamic security
+   defense task agent which are responsible security risk attack task
+   and security risk defense task respectively assigned by the network
+   AI agent.  The dynamic security attack task agent uses generative AI
+   to automatically generate diversified attack paths, models network
    topologies with graph neural networks, covers attack stages such as
    reconnaissance and penetration, and dynamically adjusts strategies
    via reinforcement learning to simulate the adaptive characteristics
    of network attacks.  The virtual range built based on the NDT can 1:1
    map the production environment, supporting simulations of composite
-   scenarios like ransomware chain attacks and supply chain attacks—
+   scenarios like ransomware chain attacks and supply chain attacks —
    such as simulating the entire process of Contivirus laterally
    penetrating to domain controllers through weak passwords.
 
-   During drills, the Network AI Agent can work with the network digital
-   twin task agent automatically deploys virtual environments with
-   vulnerabilities, collects defense response data in real time through
-   NDT, and generates attack path heatmaps and repair suggestions.  This
-   capability can further verify emergency response processes, inject
-   real-time threat intelligence to dynamically update drill scenarios,
-   and simulate end-to-end automated deployment, vulnerability
-   injection, and real-time analysis of security drills, enhancing the
-   proactive verification ability of defense systems against real-world
-   threats.
+   During drills, Human operator can instruct the Network AI Agent to
+   work with the dynamic security defense task agent to automatically
+   deploy virtual environments with vulnerabilities, collect defense
+   response data in real time through NDT, and generate attack path
+   heatmaps and repair suggestions.  This capability can further verify
+   emergency response processes, inject real-time threat intelligence to
+   dynamically update drill scenarios, and simulate end-to-end automated
+   deployment, vulnerability injection, and real-time analysis of
+   security drills, enhancing the proactive verification ability of
+   defense systems against real-world threats.
 
-8.  Challenges of Integrating Service-oriented AI into Network
-    Management
+8.  Challenges of Integrating Network Digital Twin and Agentic AI into
+    Network Management
 
    In addition to the research challenges in coupling AI and network
    management specified in [I-D.irtf-nmrg-ai-challenges], this document
