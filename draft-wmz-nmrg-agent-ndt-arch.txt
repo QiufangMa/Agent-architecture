@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 27 July 2026                                       China Mobile
+Expires: 3 August 2026                                      China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 27 July 2026                                       China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         23 January 2026
+                                                         30 January 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2026.
+   This Internet-Draft will expire on 3 August 2026.
 
 Copyright Notice
 
@@ -120,11 +120,14 @@ Table of Contents
      7.5.  Network Security Drills (Human in the Loop)
    8.  Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     8.1.  Hallucination
-     8.2.  Security
-     8.3.  Data Quality and Consistency
-     8.4.  Interpretability and Explainability
-     8.5.  Fast Decision-making
+     8.1.  Trust and Security
+     8.2.  Protocols between Agent and Agent/Human operator/Tools
+       8.2.1.  High Risk Operations
+       8.2.2.  The timeliness requirement of collaboration
+       8.2.3.  Collaboration Reliability
+     8.3.  Benchmarking
+       8.3.1.  Single Agent Benchmarking
+       8.3.2.  Multi-Agent Benchmarking
    9.  Security Considerations
    10. IANA Considerations
    11. References
@@ -1234,93 +1237,186 @@ Table of Contents
    In addition to the research challenges in coupling AI and network
    management specified in [I-D.irtf-nmrg-ai-challenges], this document
    also identifies some challenges that need to be considered when
-   integrating agentic AI for network operations.
+   integrating agentic AI together with network digital twin for network
+   operations.
 
-8.1.  Hallucination
+8.1.  Trust and Security
 
-   Hallucination refers to the generation of AI responses that are
-   incorrect, irrelevant, or even nonsensical in relation to the input
-   or context provided.  As Section 3.2.1 of
-   [I-D.hong-nmrg-agenticai-ps] states, agentic AI relies on large
-   language models (LLMs) as its reasoning foundation, and the lack of
-   effective mechanisms in LLM-based decision-making increases the risk
-   of hallucination.  Although Gen-AI can produce seemingly impressive
-   results at first glance, there's a risk of them being completely
-   wrong at times.  These hallucinations can lead to incorrect decisions
-   and actions in network management.  For example, if the AI generates
-   inaccurate network configurations or diagnoses faults incorrectly, it
-   may cause network disruptions or security vulnerabilities.  The
-   challenge lies in identifying and correcting these hallucinations to
-   ensure the reliability of AI-driven network management actions.
+   Multi-Agent Collaborations and interactions can be break down into 4
+   typical scenarios:
 
-8.2.  Security
+   o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs In a single-agent
+   scenario, Human operators access services through the network
+   management AI agent.  The network management AI agent has multiple
+   functions (fault and optimization), and authentication is required to
+   prevent users from accessing the optimization function interface when
+   they only have fault agent permissions.
 
-   Integrating AI into network management introduces new security
-   challenges, which could align with the problem illustrated in
-   Section 4.3 of [I-D.hong-nmrg-agenticai-ps].  Large volumes of
-   network data needs to be accessed to learn network behaviors and make
-   accurate decisions.  Protecting sensitive network data and ensuring
-   the integrity of AI-generated decisions are crucial.  Besides, AI
-   systems can become targets for attacks aimed at compromising network
-   security.  For instance, malicious actors could attempt to manipulate
-   AI models to make them generate harmful network configurations or to
-   disclose confidential network information.  Additionally, the
-   integration of AI Agents from different vendors may create new
-   vulnerabilities that need to be addressed, e.g., lack of effective
-   authentication and authorization among different Agents.  In summary,
-   ensuring robust security measures throughout the entire AI-based
-   network management architecture is essential to prevent unauthorized
-   access and maintain the security of the network infrastructure.
+   o AI Agent -> API Services In a single-agent scenario, the network
+   management AI agent triggers tasks automatically based on trace and
+   log information. o Human operator-> AI Agent -> multiple AI Agent
+   Multiple agents may call each other.  For example, if a faulty agent
+   A calls an optimization agent B, authentication is required.
 
-8.3.  Data Quality and Consistency
+   o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs External AI
+   agents can directly access the network management AI Agent by
+   simulating human operation through interface protocols.  For example,
+   a customer AI agent can access the Network AI Agent through a
+   northbound interface.
 
-   As highlighted in Section 4.4 of [I-D.hong-nmrg-agenticai-ps], the
-   performance of AI models heavily relies on the quality and
-   consistency of the data they're trained on.  In network management
-   area, data sources can be diverse and heterogeneous, leading to
-   potential issues such as data inconsistencies, missing, or outdated
-   data.  Poor-quality data may result in inaccurate AI predictions and
-   decisions.  For example, if incorrect or outdated network
-   configuration data is provided, the model may provide incorrect
-   repair advice when diagnosing network incidents or faults, it may
-   suggest checking an non-existing interface.  Ensuring that data is
-   properly cleaned, validated, and maintained is a significant
-   challenge in providing reliable inputs for AI-driven network
-   management.
+   Ensuring robust security throughout the entire AI-based network
+   management architecture is essential to prevent unauthorized access
+   and maintain the security of the network infrastructure.  The
+   security risk can be break down into the following cases:
 
-8.4.  Interpretability and Explainability
+   o External system interact with AI agent Human Operators or external
+   systems bypass their privileges to operate the Network management AI
+   agent
 
-   AI-generated decisions can sometimes be difficult to interpret and
-   explain, as the AI model structure and the parameter settings make it
-   hard to track its internal decision-making logic.  Network operators
-   need to understand the reasoning behind AI-driven decisions to trust
-   and effectively utilize them.  For example, if an AI system
-   recommends a particular configuration change to optimize the network
-   performance, operators may wonder why that specific change is being
-   suggested.  The lack of interpretability (e.g., Section 4.2 of
-   [I-D.hong-nmrg-agenticai-ps]) can hinder the adoption of AI Driven
-   Network Management and make it challenging to identify potential
-   issues with AI-generated recommendations.
+   *  Human operators operate through a network management AI agent, but
+      the service scope that the AI agent can handle may exceed the
+      user's authorized privileges, leading to unauthorized access.
 
-8.5.  Fast Decision-making
+   o AI Agent Interact with Tools/APIs/LLMs
 
-   As Section 4.1 of [I-D.hong-nmrg-agenticai-ps] points out,
-   centralized AI systems could face high latency issues, which are
-   incompatible with real-time network operation and maintenance
-   scenarios with high real-time requirements, such as scheduling
-   strategy optimization and critical fault repair, the rapid generation
-   of network optimization decisions is crucial.  However, AI Agents
-   based on large models adopt a "Token-based" generation and reasoning
-   approach, which is limited by computing power and algorithms,
-   resulting in generally slow reasoning speeds.  In addition, the
-   simulation and verification process of Network Digital Twin (NDT)
-   further increases decision latency, which leads to long end-to-end
-   decision-making time in complex scenarios and is difficult to meet
-   the real-time requirements of services.  To improve decision
-   efficiency, continuous efforts are needed in lightweight NDT modeling
-   algorithms, optimizing large model reasoning frameworks (such as
-   quantization technology and parallel computing), and deploying high-
-   performance AI acceleration hardware.
+   *  Interact with Tools/APIs/LLMs with Privilege Escalation Since
+      network management AI agents rely on LLM for inference when
+      accessing APIs and tools, there is a possibility of malicious
+      injection scenarios where the APIs accessed by the agent exceed
+      the expected scope.
+
+   *  Interact with Tools/APIs/LLMs without audit
+
+   When an agent interacts with an API or tool, the logs are currently
+   recorded as system logs, which cannot distinguish between different
+   agents and pose a risk of repudiation.
+
+   o Multiple Agent Collaboration and Communication
+
+   *  Multi-Agent Communication with Privilege Escalation When agents
+      communicate with each other via intent communication and
+      understanding, there is a cascading permission amplification
+      problem, leading to Privilege Escalation.
+
+   *  Interaction with internal AI Agent As a microservice, a network
+      management AI agent can be accessed by other services or AI
+      agents, which poses a risk of Privilege Escalation.
+
+8.2.  Protocols between Agent and Agent/Human operator/Tools
+
+8.2.1.  High Risk Operations
+
+   "network change" in the network management field refers to the
+   modification, adjustment, or configuration of physical or logical
+   resources in the existing network.  Because these operations directly
+   affect the continuity and stability of existing network services,
+   even minor unauthorized access or errors can lead to large-scale
+   network outages.  In case of high risk operation, the following
+   measures should be taken into account.
+
+   o Regardless of whether the initiator of the operation is a human or
+   an agent, each network change request must be re-authenticated.
+
+   o For operations involving "bulk deletion" or "core route changes",
+   the system must require approval from a second high-privilege account
+   before issuing the command or enforcing the policy.
+
+   o High-risk configurations should be tested on a very small scale
+   first.  The system should automatically monitor the indicators, and
+   if any abnormalities are detected, the configuration should be
+   automatically rolled back within milliseconds.
+
+8.2.2.  The timeliness requirement of collaboration
+
+   For real-time network operation and maintenance scenarios with high
+   real-time requirements, such as scheduling strategy optimization and
+   critical fault repair, the rapid generation of network optimization
+   decisions is crucial.  However AI Agents based on large models adopt
+   a "Token-based" generation and reasoning approach, which is limited
+   by computing power and algorithms, resulting in generally slow
+   reasoning speeds.  In addition, the simulation and verification
+   process of Network Digital Twin (NDT) further increases decision
+   latency, which leads to long end-to-end decision-making time in
+   complex scenarios and is difficult to meet the real-time requirements
+   of services.
+
+   Also tasks such as fault diagnosis, complaint handling, and user
+   experience improvement often have strict time constraints.  For
+   example, if a fault is not resolved within a set time, it can trigger
+   an escalation of the complaint, requiring efficient collaboration
+   among multiple agents.  In addition, In a network management
+   environment, you might need agents to subscribe to real-time network
+   alarms or telemetry events.  However Google-initiated A2A protocol
+   primarily follows a task-oriented "request-response" model and
+   doesn't support a native pub/sub or event-driven architecture.
+
+   To improve decision efficiency, continuous efforts are needed in
+   lightweight NDT modeling algorithms, optimizing large model reasoning
+   frameworks (such as quantization technology and parallel computing),
+   and deploying high-performance AI acceleration hardware.
+
+8.2.3.  Collaboration Reliability
+
+   Fault diagnosis and complaint handling in the network management
+   field are complex tasks, typically involving 10 to 20+ fields for one
+   single message exchange between two AI Agents and requiring a high
+   level of expertise.  In addition, Reliable task collaboration is
+   incomplete and not sufficient for network management field, e.g.,
+   Google-initiated A2A protocol doesn't defined handling strategies for
+   task rejection, missing information during task collaboration, and
+   failure to achieve task objectives.
+
+   also In network management area, data sources can be diverse and
+   heterogeneous, leading to potential issues such as data
+   inconsistencies, missing, or outdated data.  Poor-quality data may
+   result in inaccurate AI predictions and decisions.  For example, if
+   incorrect or outdated network configuration data is provided, the
+   model may provide incorrect repair advice when diagnosing network
+   incidents or faults, it may suggest checking an non-existing
+   interface.  Ensuring that data is properly cleaned, validated, and
+   maintained is a significant challenge in providing reliable inputs
+   for AI-driven network management.
+
+8.3.  Benchmarking
+
+8.3.1.  Single Agent Benchmarking
+
+   The core of Single Agents assessment lies in its "omnipotence" and
+   the quality of its direct interaction with the environment.
+
+   o Task complexity bottleneck When dealing with long-term, multi-step
+   tasks, single agents are prone to hallucination accumulation and
+   reasoning chain breaks.  Benchmark tests need to evaluate their
+   persistent logic capabilities under context window constraints.
+
+   o Command compliance and control The challenge lies in whether the
+   model can strictly follow complex system prompts, especially when
+   there are many tool options, which can easily lead to tool invocation
+   errors or the omission of some instructions.
+
+   o Generalization and memory To evaluate how monolithic models can
+   efficiently manage long-term memory to handle new tasks without
+   relying on external collaborative support.
+
+8.3.2.  Multi-Agent Benchmarking
+
+   The focus of collaborative assessment has shifted from "individual
+   capabilities" to "system dynamics": o Coordination and communication
+   overhead: Multi-agent systems (MAS) involve complex task
+   decomposition and allocation (global planning).  Benchmarking needs
+   to measure the communication efficiency between agents, alignment
+   consistency, and the high latency and cost caused by multi-turn
+   interactions.
+
+   o Error tracing and attribution: When the final task fails, it is
+   extremely challenging to accurately pinpoint which "role" went wrong
+   or in which round of collaboration there was a deviation (failure
+   attribution) due to the presence of multiple participants.
+
+   o Swarm intelligence and social emergence: It is necessary to assess
+   the dynamics of competition and cooperation among intelligent agents,
+   including the existence of systemic risks such as information silos,
+   resource waste, or vicious cycles.
 
 9.  Security Considerations
 
