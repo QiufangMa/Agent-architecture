@@ -1114,7 +1114,7 @@ The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} app
 
 - Single point of failure:
   While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of
-  failure if not implemented with sufficientcredundancy and fault tolerance.
+  failure if not implemented with sufficientc redundancy and fault tolerance.
 
 - AI/ML model integrity:
   If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust
