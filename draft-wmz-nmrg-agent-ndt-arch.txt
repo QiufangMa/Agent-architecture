@@ -1245,33 +1245,38 @@ Table of Contents
    Multi-Agent Collaborations and interactions can be break down into 4
    typical scenarios:
 
-   o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs In a single-agent
-   scenario, Human operators access services through the network
-   management AI agent.  The network management AI agent has multiple
-   functions (fault and optimization), and authentication is required to
-   prevent users from accessing the optimization function interface when
-   they only have fault agent permissions.
+   o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs
 
-   o AI Agent -> API Services In a single-agent scenario, the network
-   management AI agent triggers tasks automatically based on trace and
-   log information. o Human operator-> AI Agent -> multiple AI Agent
-   Multiple agents may call each other.  For example, if a faulty agent
-   A calls an optimization agent B, authentication is required.
+   In a single-agent scenario, Human operators access services through
+   the network management AI agent.  The network management AI agent has
+   multiple functions (fault and optimization), and authentication is
+   required to prevent users from accessing the optimization function
+   interface when they only have fault agent permissions.
 
-   o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs External AI
-   agents can directly access the network management AI Agent by
-   simulating human operation through interface protocols.  For example,
-   a customer AI agent can access the Network AI Agent through a
-   northbound interface.
+   o AI Agent -> API Services
+
+   In a single-agent scenario, the network management AI agent triggers
+   tasks automatically based on trace and log information. o Human
+   operator-> AI Agent -> multiple AI Agent Multiple agents may call
+   each other.  For example, if a faulty agent A calls an optimization
+   agent B, authentication is required.
+
+   o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs
+
+   External AI agents can directly access the network management AI
+   Agent by simulating human operation through interface protocols.  For
+   example, a customer AI agent can access the Network AI Agent through
+   a northbound interface.
 
    Ensuring robust security throughout the entire AI-based network
    management architecture is essential to prevent unauthorized access
    and maintain the security of the network infrastructure.  The
    security risk can be break down into the following cases:
 
-   o External system interact with AI agent Human Operators or external
-   systems bypass their privileges to operate the Network management AI
-   agent
+   o External system interact with AI agent
+
+   Human Operators or external systems bypass their privileges to
+   operate the Network management AI agent
 
    *  Human operators operate through a network management AI agent, but
       the service scope that the AI agent can handle may exceed the
@@ -1279,28 +1284,32 @@ Table of Contents
 
    o AI Agent Interact with Tools/APIs/LLMs
 
-   *  Interact with Tools/APIs/LLMs with Privilege Escalation Since
-      network management AI agents rely on LLM for inference when
+   *  Interact with Tools/APIs/LLMs with Privilege Escalation
+
+      Since network management AI agents rely on LLM for inference when
       accessing APIs and tools, there is a possibility of malicious
       injection scenarios where the APIs accessed by the agent exceed
       the expected scope.
 
    *  Interact with Tools/APIs/LLMs without audit
 
-   When an agent interacts with an API or tool, the logs are currently
-   recorded as system logs, which cannot distinguish between different
-   agents and pose a risk of repudiation.
+      When an agent interacts with an API or tool, the logs are
+      currently recorded as system logs, which cannot distinguish
+      between different agents and pose a risk of repudiation.
 
    o Multiple Agent Collaboration and Communication
 
-   *  Multi-Agent Communication with Privilege Escalation When agents
-      communicate with each other via intent communication and
-      understanding, there is a cascading permission amplification
+   *  Multi-Agent Communication with Privilege Escalation
+
+      When agents communicate with each other via intent communication
+      and understanding, there is a cascading permission amplification
       problem, leading to Privilege Escalation.
 
-   *  Interaction with internal AI Agent As a microservice, a network
-      management AI agent can be accessed by other services or AI
-      agents, which poses a risk of Privilege Escalation.
+   *  Interaction with internal AI Agent
+
+      As a microservice, a network management AI agent can be accessed
+      by other services or AI agents, which poses a risk of Privilege
+      Escalation.
 
 8.2.  Protocols between Agent and Agent/Human operator/Tools
 
