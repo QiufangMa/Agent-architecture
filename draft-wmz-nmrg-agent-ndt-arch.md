@@ -1066,14 +1066,17 @@ properly cleaned, validated, and maintained is a significant challenge in provid
 The core of Single Agents assessment lies in its "omnipotence" and the quality of its direct interaction with the environment.
 
 o Task complexity bottleneck
+
 When dealing with long-term, multi-step tasks, single agents are prone to hallucination accumulation and reasoning chain breaks.
 Benchmark tests need to evaluate their persistent logic capabilities under context window constraints.
 
 o Command compliance and control
+
 The challenge lies in whether the model can strictly follow complex system prompts, especially when there are many tool options,
 which can easily lead to tool invocation errors or the omission of some instructions.
 
 o Generalization and memory
+
 To evaluate how monolithic models can efficiently manage long-term memory to handle new tasks without relying on external collaborative
 support.
 
@@ -1082,14 +1085,18 @@ support.
 The focus of collaborative assessment has shifted from "individual capabilities" to "system dynamics":
 
 o Coordination and communication overhead:
+
 Multi-agent systems (MAS) involve complex task decomposition and allocation (global planning). Benchmarking needs to measure the communication
 efficiency between agents, alignment consistency, and the high latency and cost caused by multi-turn interactions.
 
 o Error tracing and attribution:
+
 When the final task fails, it is extremely challenging to accurately pinpoint which "role" went wrong or in which round of collaboration there
 was a deviation (failure attribution) due to the presence of multiple participants.
 
-o Swarm intelligence and social emergence: It is necessary to assess the dynamics of competition and cooperation among intelligent agents,
+o Swarm intelligence and social emergence:
+
+It is necessary to assess the dynamics of competition and cooperation among intelligent agents,
 including the existence of systemic risks such as information silos, resource waste, or vicious cycles.
 
 # Security Considerations
