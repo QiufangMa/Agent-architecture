@@ -1044,8 +1044,6 @@ needed in lightweight NDT modeling algorithms, optimizing large model reasoning
 frameworks (such as quantization technology and parallel computing), and deploying
 high-performance AI acceleration hardware.
 
-
-
 ### Collaboration Reliability
 
 Fault diagnosis and complaint handling in the network management field are complex tasks, typically involving 10 to 20+ fields for one single
@@ -1082,6 +1080,7 @@ support.
 ### Multi-Agent Benchmarking
 
 The focus of collaborative assessment has shifted from "individual capabilities" to "system dynamics":
+
 o Coordination and communication overhead:
 Multi-agent systems (MAS) involve complex task decomposition and allocation (global planning). Benchmarking needs to measure the communication
 efficiency between agents, alignment consistency, and the high latency and cost caused by multi-turn interactions.
