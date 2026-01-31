@@ -1143,7 +1143,7 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
     * Explore Relationship Between	Management	Characteristics and Functional Components in section 6.
     * Rewrite a collection of use cases to support multi-agent collaboration.
     * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
-  
+
   v00 - v01
 
     * Add Security Consideration Section;
