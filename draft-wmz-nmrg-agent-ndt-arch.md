@@ -89,6 +89,11 @@ informative:
     target: https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/
     date: 2025
 
+    Agent-skills:
+      title: Agent Skills
+      target: https://agentskills.io/home
+      date: 2025
+
 --- abstract
 
 A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
@@ -361,7 +366,7 @@ realize specific functionality.
 ||+------------+ +------------+ +------------+    | | ||Observability || |
 |+-----------------------^------------------------+ | |+--------------+| |
 |                        |                          | |+--------------+| |
-|+-----------------------v------------------------+ | ||Knowledge Base | |
+|+-----------------------v------------------------+ | ||Knowledge Base|| |
 ||            Network Digital Twin                | | |+--------------+| |
 |+-----------------------^------------------------+ | +------^---------+ |
 |                        |                          |        |           |
@@ -419,18 +424,21 @@ industry may help with multi-agents coordination.
 
 #### Agent Gateway
 
-The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, and knowledge base.
+The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, observability, and knowledge base.
 
 ##### Registration
 
-AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. Each Agent instance submits its
+AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. It supports the unified registration of all AI agents within the autonomous domain, including those residing on network devices.
+Each Agent instance submits its
 own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
+
+Agent skills {{Agent-skills}}, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component enables Agents to query directories for required skills.
 
 {{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.
 
 ##### Security
 
-Security component enforces trusted inter-Agent communication by verifying the identity of AI Agents. Some existing authentication methods such as OAuth 2.0, allow
+The security component enforces trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction. It provides unified security functionalities for all AI Agents within the autonomous domain, including those residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.
 
 Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.
@@ -440,10 +448,11 @@ a Least Privilege access control method. It is also recommended to log every Age
 
 #### Observability
 
-Observability component can collect logs, metrics and traces for each agents within autonomous domain from the Agent Gateway and provides end to end
-visibility into progress, failures, and network performance such as latency.
+Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enable network operators to gain deep insights into Agent behaviors.
+It collects logs, metrics and traces for each Agent and provides end-to-end
+visibility into task progress, failures, and network performance such as latency.
 
-In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity,e.g., it can discern
+In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity, e.g., it can discern
 whether a human-in-the-loop approved an action or if the agent acted autonomously.
 
 ##### Knowledge Base
