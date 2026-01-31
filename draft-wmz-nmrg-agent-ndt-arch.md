@@ -973,6 +973,7 @@ o AI Agent -> API Services
 In a single-agent scenario, the network management AI agent triggers tasks automatically based on trace and log information.
 
 o Human operator-> AI Agent -> multiple AI Agent
+
 Multiple agents may call each other. For example, if a faulty agent A calls an optimization agent B, authentication is required.
 
 o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs
