@@ -1139,6 +1139,7 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
 # Changes between Revisions
 
   v01 - v02
+
     * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
     * Explore Relationship Between	Management	Characteristics and Functional Components in section 6.
     * Rewrite a collection of use cases to support multi-agent collaboration.
