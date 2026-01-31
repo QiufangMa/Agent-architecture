@@ -89,10 +89,10 @@ informative:
     target: https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/
     date: 2025
 
-    Agent-skills:
-      title: Agent Skills
-      target: https://agentskills.io/home
-      date: 2025
+  Agent-skills:
+    title: Agent Skills
+    target: https://agentskills.io/home
+    date: 2025
 
 --- abstract
 
