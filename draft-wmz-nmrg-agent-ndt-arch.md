@@ -676,8 +676,8 @@ tools from MCP server within the network elemement.
  | +-----V-----------------+    +--------+----+------+|
  | |Protocol Fault Agent   |    |Protocol|Fault Agent||
  | |  +---------+ +------+ |    |  +-----V----V-+    ||
- | |  |  Qwen   | | MCP  +-+----+-->    MCP     |    ||
- | |  |LLM Model| |Client| |    |  |   Server   |    ||
+ | |  |  ONNOX  | | MCP  +-+----+-->    MCP     |    ||
+ | |  |  Model  | |Client| |    |  |   Server   |    ||
  | |  +---------+ +------+ |    |  +------------+    ||
  | +-----------------------+    +--------------------+|
  |                                                    |
