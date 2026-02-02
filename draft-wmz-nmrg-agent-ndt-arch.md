@@ -594,8 +594,10 @@ management changes a reality in the real physical network.
 
 Collaboration between small AI model and large AI model is also designed to be supported by this interface.
 
-In the past, we only support AI and machine learning technologies at the network level, e.g., we can use collected various different network data to provide network analysis and
-generate network insight. With more intelligence introduced into the network element, more GPU/NPU resource can be allocated for AI inference, this make collaboration between large AI model and small AI model possible.
+In the past, we only support AI and machine learning technologies at the network level, e.g., we can use collected
+various different network data to provide network analysis and generate network insight. With more intelligence
+introduced into the network element, more GPU/NPU resource can be allocated for AI inference, this make collaboration
+between large AI model and small AI model possible.
 
 Large AI models can provide basic logical reasoning and generalized analytical decision-making
 capabilities While specialized small AI models can provide efficient problem-solving capabilities
@@ -610,7 +612,9 @@ local processing for Collected data and summary report generation, Trend predict
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
 
-This collaboration, facilitated by APIs or agent communication protocols like A2A {{A2A}}, combines the generalization power of large models with the efficiency and low-latency of specialized small models, leading to quicker and more context-aware responses to network change.
+This collaboration, facilitated by APIs or agent communication protocols like A2A {{A2A}}, combines the
+generalization power of large models with the efficiency and low-latency of specialized small models,
+leading to quicker and more context-aware responses to network change.
 
 ### Feedback-driven Improvement Interface
 
@@ -623,30 +627,48 @@ to accurately identify the exact cause of a network incident, the relevant recor
 can be submitted as negative samples to the LLM which provides inference services,
 this allows the LLM to be trained on these negative samples for optimization.
 
-This interface is implemented through a combination of system interfaces that collect, process, and apply feedback. Operational feedback—including the outcomes of AI decisions, network state metrics—is collected as structured data via system logging streams (e.g., in JSON format) and message queues (e.g., Kafka). This data is then consumed by analytics components and machine learning platforms through APIs (e.g., RESTful, gRPC) to refine AI models, for instance, by using failure records as negative samples for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime system via model serving and configuration management interfaces, closing the improvement loop.
+This interface is implemented through a combination of system interfaces that collect, process, and apply
+feedback. Operational feedback—including the outcomes of AI decisions, network state metrics—is collected
+as structured data via system logging streams (e.g., in JSON format) and message queues (e.g., Kafka).
+This data is then consumed by analytics components and machine learning platforms through APIs
+(e.g., RESTful, gRPC) to refine AI models, for instance, by using failure records as negative samples
+for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime
+system via model serving and configuration management interfaces, closing the improvement loop.
 
+### Nework Element AI Agent and Network AI Agent Collaboration Interface
+
+TBD.
 
 # AI Driven Network Operations: Relationship Between Characteristics and Functional Components
 
-The architecture in {{arch}} provides a concrete implementation framework to realize the six key characteristics of AI-driven network operations described in {{characteristics}}. Each characteristic is directly supported by specific functional components within the Autonomous Domain. The following clarifies how the architecture operationalizes these characteristics:
+The architecture in {{arch}} provides a concrete implementation framework to realize the six key
+characteristics of AI-driven network operations described in {{characteristics}}. Each characteristic
+is directly supported by specific functional components within the Autonomous Domain. The following
+clarifies how the architecture operationalizes these characteristics:
 
  * Intent:
- : The Network Application​s Layer conveys a high-level user intent via northbound interfaces. The Network AI Agent​ interprets this intent and translates it into actionable network operation tasks to each task Agent.
+ : The Network Application​s Layer conveys a high-level user intent via northbound interfaces.
+ The Network AI Agent​ interprets this intent and translates it into actionable network operation tasks to each task Agent.
 
  * Knowledge:
- : The Knowledge Base​ in Agent Gateway serves as the central repository for domain-specific knowledge, expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
+ : The Knowledge Base​ in Agent Gateway serves as the central repository for domain-specific knowledge,
+ expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
 
  * Analysis:
- : The AI Agent​ in Multi-Agent System performs intelligent analysis using data and tools. It leverages the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.
+ : The AI Agent​ in Multi-Agent System performs intelligent analysis using data and tools. It leverages
+ the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.
 
  * Decision:
- : The AI Agent in Multi-Agent System​ makes informed decisions based on its analysis results. It utilizes the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.
+ : The AI Agent in Multi-Agent System​ makes informed decisions based on its analysis results. It utilizes
+ the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.
 
  * Awareness:
- : The AI Agent in Multi-Agent System gathers data from the Physical Network, it may also fetch data from the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.
+ : The AI Agent in Multi-Agent System gathers data from the Physical Network, it may also fetch data from
+ the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.
 
  * Execution:
- ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
+ ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control
+ actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
 
 # AI Agent Registration and Team formation
 
