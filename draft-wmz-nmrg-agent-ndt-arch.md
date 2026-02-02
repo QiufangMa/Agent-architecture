@@ -639,7 +639,7 @@ system via model serving and configuration management interfaces, closing the im
 
 Network devices collect information from multiple dimensions, including flow information, configuration,
 events, alarms, logs, dynamic topology and routes, and device status (including CPU, memory, and hardware
-health). With large amount of data collected to the domain controller for analysis and processing, the data 
+health). With large amount of data collected to the domain controller for analysis and processing, the data
 accuracy is very limited and therefore it is hard to determine the service impact within 1 minute. In addition,
 it usually require multiple step interaction, complex task management with various different data types or data sources.
 
