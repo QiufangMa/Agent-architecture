@@ -608,7 +608,12 @@ in the network management process.
 On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
 model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
 resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
-local processing for Collected data and summary report generation, Trend prediction, etc.
+local processing for Collected data and summary report generation, Trend prediction, etc. When small AI model
+is outdated and unable to detect specific applications or security risk, these specific applications and security
+risk information can be collecated by network analytics platform to retrain this small AI model and re-deploy it
+in the same network element when this smal AI model has been trained to work correctly to detect applications or
+security risk.
+
 With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
 controller interact with network element and has more quick response to network change.
 
