@@ -678,9 +678,9 @@ The architecture in {{arch}} provides a concrete implementation framework to rea
   Human ---------> AI Agent  |                    | |            | |
  Operator        |           |                    | |  Center    | |
                  +-----+-----+                    | +------------+ |
-          Policy Definition(Obj+Incident+Action)                   |
+          Policy Definition(Obj+Incident+Action)  |                |
                  Task Planning                    |                |
-                   Agent Team Formation           |                |
+                Agent Team Formation              |                |
        +---------------+----------------+         +----------------+
        |               |                |
  +-----+-----+    +----+------+    +----+------+
@@ -691,6 +691,25 @@ The architecture in {{arch}} provides a concrete implementation framework to rea
 ~~~~
 {: #reg title="AI Agent Registration and Team formation Usage Example" artwork-align="center"}
 
+The Agent gateway at the network level provides agent registration for both embedded AI agent in each network
+element and network AI agent and associated task agents. The following steps are performed to provide Event driven AI Agent
+Team formation within the Agentic AI network management architecture:
+
+Step 1:
+: Human Operator pre-provision user intent which comprises objecive, incident list and corresponding action list.
+
+Step 2:
+: Network AI Agent recieves user intent and generate corresponding policies which comprise objecive, incident list and corresponding action list.
+In addition, Network AI Agent subscribe corresponding incidents from incident center.
+
+Step3:
+: Network AI agent generate task planning based on objective and then discover matched task agent lists based on planned task from registration center within the agent gateway.
+
+Step4:
+: Upon receiving incident from the incident center, network AI agent assign the tasks to task agents corresponding to specific incident recieved.
+
+Step 5:
+: Network AI Agent distribute task to corresponding task agents and complete task agent team formation.
 
 # AI Driven Network Operations: A collection of Use Cases {#uc}
 
