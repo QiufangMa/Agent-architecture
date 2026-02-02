@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 4 August 2026                                      China Mobile
+Expires: 6 August 2026                                      China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 4 August 2026                                      China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         31 January 2026
+                                                         2 February 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 August 2026.
+   This Internet-Draft will expire on 6 August 2026.
 
 Copyright Notice
 
@@ -111,28 +111,29 @@ Table of Contents
        5.3.9.  Feedback-driven Improvement Interface
    6.  AI Driven Network Operations: Relationship Between
            Characteristics and Functional Components
-   7.  AI Driven Network Operations: A collection of Use Cases
-     7.1.  Multi-Agent Collaboration on Network Configuration Change
-     7.2.  Multi-Agent Collaboration on Network Troubleshooting
-     7.3.  Multi-Agent Collaboration on Network Optimization
-     7.4.  Network level Energy Efficiency Management in the
+   7.  AI Agent Registration and Team formation
+   8.  AI Driven Network Operations: A collection of Use Cases
+     8.1.  Multi-Agent Collaboration on Network Configuration Change
+     8.2.  Multi-Agent Collaboration on Network Troubleshooting
+     8.3.  Multi-Agent Collaboration on Network Optimization
+     8.4.  Network level Energy Efficiency Management in the
            IP+Optical network
-     7.5.  Network Security Drills (Human in the Loop)
-   8.  Challenges of Integrating Network Digital Twin and Agentic AI
+     8.5.  Network Security Drills (Human in the Loop)
+   9.  Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     8.1.  Trust and Security
-     8.2.  Protocols between Agent and Agent/Human operator/Tools
-       8.2.1.  High Risk Operations
-       8.2.2.  The timeliness requirement of collaboration
-       8.2.3.  Collaboration Reliability
-     8.3.  Benchmarking
-       8.3.1.  Single Agent Benchmarking
-       8.3.2.  Multi-Agent Benchmarking
-   9.  Security Considerations
-   10. IANA Considerations
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
+     9.1.  Trust and Security
+     9.2.  Protocols between Agent and Agent/Human operator/Tools
+       9.2.1.  High Risk Operations
+       9.2.2.  The timeliness requirement of collaboration
+       9.2.3.  Collaboration Reliability
+     9.3.  Benchmarking
+       9.3.1.  Single Agent Benchmarking
+       9.3.2.  Multi-Agent Benchmarking
+   10. Security Considerations
+   11. IANA Considerations
+   12. References
+     12.1.  Normative References
+     12.2.  Informative References
    Appendix A.  Acknowledgements
    Appendix B.  Changes between Revisions
    Contributors
@@ -407,7 +408,7 @@ Table of Contents
    Figure 2 provides the overall architecture for integrating Network
    Digital Twin and Network AI Agent System.  The components and
    functional interfaces are discussed in Section 5.2 and Section 5.3,
-   respectively.  The use cases described in Section 7 show how
+   respectively.  The use cases described in Section 8 show how
    different components are used selectively to provide different
    services.  It is important to understand that the relationships and
    interfaces shown between components in this figure are illustrative
@@ -887,7 +888,47 @@ Table of Contents
       to the Physical Network via southbound interfaces such as NETCONF,
       RESTCONF, or Model Context Protocol [MCP].
 
-7.  AI Driven Network Operations: A collection of Use Cases
+7.  AI Agent Registration and Team formation
+
+                                                     +----------------+
+                                                     |Agent Gateway   |
+                    +-----------+                    | +------------+ |
+                    |  Network  |      Register      | |            | |
+                    | AI Agent  +--------------------+->            | |
+                    +-----------+                    | |Registration| |
+          |---------------+----------------+---------+->            | |
+         Register       Register         Register    | |  Center    | |
+          |               |                |         | +------------+ |
+   +------+----+   +------+-----+    +-----+----+    |                |
+   |   Fault   |   |Optimization|    | Change   |    |                |
+   | Task Agent|   |Task Agent  |    |Task Agent| ...|                |
+   +-----------+   +------------+    +----------+    +----------------+
+
+
+                    +-----------+
+                    |  Incident |
+                    |   Center  |                    +----------------+
+                    +-----+-----+                    |Agent Gateway   |
+                     Incident Notif                  | +------------+ |
+                          |        Registry based    | |   Agent    | |
+           Intent   +-----V-----+    Discovery       | |            | |
+          Objective |  Network  +--------------------+->Registration| |
+     Human ---------> AI Agent  |                    | |            | |
+    Operator        |           |                    | |  Center    | |
+                    +-----+-----+                    | +------------+ |
+             Policy Definition(Obj+Incident+Action)                   |
+                    Task Planning                    |                |
+                      Agent Team Formation           |                |
+          +---------------+----------------+         +----------------+
+          |               |                |
+    +-----+-----+    +----+------+    +----+------+
+    |           |    |           |    |           |
+    |Task Agent1|    |Task Agent1|    |Task Agent1|
+    +-----------+    +-----------+    +-----------+
+
+      Figure 3: AI Agent Registration and Team formation Usage Example
+
+8.  AI Driven Network Operations: A collection of Use Cases
 
    Network AI Agent could help in the following phases which are usually
    mentioned in network management:
@@ -918,7 +959,7 @@ Table of Contents
    explicit feedback, it may adjust and optimize the management strategy
    if necessary.
 
-7.1.  Multi-Agent Collaboration on Network Configuration Change
+8.1.  Multi-Agent Collaboration on Network Configuration Change
 
    Network configuration changes are needed in scenarios such as
    optimizing network or service performance, provisioning new network
@@ -951,7 +992,7 @@ Table of Contents
                                        | Task Agent  |
                                        +-------------+
 
-     Figure 3: Intent Based Network Configuration Change Usage Example
+     Figure 4: Intent Based Network Configuration Change Usage Example
 
    Network configuration change leveraging Network AI Agent and Network
    Digital Twin may experience the following typical steps:
@@ -994,7 +1035,7 @@ Table of Contents
       to obtain network resource (e.g.,vlan, IP subnet) allocated by
       resource allocation task agent.
 
-7.2.  Multi-Agent Collaboration on Network Troubleshooting
+8.2.  Multi-Agent Collaboration on Network Troubleshooting
 
                                   |
                           Human   |Network Troubeshooting
@@ -1014,7 +1055,7 @@ Table of Contents
         | Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
         +--------------+ +-----------+  +----------+ +------------+
 
-        Figure 4: Intent based Network Troubleshooting Usage Example
+        Figure 5: Intent based Network Troubleshooting Usage Example
 
    The network operator inputs the intent of network configuration
    change into the Network AI Agent using natural language.  Network AI
@@ -1085,7 +1126,7 @@ Table of Contents
          task agent, thereby achieving predictive maintenance of the
          network.
 
-7.3.  Multi-Agent Collaboration on Network Optimization
+8.3.  Multi-Agent Collaboration on Network Optimization
 
                                 |
                                 |
@@ -1107,7 +1148,7 @@ Table of Contents
              | Task Agent   |            | Task Agent    |
              +--------------+            +---------------+
 
-         Figure 5: Intent based Network Optimization Usage Example
+         Figure 6: Intent based Network Optimization Usage Example
 
    Network optimization is often introduced due to the Network AI
    Agent's awareness of some potential network faults or anomalies
@@ -1134,7 +1175,7 @@ Table of Contents
    distribution task agent after obtaining approval from the network
    operator.
 
-7.4.  Network level Energy Efficiency Management in the IP+Optical
+8.4.  Network level Energy Efficiency Management in the IP+Optical
       network
 
                             +-----------------+
@@ -1154,7 +1195,7 @@ Table of Contents
                  |   AI Agent |              |   AI Agent |
                  +------------+              +------------+
 
-     Figure 6: Intent based Network level Energy Efficiency Management
+     Figure 7: Intent based Network level Energy Efficiency Management
                                Usage Example
 
    Network level Energy Efficiency refer to a set of processes used to
@@ -1185,7 +1226,7 @@ Table of Contents
    network digital twin to know which part of the network need to be
    adjusted or optimized based on network status change.
 
-7.5.  Network Security Drills (Human in the Loop)
+8.5.  Network Security Drills (Human in the Loop)
 
                                  +----------------+   Human
                                  | Agent Gateway  |  Operator
@@ -1214,7 +1255,7 @@ Table of Contents
             |            Network Infrastructure             |
             +-----------------------------------------------+
 
-        Figure 7: Intent based Network Security Drill Usage Example
+        Figure 8: Intent based Network Security Drill Usage Example
 
    The human operator can work together with the Network AI Agent to
    conduct Network security Drill.  The human operator can instruct the
@@ -1247,7 +1288,7 @@ Table of Contents
    security drills, enhancing the proactive verification ability of
    defense systems against real-world threats.
 
-8.  Challenges of Integrating Network Digital Twin and Agentic AI into
+9.  Challenges of Integrating Network Digital Twin and Agentic AI into
     Network Management
 
    In addition to the research challenges in coupling AI and network
@@ -1256,7 +1297,7 @@ Table of Contents
    integrating agentic AI together with network digital twin for network
    operations.
 
-8.1.  Trust and Security
+9.1.  Trust and Security
 
    Multi-Agent Collaborations and interactions can be break down into 4
    typical scenarios:
@@ -1329,9 +1370,9 @@ Table of Contents
       by other services or AI agents, which poses a risk of Privilege
       Escalation.
 
-8.2.  Protocols between Agent and Agent/Human operator/Tools
+9.2.  Protocols between Agent and Agent/Human operator/Tools
 
-8.2.1.  High Risk Operations
+9.2.1.  High Risk Operations
 
    "network change" in the network management field refers to the
    modification, adjustment, or configuration of physical or logical
@@ -1353,7 +1394,7 @@ Table of Contents
    if any abnormalities are detected, the configuration should be
    automatically rolled back within milliseconds.
 
-8.2.2.  The timeliness requirement of collaboration
+9.2.2.  The timeliness requirement of collaboration
 
    For real-time network operation and maintenance scenarios with high
    real-time requirements, such as scheduling strategy optimization and
@@ -1382,7 +1423,7 @@ Table of Contents
    frameworks (such as quantization technology and parallel computing),
    and deploying high-performance AI acceleration hardware.
 
-8.2.3.  Collaboration Reliability
+9.2.3.  Collaboration Reliability
 
    Fault diagnosis and complaint handling in the network management
    field are complex tasks, typically involving 10 to 20+ fields for one
@@ -1404,9 +1445,9 @@ Table of Contents
    maintained is a significant challenge in providing reliable inputs
    for AI-driven network management.
 
-8.3.  Benchmarking
+9.3.  Benchmarking
 
-8.3.1.  Single Agent Benchmarking
+9.3.1.  Single Agent Benchmarking
 
    The core of Single Agents assessment lies in its "omnipotence" and
    the quality of its direct interaction with the environment.
@@ -1431,7 +1472,7 @@ Table of Contents
    memory to handle new tasks without relying on external collaborative
    support.
 
-8.3.2.  Multi-Agent Benchmarking
+9.3.2.  Multi-Agent Benchmarking
 
    The focus of collaborative assessment has shifted from "individual
    capabilities" to "system dynamics":
@@ -1456,7 +1497,7 @@ Table of Contents
    among intelligent agents, including the existence of systemic risks
    such as information silos, resource waste, or vicious cycles.
 
-9.  Security Considerations
+10.  Security Considerations
 
    The security consideration from
    [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
@@ -1477,13 +1518,13 @@ Table of Contents
       configuration to updates and decommissioning—must be secured
       against unauthorized access and manipulation.
 
-10.  IANA Considerations
+11.  IANA Considerations
 
    This document has no requests to IANA.
 
-11.  References
+12.  References
 
-11.1.  Normative References
+12.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1494,7 +1535,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-11.2.  Informative References
+12.2.  Informative References
 
    [A2A]      "Agent2Agent (A2A) protocol", April 2025, <https://google-
               a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-
