@@ -2132,9 +2132,9 @@ this allows the LLM to be trained on these negative samples for optimization.<a 
   Human ---------&gt; AI Agent  |                    | |            | |
  Operator        |           |                    | |  Center    | |
                  +-----+-----+                    | +------------+ |
-          Policy Definition(Obj+Incident+Action)                   |
+          Policy Definition(Obj+Incident+Action)  |                |
                  Task Planning                    |                |
-                   Agent Team Formation           |                |
+                Agent Team Formation              |                |
        +---------------+----------------+         +----------------+
        |               |                |
  +-----+-----+    +----+------+    +----+------+
@@ -2148,6 +2148,37 @@ this allows the LLM to be trained on these negative samples for optimization.<a 
 <a href="#name-ai-agent-registration-and-te" class="selfRef">AI Agent Registration and Team formation Usage Example</a>
         </figcaption></figure>
 </div>
+<p id="section-7-2">The Agent gateway at the network level provides agent registration for both embedded AI agent in each network
+element and network AI agent and associated task agents. The following steps are performed to provide Event driven AI Agent
+Team formation within the Agentic AI network management architecture:<a href="#section-7-2" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-7-3">
+        <dt id="section-7-3.1">Step 1:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.2">
+          <p id="section-7-3.2.1">Human Operator pre-provision user intent which comprises objecive, incident list and corresponding action list.<a href="#section-7-3.2.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.3">Step 2:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.4">
+          <p id="section-7-3.4.1">Network AI Agent recieves user intent and generate corresponding policies which comprise objecive, incident list and corresponding action list.
+In addition, Network AI Agent subscribe corresponding incidents from incident center.<a href="#section-7-3.4.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.5">Step3:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.6">
+          <p id="section-7-3.6.1">Network AI agent generate task planning based on objective and then discover matched task agent lists based on planned task from registration center within the agent gateway.<a href="#section-7-3.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.7">Step4:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.8">
+          <p id="section-7-3.8.1">Upon receiving incident from the incident center, network AI agent assign the tasks to task agents corresponding to specific incident recieved.<a href="#section-7-3.8.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.9">Step 5:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.10">
+          <p id="section-7-3.10.1">Network AI Agent distribute task to corresponding task agents and complete task agent team formation.<a href="#section-7-3.10.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
+</dl>
 </section>
 </div>
 <div id="uc">
