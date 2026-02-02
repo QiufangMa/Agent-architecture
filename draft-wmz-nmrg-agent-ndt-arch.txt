@@ -850,7 +850,59 @@ Table of Contents
 5.3.10.  Nework Element AI Agent and Network AI Agent Collaboration
          Interface
 
-   TBD.
+   Network devices collect information from multiple dimensions,
+   including flow information, configuration, events, alarms, logs,
+   dynamic topology and routes, and device status (including CPU,
+   memory, and hardware health).  With large amount of data collected to
+   the domain controller for analysis and processing, the data accuracy
+   is very limited and therefore it is hard to determine the service
+   impact within 1 minute.  In addition, it usually require multiple
+   step interaction, complex task management with various different data
+   types or data sources.
+
+   To address those challenges, the network AI Agent can delegate
+   massive data analysis and processing to distributed AI Agent in each
+   network element,e.g., a) only allow distributed AI Agent export
+   processed analytic data to help establish global view of network
+   observability. b) or export key network fault information for Network
+   AI Agent for further investigation the root cause of the problem.
+
+   For the former case, routing protocol specific fault data such as BGP
+   Status Changed, OSPF Neighbor state changes, IS-IS Adjacency Changed
+   data or hardware related fault data such as Optical fail, Physical
+   Port down can be collected and using pre-trained LLM model with
+   expert experience to match fault pattern and invoke corresponding
+   routing protocol troubleshooting MCP tools and finally root cause.
+   In addition, it allows network maintenance engineer usingnature
+   language interface to look up troubleshooting information or it
+   allows Network AI Agent or Task Agent at the network element using
+   MCP interface to invoke tools from MCP server within the network
+   elemement.
+
+                               +------------+     +------------+
+                               |  Network   |     |            |
+              Human Operator   |  AI Agent  |     | Task Agent |
+                   |           |            |     |            |
+                   |           |+----------+|     |+----------+|
+                   |           ||MCP Client||     ||MCP Client||
+                   |           |+----------+|     |+----+-----+|
+                 Intent        +------+-----+     +-----+------+
+                   |                  |                 |
+           +-------+------------------+-----------------+-------+
+           |       |                  +------------+    |       |
+           | +-----V-----------------+    +--------+----+------+|
+           | |Protocol Fault Agent   |    |Protocol|Fault Agent||
+           | |  +---------+ +------+ |    |  +-----V----V-+    ||
+           | |  |  Qwen   | | MCP  +-+----+-->    MCP     |    ||
+           | |  |LLM Model| |Client| |    |  |   Server   |    ||
+           | |  +---------+ +------+ |    |  +------------+    ||
+           | +-----------------------+    +--------------------+|
+           |                                                    |
+           +----------------------------------------------------+
+                         Smart Network Element
+
+           Figure 3: Nework Element AI Agent and Network AI Agent
+                        Collaboration Usage Example
 
 6.  AI Driven Network Operations: Relationship Between Characteristics
     and Functional Components
@@ -934,7 +986,7 @@ Table of Contents
     |Task Agent1|    |Task Agent1|    |Task Agent1|
     +-----------+    +-----------+    +-----------+
 
-      Figure 3: AI Agent Registration and Team formation Usage Example
+      Figure 4: AI Agent Registration and Team formation Usage Example
 
    The Agent gateway at the network level provides agent registration
    for both embedded AI agent in each network element and network AI
@@ -983,7 +1035,7 @@ Table of Contents
                              Handshake               | +-------------+|
                                                      +----------------+
 
-       Figure 4: Agent to Agent Communication Security Usage Example
+       Figure 5: Agent to Agent Communication Security Usage Example
 
    The following steps are performed to provide Agent to Agent
    Communication Security within the Agentic AI network management
@@ -1082,7 +1134,7 @@ Table of Contents
                                        | Task Agent  |
                                        +-------------+
 
-     Figure 5: Intent Based Network Configuration Change Usage Example
+     Figure 6: Intent Based Network Configuration Change Usage Example
 
    Network configuration change leveraging Network AI Agent and Network
    Digital Twin may experience the following typical steps:
@@ -1145,7 +1197,7 @@ Table of Contents
         | Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
         +--------------+ +-----------+  +----------+ +------------+
 
-        Figure 6: Intent based Network Troubleshooting Usage Example
+        Figure 7: Intent based Network Troubleshooting Usage Example
 
    The network operator inputs the intent of network configuration
    change into the Network AI Agent using natural language.  Network AI
@@ -1238,7 +1290,7 @@ Table of Contents
              | Task Agent   |            | Task Agent    |
              +--------------+            +---------------+
 
-         Figure 7: Intent based Network Optimization Usage Example
+         Figure 8: Intent based Network Optimization Usage Example
 
    Network optimization is often introduced due to the Network AI
    Agent's awareness of some potential network faults or anomalies
@@ -1285,7 +1337,7 @@ Table of Contents
                  |   AI Agent |              |   AI Agent |
                  +------------+              +------------+
 
-     Figure 8: Intent based Network level Energy Efficiency Management
+     Figure 9: Intent based Network level Energy Efficiency Management
                                Usage Example
 
    Network level Energy Efficiency refer to a set of processes used to
@@ -1345,7 +1397,7 @@ Table of Contents
             |            Network Infrastructure             |
             +-----------------------------------------------+
 
-        Figure 9: Intent based Network Security Drill Usage Example
+        Figure 10: Intent based Network Security Drill Usage Example
 
    The human operator can work together with the Network AI Agent to
    conduct Network security Drill.  The human operator can instruct the
