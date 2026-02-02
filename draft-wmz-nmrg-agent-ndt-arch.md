@@ -648,6 +648,50 @@ The architecture in {{arch}} provides a concrete implementation framework to rea
  * Execution:
  ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
 
+# AI Agent Registration and Team formation
+
+~~~~
+
+                                                  +----------------+
+                                                  |Agent Gateway   |
+                 +-----------+                    | +------------+ |
+                 |  Network  |      Register      | |            | |
+                 | AI Agent  +--------------------+->            | |
+                 +-----------+                    | |Registration| |
+       |---------------+----------------+---------+->            | |
+      Register       Register         Register    | |  Center    | |
+       |               |                |         | +------------+ |
++------+----+   +------+-----+    +-----+----+    |                |
+|   Fault   |   |Optimization|    | Change   |    |                |
+| Task Agent|   |Task Agent  |    |Task Agent| ...|                |
++-----------+   +------------+    +----------+    +----------------+
+
+
+                 +-----------+
+                 |  Incident |
+                 |   Center  |                    +----------------+
+                 +-----+-----+                    |Agent Gateway   |
+                  Incident Notif                  | +------------+ |
+                       |        Registry based    | |   Agent    | |
+        Intent   +-----V-----+    Discovery       | |            | |
+       Objective |  Network  +--------------------+->Registration| |
+  Human ---------> AI Agent  |                    | |            | |
+ Operator        |           |                    | |  Center    | |
+                 +-----+-----+                    | +------------+ |
+          Policy Definition(Obj+Incident+Action)                   |
+                 Task Planning                    |                |
+                   Agent Team Formation           |                |
+       +---------------+----------------+         +----------------+
+       |               |                |
+ +-----+-----+    +----+------+    +----+------+
+ |           |    |           |    |           |
+ |Task Agent1|    |Task Agent1|    |Task Agent1|
+ +-----------+    +-----------+    +-----------+
+
+~~~~
+{: #reg title="AI Agent Registration and Team formation Usage Example" artwork-align="center"}
+
+
 # AI Driven Network Operations: A collection of Use Cases {#uc}
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
