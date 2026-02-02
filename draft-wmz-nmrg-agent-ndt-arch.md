@@ -711,6 +711,54 @@ Step4:
 Step 5:
 : Network AI Agent distribute task to corresponding task agents and complete task agent team formation.
 
+# Agent to Agent Communication Security
+
+~~~~
+
+   Artifacts Delivery
+ +-----------+
+ |           |                                    +----------------+
+ |           |                                     Agent Gateway   |
+ |        +--V--------+  Agent Identity Discovery | +------------+ |
+ |        |    Task   <---------------------------+->   Agent    | |
+ |        |  AI Agent <---------------------+     | |            | |
+ |        +-^------^--+  Authentication     |  +--+->Registration| |
+ |          |      |       Handshake        |  |  | |            | |
+ |   Secure |  Stateful                     |  |  | |  Center    | |
+ |   Task   |   Monitoring                  |  |  | +------------+ |
+ Negotiation|      |                        |  |  |                |
+ |          |      |     Agent Identity     |  |  | +-------------+|
+ |        +-V------V--+     Discoverey      +--+--+->   Agent     ||
+ |        |    Task   +------------------------+  | |Authorization||
+ +-------->  AI Agent <---------------------------+->   Server    ||
+          +-----------+  Authentication           | |             ||
+                          Handshake               | +-------------+|
+                                                  +----------------+
+
+~~~~
+{: #sec title="Agent to Agent Communication Security Usage Example" artwork-align="center"}
+The following steps are performed to provide Agent to Agent Communication Security within the Agentic
+AI network management architecture:
+
+Step 1. Discovery via Agent Card:
+: The workflow begins when a client agent requests the Agent Card from the remote agent's /.well-known/agent.json endpoint. This JSON file acts as a secure manifest, declaring the agent’s identity,
+  capabilities, and required security schemes.
+
+Step 2. Authentication Handshake:
+: Before any task is sent, the client must fulfill the authentication requirements listed in the Agent Card. This typically involves an OAuth 2.0 flow where the client obtains a JSON Web Token (JWT) to
+  prove its identity and permissions.
+
+Step 3. Secure Task Initiation:
+:Communication is established over HTTPS/TLS. The client sends a tasks/send request using JSON-RPC 2.0. The server validates the token and authorizes the specific task based on the client's role.
+
+Step 4. Stateful Monitoring & Feedback:
+:The task moves through a strictly defined lifecycle (submitted → working → completed). Security is maintained throughout as updates are streamed via Server-Sent Events (SSE) or webhooks, each tied to the
+unique, authorized Task ID.
+
+Step 5. Artifact Delivery:
+: Final results (Artifacts) are delivered only after the task reaches a completed state. These are structured objects (text, files, or data) returned to the verified requester, ensuring data integrity and
+preventing unauthorized access to output.
+
 # AI Driven Network Operations: A collection of Use Cases {#uc}
 
 Network AI Agent could help in the following phases which are usually mentioned in network management:
