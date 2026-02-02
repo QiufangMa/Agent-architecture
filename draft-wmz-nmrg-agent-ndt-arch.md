@@ -637,7 +637,50 @@ system via model serving and configuration management interfaces, closing the im
 
 ### Nework Element AI Agent and Network AI Agent Collaboration Interface
 
-TBD.
+Network devices collect information from multiple dimensions, including flow information, configuration,
+events, alarms, logs, dynamic topology and routes, and device status (including CPU, memory, and hardware
+health). With large amount of data collected to the domain controller for analysis and processing, the data 
+accuracy is very limited and therefore it is hard to determine the service impact within 1 minute. In addition,
+it usually require multiple step interaction, complex task management with various different data types or data sources.
+
+To address those challenges, the network AI Agent can delegate massive data analysis and processing to distributed AI
+Agent in each network element,e.g.,
+a) only allow distributed AI Agent export processed analytic data to help establish global view of network observability.
+b) or export key network fault information for Network AI Agent for further investigation the root cause of the problem.
+
+For the former case, routing protocol specific fault data such as BGP Status Changed, OSPF Neighbor state changes, IS-IS
+Adjacency Changed data or hardware related fault data such as Optical fail, Physical Port down can be collected and using
+pre-trained LLM model with expert experience to match fault pattern and invoke corresponding routing protocol troubleshooting
+MCP tools and finally root cause. In addition, it allows network maintenance engineer usingnature language interface to look up
+troubleshooting information or it allows Network AI Agent or Task Agent at the network element using MCP interface to invoke
+tools from MCP server within the network elemement.
+
+~~~~
+
+                     +------------+     +------------+
+                     |  Network   |     |            |
+    Human Operator   |  AI Agent  |     | Task Agent |
+         |           |            |     |            |
+         |           |+----------+|     |+----------+|
+         |           ||MCP Client||     ||MCP Client||
+         |           |+----------+|     |+----+-----+|
+       Intent        +------+-----+     +-----+------+
+         |                  |                 |
+ +-------+------------------+-----------------+-------+
+ |       |                  +------------+    |       |
+ | +-----V-----------------+    +--------+----+------+|
+ | |Protocol Fault Agent   |    |Protocol|Fault Agent||
+ | |  +---------+ +------+ |    |  +-----V----V-+    ||
+ | |  |  Qwen   | | MCP  +-+----+-->    MCP     |    ||
+ | |  |LLM Model| |Client| |    |  |   Server   |    ||
+ | |  +---------+ +------+ |    |  +------------+    ||
+ | +-----------------------+    +--------------------+|
+ |                                                    |
+ +----------------------------------------------------+
+               Smart Network Element
+
+~~~~
+{: #embed title="Nework Element AI Agent and Network AI Agent Collaboration Usage Example" artwork-align="center"}
 
 # AI Driven Network Operations: Relationship Between Characteristics and Functional Components
 
