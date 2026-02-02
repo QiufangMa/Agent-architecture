@@ -109,6 +109,8 @@ Table of Contents
        5.3.7.  Network AI Agent to Knowledge Base Interface
        5.3.8.  Task AI Agent to Physical Network Interface
        5.3.9.  Feedback-driven Improvement Interface
+       5.3.10. Nework Element AI Agent and Network AI Agent
+               Collaboration Interface
    6.  AI Driven Network Operations: Relationship Between
            Characteristics and Functional Components
    7.  AI Agent Registration and Team formation
@@ -844,6 +846,11 @@ Table of Contents
    tuning.  Subsequently, optimized models and updated knowledge are
    deployed back into the runtime system via model serving and
    configuration management interfaces, closing the improvement loop.
+
+5.3.10.  Nework Element AI Agent and Network AI Agent Collaboration
+         Interface
+
+   TBD.
 
 6.  AI Driven Network Operations: Relationship Between Characteristics
     and Functional Components
