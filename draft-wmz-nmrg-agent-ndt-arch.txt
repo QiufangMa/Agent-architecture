@@ -128,7 +128,7 @@ Table of Contents
      10.2.  Trust and Security
      10.3.  Protocols between Agent and Agent/Human operator/Tools
        10.3.1.  High Risk Operations
-       10.3.2.  The timeliness requirement of collaboration
+       10.3.2.  The Timeliness Requirements of Collaboration
        10.3.3.  Collaboration Reliability
      10.4.  Benchmarking
        10.4.1.  Single Agent Benchmarking
@@ -1581,7 +1581,7 @@ Table of Contents
    if any abnormalities are detected, the configuration should be
    automatically rolled back within milliseconds.
 
-10.3.2.  The timeliness requirement of collaboration
+10.3.2.  The Timeliness Requirements of Collaboration
 
    For real-time network operation and maintenance scenarios with high
    real-time requirements, such as scheduling strategy optimization and
