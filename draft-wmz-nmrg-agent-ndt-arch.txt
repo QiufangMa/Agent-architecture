@@ -5,7 +5,7 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 6 August 2026                                      China Mobile
+Expires: 10 August 2026                                     China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
@@ -14,7 +14,7 @@ Expires: 6 August 2026                                      China Mobile
                                                          Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         2 February 2026
+                                                         6 February 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2026.
+   This Internet-Draft will expire on 10 August 2026.
 
 Copyright Notice
 
@@ -124,14 +124,15 @@ Table of Contents
      9.5.  Network Security Drills (Human in the Loop)
    10. Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     10.1.  Trust and Security
-     10.2.  Protocols between Agent and Agent/Human operator/Tools
-       10.2.1.  High Risk Operations
-       10.2.2.  The timeliness requirement of collaboration
-       10.2.3.  Collaboration Reliability
-     10.3.  Benchmarking
-       10.3.1.  Single Agent Benchmarking
-       10.3.2.  Multi-Agent Benchmarking
+     10.1.  Create domain specific language for agents and models
+     10.2.  Trust and Security
+     10.3.  Protocols between Agent and Agent/Human operator/Tools
+       10.3.1.  High Risk Operations
+       10.3.2.  The timeliness requirement of collaboration
+       10.3.3.  Collaboration Reliability
+     10.4.  Benchmarking
+       10.4.1.  Single Agent Benchmarking
+       10.4.2.  Multi-Agent Benchmarking
    11. Security Considerations
    12. IANA Considerations
    13. References
@@ -1446,10 +1447,42 @@ Table of Contents
    integrating agentic AI together with network digital twin for network
    operations.
 
-10.1.  Trust and Security
+10.1.  Create domain specific language for agents and models
+
+   Feeding network data into machine-readable knowledge for autonomous
+   AI agents involves transforming raw telemetry and metadata into a
+   structured semantic format.  This process typically uses the Model
+   Context Protocol (MCP) and Domain Specific Languages (DSLs) to bridge
+   the gap between low-level network signals and high-level AI
+   reasoning.
+
+   o Semantic & Contextual: Network data is often low-fidelity and lacks
+   the context for AI to "reason" about intent or impact.  AI agents may
+   struggle to understand that a numerical value represents "Frame
+   Delay" without explicit ontological mapping.
+
+   o Data Quality & Fragmentation Information is often fragmented across
+   multiple vendor tools and legacy systems, preventing a unified
+   knowledge model.  Processing high-velocity data and non-standardized
+   formats makes it difficult for AI to generalize across different
+   device types.
+
+   o Technical & Computational Architectural Limits: Standard hardware
+   often lacks the capacity for real-time AI operations at the data-
+   plane level.  Token/Memory Limits: AI models have finite "context
+   windows," which restricts their ability to process long or complex
+   network sequences.
+
+   o Operational & Trust
+
+10.2.  Trust and Security
 
    Multi-Agent Collaborations and interactions can be break down into 4
-   typical scenarios:
+   typical scenarios: "Black Box" Problem: AI decisions can be opaque,
+   making it hard for human operators to audit or trust automated
+   actions.  Skill Gap: There is a significant shortage of professionals
+   with the cross-disciplinary expertise needed for both networking and
+   AI development.
 
    o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs
 
@@ -1519,9 +1552,9 @@ Table of Contents
       by other services or AI agents, which poses a risk of Privilege
       Escalation.
 
-10.2.  Protocols between Agent and Agent/Human operator/Tools
+10.3.  Protocols between Agent and Agent/Human operator/Tools
 
-10.2.1.  High Risk Operations
+10.3.1.  High Risk Operations
 
    "network change" in the network management field refers to the
    modification, adjustment, or configuration of physical or logical
@@ -1543,7 +1576,7 @@ Table of Contents
    if any abnormalities are detected, the configuration should be
    automatically rolled back within milliseconds.
 
-10.2.2.  The timeliness requirement of collaboration
+10.3.2.  The timeliness requirement of collaboration
 
    For real-time network operation and maintenance scenarios with high
    real-time requirements, such as scheduling strategy optimization and
@@ -1572,7 +1605,7 @@ Table of Contents
    frameworks (such as quantization technology and parallel computing),
    and deploying high-performance AI acceleration hardware.
 
-10.2.3.  Collaboration Reliability
+10.3.3.  Collaboration Reliability
 
    Fault diagnosis and complaint handling in the network management
    field are complex tasks, typically involving 10 to 20+ fields for one
@@ -1594,9 +1627,9 @@ Table of Contents
    maintained is a significant challenge in providing reliable inputs
    for AI-driven network management.
 
-10.3.  Benchmarking
+10.4.  Benchmarking
 
-10.3.1.  Single Agent Benchmarking
+10.4.1.  Single Agent Benchmarking
 
    The core of Single Agents assessment lies in its "omnipotence" and
    the quality of its direct interaction with the environment.
@@ -1621,7 +1654,7 @@ Table of Contents
    memory to handle new tasks without relying on external collaborative
    support.
 
-10.3.2.  Multi-Agent Benchmarking
+10.4.2.  Multi-Agent Benchmarking
 
    The focus of collaborative assessment has shifted from "individual
    capabilities" to "system dynamics":
