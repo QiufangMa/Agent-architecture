@@ -1183,8 +1183,6 @@ networking and AI development.
 ## Trust and Security
 
 Multi-Agent Collaborations and interactions can be break down into 4 typical scenarios:
-"Black Box" Problem: AI decisions can be opaque, making it hard for human operators to audit or trust automated actions.
-Skill Gap: There is a significant shortage of professionals with the cross-disciplinary expertise needed for both networking and AI development.
 
 o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs
 
