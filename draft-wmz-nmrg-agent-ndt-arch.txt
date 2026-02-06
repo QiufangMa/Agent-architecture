@@ -1116,7 +1116,7 @@ Table of Contents
    services, or resolving network incidents/faults.
 
                        +------------+
-         Network       |   OSS      |
+         Network       |  Service   |
          Operator ----->  AI Agent  |
                        |            |
                        +-----+------+
