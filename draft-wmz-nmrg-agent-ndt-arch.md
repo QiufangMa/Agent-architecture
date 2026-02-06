@@ -1256,7 +1256,7 @@ before issuing the command or enforcing the policy.
 o High-risk configurations should be tested on a very small scale first. The system should automatically monitor the indicators, and if
 any abnormalities are detected, the configuration should be automatically rolled back within milliseconds.
 
-### The timeliness requirement of collaboration
+### The Timeliness Requirements of Collaboration
 
 For real-time network operation and maintenance scenarios with high real-time requirements,
 such as scheduling strategy optimization and critical fault repair, the rapid
