@@ -1456,24 +1456,33 @@ Table of Contents
    the gap between low-level network signals and high-level AI
    reasoning.
 
-   o Semantic & Contextual: Network data is often low-fidelity and lacks
-   the context for AI to "reason" about intent or impact.  AI agents may
-   struggle to understand that a numerical value represents "Frame
-   Delay" without explicit ontological mapping.
+   o Semantic & Contextual
 
-   o Data Quality & Fragmentation Information is often fragmented across
-   multiple vendor tools and legacy systems, preventing a unified
-   knowledge model.  Processing high-velocity data and non-standardized
-   formats makes it difficult for AI to generalize across different
-   device types.
+   Network data is often low-fidelity and lacks the context for AI to
+   "reason" about intent or impact.  AI agents may struggle to
+   understand that a numerical value represents "Frame Delay" without
+   explicit ontological mapping.
 
-   o Technical & Computational Architectural Limits: Standard hardware
-   often lacks the capacity for real-time AI operations at the data-
-   plane level.  Token/Memory Limits: AI models have finite "context
-   windows," which restricts their ability to process long or complex
-   network sequences.
+   o Data Quality & Fragmentation
+
+   Information is often fragmented across multiple vendor tools and
+   legacy systems, preventing a unified knowledge model.  Processing
+   high-velocity data and non-standardized formats makes it difficult
+   for AI to generalize across different device types.
+
+   o Technical & Computational
+
+   Architectural Limits: Standard hardware often lacks the capacity for
+   real-time AI operations at the data-plane level.  Token/Memory
+   Limits: AI models have finite "context windows," which restricts
+   their ability to process long or complex network sequences.
 
    o Operational & Trust
+
+   "Black Box" Problem: AI decisions can be opaque, making it hard for
+   human operators to audit or trust automated actions.  Skill Gap:
+   There is a significant shortage of professionals with the cross-
+   disciplinary expertise needed for both networking and AI development.
 
 10.2.  Trust and Security
 
