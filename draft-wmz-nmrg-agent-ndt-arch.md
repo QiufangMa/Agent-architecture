@@ -859,7 +859,7 @@ or service performance, provisioning new network services, or resolving network 
 ~~~~
 
                  +------------+
-   Network       |   OSS      |
+   Network       |  Service   |
    Operator ----->  AI Agent  |
                  |            |
                  +-----+------+
