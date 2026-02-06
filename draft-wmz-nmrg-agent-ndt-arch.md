@@ -1149,8 +1149,35 @@ specified in {{?I-D.irtf-nmrg-ai-challenges}}, this document
 also identifies some challenges that need to be considered when integrating
 agentic AI together with network digital twin for network operations.
 
+## Create domain specific language for agents and models
+
+Feeding network data into machine-readable knowledge for autonomous AI agents involves transforming raw
+telemetry and metadata into a structured semantic format. This process typically uses the Model Context
+Protocol (MCP) and Domain Specific Languages (DSLs) to bridge the gap between low-level network signals
+and high-level AI reasoning.
+
+o Semantic & Contextual:
+Network data is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
+AI agents may struggle to understand that a numerical value represents "Frame Delay" without explicit
+ontological mapping.
+
+o Data Quality & Fragmentation
+Information is often fragmented across multiple vendor tools and legacy systems, preventing a unified knowledge model.
+Processing high-velocity data and non-standardized formats makes it difficult for AI to generalize across different
+device types.
+
+o Technical & Computational
+Architectural Limits: Standard hardware often lacks the capacity for real-time AI operations at the data-plane level.
+Token/Memory Limits: AI models have finite "context windows," which restricts their ability to process long or complex
+network sequences.
+
+o Operational & Trust
+
 ## Trust and Security
+
 Multi-Agent Collaborations and interactions can be break down into 4 typical scenarios:
+"Black Box" Problem: AI decisions can be opaque, making it hard for human operators to audit or trust automated actions.
+Skill Gap: There is a significant shortage of professionals with the cross-disciplinary expertise needed for both networking and AI development.
 
 o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs
 
