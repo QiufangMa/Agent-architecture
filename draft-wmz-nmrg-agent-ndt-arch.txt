@@ -1842,10 +1842,13 @@ Appendix B.  Changes between Revisions
 
    v01 - v02
 
+* Agentic AI Architecture Update
 * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
 * Explore Relationship Between      Management      Characteristics and Functional Components in section 6.
 * Rewrite a collection of use cases to support multi-agent collaboration.
 * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
+* Add workflows for Agent Registration, Discovery, team forming.
+* Add workflow for Agent to Agent Communciation Security
 
    v00 - v01
 
