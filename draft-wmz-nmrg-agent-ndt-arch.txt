@@ -109,7 +109,7 @@ Table of Contents
        5.3.7.  Network AI Agent to Knowledge Base Interface
        5.3.8.  Task AI Agent to Physical Network Interface
        5.3.9.  Feedback-driven Improvement Interface
-       5.3.10. Nework Element AI Agent and Network AI Agent
+       5.3.10. Network Element AI Agent and Network AI Agent
                Collaboration Interface
    6.  AI Driven Network Operations: Relationship Between
            Characteristics and Functional Components
@@ -157,13 +157,13 @@ Table of Contents
    cautious about making network changes, given that they need to review
    the solution design as well as evaluate all change impacts, before
    making any change.  Then, after the change, they need to perform
-   dialling tests, monitor traffic, and manually check table entries.
+   dialing tests, monitor traffic, and manually check table entries.
 
    The Network Digital Twin (NDT)
    [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
    to provide a network emulation tool for scenario planning, impact
    analysis, and change management.  Agentic AI introduces disruptive
-   paradim to the network management and allow delcarative intent
+   paradigm to the network management and allow declarative intent
    interpretation, multi-step action, multi-agent coordination.
    Integrating a Network Digital Twin into network management together
    with Agentic AI, it allows network management activities to
@@ -249,7 +249,7 @@ Table of Contents
       making decisions, and executing actions with specific intent based
       on its knowledge representation to achieve a set of service goals
       [TMF-1251D].  In addition, it is able of planning the tasks and
-      decomponse the tasks into several sub-tasks and coordinate with
+      decompose the tasks into several sub-tasks and coordinate with
       Task agent for these sub-tasks.
 
    Task AI Agent:  Task AI Agent is responsible for coordinating with
@@ -353,7 +353,7 @@ Table of Contents
          includes network policies, historical data, expert experience,
          extra-system experience (updates to LLMs/their implied
          ‘knowledge bases’) and Manually or semi-manually entered
-         knowledge,e.g.,new equipment spec sheets,best practices in
+         knowledge, e.g., new equipment spec sheets,best practices in
          product manual.  The knowledge is used to inform its analysis,
          decision-making, and execution processes.  Over time, the
          Network AI agent can expand its knowledge through machine
@@ -468,7 +468,7 @@ Table of Contents
 5.2.1.  Network Applications
 
    Various network applications at the service level can effectively run
-   over a AI driven Network operation platform to to implement either
+   over a AI driven Network operation platform to implement either
    conventional or innovative network operations, with low cost and less
    service impact on real networks.
 
@@ -579,8 +579,8 @@ Table of Contents
 
    The Knowledge Base serves as a crucial repository of information
    within the architecture.  It enables the injection of expert
-   knowledge and and chain of thoughts, provides the necessary knowledge
-   and memory that helps Agents make more accurate and practive context-
+   knowledge and chain of thoughts, provides the necessary knowledge and
+   memory that helps Agents make more accurate and practive context-
    aware decisions.  It also helps mitigate the hallucination problems
    that can arise in large-scale models, which enhances the accuracy of
    task execution.  Additionally, the Knowledge Base plays a key role in
@@ -588,7 +588,7 @@ Table of Contents
    Generation (RAG), which further boosts the system's ability to
    generate reliable and relevant outputs.
 
-   In case of coupling MCP [MCP] with the nework management system, the
+   In case of coupling MCP [MCP] with the network management system, the
    new knowledge also can be used to support modification of the
    currently operating automation Closed Loop, such as: - Choice of
    tools (data, analytics, algorithms/decision processes, closed loops)
@@ -622,7 +622,7 @@ Table of Contents
    close loop without relying on human intervention.  It is also
    possible for Lightweight AI or AI Agent to coordinate with other AI
    Agent(s) to enhance the automation and efficiency of network
-   operations.  The Network Leightweight AI models could be trained,
+   operations.  The Network Lightweight AI models could be trained,
    validated, deployed, and executed on Network Elements, and further
    refined (e.g., model re-training) through monitoring and continuous
    optimization based on feedback from LLM.
@@ -656,7 +656,7 @@ Table of Contents
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
-   This typically uses natural lanaguage as the primary mode of
+   This typically uses natural language as the primary mode of
    interaction, a chat platform that allows for conversational
    interaction with AI Agents can be leveraged.  In some scenarios,
    operators may use structured format for strategy injection via
@@ -747,7 +747,7 @@ Table of Contents
    Knowledge Base service provides contextual data and insights to
    enhance the decision-making accuracy of the Multi-Agent System.
 
-   Interfaces such as Cypher or SPARQL with schema-defind data models
+   Interfaces such as Cypher or SPARQL with schema-defined data models
    (e.g., LPG or RDF for knowledge representation) allow efficient
    retrieval and updates.  Other high-throughput interfaces such as gRPC
    or RESTful API can be the candidate for synchronous semantic search
@@ -814,9 +814,9 @@ Table of Contents
    processing for Collected data and summary report generation, Trend
    prediction, etc.  When small AI model is outdated and unable to
    detect specific applications or security risk, these specific
-   applications and security risk information can be collecated by
+   applications and security risk information can be collected by
    network analytics platform to retrain this small AI model and re-
-   deploy it in the same network element when this smal AI model has
+   deploy it in the same network element when this small AI model has
    been trained to work correctly to detect applications or security
    risk.
 
@@ -855,7 +855,7 @@ Table of Contents
    deployed back into the runtime system via model serving and
    configuration management interfaces, closing the improvement loop.
 
-5.3.10.  Nework Element AI Agent and Network AI Agent Collaboration
+5.3.10.  Network Element AI Agent and Network AI Agent Collaboration
          Interface
 
    Network devices collect information from multiple dimensions,
@@ -870,7 +870,7 @@ Table of Contents
 
    To address those challenges, the network AI Agent can delegate
    massive data analysis and processing to distributed AI Agent in each
-   network element,e.g., a) only allow distributed AI Agent export
+   network element, e.g., a) only allow distributed AI Agent export
    processed analytic data to help establish global view of network
    observability. b) or export key network fault information for Network
    AI Agent for further investigation the root cause of the problem.
@@ -881,11 +881,11 @@ Table of Contents
    Port down can be collected and using pre-trained LLM model with
    expert experience to match fault pattern and invoke corresponding
    routing protocol troubleshooting MCP tools and finally root cause.
-   In addition, it allows network maintenance engineer usingnature
+   In addition, it allows network maintenance engineer using nature
    language interface to look up troubleshooting information or it
    allows Network AI Agent or Task Agent at the network element using
    MCP interface to invoke tools from MCP server within the network
-   elemement.
+   element.
 
                                +------------+     +------------+
                                |  Network   |     |            |
@@ -909,7 +909,7 @@ Table of Contents
            +----------------------------------------------------+
                          Smart Network Element
 
-           Figure 3: Nework Element AI Agent and Network AI Agent
+          Figure 3: Network Element AI Agent and Network AI Agent
                         Collaboration Usage Example
 
 6.  AI Driven Network Operations: Relationship Between Characteristics
@@ -1003,10 +1003,10 @@ Table of Contents
    network management architecture:
 
    Step 1:  Human Operator pre-provision user intent which comprises
-      objecive, incident list and corresponding action list.
+      objective, incident list and corresponding action list.
 
-   Step 2:  Network AI Agent recieves user intent and generate
-      corresponding policies which comprise objecive, incident list and
+   Step 2:  Network AI Agent receieves user intent and generate
+      corresponding policies which comprise objective, incident list and
       corresponding action list.  In addition, Network AI Agent
       subscribe corresponding incidents from incident center.
 
@@ -1016,7 +1016,7 @@ Table of Contents
 
    Step4:  Upon receiving incident from the incident center, network AI
       agent assign the tasks to task agents corresponding to specific
-      incident recieved.
+      incident received.
 
    Step 5:  Network AI Agent distribute task to corresponding task
       agents and complete task agent team formation.
@@ -1223,7 +1223,7 @@ Table of Contents
          could detect network anomalies swiftly, which enables the
          prompt identification of potential issues before they escalate
          into major faults, minimizing downtime or service disruptions.
-         In some cases, the Leightweight AI located in the Network
+         In some cases, the Lightweight AI located in the Network
          Element may handle some simple fault identification tasks
          (e.g., optical module fault automatic identification) to
          enhance the awareness, while the fault identification task
@@ -1261,7 +1261,7 @@ Table of Contents
          capabilities, fault prediction aims to reduce network risks
          through proactive management that prevents problems before they
          occur.  Before a fault actually occurs, the fault prediction
-         task agent can coordiante with network digital twin task agent
+         task agent can coordinate with network digital twin task agent
          to construct a dynamic simulation model by collecting real-time
          multi-dimensional operational state data, including network
          topology, traffic load, and device performance indicators.
@@ -1361,8 +1361,8 @@ Table of Contents
    through interaction with the GREEN Network AI Agent, but also allow
    them see
 
-   o which network devices enable energy saving, which devices not,which
-   are legacy ones,
+   o which network devices enable energy saving, which devices not,
+   which are legacy ones,
 
    o The total energy consumption changing trend over the time of the
    day, for all network devices,
