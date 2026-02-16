@@ -10,8 +10,6 @@ Expires: 20 August 2026                                     China Mobile
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
-                                                           L. Tailhardat
-                                                         Orange Research
                                                                  Y. Hong
                                                       Daejeon University
                                                         16 February 2026
@@ -1907,6 +1905,11 @@ Contributors
    Email: lizhenqiang@chinamobile.com
 
 
+   Lionel Tailhardat
+   Orange Research
+   Email: lionel.tailhardat@orange.com
+
+
 Authors' Addresses
 
    Qin Wu
@@ -1930,11 +1933,6 @@ Authors' Addresses
    China Unicom
    China
    Email: hans29@chinaunicom.cn
-
-
-   Lionel Tailhardat
-   Orange Research
-   Email: lionel.tailhardat@orange.com
 
 
    Yong-Geun Hong
