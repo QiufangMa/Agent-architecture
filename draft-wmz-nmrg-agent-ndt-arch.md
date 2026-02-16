@@ -55,6 +55,11 @@ contributor:
     organization: Huawei
     email: maqiufang1@huawei.com
 
+ -
+    fullname: Zhenqiang Li
+    organization: CMCC
+    email: lizhenqiang@chinamobile.com
+
 normative:
 
 informative:
