@@ -40,10 +40,6 @@ author:
     country: China
     email: hans29@chinaunicom.cn
  -
-  fullname: Lionel Tailhardat
-  organization: Orange Research
-  email: lionel.tailhardat@orange.com
- -
     fullname: Yong-Geun Hong
     organization: Daejeon University
     country: Korea
@@ -59,6 +55,10 @@ contributor:
     fullname: Zhenqiang Li
     organization: CMCC
     email: lizhenqiang@chinamobile.com
+ -
+  fullname: Lionel Tailhardat
+  organization: Orange Research
+  email: lionel.tailhardat@orange.com
 
 normative:
 
