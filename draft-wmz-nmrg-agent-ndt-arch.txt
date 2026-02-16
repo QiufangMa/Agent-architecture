@@ -134,8 +134,8 @@ Table of Contents
        10.4.1.  Single Agent Benchmarking
        10.4.2.  Multi-Agent Benchmarking
    11. Security Considerations
-   12. Conclusion
-   13. IANA Considerations
+   12. IANA Considerations
+   13. Conclusion
    14. References
      14.1.  Normative References
      14.2.  Informative References
@@ -1718,7 +1718,11 @@ Table of Contents
       configuration to updates and decommissioning—must be secured
       against unauthorized access and manipulation.
 
-12.  Conclusion
+12.  IANA Considerations
+
+   This document has no requests to IANA.
+
+13.  Conclusion
 
    The following items were felt to be good starting points for IETF
    work:
@@ -1740,10 +1744,6 @@ Table of Contents
 
    *  Agent to Agent Protocol extensions for IP Network Agent and
       Network Element Agent Collaboration
-
-13.  IANA Considerations
-
-   This document has no requests to IANA.
 
 14.  References
 
@@ -1878,13 +1878,14 @@ Appendix B.  Changes between Revisions
 
    v01 - v02
 
-* Agentic AI Architecture Update
+* Agentic AI Architecture Update.
 * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
 * Explore Relationship Between      Management      Characteristics and Functional Components in section 6.
 * Rewrite a collection of use cases to support multi-agent collaboration.
 * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
 * Add workflows for Agent Registration, Discovery, team forming.
-* Add workflow for Agent to Agent Communciation Security
+* Add workflow for Agent to Agent Communciation Security.
+* Add Conclusion Section.
 
    v00 - v01
 
@@ -1899,6 +1900,11 @@ Contributors
    Qiufang Ma
    Huawei
    Email: maqiufang1@huawei.com
+
+
+   Zhenqiang Li
+   CMCC
+   Email: lizhenqiang@chinamobile.com
 
 
 Authors' Addresses
