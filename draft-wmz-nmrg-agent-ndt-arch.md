@@ -1161,7 +1161,7 @@ o Semantic & Contextual
 Network data in the wire format is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
 AI agents may struggle to understand rigid structure for the interaction,e.g., a numerical value represents "Frame Delay"
 without explicit ontological mapping. Multi-task collaboration and Agent operation involve some ambiguity and uncertainty.
-The natural language interactions should be supported for understanding and handling uncertain or ambiguous tasks. 
+The natural language interactions should be supported for understanding and handling uncertain or ambiguous tasks.
 With the presence of existing standard of natural language interaction, the task of defining common functions for any agent
 to agent communications becomes that of defining the semantics of the information that should be transferred, as opposed to
 defining a rigid structure for the interaction.
