@@ -1354,6 +1354,10 @@ The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} app
   The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must
   be secured against unauthorized access and manipulation.
 
+# IANA Considerations
+
+This document has no requests to IANA.
+
 # Conclusion
 
 The following items were felt to be good starting points for IETF work:
@@ -1369,10 +1373,6 @@ The following items were felt to be good starting points for IETF work:
 
 * Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration
 
-# IANA Considerations
-
-This document has no requests to IANA.
-
 --- back
 
 # Acknowledgements
@@ -1384,13 +1384,14 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
 
   v01 - v02
 
-    * Agentic AI Architecture Update
+    * Agentic AI Architecture Update.
     * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
     * Explore Relationship Between	Management	Characteristics and Functional Components in section 6.
     * Rewrite a collection of use cases to support multi-agent collaboration.
     * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
     * Add workflows for Agent Registration, Discovery, team forming.
-    * Add workflow for Agent to Agent Communciation Security
+    * Add workflow for Agent to Agent Communciation Security.
+    * Add Conclusion Section.
 
   v00 - v01
 
