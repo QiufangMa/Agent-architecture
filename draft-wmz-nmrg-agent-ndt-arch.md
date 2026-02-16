@@ -1158,25 +1158,31 @@ and high-level AI reasoning.
 
 o Semantic & Contextual
 
-Network data is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
-AI agents may struggle to understand that a numerical value represents "Frame Delay" without explicit
-ontological mapping.
+Network data in the wire format is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
+AI agents may struggle to understand rigid structure for the interaction,e.g., a numerical value represents "Frame Delay"
+without explicit ontological mapping. Multi-task collaboration and Agent operation involve some ambiguity and uncertainty.
+The natural language interactions should be supported for understanding and handling uncertain or ambiguous tasks.
+With the presence of existing standard of natural language interaction, the task of defining common functions for any agent
+to agent communications becomes that of defining the semantics of the information that should be transferred, as opposed to
+defining a rigid structure for the interaction.
 
 o Data Quality & Fragmentation
 
 Information is often fragmented across multiple vendor tools and legacy systems, preventing a unified knowledge model.
 Processing high-velocity data and non-standardized formats makes it difficult for AI to generalize across different
-device types.
+device types or data sources.
 
 o Technical & Computational
 
 Architectural Limits: Standard hardware often lacks the capacity for real-time AI operations at the data-plane level.
-Token/Memory Limits: AI models have finite "context windows," which restricts their ability to process long or complex
+
+Token/Memory Limits: Large AI models have finite "context windows", which restricts their ability to process long or complex
 network sequences.
 
 o Operational & Trust
 
 "Black Box" Problem: AI decisions can be opaque, making it hard for human operators to audit or trust automated actions.
+
 Skill Gap: There is a significant shortage of professionals with the cross-disciplinary expertise needed for both
 networking and AI development.
 
