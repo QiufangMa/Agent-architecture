@@ -1,0 +1,3237 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Network Digital Twin and Agentic AI based Architecture for AI driven Network Operations</title>
+<meta content="Qin Wu" name="author">
+<meta content="Cheng Zhou" name="author">
+<meta content="Luis M. Contreras" name="author">
+<meta content="Sai Han" name="author">
+<meta content="Lionel Tailhardat" name="author">
+<meta content="Yong-Geun Hong" name="author">
+<meta content="
+       A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
+such as scenario planning, impact analysis, and change management. Integrating
+a Network Digital Twin into network management together with Agentic AI, it allows the network management
+activities to take user intent or service requirements as input,
+automatically assess, model, and refine optimization strategies under realistic conditions
+but in a risk-free environment. Such environment that operates to meet these types of
+requirements is said to have AI driven Network Operations. 
+       AI driven Network Operations brings together existing technologies such
+as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
+of existing components enhanced with a few new elements. 
+       This document describes an architecture for AI driven network operations and shows how these
+components work together with network digital twin and Agentic AI capabilities. It provides a
+cookbook of existing technologies to satisfy the architecture and realize
+intent-based network management to meet the needs of the network service. 
+    " name="description">
+<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="network digital twin" name="keyword">
+<meta content="large language model" name="keyword">
+<meta content="architecture" name="keyword">
+<meta content="network management" name="keyword">
+<meta content="draft-wmz-nmrg-agent-ndt-arch-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.31.0
+    Python 3.12.12
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.0.2
+    platformdirs 4.5.1
+    pycountry 24.6.1
+    PyYAML 6.0.3
+    requests 2.32.5
+    wcwidth 0.3.0
+-->
+<link href="draft-wmz-nmrg-agent-ndt-arch.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow, a.pilcrow:focus {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">AI Agent architecture</td>
+<td class="right">February 2026</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Wu, et al.</td>
+<td class="center">Expires 20 August 2026</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Management</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-wmz-nmrg-agent-ndt-arch-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2026-02-16" class="published">16 February 2026</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2026-08-20">20 August 2026</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">Q. Wu</div>
+<div class="org">Huawei</div>
+</div>
+<div class="author">
+      <div class="author-name">C. Zhou</div>
+<div class="org">China Mobile</div>
+</div>
+<div class="author">
+      <div class="author-name">L. M. Contreras</div>
+<div class="org">Telefonica</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Han</div>
+<div class="org">China Unicom</div>
+</div>
+<div class="author">
+      <div class="author-name">L. Tailhardat</div>
+<div class="org">Orange Research</div>
+</div>
+<div class="author">
+      <div class="author-name">Y. Hong</div>
+<div class="org">Daejeon University</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Network Digital Twin and Agentic AI based Architecture for AI driven Network Operations</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
+such as scenario planning, impact analysis, and change management. Integrating
+a Network Digital Twin into network management together with Agentic AI, it allows the network management
+activities to take user intent or service requirements as input,
+automatically assess, model, and refine optimization strategies under realistic conditions
+but in a risk-free environment. Such environment that operates to meet these types of
+requirements is said to have AI driven Network Operations.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">AI driven Network Operations brings together existing technologies such
+as Agentic AI and Network Digital Twin which may be seen as the use of a toolbox
+of existing components enhanced with a few new elements.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-3">This document describes an architecture for AI driven network operations and shows how these
+components work together with network digital twin and Agentic AI capabilities. It provides a
+cookbook of existing technologies to satisfy the architecture and realize
+intent-based network management to meet the needs of the network service.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-discussion-venues">
+<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Discussion of this document takes place on the
+    Network Management  mailing list (nmrg@irtf.org),
+    which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/nmrg">https://mailarchive.ietf.org/arch/browse/nmrg</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+    <span><a href="https://github.com/QiufangMa/Agent-architecture">https://github.com/QiufangMa/Agent-architecture</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 20 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2026 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-introduction-of-concepts" class="internal xref">Introduction of Concepts</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-generative-ai-and-agentic-a" class="internal xref">Generative AI and Agentic AI</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-digital-twin" class="internal xref">Network Digital Twin</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-characteristics-of-ai-drive" class="internal xref">Characteristics of AI driven Network Operations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-architecture-design" class="internal xref">Architecture Design</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-overall-architecture" class="internal xref">Overall Architecture</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-functional-components" class="internal xref">Functional Components</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-network-applications" class="internal xref">Network Applications</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-autonomous-domain" class="internal xref">Autonomous Domain</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-functional-interfaces" class="internal xref">Functional Interfaces</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-human-in-the-loop" class="internal xref">Human in the Loop</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-application-to-network-ai-a" class="internal xref">Application to Network AI Agent Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-network-ai-agent-to-task-ai" class="internal xref">Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.4">
+                    <p id="section-toc.1-1.5.2.3.2.4.1"><a href="#section-5.3.4" class="auto internal xref">5.3.4</a>.  <a href="#name-network-ai-agent-to-network" class="internal xref">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.5">
+                    <p id="section-toc.1-1.5.2.3.2.5.1"><a href="#section-5.3.5" class="auto internal xref">5.3.5</a>.  <a href="#name-network-ai-agent-task-ai-ag" class="internal xref">Network AI Agent/Task AI Agent to Agent Gateway Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.6">
+                    <p id="section-toc.1-1.5.2.3.2.6.1"><a href="#section-5.3.6" class="auto internal xref">5.3.6</a>.  <a href="#name-network-ai-agent-to-network-" class="internal xref">Network AI Agent to Network Digital Twin Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.7">
+                    <p id="section-toc.1-1.5.2.3.2.7.1"><a href="#section-5.3.7" class="auto internal xref">5.3.7</a>.  <a href="#name-network-ai-agent-to-knowled" class="internal xref">Network AI Agent to Knowledge Base Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.8">
+                    <p id="section-toc.1-1.5.2.3.2.8.1"><a href="#section-5.3.8" class="auto internal xref">5.3.8</a>.  <a href="#name-task-ai-agent-to-physical-n" class="internal xref">Task AI Agent to Physical Network Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.9">
+                    <p id="section-toc.1-1.5.2.3.2.9.1"><a href="#section-5.3.9" class="auto internal xref">5.3.9</a>.  <a href="#name-feedback-driven-improvement" class="internal xref">Feedback-driven Improvement Interface</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.10">
+                    <p id="section-toc.1-1.5.2.3.2.10.1"><a href="#section-5.3.10" class="auto internal xref">5.3.10</a>. <a href="#name-network-element-ai-agent-an" class="internal xref">Network Element AI Agent and Network AI Agent Collaboration Interface</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-ai-driven-network-operation" class="internal xref">AI Driven Network Operations: Relationship Between Characteristics and Functional Components</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-ai-agent-registration-and-t" class="internal xref">AI Agent Registration and Team formation</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-agent-to-agent-communicatio" class="internal xref">Agent to Agent Communication Security</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-ai-driven-network-operations" class="internal xref">AI Driven Network Operations: A collection of Use Cases</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-multi-agent-collaboration-o" class="internal xref">Multi-Agent Collaboration on Network Configuration Change</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-multi-agent-collaboration-on" class="internal xref">Multi-Agent Collaboration on Network Troubleshooting</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
+                <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="auto internal xref">9.3</a>.  <a href="#name-multi-agent-collaboration-on-" class="internal xref">Multi-Agent Collaboration on Network Optimization</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
+                <p id="section-toc.1-1.9.2.4.1"><a href="#section-9.4" class="auto internal xref">9.4</a>.  <a href="#name-network-level-energy-effici" class="internal xref">Network level Energy Efficiency Management in the IP+Optical network</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.5">
+                <p id="section-toc.1-1.9.2.5.1"><a href="#section-9.5" class="auto internal xref">9.5</a>.  <a href="#name-network-security-drills-hum" class="internal xref">Network Security Drills (Human in the Loop)</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-challenges-of-integrating-n" class="internal xref">Challenges of Integrating Network Digital Twin and Agentic AI into Network Management</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-create-domain-specific-lang" class="internal xref">Create domain specific language for agents and models</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-trust-and-security" class="internal xref">Trust and Security</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3">
+                <p id="section-toc.1-1.10.2.3.1"><a href="#section-10.3" class="auto internal xref">10.3</a>.  <a href="#name-protocols-between-agent-and" class="internal xref">Protocols between Agent and Agent/Human operator/Tools</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3.2.1">
+                    <p id="section-toc.1-1.10.2.3.2.1.1"><a href="#section-10.3.1" class="auto internal xref">10.3.1</a>.  <a href="#name-high-risk-operations" class="internal xref">High Risk Operations</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3.2.2">
+                    <p id="section-toc.1-1.10.2.3.2.2.1"><a href="#section-10.3.2" class="auto internal xref">10.3.2</a>.  <a href="#name-the-timeliness-requirements" class="internal xref">The Timeliness Requirements of Collaboration</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3.2.3">
+                    <p id="section-toc.1-1.10.2.3.2.3.1"><a href="#section-10.3.3" class="auto internal xref">10.3.3</a>.  <a href="#name-collaboration-reliability" class="internal xref">Collaboration Reliability</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4">
+                <p id="section-toc.1-1.10.2.4.1"><a href="#section-10.4" class="auto internal xref">10.4</a>.  <a href="#name-benchmarking" class="internal xref">Benchmarking</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4.2.1">
+                    <p id="section-toc.1-1.10.2.4.2.1.1"><a href="#section-10.4.1" class="auto internal xref">10.4.1</a>.  <a href="#name-single-agent-benchmarking" class="internal xref">Single Agent Benchmarking</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4.2.2">
+                    <p id="section-toc.1-1.10.2.4.2.2.1"><a href="#section-10.4.2" class="auto internal xref">10.4.2</a>.  <a href="#name-multi-agent-benchmarking" class="internal xref">Multi-Agent Benchmarking</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="auto internal xref">13</a>. <a href="#name-conclusion" class="internal xref">Conclusion</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#section-14" class="auto internal xref">14</a>. <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.1">
+                <p id="section-toc.1-1.14.2.1.1"><a href="#section-14.1" class="auto internal xref">14.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.2">
+                <p id="section-toc.1-1.14.2.2.1"><a href="#section-14.2" class="auto internal xref">14.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
+            <p id="section-toc.1-1.15.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16">
+            <p id="section-toc.1-1.16.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-changes-between-revisions" class="internal xref">Changes between Revisions</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.17">
+            <p id="section-toc.1-1.17.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18">
+            <p id="section-toc.1-1.18.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The rapid expansion of network scale and the increasing demands on these networks necessitate
+of continuous network reconfiguration to better adapt to ever-changing service requirements.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">Since network changes are directly related to service operations, any successful change
+needs to not only ensure that new services are provisioned smoothly, but also that existing
+services are not affected and that no problems are introduced with the new configurations.
+Network operators are, therefore, increasingly cautious about making network changes, given that
+they need to review the solution design as well as evaluate all change impacts, before making any
+change. Then, after the change, they need to perform dialing tests, monitor traffic, and manually
+check table entries.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">The Network Digital Twin (NDT) <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> has been proposed as
+a mean to provide a network emulation tool for scenario planning, impact analysis, and change
+management. Agentic AI introduces disruptive paradigm to the network management and allow declarative
+intent interpretation, multi-step action, multi-agent coordination. Integrating a Network Digital Twin
+into network management together with Agentic AI, it allows network management activities to dynamically
+adapt to customer needs, network changes, as well as to automatically assess, model, and refine optimization
+strategies under realistic conditions but in a risk-free environment. An environment that operates to meet these
+types of requirements is said to have AI driven network operations.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">AI Driven network operations provide the following capabilities to applications by
+coordinating the components that operate and manage the network:<a href="#section-1-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-5.1">
+          <p id="section-1-5.1.1">Service intent and service assurance work together to ensure that the
+network change or network optimization aligns with business goals and that the services provided
+meet the agreed-upon Service Level Agreements (SLAs).<a href="#section-1-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.2">
+          <p id="section-1-5.2.1">Provide network capacity planning and ensure that the network has sufficient capacity
+, resources, and infrastructure to meet current and future demands.<a href="#section-1-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.3">
+          <p id="section-1-5.3.1">Provide simulation on fault scenarios, formulate recovery plans, and verify whether the plans
+are applicable and effective so that the service will not be affected during disaster recovery
+drill.<a href="#section-1-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.4">
+          <p id="section-1-5.4.1">Support fault and risk detection and provide network health check and network risk check.<a href="#section-1-5.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.5">
+          <p id="section-1-5.5.1">Model the network configuration change and use a virtual topology model to test network changes
+and assess the effect of the network configuration changes on the network.<a href="#section-1-5.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.6">
+          <p id="section-1-5.6.1">Model the protocol operations and interactions among devices in the network and simulate
+specific networking protocols such as IS-IS, OSPF, BGP, SR, etc to understand how they perform
+under different conditions.<a href="#section-1-5.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.7">
+          <p id="section-1-5.7.1">Model traffic flow across the network, including traffic generation, flow control, routing, and
+congestion control and evaluate traffic's impact on network performance.<a href="#section-1-5.7.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-5.8">
+          <p id="section-1-5.8.1">Support generation of rectification solutions for potential network risks and provide
+verification on the repair solution in seconds, including loop, address conflict, and security
+policy conflict.<a href="#section-1-5.8.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-6">This document describes an architecture for AI Driven network operations, showing how these components
+work together with network digital and AI capabilities. It provides a cookbook of existing technologies
+to satisfy the architecture and realize intent-based networking to meet the needs of applications.<a href="#section-1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="conventions-and-definitions">
+<section id="section-2">
+      <h2 id="name-conventions-and-definitions">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      </h2>
+<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
+described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
+appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The document uses the following definitions and acronyms defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>:<a href="#section-2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-3.1">
+          <p id="section-2-3.1.1">Network Digital Twin (NDT)<a href="#section-2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-3.2">
+          <p id="section-2-3.2.1">Artificial Intelligence (AI)<a href="#section-2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-4">The following acronyms are used throughout this document:<a href="#section-2-4" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2-5.1">
+          <p id="section-2-5.1.1">Generative Artificial Intelligence (Gen-AI)<a href="#section-2-5.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.2">
+          <p id="section-2-5.2.1">Large Language Model (LLM)<a href="#section-2-5.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.3">
+          <p id="section-2-5.3.1">Retrieval-Augmented Generation (RAG)<a href="#section-2-5.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-2-5.4">
+          <p id="section-2-5.4.1">Agentic AI <span>[<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span><a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-2-6">Besides, this document defines the following terminology:<a href="#section-2-6" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-2-7">
+        <dt id="section-2-7.1">Network AI Agent:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-7.2">
+          <p id="section-2-7.2.1">Network AI Agent is an autonomous system or entity with awareness of its environment, capable of
+conducting analysis, making decisions, and executing actions with specific intent
+based on its knowledge representation to achieve a set of service goals <span>[<a href="#TMF-1251D" class="cite xref">TMF-1251D</a>]</span>.
+In addition, it is able of planning the tasks and decompose the tasks into several sub-tasks
+and coordinate with Task agent for these sub-tasks.<a href="#section-2-7.2.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-7.3">Task AI Agent:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-7.4">
+          <p id="section-2-7.4.1">Task AI Agent is responsible for coordinating with Network AI Agent in the multi-Agent System
+and executing specific task assigned by Network AI Agent.<a href="#section-2-7.4.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="introduction-of-concepts">
+<section id="section-3">
+      <h2 id="name-introduction-of-concepts">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-introduction-of-concepts" class="section-name selfRef">Introduction of Concepts</a>
+      </h2>
+<div id="generative-ai-and-agentic-ai">
+<section id="section-3.1">
+        <h3 id="name-generative-ai-and-agentic-a">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-generative-ai-and-agentic-a" class="section-name selfRef">Generative AI and Agentic AI</a>
+        </h3>
+<p id="section-3.1-1">The integration of AI into network operations has marked a significant leap forward in
+the pursuit of network automation and intelligence, while generative AI further
+enhances the role of AI driven network operations and management. Generative AI is a
+subfield of AI that uses generative models such as Large Language Models (LLMs) to
+generate new and original content such as text, images, videos, or other forms of data with the
+capability to adapt and make decisions to achieve specific goals.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">Agentic AI refers to the broader category of AI systems that exhibit "agency"—the ability to act
+independently and iteratively to perform tasks without constant human prompting <span>[<a href="#I-D.hong-nmrg-agenticai-ps" class="cite xref">I-D.hong-nmrg-agenticai-ps</a>]</span>.
+In the context of network operations and management, Network AI agents are increasingly being designed to
+interact with physical world and act upon it based on tools <span>[<a href="#Google-Agents-Whitepaper" class="cite xref">Google-Agents-Whitepaper</a>]</span> and
+perform network management tasks such as understanding user intent, generating network configurations,
+diagnosing and resolving network incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>. Meanwhile, other SDOs
+also try to define terms related to Network AI agent in the context of network operations and management, e.g.,
+TM Forum defines Autonomous Agent in <span>[<a href="#TMF-1251D" class="cite xref">TMF-1251D</a>]</span> as one of AN (Autonomous Network) Terminologies.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-digital-twin">
+<section id="section-3.2">
+        <h3 id="name-network-digital-twin">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-digital-twin" class="section-name selfRef">Network Digital Twin</a>
+        </h3>
+<p id="section-3.2-1">The Network Digital Twin is a digital representation that is used in the context
+of network. The concept and architecture of the Network Digital Twin are specified
+in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. Three core functional components
+which includes Data Repository component, a Service Mapping Models component,
+and an NDT Management component are introduced to characterize the Network Digital
+Twin and its reference architecture.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">The Network Digital Twin is widely recognized to be useful as an advanced platform
+for network emulation, serving as a tool for scenario planning, impact analysis,
+and change management. By delivering applications requests to the Network Digital
+Twin through standardized interfaces (see
+<span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11#section-9.4" class="relref">Section 9.4</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>), the Network Digital
+Twin exposes the various capabilities to network applications.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="characteristics">
+<section id="section-4">
+      <h2 id="name-characteristics-of-ai-drive">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-characteristics-of-ai-drive" class="section-name selfRef">Characteristics of AI driven Network Operations</a>
+      </h2>
+<p id="section-4-1">AIOPS was first defined by Gartner in 2016, combining "artificial intelligence"
+and "IT operations" to describe the application of AI and machine learning to
+enhance IT operations. However there is no unified definition for characteristic
+of "AI driven network operations" within the networking industry.  Referring to the
+characteristics of AIOPS in IT field and the characteristics of networking itself,
+this document introduces six key elements (i.e., awareness, decision, analysis,
+execution, intent and knowledge) to characterize the AI driven network operation and
+its use, as shown in <a href="#ops-arch" class="auto internal xref">Figure 1</a>.
+They together form a close-loop of network operation and management.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<span id="name-six-key-elements-to-charact"></span><div id="ops-arch">
+<figure id="figure-1">
+        <div class="alignCenter art-text artwork" id="section-4-2.1">
+<pre>
+ +---------------------------------------------------+
+ |                  +---------+                      |
+ |                  |  Intent |                      |
+ |                  +---------+                      |
+ |                                                   |
+ | +-----------+                       +-----------+ |
+ | |  Analysis |                       | Decision  | |
+ | +-----------+       --------        +-----------+ |
+ |                 ////        \\\\                  |
+ |                |AI Driven Network|                |
+ |                |  Operations    |                 |
+ |                 \\\\        ////                  |
+ |                     --------                      |
+ | +-----------+                      +------------+ |
+ | |  Awareness|                      |  Execution | |
+ | +-----------+                      +------------+ |
+ |                                                   |
+ |                 +-----------+                     |
+ |                 | Knowledge |                     |
+ |                 +-----------+                     |
+ +---------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-six-key-elements-to-charact" class="selfRef">Six Key Elements to Characterize AI driven network operation</a>
+        </figcaption></figure>
+</div>
+<ul class="normal">
+<li class="normal" id="section-4-3.1">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.1.1">
+            <dt id="section-4-3.1.1.1">Intent:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.1.1.2">
+              <p id="section-4-3.1.1.2.1">Intent is defined as a set of operational goals and outcomes defined in a declarative
+manner without specifying how to achieve or implement them in <span>[<a href="#RFC9315" class="cite xref">RFC9315</a>]</span>. The Network AI Agent
+must accurately interpret and understand the user's high-level business or operational
+objectives, this involves translating declarative requirements into specific network
+instructions, e.g., configurations.<a href="#section-4-3.1.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-4-3.2">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.2.1">
+            <dt id="section-4-3.2.1.1">Knowledge:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.2.1.2">
+              <p id="section-4-3.2.1.2.1">The Network AI agent relies on a knowledge base that includes network policies,
+historical data, expert experience, extra-system experience (updates to LLMs/their implied ‘knowledge bases’)
+and Manually or semi-manually entered knowledge, e.g., new equipment spec sheets,best practices in product manual.
+The knowledge is used to inform its analysis, decision-making, and execution processes.
+Over time, the Network AI agent can expand its knowledge through machine learning,
+incorporating new data and experiences to improve its performance. For example,
+it learns which configurations are optimal for specific scenarios or how to
+respond most effectively to particular types of network incidents <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.<a href="#section-4-3.2.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-4-3.3">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.3.1">
+            <dt id="section-4-3.3.1.1">Analysis:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.3.1.2">
+              <p id="section-4-3.3.1.2.1">The Network AI agent continuously analyzes vast amounts of network data from various
+sources, including network telemetry <span>[<a href="#RFC9232" class="cite xref">RFC9232</a>]</span> and external feeds, and identify
+the gap between user intent and the existing network status. By integrating Network digital twin
+<span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> with Network AI agent and leveraging machine learning and other data
+analytics techniques, it also identifies network fault, problem, incident, anomaly and perform data driven
+intelligent analysis such as service impact analysis, and so on. Their distinction is further discussed in
+<span>[<a href="#I-D.ietf-nmop-terminology" class="cite xref">I-D.ietf-nmop-terminology</a>]</span>.<a href="#section-4-3.3.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-4-3.4">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.4.1">
+            <dt id="section-4-3.4.1.1">Decision:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.4.1.2">
+              <p id="section-4-3.4.1.2.1">Based on the intent and network analysis, AI makes
+informed decisions. By integrating network digital twin <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> and AI,
+the intelligence decisions making can be realized. These decisions could involve dynamically adjusting network
+parameters, e.g., rerouting traffic to avoid congestion. The decision-making
+process is driven by predefined policies, real-time data analysis, and AI
+models (e.g., LLMs) that enable the Network AI agent to choose the best course of action
+to meet the specified intent. Network AI agent may also verify the correctness of the decision
+outcome by performing some network simulation or validation process.<a href="#section-4-3.4.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-4-3.5">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.5.1">
+            <dt id="section-4-3.5.1.1">Awareness:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.5.1.2">
+              <p id="section-4-3.5.1.2.1">Awareness is achieved through real-time monitoring and data collection.
+The Network AI agent maintains a comprehensive visibility of the network,
+enabling it to make context-aware decisions. Network operators can also use the
+awareness understand the exact cause of specific network issues and achieve closed-loop
+decision-making.<a href="#section-4-3.5.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-4-3.6">
+          <span class="break"></span><dl class="dlParallel" id="section-4-3.6.1">
+            <dt id="section-4-3.6.1.1">Execution:</dt>
+            <dd style="margin-left: 1.5em" id="section-4-3.6.1.2">
+              <p id="section-4-3.6.1.2.1">Once a decision is made, the Network AI agent executes the necessary actions to implement
+it. This could involve, e.g., sending configuration to network controllers or
+network devices through NETCONF/RESTCONF protocols. The execution is carried out
+in a controlled and precise manner to ensure that the network behaves as intended
+without causing disruptions. The Network AI agent also verifies that the executed actions
+have the desired effect and makes the proper adjustments if needed.<a href="#section-4-3.6.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+      </ul>
+</section>
+</div>
+<div id="architecture-design">
+<section id="section-5">
+      <h2 id="name-architecture-design">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-architecture-design" class="section-name selfRef">Architecture Design</a>
+      </h2>
+<div id="overall-arch">
+<section id="section-5.1">
+        <h3 id="name-overall-architecture">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-overall-architecture" class="section-name selfRef">Overall Architecture</a>
+        </h3>
+<p id="section-5.1-1"><a href="#arch" class="auto internal xref">Figure 2</a> provides the overall architecture for integrating Network
+Digital Twin and Network AI Agent System. The components and
+functional interfaces are discussed in <a href="#functional-components" class="auto internal xref">Section 5.2</a> and <a href="#functional-interfaces" class="auto internal xref">Section 5.3</a>,
+respectively. The use cases described in <a href="#uc" class="auto internal xref">Section 9</a> show how
+different components are used selectively to provide different
+services.  It is important to understand that the relationships and
+interfaces shown between components in this figure are illustrative
+of some of the common or likely interactions; however, this figure
+does not preclude other interfaces and relationships as necessary to
+realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<span id="name-an-architecture-for-integra"></span><div id="arch">
+<figure id="figure-2">
+          <div class="alignCenter art-text artwork" id="section-5.1-2.1">
+<pre>
++------------------------------------------------------------------------+
+|Network Applications                                                    |
+|            +-------+   +-------+          +-------+                    |
+|            | App 1 |   | App 2 |   ...    | App n |                    |
+|            +-------+   +-------+          +-------+                    |
++-------------------------^----------------------------------------------+
+                          | Intent
++-------------------------+----------------------------------------------+
+|Autonomous Domain        |                                              |
+|+------------------------+-----------------------+   +----------------+ |
+||Multi-Agent System      |                       |   |  Agent Gateway | |
+||                +-------v--------+              |   |                | |
+||                |Network AI Agent|              |   |+--------------+| |
+||                +-------^--------+              |   || Registration || |
+||                        |                       |   |+--------------+| |
+||       +----------------+------------+--------+ &lt;---&gt;+--------------+| |
+||       |                |            |        | |   ||   Security   || |
+||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
+|||Task Agent 1&lt;-&gt;Task Agent 2&lt;-&gt;Task Agent 3| ...&lt;-+ |+--------------+| |
+||+------------+ +------------+ +------------+    | | ||Observability || |
+|+-----------------------^------------------------+ | |+--------------+| |
+|                        |                          | |+--------------+| |
+|+-----------------------v------------------------+ | ||Knowledge Base|| |
+||            Network Digital Twin                | | |+--------------+| |
+|+-----------------------^------------------------+ | +------^---------+ |
+|                        |                          |        |           |
+|+--------------------------------------------------v--------+---------+ |
+||Physical Network                                           |         | |
+||      +---------+    +------------------+             +----v----+    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      |   NE    |    |NE(lightweight AI)|     ...     |NE|Agent||    | |
+||      |         |    |                  |             |  +-----+|    | |
+||      +---------+    +------------------+             +---------+    | |
+|+----------------+----------------------------------------------------+ |
++------------------------------------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<a href="#name-an-architecture-for-integra" class="selfRef">An Architecture for Integrating Network AI Agent with Network Digital Twin</a>
+          </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="functional-components">
+<section id="section-5.2">
+        <h3 id="name-functional-components">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-functional-components" class="section-name selfRef">Functional Components</a>
+        </h3>
+<p id="section-5.2-1">This section describes the functional components shown as boxes in
+<a href="#arch" class="auto internal xref">Figure 2</a>.  The interactions between those components, the functional
+interfaces, are described in <a href="#functional-interfaces" class="auto internal xref">Section 5.3</a>.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<div id="network-applications">
+<section id="section-5.2.1">
+          <h4 id="name-network-applications">
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-network-applications" class="section-name selfRef">Network Applications</a>
+          </h4>
+<p id="section-5.2.1-1">Various network applications at the service level can effectively run over
+a AI driven Network operation platform to implement either conventional
+or innovative network operations, with low cost and less service
+impact on real networks.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-2">A network application may be a software tool that a user
+uses to make requests to the network to set up specific services such as
+end-to-end connections or scheduled bandwidth reservations or NOC Application
+/Service AI Agent Application that is responsible for monitoring, managing, and
+maintaining the health, performance, and availability of complex networks.<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-3">Network applications make requests that need to be addressed by the AI driven network.
+Such requests are exchanged through a northbound intent interface (e.g., Restful
+API, Natural Language Programming Interface(NLPI),A2A, A2A-T), so that they can be applied
+by multi-agent system at the appropriate twin instance(s).<a href="#section-5.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="autonomous-domain">
+<section id="section-5.2.2">
+          <h4 id="name-autonomous-domain">
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-autonomous-domain" class="section-name selfRef">Autonomous Domain</a>
+          </h4>
+<p id="section-5.2.2-1">An autonomous domain is a self-governing network that integrates NDT and AI driven
+capabilities to achieve autonomous network management. It comprises the following sub-components.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
+<div id="multi-agent-system">
+<section id="section-5.2.2.1">
+            <h5 id="name-multi-agent-system">
+<a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-multi-agent-system" class="section-name selfRef">Multi-Agent System</a>
+            </h5>
+<p id="section-5.2.2.1-1">Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
+for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.1-2">The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
+to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
+Task Agents can adapt to new circumstances through access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge Base to accomplish specific network operation task. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>) in the
+industry may help with multi-agents coordination.<a href="#section-5.2.2.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="agent-gateway">
+<section id="section-5.2.2.2">
+            <h5 id="name-agent-gateway">
+<a href="#section-5.2.2.2" class="section-number selfRef">5.2.2.2. </a><a href="#name-agent-gateway" class="section-name selfRef">Agent Gateway</a>
+            </h5>
+<p id="section-5.2.2.2-1">The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, observability, and knowledge base.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
+<div id="registration">
+<section id="section-5.2.2.2.1">
+              <h6 id="name-registration">
+<a href="#section-5.2.2.2.1" class="section-number selfRef">5.2.2.2.1. </a><a href="#name-registration" class="section-name selfRef">Registration</a>
+              </h6>
+<p id="section-5.2.2.2.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. It supports the unified registration of all AI agents within the autonomous domain, including those residing on network devices.
+Each Agent instance submits its
+own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.1-2">Agent skills <span>[<a href="#Agent-skills" class="cite xref">Agent-skills</a>]</span>, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component enables Agents to query directories for required skills.<a href="#section-5.2.2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.1-3"><span>[<a href="#A2A" class="cite xref">A2A</a>]</span> implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.<a href="#section-5.2.2.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security">
+<section id="section-5.2.2.2.2">
+              <h6 id="name-security">
+<a href="#section-5.2.2.2.2" class="section-number selfRef">5.2.2.2.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
+              </h6>
+<p id="section-5.2.2.2.2-1">The security component enforces trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction. It provides unified security functionalities for all AI Agents within the autonomous domain, including those residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
+to issue each AI Agent its own authentication credentials to establish trusted communication.<a href="#section-5.2.2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.2-2">Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.<a href="#section-5.2.2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.2-3">It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
+a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.<a href="#section-5.2.2.2.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="observability">
+<section id="section-5.2.2.3">
+            <h5 id="name-observability">
+<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
+            </h5>
+<p id="section-5.2.2.3-1">Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enable network operators to gain deep insights into Agent behaviors.
+It collects logs, metrics and traces for each Agent and provides end-to-end
+visibility into task progress, failures, and network performance such as latency.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-2">In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity, e.g., it can discern
+whether a human-in-the-loop approved an action or if the agent acted autonomously.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<div id="knowledge-base">
+<section id="section-5.2.2.3.1">
+              <h6 id="name-knowledge-base">
+<a href="#section-5.2.2.3.1" class="section-number selfRef">5.2.2.3.1. </a><a href="#name-knowledge-base" class="section-name selfRef">Knowledge Base</a>
+              </h6>
+<p id="section-5.2.2.3.1-1">The Knowledge Base serves as a crucial repository of information within the
+architecture. It enables the injection of expert knowledge and chain of thoughts,
+provides the necessary knowledge and memory that helps Agents make more accurate and
+practive context-aware decisions. It also helps mitigate the hallucination problems that
+can arise in large-scale models, which enhances the accuracy of task execution.
+Additionally, the Knowledge Base plays a key role in providing the data needed
+for techniques like Retrieval-Augmented Generation (RAG), which further boosts
+the system's ability to generate reliable and relevant outputs.<a href="#section-5.2.2.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3.1-2">In case of coupling MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> with the network management system, the new knowledge also can be used to
+support modification of the currently operating automation Closed Loop, such as:
+- Choice of tools (data, analytics, algorithms/decision processes, closed loops)
+- Orchestration of tools<a href="#section-5.2.2.3.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="network-digital-twin-1">
+<section id="section-5.2.2.4">
+            <h5 id="name-network-digital-twin-2">
+<a href="#section-5.2.2.4" class="section-number selfRef">5.2.2.4. </a><a href="#name-network-digital-twin-2" class="section-name selfRef">Network Digital Twin</a>
+            </h5>
+<p id="section-5.2.2.4-1">A Network Digital Twin provides an enhanced and optimized solution in the face of increasing
+network and business types, scale, and complexity. It simulates the behavior, performance,
+and characteristics of the actual network, which could help in validation and testing
+scenarios, analyzing and predicting network behavior without affecting the real physical network.<a href="#section-5.2.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.4-2">As described in <span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11#section-7" class="relref">Section 7</a> of [<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>, the core
+functional components of an Network Digital Twin includes Data Repository,
+Service Mapping Models, and a Network Digital Twin Management component. The
+Network Digital Twin collects the real-time operational and instrumentation data
+from network through the appropriate real network-facing input interfaces, and it
+delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
+to Network AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="physical-network">
+<section id="section-5.2.2.5">
+            <h5 id="name-physical-network">
+<a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
+            </h5>
+<p id="section-5.2.2.5-1">This is the actual hardware and infrastructure that makes up the network, which
+includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
+with Lightweight AI <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span> or AI Agent may also achieve some local close loop without relying on human intervention. It is also possible for Lightweight AI or AI Agent to coordinate with other
+AI Agent(s) to enhance the automation and efficiency of network operations. The Network
+Lightweight AI models could be trained, validated, deployed, and executed on Network Elements,
+and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="functional-interfaces">
+<section id="section-5.3">
+        <h3 id="name-functional-interfaces">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-functional-interfaces" class="section-name selfRef">Functional Interfaces</a>
+        </h3>
+<p id="section-5.3-1">This section describes the interfaces between functional components
+that might be externalized in an implementation allowing the
+components to be distributed across platforms.  Where existing
+protocols might provide all or most of the necessary capabilities,
+they are noted.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">As noted in <a href="#overall-arch" class="auto internal xref">Section 5.1</a>, it is important to understand
+that the relationships and interfaces shown between components in
+<a href="#arch" class="auto internal xref">Figure 2</a> are illustrative of some of the common or likely
+interactions; however, this figure and the descriptions in the
+subsections below do not preclude other interfaces and relationships
+as necessary to realize specific functionality.  Thus, some of the
+interfaces described below might not be visible as specific
+relationships in <a href="#arch" class="auto internal xref">Figure 2</a>, but they can nevertheless exist.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<div id="human-in-the-loop">
+<section id="section-5.3.1">
+          <h4 id="name-human-in-the-loop">
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-human-in-the-loop" class="section-name selfRef">Human in the Loop</a>
+          </h4>
+<p id="section-5.3.1-1">The architecture allows human experts to monitor, guide, approve, or intervene in the
+AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-2">Human in the loop is also helpful to provide a safeguard for complex or sensitive
+decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-3">This typically uses natural language as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, and RESTful API can be leveraged.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="application-to-network-ai-agent-interface">
+<section id="section-5.3.2">
+          <h4 id="name-application-to-network-ai-a">
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-application-to-network-ai-a" class="section-name selfRef">Application to Network AI Agent Interface</a>
+          </h4>
+<p id="section-5.3.2-1">Intent based Network Management helps in delivering application
+requests to the AI Driven network operation platform and exposing the
+various platform capabilities to network applications.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.2-2">Standardized protocols and interfaces facilitate smooth communication between applications
+and AI driven network operation platform and ensures different systems from various
+vendors can work together seamlessly.
+The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
+Protocol for Telecoms (A2A-T) <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span> specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-task-ai-agent-interface-single-autonomous-domain">
+<section id="section-5.3.3">
+          <h4 id="name-network-ai-agent-to-task-ai">
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-network-ai-agent-to-task-ai" class="section-name selfRef">Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)</a>
+          </h4>
+<p id="section-5.3.3-1">This interface governs the coordination and task delegation within the Multi-Agent System of a single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this interface to decompose high-level goals into specific tasks and assign them to specialized Task Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for task assignment, progress monitoring, and result aggregation. This coordination can be implemented using protocols like <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span>.<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-network-ai-agent-interface-cross-autonomous-domain">
+<section id="section-5.3.4">
+          <h4 id="name-network-ai-agent-to-network">
+<a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-network-ai-agent-to-network" class="section-name selfRef">Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)</a>
+          </h4>
+<p id="section-5.3.4-1">This interface enables collaboration and information exchange between Network AI Agents residing in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents can negotiate resource allocation, share summarized domain-specific insights (while preserving detail isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives. Standardized protocols like A2A-T <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span>, designed for agent interoperability in telecommunication area, are candidate technologies for implementing this cross-domain interface, ensuring secure and reliable interaction between autonomous systems from different administrative domains.<a href="#section-5.3.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agenttask-ai-agent-to-agent-gateway-interface">
+<section id="section-5.3.5">
+          <h4 id="name-network-ai-agent-task-ai-ag">
+<a href="#section-5.3.5" class="section-number selfRef">5.3.5. </a><a href="#name-network-ai-agent-task-ai-ag" class="section-name selfRef">Network AI Agent/Task AI Agent to Agent Gateway Interface</a>
+          </h4>
+<p id="section-5.3.5-1">The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.<a href="#section-5.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-2">Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
+A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.5-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-3">Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
+Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.<a href="#section-5.3.5-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.5-4">The interface between AI Agent and Knowledge Base is specified in <a href="#interface2knowledge" class="auto internal xref">Section 5.3.7</a>.<a href="#section-5.3.5-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-ai-agent-to-network-digital-twin-interface">
+<section id="section-5.3.6">
+          <h4 id="name-network-ai-agent-to-network-">
+<a href="#section-5.3.6" class="section-number selfRef">5.3.6. </a><a href="#name-network-ai-agent-to-network-" class="section-name selfRef">Network AI Agent to Network Digital Twin Interface</a>
+          </h4>
+<p id="section-5.3.6-1">The interface between Multi-Agent System and Network Digital Twin are the application-facing
+interface as defined in <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span>. Furthermore, the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="interface2knowledge">
+<section id="section-5.3.7">
+          <h4 id="name-network-ai-agent-to-knowled">
+<a href="#section-5.3.7" class="section-number selfRef">5.3.7. </a><a href="#name-network-ai-agent-to-knowled" class="section-name selfRef">Network AI Agent to Knowledge Base Interface</a>
+          </h4>
+<p id="section-5.3.7-1">Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.<a href="#section-5.3.7-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.7-2">Interfaces such as Cypher or SPARQL with schema-defined data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.<a href="#section-5.3.7-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.7-3">Additionally, the Model Context Protocol (MCP) <span>[<a href="#MCP" class="cite xref">MCP</a>]</span> could also serve as a standardized interface for AI Agents to dynamically access and utilize a wide range of tools and data sources provided by the Knowledge Base. It enables the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can invoke, significantly enhancing their reasoning and problem-solving capabilities.<a href="#section-5.3.7-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="task-ai-agent-to-physical-network-interface">
+<section id="section-5.3.8">
+          <h4 id="name-task-ai-agent-to-physical-n">
+<a href="#section-5.3.8" class="section-number selfRef">5.3.8. </a><a href="#name-task-ai-agent-to-physical-n" class="section-name selfRef">Task AI Agent to Physical Network Interface</a>
+          </h4>
+<div id="data-collection">
+<section id="section-5.3.8.1">
+            <h5 id="name-data-collection">
+<a href="#section-5.3.8.1" class="section-number selfRef">5.3.8.1. </a><a href="#name-data-collection" class="section-name selfRef">Data Collection</a>
+            </h5>
+<p id="section-5.3.8.1-1">Data Collection interface is responsible for gathering data from the physical network
+through various different tools and methods (e.g., IPFIX <span>[<a href="#RFC7011" class="cite xref">RFC7011</a>]</span>, YANG-push
+  <span>[<a href="#RFC8639" class="cite xref">RFC8639</a>]</span>,<span>[<a href="#RFC8641" class="cite xref">RFC8641</a>]</span>, BMP <span>[<a href="#RFC7854" class="cite xref">RFC7854</a>]</span>, and MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>).
+It collects various types of network data including configuration data, operational data,
+network topology, routing data, logs, and trace on management plane, control plane, and
+forwarding plane as needed. The collected data is fed into the Network Digital Twin
+and Network AI Agent(s) to provide with up-to-date information about the current state of
+the physical network.<a href="#section-5.3.8.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="configuration">
+<section id="section-5.3.8.2">
+            <h5 id="name-configuration">
+<a href="#section-5.3.8.2" class="section-number selfRef">5.3.8.2. </a><a href="#name-configuration" class="section-name selfRef">Configuration</a>
+            </h5>
+<p id="section-5.3.8.2-1">Once network decisions are made and confirmed, the Multi-Agent System performs
+specific actions to the physical network, e.g., modify specific configuration on
+network controllers or network devices through protocols like NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span>
+, RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>, MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>. It is the component that makes the planned control and
+management changes a reality in the real physical network.<a href="#section-5.3.8.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="lightweight-ai-and-large-ai-model-collaboration-interface">
+<section id="section-5.3.8.3">
+            <h5 id="name-lightweight-ai-and-large-ai">
+<a href="#section-5.3.8.3" class="section-number selfRef">5.3.8.3. </a><a href="#name-lightweight-ai-and-large-ai" class="section-name selfRef">Lightweight AI and Large AI Model Collaboration Interface</a>
+            </h5>
+<p id="section-5.3.8.3-1">Collaboration between small AI model and large AI model is also designed to be supported by this interface.<a href="#section-5.3.8.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-2">In the past, we only support AI and machine learning technologies at the network level, e.g., we can use collected
+various different network data to provide network analysis and generate network insight. With more intelligence
+introduced into the network element, more GPU/NPU resource can be allocated for AI inference, this make collaboration
+between large AI model and small AI model possible.<a href="#section-5.3.8.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-3">Large AI models can provide basic logical reasoning and generalized analytical decision-making
+capabilities While specialized small AI models can provide efficient problem-solving capabilities
+in specialized areas.  The synergy between the two allows the AI agent to combine both multitasking
+generalization capabilities and domain expertise, thus minimizing the reliance on human intervention
+in the network management process.<a href="#section-5.3.8.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-4">On one hand, we can use accumulated field engineering expertise to train large AI model into one foundation
+model for fault management AI agent, On the other hand, we can deploy small AI model, leverage hardware
+resource or chipset resource in the intelligent network element to collect more fine granularity data or provide
+local processing for Collected data and summary report generation, Trend prediction, etc. When small AI model
+is outdated and unable to detect specific applications or security risk, these specific applications and security
+risk information can be collected by network analytics platform to retrain this small AI model and re-deploy it
+in the same network element when this small AI model has been trained to work correctly to detect applications or
+security risk.<a href="#section-5.3.8.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-5">With collaboration between large AI model and small AI model, we can allow Network AI Agent within the Network
+controller interact with network element and has more quick response to network change.<a href="#section-5.3.8.3-5" class="pilcrow">¶</a></p>
+<p id="section-5.3.8.3-6">This collaboration, facilitated by APIs or agent communication protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, combines the
+generalization power of large models with the efficiency and low-latency of specialized small models,
+leading to quicker and more context-aware responses to network change.<a href="#section-5.3.8.3-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="feedback-driven-improvement-interface">
+<section id="section-5.3.9">
+          <h4 id="name-feedback-driven-improvement">
+<a href="#section-5.3.9" class="section-number selfRef">5.3.9. </a><a href="#name-feedback-driven-improvement" class="section-name selfRef">Feedback-driven Improvement Interface</a>
+          </h4>
+<p id="section-5.3.9-1">The architecture should incorporate mechanism for continuous improvement based on
+feedback. This includes collecting data on AI decisions, network performance,
+and user feedback to identify areas for enhancement. By analyzing the feedback,
+the system can adapt and optimize its operations over time, leading to better
+performance and more accurate decision-making. For example, if a Network AI Agent fails
+to accurately identify the exact cause of a network incident, the relevant records
+can be submitted as negative samples to the LLM which provides inference services,
+this allows the LLM to be trained on these negative samples for optimization.<a href="#section-5.3.9-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.9-2">This interface is implemented through a combination of system interfaces that collect, process, and apply
+feedback. Operational feedback—including the outcomes of AI decisions, network state metrics—is collected
+as structured data via system logging streams (e.g., in JSON format) and message queues (e.g., Kafka).
+This data is then consumed by analytics components and machine learning platforms through APIs
+(e.g., RESTful, gRPC) to refine AI models, for instance, by using failure records as negative samples
+for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime
+system via model serving and configuration management interfaces, closing the improvement loop.<a href="#section-5.3.9-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-element-ai-agent-and-network-ai-agent-collaboration-interface">
+<section id="section-5.3.10">
+          <h4 id="name-network-element-ai-agent-an">
+<a href="#section-5.3.10" class="section-number selfRef">5.3.10. </a><a href="#name-network-element-ai-agent-an" class="section-name selfRef">Network Element AI Agent and Network AI Agent Collaboration Interface</a>
+          </h4>
+<p id="section-5.3.10-1">Network devices collect information from multiple dimensions, including flow information, configuration,
+events, alarms, logs, dynamic topology and routes, and device status (including CPU, memory, and hardware
+health). With large amount of data collected to the domain controller for analysis and processing, the data
+accuracy is very limited and therefore it is hard to determine the service impact within 1 minute. In addition,
+it usually require multiple step interaction, complex task management with various different data types or data sources.<a href="#section-5.3.10-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.10-2">To address those challenges, the network AI Agent can delegate massive data analysis and processing to distributed AI
+Agent in each network element, e.g.,
+a) only allow distributed AI Agent export processed analytic data to help establish global view of network observability.
+b) or export key network fault information for Network AI Agent for further investigation the root cause of the problem.<a href="#section-5.3.10-2" class="pilcrow">¶</a></p>
+<p id="section-5.3.10-3">For the former case, routing protocol specific fault data such as BGP Status Changed, OSPF Neighbor state changes, IS-IS
+Adjacency Changed data or hardware related fault data such as Optical fail, Physical Port down can be collected and using
+pre-trained LLM model with expert experience to match fault pattern and invoke corresponding routing protocol troubleshooting
+MCP tools and finally root cause. In addition, it allows network maintenance engineer using nature language interface to look up
+troubleshooting information or it allows Network AI Agent or Task Agent at the network element using MCP interface to invoke
+tools from MCP server within the network element.<a href="#section-5.3.10-3" class="pilcrow">¶</a></p>
+<span id="name-network-element-ai-agent-and"></span><div id="embed">
+<figure id="figure-3">
+            <div class="alignCenter art-text artwork" id="section-5.3.10-4.1">
+<pre>
+                     +------------+     +------------+
+                     |  Network   |     |            |
+    Human Operator   |  AI Agent  |     | Task Agent |
+         |           |            |     |            |
+         |           |+----------+|     |+----------+|
+         |           ||MCP Client||     ||MCP Client||
+         |           |+----------+|     |+----+-----+|
+       Intent        +------+-----+     +-----+------+
+         |                  |                 |
+ +-------+------------------+-----------------+-------+
+ |       |                  +------------+    |       |
+ | +-----V-----------------+    +--------+----+------+|
+ | |Protocol Fault Agent   |    |Protocol|Fault Agent||
+ | |  +---------+ +------+ |    |  +-----V----V-+    ||
+ | |  |  ONNOX  | | MCP  +-+----+--&gt;    MCP     |    ||
+ | |  |  Model  | |Client| |    |  |   Server   |    ||
+ | |  +---------+ +------+ |    |  +------------+    ||
+ | +-----------------------+    +--------------------+|
+ |                                                    |
+ +----------------------------------------------------+
+               Smart Network Element
+
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<a href="#name-network-element-ai-agent-and" class="selfRef">Network Element AI Agent and Network AI Agent Collaboration Usage Example</a>
+            </figcaption></figure>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="ai-driven-network-operations-relationship-between-characteristics-and-functional-components">
+<section id="section-6">
+      <h2 id="name-ai-driven-network-operation">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-ai-driven-network-operation" class="section-name selfRef">AI Driven Network Operations: Relationship Between Characteristics and Functional Components</a>
+      </h2>
+<p id="section-6-1">The architecture in <a href="#arch" class="auto internal xref">Figure 2</a> provides a concrete implementation framework to realize the six key
+characteristics of AI-driven network operations described in <a href="#characteristics" class="auto internal xref">Section 4</a>. Each characteristic
+is directly supported by specific functional components within the Autonomous Domain. The following
+clarifies how the architecture operationalizes these characteristics:<a href="#section-6-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6-2.1">
+          <span class="break"></span><dl class="dlParallel" id="section-6-2.1.1">
+            <dt id="section-6-2.1.1.1">Intent:</dt>
+            <dd style="margin-left: 1.5em" id="section-6-2.1.1.2">
+              <p id="section-6-2.1.1.2.1">The Network Application​s Layer conveys a high-level user intent via northbound interfaces.
+ The Network AI Agent​ interprets this intent and translates it into actionable network operation tasks to each task Agent.<a href="#section-6-2.1.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-6-2.2">
+          <span class="break"></span><dl class="dlParallel" id="section-6-2.2.1">
+            <dt id="section-6-2.2.1.1">Knowledge:</dt>
+            <dd style="margin-left: 1.5em" id="section-6-2.2.1.2">
+              <p id="section-6-2.2.1.2.1">The Knowledge Base​ in Agent Gateway serves as the central repository for domain-specific knowledge,
+ expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.<a href="#section-6-2.2.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-6-2.3">
+          <span class="break"></span><dl class="dlParallel" id="section-6-2.3.1">
+            <dt id="section-6-2.3.1.1">Analysis:</dt>
+            <dd style="margin-left: 1.5em" id="section-6-2.3.1.2">
+              <p id="section-6-2.3.1.2.1">The AI Agent​ in Multi-Agent System performs intelligent analysis using data and tools. It leverages
+ the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.<a href="#section-6-2.3.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-6-2.4">
+          <span class="break"></span><dl class="dlParallel" id="section-6-2.4.1">
+            <dt id="section-6-2.4.1.1">Decision:</dt>
+            <dd style="margin-left: 1.5em" id="section-6-2.4.1.2">
+              <p id="section-6-2.4.1.2.1">The AI Agent in Multi-Agent System​ makes informed decisions based on its analysis results. It utilizes
+ the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.<a href="#section-6-2.4.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-6-2.5">
+          <span class="break"></span><dl class="dlParallel" id="section-6-2.5.1">
+            <dt id="section-6-2.5.1.1">Awareness:</dt>
+            <dd style="margin-left: 1.5em" id="section-6-2.5.1.2">
+              <p id="section-6-2.5.1.2.1">The AI Agent in Multi-Agent System gathers data from the Physical Network, it may also fetch data from
+ the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.<a href="#section-6-2.5.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</li>
+        <li class="normal" id="section-6-2.6">
+          <p id="section-6-2.6.1">Execution:
+ ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control
+ actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>.<a href="#section-6-2.6.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="ai-agent-registration-and-team-formation">
+<section id="section-7">
+      <h2 id="name-ai-agent-registration-and-t">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-ai-agent-registration-and-t" class="section-name selfRef">AI Agent Registration and Team formation</a>
+      </h2>
+<span id="name-ai-agent-registration-and-te"></span><div id="reg">
+<figure id="figure-4">
+        <div class="alignCenter art-text artwork" id="section-7-1.1">
+<pre>
+                                                  +----------------+
+                                                  |Agent Gateway   |
+                 +-----------+                    | +------------+ |
+                 |  Network  |      Register      | |            | |
+                 | AI Agent  +--------------------+-&gt;            | |
+                 +-----------+                    | |Registration| |
+       |---------------+----------------+---------+-&gt;            | |
+      Register       Register         Register    | |  Center    | |
+       |               |                |         | +------------+ |
++------+----+   +------+-----+    +-----+----+    |                |
+|   Fault   |   |Optimization|    | Change   |    |                |
+| Task Agent|   |Task Agent  |    |Task Agent| ...|                |
++-----------+   +------------+    +----------+    +----------------+
+
+
+                 +-----------+
+                 |  Incident |
+                 |   Center  |                    +----------------+
+                 +-----+-----+                    |Agent Gateway   |
+                  Incident Notif                  | +------------+ |
+                       |        Registry based    | |   Agent    | |
+        Intent   +-----V-----+    Discovery       | |            | |
+       Objective |  Network  +--------------------+-&gt;Registration| |
+  Human ---------&gt; AI Agent  |                    | |            | |
+ Operator        |           |                    | |  Center    | |
+                 +-----+-----+                    | +------------+ |
+          Policy Definition(Obj+Incident+Action)  |                |
+                 Task Planning                    |                |
+                Agent Team Formation              |                |
+       +---------------+----------------+         +----------------+
+       |               |                |
+ +-----+-----+    +----+------+    +----+------+
+ |           |    |           |    |           |
+ |Task Agent1|    |Task Agent1|    |Task Agent1|
+ +-----------+    +-----------+    +-----------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<a href="#name-ai-agent-registration-and-te" class="selfRef">AI Agent Registration and Team formation Usage Example</a>
+        </figcaption></figure>
+</div>
+<p id="section-7-2">The Agent gateway at the network level provides agent registration for both embedded AI agent in each network
+element and network AI agent and associated task agents. The following steps are performed to provide Event driven AI Agent
+Team formation within the Agentic AI network management architecture:<a href="#section-7-2" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-7-3">
+        <dt id="section-7-3.1">Step 1:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.2">
+          <p id="section-7-3.2.1">Human Operator pre-provision user intent which comprises objective, incident list and corresponding action list.<a href="#section-7-3.2.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.3">Step 2:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.4">
+          <p id="section-7-3.4.1">Network AI Agent receieves user intent and generate corresponding policies which comprise objective, incident list and corresponding action list.
+In addition, Network AI Agent subscribe corresponding incidents from incident center.<a href="#section-7-3.4.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.5">Step3:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.6">
+          <p id="section-7-3.6.1">Network AI agent generate task planning based on objective and then discover matched task agent lists based on planned task from registration center within the agent gateway.<a href="#section-7-3.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.7">Step4:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.8">
+          <p id="section-7-3.8.1">Upon receiving incident from the incident center, network AI agent assign the tasks to task agents corresponding to specific incident received.<a href="#section-7-3.8.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-7-3.9">Step 5:</dt>
+        <dd style="margin-left: 1.5em" id="section-7-3.10">
+          <p id="section-7-3.10.1">Network AI Agent distribute task to corresponding task agents and complete task agent team formation.<a href="#section-7-3.10.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="agent-to-agent-communication-security">
+<section id="section-8">
+      <h2 id="name-agent-to-agent-communicatio">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-agent-to-agent-communicatio" class="section-name selfRef">Agent to Agent Communication Security</a>
+      </h2>
+<span id="name-agent-to-agent-communication"></span><div id="sec">
+<figure id="figure-5">
+        <div class="alignCenter art-text artwork" id="section-8-1.1">
+<pre>
+   Artifacts Delivery
+ +-----------+
+ |           |                                    +----------------+
+ |           |                                     Agent Gateway   |
+ |        +--V--------+  Agent Identity Discovery | +------------+ |
+ |        |    Task   &lt;---------------------------+-&gt;   Agent    | |
+ |        |  AI Agent &lt;---------------------+     | |            | |
+ |        +-^------^--+  Authentication     |  +--+-&gt;Registration| |
+ |          |      |       Handshake        |  |  | |            | |
+ |   Secure |  Stateful                     |  |  | |  Center    | |
+ |   Task   |   Monitoring                  |  |  | +------------+ |
+ Negotiation|      |                        |  |  |                |
+ |          |      |     Agent Identity     |  |  | +-------------+|
+ |        +-V------V--+     Discoverey      +--+--+-&gt;   Agent     ||
+ |        |    Task   +------------------------+  | |Authorization||
+ +--------&gt;  AI Agent &lt;---------------------------+-&gt;   Server    ||
+          +-----------+  Authentication           | |             ||
+                          Handshake               | +-------------+|
+                                                  +----------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<a href="#name-agent-to-agent-communication" class="selfRef">Agent to Agent Communication Security Usage Example</a>
+        </figcaption></figure>
+</div>
+<p id="section-8-2">The following steps are performed to provide Agent to Agent Communication Security within the Agentic
+AI network management architecture:<a href="#section-8-2" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-8-3">
+        <dt id="section-8-3.1">Step 1. Discovery via Agent Card:</dt>
+        <dd style="margin-left: 1.5em" id="section-8-3.2">
+          <p id="section-8-3.2.1">The workflow begins when a client agent requests the Agent Card from the remote agent's /.well-known/agent.json endpoint. This JSON file acts as a secure manifest, declaring the agent’s identity,
+capabilities, and required security schemes.<a href="#section-8-3.2.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-8-3.3">Step 2. Authentication Handshake:</dt>
+        <dd style="margin-left: 1.5em" id="section-8-3.4">
+          <p id="section-8-3.4.1">Before any task is sent, the client must fulfill the authentication requirements listed in the Agent Card. This typically involves an OAuth 2.0 flow where the client obtains a JSON Web Token (JWT) to
+prove its identity and permissions.<a href="#section-8-3.4.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
+</dl>
+<p id="section-8-4">Step 3. Secure Task Initiation:
+:Communication is established over HTTPS/TLS. The client sends a tasks/send request using JSON-RPC 2.0. The server validates the token and authorizes the specific task based on the client's role.<a href="#section-8-4" class="pilcrow">¶</a></p>
+<p id="section-8-5">Step 4. Stateful Monitoring &amp; Feedback:
+:The task moves through a strictly defined lifecycle (submitted → working → completed). Security is maintained throughout as updates are streamed via Server-Sent Events (SSE) or webhooks, each tied to the
+unique, authorized Task ID.<a href="#section-8-5" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-8-6">
+        <dt id="section-8-6.1">Step 5. Artifact Delivery:</dt>
+        <dd style="margin-left: 1.5em" id="section-8-6.2">
+          <p id="section-8-6.2.1">Final results (Artifacts) are delivered only after the task reaches a completed state. These are structured objects (text, files, or data) returned to the verified requester, ensuring data integrity and
+preventing unauthorized access to output.<a href="#section-8-6.2.1" class="pilcrow">¶</a></p>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="uc">
+<section id="section-9">
+      <h2 id="name-ai-driven-network-operations">
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-ai-driven-network-operations" class="section-name selfRef">AI Driven Network Operations: A collection of Use Cases</a>
+      </h2>
+<p id="section-9-1">Network AI Agent could help in the following phases which are usually mentioned in network management:<a href="#section-9-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-9-2.1">
+          <p id="section-9-2.1.1">Network Planning and Design: includes the understanding of user intent,
+       generation of solutions, and simulation for decision-making.<a href="#section-9-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-2.2">
+          <p id="section-9-2.2.1">Service Deployment: includes the construction of the physical network,
+       as well as intent understanding, pre-deployment simulation, automated configuration,
+       post-deployment validation, and other capabilities to enhance the efficiency
+       and accuracy of network configuration for service deployment.<a href="#section-9-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-2.3">
+          <p id="section-9-2.3.1">Network Monitoring and Troubleshooting: includes intent monitoring, issues
+       identification, solution generation, evaluation and decision-making, solution
+       implementation, and service validation.<a href="#section-9-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-9-2.4">
+          <p id="section-9-2.4.1">Network Change and Optimization: involves the design, evaluation, decision-making,
+       implementation, and validation of network configuration changes or optimizations
+       to improve network operation efficiency.<a href="#section-9-2.4.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-9-3">In all phases and use cases, after the Agent performs specific action, it always
+continuously monitors the network by data collection. Based on the result of network
+running analysis and user explicit feedback, it may adjust and optimize the
+management strategy if necessary.<a href="#section-9-3" class="pilcrow">¶</a></p>
+<div id="multi-agent-collaboration-on-network-configuration-change">
+<section id="section-9.1">
+        <h3 id="name-multi-agent-collaboration-o">
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-multi-agent-collaboration-o" class="section-name selfRef">Multi-Agent Collaboration on Network Configuration Change</a>
+        </h3>
+<p id="section-9.1-1">Network configuration changes are needed in scenarios such as optimizing network
+or service performance, provisioning new network services, or resolving network incidents/faults.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
+<span id="name-intent-based-network-config"></span><div id="changeuc">
+<figure id="figure-6">
+          <div class="alignCenter art-text artwork" id="section-9.1-2.1">
+<pre>
+                 +------------+
+   Network       |  Service   |
+   Operator -----&gt;  AI Agent  |
+                 |            |
+                 +-----+------+
+                       |Configuration               +---------+
+                       |Change Intent               |         |
+               +-------V---------+                  |         |
+               |Network AI Agent |                  |         |
+               |     Goal        |                  |         |
+       +-------| Task-1,Task-2   +------------------&gt;         |
+       |       |   ... Task-n    +-------+          | Network |
+       |       +-------+---------+       |          | Digital |
+       |               |                 |          |  Twin   |
+       |               |                 |          |  Task   |
+ +-----V------+  +-----V-------+  +------V----+     |  Agent  |
+ |   Config   |  |  Config     |  |  Config   &lt;-----&gt;         |
+ | Generation |  | Distribution|  |Validation |     |         |
+ | Task Agent |  |  Task Agent |  | Task Agent|     |         |
+ +------------+  +-------------+  +-----^-----+     +---------+
+                                        |
+                                 +------V------+
+                                 |  Resource   |
+                                 | Allocation  |
+                                 | Task Agent  |
+                                 +-------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<a href="#name-intent-based-network-config" class="selfRef">Intent Based Network Configuration Change Usage Example</a>
+          </figcaption></figure>
+</div>
+<p id="section-9.1-3">Network configuration change leveraging Network AI Agent and Network Digital Twin may experience the following typical steps:<a href="#section-9.1-3" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-9.1-4">
+          <dt id="section-9.1-4.1">Step 1:</dt>
+          <dd style="margin-left: 1.5em" id="section-9.1-4.2">
+            <p id="section-9.1-4.2.1">The network operator inputs the intent of network configuration change into the
+Network AI Agent using natural language. The network operator may simply explain the
+objectives and requirements of the changes.<a href="#section-9.1-4.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-9.1-4.3">Step 2:</dt>
+          <dd style="margin-left: 1.5em" id="section-9.1-4.4">
+            <p id="section-9.1-4.4.1">Network AI Agent first verifies the identity of the user requesting the change and checks the user's
+permissions to make certain types of network changes against predefined rules
+or policies. It then understands and parses the initial intent of the request,
+by leveraging the powerful knowledge and reasoning capabilities of LLM and decompose the tasks into
+configuration generation task, configuration distribution task, configuration validation task and assign
+to corresponding task agents. Configuration generation Task Agent first generates
+initial suggestions for specific network configuration update, which may include
+multiple possible network configuration change plans if possible.<a href="#section-9.1-4.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-9.1-4.5">Step 3:</dt>
+          <dd style="margin-left: 1.5em" id="section-9.1-4.6">
+            <p id="section-9.1-4.6.1">Network AI Agent further communicates with the Configuration Validation task agent and Network Digital Twin
+task agent to validate the suggested configuration change, including the syntax and semantics of the configuration,
+verification of effected application and resources. The network digital Twin task agent
+may generate a report indicating the validation result, and suggested
+configuration fix when the validation fails after network simulation leveraging
+the current physical network operational state.<a href="#section-9.1-4.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-9.1-4.7">Step 4:</dt>
+          <dd style="margin-left: 1.5em" id="section-9.1-4.8">
+            <p id="section-9.1-4.8.1">Network AI Agent may generate a configuration change plan and submit to the network operator
+for approval. Based on the feedback from the operator, Network AI Agent then further decides
+whether to optimize the change plan or deliver the plan to the Configuration Distribution task agent
+to conduct the physical network configuration change. The configuration distribution task agent
+may further communicate with resource allocation task agent to obtain network resource (e.g.,vlan, IP subnet)
+allocated by resource allocation task agent.<a href="#section-9.1-4.8.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="multi-agent-collaboration-on-network-troubleshooting">
+<section id="section-9.2">
+        <h3 id="name-multi-agent-collaboration-on">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-multi-agent-collaboration-on" class="section-name selfRef">Multi-Agent Collaboration on Network Troubleshooting</a>
+        </h3>
+<span id="name-intent-based-network-troubl"></span><div id="faultuc">
+<figure id="figure-7">
+          <div class="alignCenter art-text artwork" id="section-9.2-1.1">
+<pre>
+                          |
+                  Human   |Network Troubeshooting
+                 Operator |Intent
+                          |                    +---------+
+                 +--------V--------+           | Network |
+                 | Network AI Agent|           | Digital |
+                 |     Goal        |           |  Twin   |
+                 | Task-1,Task-2   +-----------&gt;  Task   |
+                 | ....Task-n      |           |  Agent  |
+                 +--------+--------+           +---------+
+                          |
+    |------------------+--+-----------+------------+
++---+----------+ +-----+-----+  +-----+----+ +-----+------+
+|    Fault     | |   Fault   |  |   Fault  | |   Fault    |
+|Identification| | Diagnosis |  |  Repair  | | Prediction |
+| Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
++--------------+ +-----------+  +----------+ +------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
+<a href="#name-intent-based-network-troubl" class="selfRef">Intent based Network Troubleshooting Usage Example</a>
+          </figcaption></figure>
+</div>
+<p id="section-9.2-2">The network operator inputs the intent of network configuration change into the Network AI Agent using natural language.
+Network AI Agent could plan and decompose network troubleshooting tasks and coordinate with fault identification task agent,
+fault diagnosis task agent, fault repair task agent and fault prediction task agent to assist in network troubleshooting in
+the following significant aspects:<a href="#section-9.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-9.2-3.1">
+            <span class="break"></span><dl class="dlParallel" id="section-9.2-3.1.1">
+              <dt id="section-9.2-3.1.1.1">Fault Identification:</dt>
+              <dd style="margin-left: 1.5em" id="section-9.2-3.1.1.2">
+                <p id="section-9.2-3.1.1.2.1">Network AI Agent coordinates with fault identification task agent continuously monitors
+and aggregates data from various sources, the comprehensive data collection provides a
+holistic view of the network operational state. By analyzing the real-time data, fault
+identification task Agent could detect network anomalies swiftly, which enables the prompt
+identification of potential issues before they escalate into major faults, minimizing downtime
+or service disruptions. In some cases, the Lightweight AI located in the Network Element may handle some
+simple fault identification tasks (e.g., optical module fault automatic identification)
+to enhance the awareness, while the fault identification task agent and LLM could leverage their powerful
+processing capabilities to analyze the time-domain data collected from the optical module.<a href="#section-9.2-3.1.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-9.2-3.2">
+            <span class="break"></span><dl class="dlParallel" id="section-9.2-3.2.1">
+              <dt id="section-9.2-3.2.1.1">Fault Diagnosis:</dt>
+              <dd style="margin-left: 1.5em" id="section-9.2-3.2.1.2">
+                <p id="section-9.2-3.2.1.2.1">Once a fault is identified, Network AI Agent coordinate with fault diagnosis task agent
+to delve into diagnosing the exact cause, fault diagnosis task agent may also invoke some
+existing operations such as "incident-diagnose" RPC defined in <span>[<a href="#I-D.ietf-nmop-network-incident-yang" class="cite xref">I-D.ietf-nmop-network-incident-yang</a>]</span>.
+By correlating symptoms and/or applying AI models trained on historical data, fault diagnosis task agent
+can narrow down the potential causes and pinpoint the exact cause, which accelerates the diagnosis process
+and reduces the time needed to address the issue.<a href="#section-9.2-3.2.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-9.2-3.3">
+            <span class="break"></span><dl class="dlParallel" id="section-9.2-3.3.1">
+              <dt id="section-9.2-3.3.1.1">Fault Repair:</dt>
+              <dd style="margin-left: 1.5em" id="section-9.2-3.3.1.2">
+                <p id="section-9.2-3.3.1.2.1">After diagnosing the fault, Network AI Agent can coordinate with fault repair task agent
+to generate targeted repair solutions. These solutions range from specific configuration
+adjustments to more complex fixes (e.g., hardware replacement). Fault Repair task Agent would also communicate with
+the Network Digital Twin task agent to simulate the proposed repair solutions and get feedback
+from the Network Digital Twin task agent. In advanced setups, fault repair task agent may automatically execute
+these repairs, ensuring quick restoration of normal operations and enhancing the overall reliability and efficiency
+of network management. But the fault repair task agent may also first present the fault details and repair advice to the
+network operator for review, and proceed to carry out the repair task once it is confirmed.<a href="#section-9.2-3.3.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+          <li class="normal" id="section-9.2-3.4">
+            <span class="break"></span><dl class="dlParallel" id="section-9.2-3.4.1">
+              <dt id="section-9.2-3.4.1.1">Fault Prediction</dt>
+              <dd style="margin-left: 1.5em" id="section-9.2-3.4.1.2">
+                <p id="section-9.2-3.4.1.2.1">As an advanced enhancement of fault management capabilities, fault prediction aims to
+reduce network risks through proactive management that prevents problems before they
+occur. Before a fault actually occurs, the fault prediction task agent can coordinate with
+network digital twin task agent to construct a dynamic simulation model
+by collecting real-time multi-dimensional operational state data, including network
+topology, traffic load, and device performance indicators. Based on the network data,
+the fault predication task agent uses large models and machine learning algorithms (such as time-series
+prediction models and anomaly detection models) to reason and analyze potential
+faults—for example, predicting the risk of physical link interruption based on optical
+cable signal attenuation data. Furthermore, the fault prediction task Agent generates recommended operations
+to avoid faults and validates them through simulation in the network digital twin task agent, thereby achieving
+predictive maintenance of the network.<a href="#section-9.2-3.4.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+</dl>
+</li>
+        </ul>
+</section>
+</div>
+<div id="multi-agent-collaboration-on-network-optimization">
+<section id="section-9.3">
+        <h3 id="name-multi-agent-collaboration-on-">
+<a href="#section-9.3" class="section-number selfRef">9.3. </a><a href="#name-multi-agent-collaboration-on-" class="section-name selfRef">Multi-Agent Collaboration on Network Optimization</a>
+        </h3>
+<span id="name-intent-based-network-optimi"></span><div id="optimuc">
+<figure id="figure-8">
+          <div class="alignCenter art-text artwork" id="section-9.3-1.1">
+<pre>
+                     |
+                     |
+             Human   |Network Optimization
+            Operator |Intent
+                     |                    +---------+
+            +--------V--------+           | Network |
+            | Network AI Agent|           | Digital |
+            |     Goal        |           |  Twin   |
+            | Task-1,Task-2   +-----------&gt;  Task   |
+            | ....Task-n      |           |  Agent  |
+            +--------+--------+           +---------+
+                     |
+          +----------+----------------+
+          |                           |
+  +-------+------+            +-------+-------+
+  | Optimization |            |  Optimization |
+  |  Generation  |            |  Distribution |
+  | Task Agent   |            | Task Agent    |
+  +--------------+            +---------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<a href="#name-intent-based-network-optimi" class="selfRef">Intent based Network Optimization Usage Example</a>
+          </figcaption></figure>
+</div>
+<p id="section-9.3-2">Network optimization is often introduced due to the Network AI Agent's awareness of some potential
+network faults or anomalies through continuously monitoring of network operational
+state, e.g., AI models may predicts network congestion by analyzing historical
+and real-time network traffic data. It may also be triggered by the network operator
+actively inputting the network optimization intent.<a href="#section-9.3-2" class="pilcrow">¶</a></p>
+<p id="section-9.3-3">Based on the analysis of network data and user's intent (if any), Network AI Agent collaborate with
+Optimization Solution Generation Task Agent to propose network optimization strategies. For instance,
+once the network congestion sometime in the future is predicted, it may proactively optimize the network
+configuration, or suggest scaling up to meet specific demands.<a href="#section-9.3-3" class="pilcrow">¶</a></p>
+<p id="section-9.3-4">Before the network optimization is conducted, Network AI Agent coordinates with the network digital twin task
+agent to implement and evaluate the optimization solution using the Network Digital Twin platform. This may need
+repeated trials and validations based on specific evaluation criteria, before the optimal strategy could be
+selected. Network AI Agent may also first present the suggested network optimization solution to the network
+operator for review, and apply it to the physical network through optimization solution distribution task agent
+after obtaining approval from the network operator.<a href="#section-9.3-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-level-energy-efficiency-management-in-the-ipoptical-network">
+<section id="section-9.4">
+        <h3 id="name-network-level-energy-effici">
+<a href="#section-9.4" class="section-number selfRef">9.4. </a><a href="#name-network-level-energy-effici" class="section-name selfRef">Network level Energy Efficiency Management in the IP+Optical network</a>
+        </h3>
+<span id="name-intent-based-network-level-"></span><div id="greenuc">
+<figure id="figure-9">
+          <div class="alignCenter art-text artwork" id="section-9.4-1.1">
+<pre>
+            +-----------------+
+            |  Multi-Domain   |
+            |    AI Agent     |
+            |  GREEN Goal     |
+            | Task-1,Task-2   |
+            | ....Task-n      |
+            +--------+--------+
+                     |
+       +-------------+--------------+
+       |                            |
+ +-----+------+              +------+-----+
+ |    IP      |              |   Optical  |
+ |   Domain   |              |   Domain   |
+ |   Network  |              |   Network  |
+ |   AI Agent |              |   AI Agent |
+ +------------+              +------------+
+
+</pre>
+</div>
+<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
+<a href="#name-intent-based-network-level-" class="selfRef">Intent based Network level Energy Efficiency Management Usage Example</a>
+          </figcaption></figure>
+</div>
+<p id="section-9.4-2">Network level Energy Efficiency refer to a set of processes used to discover a inventory
+of capabilities, use specific metrics to monitor and assess energy consumption of the
+entire IP+Optical network , operate, and control the use of available energy in an optimized
+manner while achieving the network’s functional and performance requirements by improving
+overall network utilization.<a href="#section-9.4-2" class="pilcrow">¶</a></p>
+<p id="section-9.4-3">Multi-Domain AI Agent can work together with network AI Agent in each autonomous domain to
+allow network operators not only see real time energy consumption in the network devices of
+large scale network through interaction with the GREEN Network AI Agent, but also allow them see<a href="#section-9.4-3" class="pilcrow">¶</a></p>
+<p id="section-9.4-4">o which network devices enable energy saving, which devices not, which are legacy ones,<a href="#section-9.4-4" class="pilcrow">¶</a></p>
+<p id="section-9.4-5">o The total energy consumption changing trend over the time of the day, for all network
+   devices,<a href="#section-9.4-5" class="pilcrow">¶</a></p>
+<p id="section-9.4-6">o Energy efficiency changing trend over the time of the day for the whole network.<a href="#section-9.4-6" class="pilcrow">¶</a></p>
+<p id="section-9.4-7">On the other hand, With the end to end observability to energy consumption statistics data
+and energy efficiency statistics data, the Network AI Agent in each autonomous domain can
+collaborate with network digital twin to know which part of the network need to be adjusted or optimized
+based on network status change.<a href="#section-9.4-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-security-drills-human-in-the-loop">
+<section id="section-9.5">
+        <h3 id="name-network-security-drills-hum">
+<a href="#section-9.5" class="section-number selfRef">9.5. </a><a href="#name-network-security-drills-hum" class="section-name selfRef">Network Security Drills (Human in the Loop)</a>
+        </h3>
+<span id="name-intent-based-network-securi"></span><div id="secuc">
+<figure id="figure-10">
+          <div class="alignCenter art-text artwork" id="section-9.5-1.1">
+<pre>
+                     +----------------+   Human
+                     | Agent Gateway  |  Operator
++-----------------+  |                | /---------\
+| Network AI Agent|  |+--------------+| | Analyze |
+|     Goal        |  ||              || | Define  |
+| Task-1,Task-2   &lt;--&gt;|Observability |&lt;-&gt; Inject  |
+| ....Task-n      |  ||              || \---------/
++-------+---------+  |+--------------+|
+        |            |                |
+        |            +---------^------+
+        |                      |
++-------V------ ---------------V----------------+
+| Dynamic Attack and Defense Verification System|
+|        Based on Network Digital Twin          |
+|      +---------+      +---------+             |
+|      | Dynamic |      | Dynamic |             |
+|      | Security|      |Security |             |
+|      | Attack  |      |Defense  |             |
+|      |  Task   |      |  Task   |             |
+|      |  Agent  |      |  Agent  |             |
+|      +---------+      +---------+             |
++--------------------^--------------------------+
+                     |Data Collection
++--------------------+--------------------------+
+|            Network Infrastructure             |
++-----------------------------------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
+<a href="#name-intent-based-network-securi" class="selfRef">Intent based Network Security Drill Usage Example</a>
+          </figcaption></figure>
+</div>
+<p id="section-9.5-2">The human operator can work together with the Network AI Agent to conduct Network security
+Drill. The human operator can instruct the Network AI Agent with specific injection policy
+to work with network digital twin help construct a dynamic attack-defense verification system in
+network security drills through NDT and AI reasoning capabilities. The dynamic attack-defense verification
+system comprise dynamic security attack task agent and dynamic security defense task agent which are
+responsible security risk attack task and security risk defense task respectively assigned by the network
+AI agent. The dynamic security attack task agent uses generative AI to automatically generate diversified
+attack paths, models network topologies with graph neural networks, covers attack stages such as reconnaissance
+and penetration, and dynamically adjusts strategies via reinforcement learning to simulate the adaptive
+characteristics of network attacks. The virtual range built based on the NDT can
+1:1 map the production environment, supporting simulations of composite scenarios
+like ransomware chain attacks and supply chain attacks — such as simulating the entire
+process of Contivirus laterally penetrating to domain controllers through weak passwords.<a href="#section-9.5-2" class="pilcrow">¶</a></p>
+<p id="section-9.5-3">During drills, Human operator can instruct the Network AI Agent to work with the dynamic security
+defense task agent to automatically deploy virtual environments with vulnerabilities, collect defense response
+data in real time through NDT, and generate attack path heatmaps and repair suggestions.
+This capability can further verify emergency response processes, inject real-time threat
+intelligence to dynamically update drill scenarios, and simulate end-to-end
+automated deployment, vulnerability injection, and real-time analysis of
+security drills, enhancing the proactive verification ability of defense
+systems against real-world threats.<a href="#section-9.5-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="challenges-of-integrating-network-digital-twin-and-agentic-ai-into-network-management">
+<section id="section-10">
+      <h2 id="name-challenges-of-integrating-n">
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-challenges-of-integrating-n" class="section-name selfRef">Challenges of Integrating Network Digital Twin and Agentic AI into Network Management</a>
+      </h2>
+<p id="section-10-1">In addition to the research challenges in coupling AI and network management
+specified in <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span>, this document
+also identifies some challenges that need to be considered when integrating
+agentic AI together with network digital twin for network operations.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<div id="create-domain-specific-language-for-agents-and-models">
+<section id="section-10.1">
+        <h3 id="name-create-domain-specific-lang">
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-create-domain-specific-lang" class="section-name selfRef">Create domain specific language for agents and models</a>
+        </h3>
+<p id="section-10.1-1">Feeding network data into machine-readable knowledge for autonomous AI agents involves transforming raw
+telemetry and metadata into a structured semantic format. This process typically uses the Model Context
+Protocol (MCP) and Domain Specific Languages (DSLs) to bridge the gap between low-level network signals
+and high-level AI reasoning.<a href="#section-10.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.1-2">o Semantic &amp; Contextual<a href="#section-10.1-2" class="pilcrow">¶</a></p>
+<p id="section-10.1-3">Network data in the wire format is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
+AI agents may struggle to understand rigid structure for the interaction,e.g., a numerical value represents "Frame Delay"
+without explicit ontological mapping. Multi-task collaboration and Agent operation involve some ambiguity and uncertainty.
+The natural language interactions should be supported for understanding and handling uncertain or ambiguous tasks.
+With the presence of existing standard of natural language interaction, the task of defining common functions for any agent
+to agent communications becomes that of defining the semantics of the information that should be transferred, as opposed to
+defining a rigid structure for the interaction.<a href="#section-10.1-3" class="pilcrow">¶</a></p>
+<p id="section-10.1-4">o Data Quality &amp; Fragmentation<a href="#section-10.1-4" class="pilcrow">¶</a></p>
+<p id="section-10.1-5">Information is often fragmented across multiple vendor tools and legacy systems, preventing a unified knowledge model.
+Processing high-velocity data and non-standardized formats makes it difficult for AI to generalize across different
+device types or data sources.<a href="#section-10.1-5" class="pilcrow">¶</a></p>
+<p id="section-10.1-6">o Technical &amp; Computational<a href="#section-10.1-6" class="pilcrow">¶</a></p>
+<p id="section-10.1-7">Architectural Limits: Standard hardware often lacks the capacity for real-time AI operations at the data-plane level.<a href="#section-10.1-7" class="pilcrow">¶</a></p>
+<p id="section-10.1-8">Token/Memory Limits: Large AI models have finite "context windows", which restricts their ability to process long or complex
+network sequences.<a href="#section-10.1-8" class="pilcrow">¶</a></p>
+<p id="section-10.1-9">o Operational &amp; Trust<a href="#section-10.1-9" class="pilcrow">¶</a></p>
+<p id="section-10.1-10">"Black Box" Problem: AI decisions can be opaque, making it hard for human operators to audit or trust automated actions.<a href="#section-10.1-10" class="pilcrow">¶</a></p>
+<p id="section-10.1-11">Skill Gap: There is a significant shortage of professionals with the cross-disciplinary expertise needed for both
+networking and AI development.<a href="#section-10.1-11" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="trust-and-security">
+<section id="section-10.2">
+        <h3 id="name-trust-and-security">
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-trust-and-security" class="section-name selfRef">Trust and Security</a>
+        </h3>
+<p id="section-10.2-1">Multi-Agent Collaborations and interactions can be break down into 4 typical scenarios:<a href="#section-10.2-1" class="pilcrow">¶</a></p>
+<p id="section-10.2-2">o Human operator-&gt; AI Agent-&gt; APIs/Tools/APIs/LLMs<a href="#section-10.2-2" class="pilcrow">¶</a></p>
+<p id="section-10.2-3">In a single-agent scenario, Human operators access services through the network management AI agent. The network
+management AI agent has multiple functions (fault and optimization), and authentication is required to prevent users
+from accessing the optimization function interface when they only have fault agent permissions.<a href="#section-10.2-3" class="pilcrow">¶</a></p>
+<p id="section-10.2-4">o AI Agent -&gt; API Services<a href="#section-10.2-4" class="pilcrow">¶</a></p>
+<p id="section-10.2-5">In a single-agent scenario, the network management AI agent triggers tasks automatically based on trace and log information.<a href="#section-10.2-5" class="pilcrow">¶</a></p>
+<p id="section-10.2-6">o Human operator-&gt; AI Agent -&gt; multiple AI Agent<a href="#section-10.2-6" class="pilcrow">¶</a></p>
+<p id="section-10.2-7">Multiple agents may call each other. For example, if a faulty agent A calls an optimization agent B, authentication is required.<a href="#section-10.2-7" class="pilcrow">¶</a></p>
+<p id="section-10.2-8">o External AI Agent -&gt;AI Agent-&gt; APIs/Tools/APIs/LLMs<a href="#section-10.2-8" class="pilcrow">¶</a></p>
+<p id="section-10.2-9">External AI agents can directly access the network management AI Agent by simulating human operation through interface protocols.
+For example, a customer AI agent can access the Network AI Agent through a northbound interface.<a href="#section-10.2-9" class="pilcrow">¶</a></p>
+<p id="section-10.2-10">Ensuring robust security throughout the entire AI-based network
+management architecture is essential to prevent unauthorized access and maintain the
+security of the network infrastructure. The security risk can be break down into the following cases:<a href="#section-10.2-10" class="pilcrow">¶</a></p>
+<p id="section-10.2-11">o External system interact with AI agent<a href="#section-10.2-11" class="pilcrow">¶</a></p>
+<p id="section-10.2-12">Human Operators or external systems bypass their privileges to operate the Network management AI agent<a href="#section-10.2-12" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-10.2-13.1">
+            <p id="section-10.2-13.1.1">Human operators operate through a network management AI agent, but the service scope that the AI agent can handle may exceed
+the user's authorized privileges, leading to unauthorized access.<a href="#section-10.2-13.1.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-10.2-14">o  AI Agent Interact with Tools/APIs/LLMs<a href="#section-10.2-14" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-10.2-15.1">
+            <p id="section-10.2-15.1.1">Interact with Tools/APIs/LLMs with Privilege Escalation<a href="#section-10.2-15.1.1" class="pilcrow">¶</a></p>
+<p id="section-10.2-15.1.2">
+Since network management AI agents rely on LLM for inference when accessing APIs and tools,
+there is a possibility of malicious injection scenarios where the APIs accessed by the agent
+exceed the expected scope.<a href="#section-10.2-15.1.2" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-10.2-15.2">
+            <p id="section-10.2-15.2.1">Interact with Tools/APIs/LLMs without audit<a href="#section-10.2-15.2.1" class="pilcrow">¶</a></p>
+<p id="section-10.2-15.2.2">
+When an agent interacts with an API or tool, the logs are currently recorded as system logs, which
+cannot distinguish between different agents and pose a risk of repudiation.<a href="#section-10.2-15.2.2" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-10.2-16">o Multiple Agent Collaboration and Communication<a href="#section-10.2-16" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-10.2-17.1">
+            <p id="section-10.2-17.1.1">Multi-Agent Communication with Privilege Escalation<a href="#section-10.2-17.1.1" class="pilcrow">¶</a></p>
+<p id="section-10.2-17.1.2">
+When agents communicate with each other via intent communication and understanding, there is a
+cascading permission amplification problem, leading to Privilege Escalation.<a href="#section-10.2-17.1.2" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-10.2-17.2">
+            <p id="section-10.2-17.2.1">Interaction with internal AI Agent<a href="#section-10.2-17.2.1" class="pilcrow">¶</a></p>
+<p id="section-10.2-17.2.2">
+As a microservice, a network management AI agent can be accessed by other services or AI agents,
+which poses a risk of Privilege Escalation.<a href="#section-10.2-17.2.2" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="protocols-between-agent-and-agenthuman-operatortools">
+<section id="section-10.3">
+        <h3 id="name-protocols-between-agent-and">
+<a href="#section-10.3" class="section-number selfRef">10.3. </a><a href="#name-protocols-between-agent-and" class="section-name selfRef">Protocols between Agent and Agent/Human operator/Tools</a>
+        </h3>
+<div id="high-risk-operations">
+<section id="section-10.3.1">
+          <h4 id="name-high-risk-operations">
+<a href="#section-10.3.1" class="section-number selfRef">10.3.1. </a><a href="#name-high-risk-operations" class="section-name selfRef">High Risk Operations</a>
+          </h4>
+<p id="section-10.3.1-1">"network change" in the network management field refers to the modification, adjustment, or configuration of physical or logical
+resources in the existing network. Because these operations directly affect the continuity and stability of existing network services,
+even minor unauthorized access or errors can lead to large-scale network outages. In case of high risk operation, the following measures
+should be taken into account.<a href="#section-10.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.3.1-2">o Regardless of whether the initiator of the operation is a human or an agent, each network change request must be re-authenticated.<a href="#section-10.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-10.3.1-3">o For operations involving "bulk deletion" or "core route changes", the system must require approval from a second high-privilege account
+before issuing the command or enforcing the policy.<a href="#section-10.3.1-3" class="pilcrow">¶</a></p>
+<p id="section-10.3.1-4">o High-risk configurations should be tested on a very small scale first. The system should automatically monitor the indicators, and if
+any abnormalities are detected, the configuration should be automatically rolled back within milliseconds.<a href="#section-10.3.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="the-timeliness-requirements-of-collaboration">
+<section id="section-10.3.2">
+          <h4 id="name-the-timeliness-requirements">
+<a href="#section-10.3.2" class="section-number selfRef">10.3.2. </a><a href="#name-the-timeliness-requirements" class="section-name selfRef">The Timeliness Requirements of Collaboration</a>
+          </h4>
+<p id="section-10.3.2-1">For real-time network operation and maintenance scenarios with high real-time requirements,
+such as scheduling strategy optimization and critical fault repair, the rapid
+generation of network optimization decisions is crucial. However AI Agents based on large models adopt a "Token-based" generation
+and reasoning approach, which is limited by computing power and algorithms, resulting in generally slow reasoning
+speeds. In addition, the simulation and verification process of Network Digital
+Twin (NDT) further increases decision latency, which leads to long end-to-end
+decision-making time in complex scenarios and is difficult to meet the real-time
+requirements of services.<a href="#section-10.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-10.3.2-2">Also tasks such as fault diagnosis, complaint handling, and user experience improvement often have strict time constraints. For example,
+if a fault is not resolved within a set time, it can trigger an escalation of the complaint, requiring efficient collaboration among multiple agents.
+In addition, In a network management environment, you might need agents to subscribe to real-time network alarms or telemetry events. However
+Google-initiated A2A protocol primarily follows a task-oriented "request-response" model and doesn't support a native pub/sub or event-driven architecture.<a href="#section-10.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-10.3.2-3">To improve decision efficiency, continuous efforts are
+needed in lightweight NDT modeling algorithms, optimizing large model reasoning
+frameworks (such as quantization technology and parallel computing), and deploying
+high-performance AI acceleration hardware.<a href="#section-10.3.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="collaboration-reliability">
+<section id="section-10.3.3">
+          <h4 id="name-collaboration-reliability">
+<a href="#section-10.3.3" class="section-number selfRef">10.3.3. </a><a href="#name-collaboration-reliability" class="section-name selfRef">Collaboration Reliability</a>
+          </h4>
+<p id="section-10.3.3-1">Fault diagnosis and complaint handling in the network management field are complex tasks, typically involving 10 to 20+ fields for one single
+message exchange between two AI Agents and requiring a high level of expertise.
+In addition, Reliable task collaboration is incomplete and not sufficient for network management field, e.g., Google-initiated A2A protocol
+doesn't defined handling strategies for task rejection, missing information during task collaboration, and failure to achieve task objectives.<a href="#section-10.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-10.3.3-2">also In network management area, data sources can be diverse
+and heterogeneous, leading to potential issues such as data inconsistencies,
+missing, or outdated data. Poor-quality data may result in inaccurate
+AI predictions and decisions. For example, if incorrect or outdated network configuration data is
+provided, the model may provide incorrect repair advice when diagnosing network incidents
+or faults, it may suggest checking an non-existing interface. Ensuring that data is
+properly cleaned, validated, and maintained is a significant challenge in providing reliable inputs for AI-driven network management.<a href="#section-10.3.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="benchmarking">
+<section id="section-10.4">
+        <h3 id="name-benchmarking">
+<a href="#section-10.4" class="section-number selfRef">10.4. </a><a href="#name-benchmarking" class="section-name selfRef">Benchmarking</a>
+        </h3>
+<div id="single-agent-benchmarking">
+<section id="section-10.4.1">
+          <h4 id="name-single-agent-benchmarking">
+<a href="#section-10.4.1" class="section-number selfRef">10.4.1. </a><a href="#name-single-agent-benchmarking" class="section-name selfRef">Single Agent Benchmarking</a>
+          </h4>
+<p id="section-10.4.1-1">The core of Single Agents assessment lies in its "omnipotence" and the quality of its direct interaction with the environment.<a href="#section-10.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-2">o Task complexity bottleneck<a href="#section-10.4.1-2" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-3">When dealing with long-term, multi-step tasks, single agents are prone to hallucination accumulation and reasoning chain breaks.
+Benchmark tests need to evaluate their persistent logic capabilities under context window constraints.<a href="#section-10.4.1-3" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-4">o Command compliance and control<a href="#section-10.4.1-4" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-5">The challenge lies in whether the model can strictly follow complex system prompts, especially when there are many tool options,
+which can easily lead to tool invocation errors or the omission of some instructions.<a href="#section-10.4.1-5" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-6">o Generalization and memory<a href="#section-10.4.1-6" class="pilcrow">¶</a></p>
+<p id="section-10.4.1-7">To evaluate how monolithic models can efficiently manage long-term memory to handle new tasks without relying on external collaborative
+support.<a href="#section-10.4.1-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="multi-agent-benchmarking">
+<section id="section-10.4.2">
+          <h4 id="name-multi-agent-benchmarking">
+<a href="#section-10.4.2" class="section-number selfRef">10.4.2. </a><a href="#name-multi-agent-benchmarking" class="section-name selfRef">Multi-Agent Benchmarking</a>
+          </h4>
+<p id="section-10.4.2-1">The focus of collaborative assessment has shifted from "individual capabilities" to "system dynamics":<a href="#section-10.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-2">o Coordination and communication overhead:<a href="#section-10.4.2-2" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-3">Multi-agent systems (MAS) involve complex task decomposition and allocation (global planning). Benchmarking needs to measure the communication
+efficiency between agents, alignment consistency, and the high latency and cost caused by multi-turn interactions.<a href="#section-10.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-4">o Error tracing and attribution:<a href="#section-10.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-5">When the final task fails, it is extremely challenging to accurately pinpoint which "role" went wrong or in which round of collaboration there
+was a deviation (failure attribution) due to the presence of multiple participants.<a href="#section-10.4.2-5" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-6">o Swarm intelligence and social emergence:<a href="#section-10.4.2-6" class="pilcrow">¶</a></p>
+<p id="section-10.4.2-7">It is necessary to assess the dynamics of competition and cooperation among intelligent agents,
+including the existence of systemic risks such as information silos, resource waste, or vicious cycles.<a href="#section-10.4.2-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-11">
+      <h2 id="name-security-considerations">
+<a href="#section-11" class="section-number selfRef">11. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-11-1">The security consideration from <span>[<a href="#I-D.irtf-nmrg-network-digital-twin-arch" class="cite xref">I-D.irtf-nmrg-network-digital-twin-arch</a>]</span> apply here. In addition, the following architectural risks need to be considered:<a href="#section-11-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-11-2.1">
+          <p id="section-11-2.1.1">Single point of failure:
+While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of
+failure if not implemented with sufficientc redundancy and fault tolerance.<a href="#section-11-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-11-2.2">
+          <p id="section-11-2.2.1">AI/ML model integrity:
+If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust
+checks and validation are necessary to ensure the integrity of these models.<a href="#section-11-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-11-2.3">
+          <p id="section-11-2.3.1">Lifecycle security:
+The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must
+be secured against unauthorized access and manipulation.<a href="#section-11-2.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-12">
+      <h2 id="name-iana-considerations">
+<a href="#section-12" class="section-number selfRef">12. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-12-1">This document has no requests to IANA.<a href="#section-12-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="conclusion">
+<section id="section-13">
+      <h2 id="name-conclusion">
+<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-conclusion" class="section-name selfRef">Conclusion</a>
+      </h2>
+<p id="section-13-1">The following items were felt to be good starting points for IETF work:<a href="#section-13-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-13-2.1">
+          <p id="section-13-2.1.1">Nature Language Interaction protocol to to ensure both The accuracy and efficiency of structured data for deterministic tasks and natural language interactions for
+understanding and handling uncertain or ambiguous tasks.<a href="#section-13-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-13-2.2">
+          <p id="section-13-2.2.1">Translate Service Level YANG Data model and Network Level YANG Data model into DSL payloads and APIs which can be consumed by Agents and Models.<a href="#section-13-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-13-2.3">
+          <p id="section-13-2.3.1">Human and Agent Interaction to support explainable, observability and controllable capabilities.<a href="#section-13-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-13-2.4">
+          <p id="section-13-2.4.1">Define semantic information transfer or agent prompt language template for Agent to Agent Communication.<a href="#section-13-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-13-2.5">
+          <p id="section-13-2.5.1">Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration<a href="#section-13-2.5.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="sec-combined-references">
+<section id="section-14">
+      <h2 id="name-references">
+<a href="#section-14" class="section-number selfRef">14. </a><a href="#name-references" class="section-name selfRef">References</a>
+      </h2>
+<div id="sec-normative-references">
+<section id="section-14.1">
+        <h3 id="name-normative-references">
+<a href="#section-14.1" class="section-number selfRef">14.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
+<dl class="references">
+<dt id="RFC2119">[RFC2119]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8174">[RFC8174]</dt>
+      <dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-14.2">
+        <h3 id="name-informative-references">
+<a href="#section-14.2" class="section-number selfRef">14.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="A2A">[A2A]</dt>
+        <dd>
+<span class="refTitle">"Agent2Agent (A2A) protocol"</span>, <time datetime="2025-04" class="refDate">April 2025</time>, <span>&lt;<a href="https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a">https://google-a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-a2a</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="A2A-T">[A2A-T]</dt>
+        <dd>
+<span class="refTitle">"Agent to Agent Protocol for Telecoms (A2A-T)"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/">https://www.tmforum.org/resources/introductory-guide/ig1453-agent-to-agent-protocol-for-telecoms-a2a-t-v1-0-0/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Agent-skills">[Agent-skills]</dt>
+        <dd>
+<span class="refTitle">"Agent Skills"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://agentskills.io/home">https://agentskills.io/home</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Google-Agents-Whitepaper">[Google-Agents-Whitepaper]</dt>
+        <dd>
+<span class="refTitle">"Agents"</span>, <time datetime="2024" class="refDate">2024</time>, <span>&lt;<a href="https://www.kaggle.com/whitepaper-agents">https://www.kaggle.com/whitepaper-agents</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.hong-nmrg-agenticai-ps">[I-D.hong-nmrg-agenticai-ps]</dt>
+        <dd>
+<span class="refAuthor">Hong, Y.</span>, <span class="refAuthor">Youn, J.</span>, <span class="refAuthor">Wu, Q.</span>, and <span class="refAuthor">B. Claise</span>, <span class="refTitle">"Motivations and Problem Statement of Agentic AI for network management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-hong-nmrg-agenticai-ps-00</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00">https://datatracker.ietf.org/doc/html/draft-hong-nmrg-agenticai-ps-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-nmop-network-incident-yang">[I-D.ietf-nmop-network-incident-yang]</dt>
+        <dd>
+<span class="refAuthor">Hu, T.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Davis, N.</span>, and <span class="refAuthor">C. Feng</span>, <span class="refTitle">"A YANG Data Model for Network Incident Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-network-incident-yang-08</span>, <time datetime="2026-02-13" class="refDate">13 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-08">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-network-incident-yang-08</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-nmop-terminology">[I-D.ietf-nmop-terminology]</dt>
+        <dd>
+<span class="refAuthor">Davis, N.</span>, <span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Graf, T.</span>, <span class="refAuthor">Wu, Q.</span>, and <span class="refAuthor">C. Yu</span>, <span class="refTitle">"Some Key Terms for Network Fault and Problem Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-nmop-terminology-23</span>, <time datetime="2025-08-18" class="refDate">18 August 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-nmop-terminology-23">https://datatracker.ietf.org/doc/html/draft-ietf-nmop-terminology-23</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.irtf-nmrg-ai-challenges">[I-D.irtf-nmrg-ai-challenges]</dt>
+        <dd>
+<span class="refAuthor">François, J.</span>, <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Papadimitriou, D.</span>, <span class="refAuthor">Fernandes, S.</span>, and <span class="refAuthor">S. Schneider</span>, <span class="refTitle">"Research Challenges in Coupling Artificial Intelligence and Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-ai-challenges-05</span>, <time datetime="2025-03-18" class="refDate">18 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-ai-challenges-05">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-ai-challenges-05</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
+        <dd>
+<span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin: Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-11</span>, <time datetime="2025-07-06" class="refDate">6 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-11</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="MCP">[MCP]</dt>
+        <dd>
+<span class="refTitle">"Model Context Protocol"</span>, <time datetime="2024-11" class="refDate">November 2024</time>, <span>&lt;<a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6241">[RFC6241]</dt>
+        <dd>
+<span class="refAuthor">Enns, R., Ed.</span>, <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refAuthor">Schoenwaelder, J., Ed.</span>, and <span class="refAuthor">A. Bierman, Ed.</span>, <span class="refTitle">"Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6241</span>, <span class="seriesInfo">DOI 10.17487/RFC6241</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6241">https://www.rfc-editor.org/rfc/rfc6241</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7011">[RFC7011]</dt>
+        <dd>
+<span class="refAuthor">Claise, B., Ed.</span>, <span class="refAuthor">Trammell, B., Ed.</span>, and <span class="refAuthor">P. Aitken</span>, <span class="refTitle">"Specification of the IP Flow Information Export (IPFIX) Protocol for the Exchange of Flow Information"</span>, <span class="seriesInfo">STD 77</span>, <span class="seriesInfo">RFC 7011</span>, <span class="seriesInfo">DOI 10.17487/RFC7011</span>, <time datetime="2013-09" class="refDate">September 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7011">https://www.rfc-editor.org/rfc/rfc7011</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7854">[RFC7854]</dt>
+        <dd>
+<span class="refAuthor">Scudder, J., Ed.</span>, <span class="refAuthor">Fernando, R.</span>, and <span class="refAuthor">S. Stuart</span>, <span class="refTitle">"BGP Monitoring Protocol (BMP)"</span>, <span class="seriesInfo">RFC 7854</span>, <span class="seriesInfo">DOI 10.17487/RFC7854</span>, <time datetime="2016-06" class="refDate">June 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7854">https://www.rfc-editor.org/rfc/rfc7854</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8040">[RFC8040]</dt>
+        <dd>
+<span class="refAuthor">Bierman, A.</span>, <span class="refAuthor">Bjorklund, M.</span>, and <span class="refAuthor">K. Watsen</span>, <span class="refTitle">"RESTCONF Protocol"</span>, <span class="seriesInfo">RFC 8040</span>, <span class="seriesInfo">DOI 10.17487/RFC8040</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8040">https://www.rfc-editor.org/rfc/rfc8040</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8639">[RFC8639]</dt>
+        <dd>
+<span class="refAuthor">Voit, E.</span>, <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Gonzalez Prieto, A.</span>, <span class="refAuthor">Nilsen-Nygaard, E.</span>, and <span class="refAuthor">A. Tripathy</span>, <span class="refTitle">"Subscription to YANG Notifications"</span>, <span class="seriesInfo">RFC 8639</span>, <span class="seriesInfo">DOI 10.17487/RFC8639</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8639">https://www.rfc-editor.org/rfc/rfc8639</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8641">[RFC8641]</dt>
+        <dd>
+<span class="refAuthor">Clemm, A.</span> and <span class="refAuthor">E. Voit</span>, <span class="refTitle">"Subscription to YANG Notifications for Datastore Updates"</span>, <span class="seriesInfo">RFC 8641</span>, <span class="seriesInfo">DOI 10.17487/RFC8641</span>, <time datetime="2019-09" class="refDate">September 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8641">https://www.rfc-editor.org/rfc/rfc8641</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9232">[RFC9232]</dt>
+        <dd>
+<span class="refAuthor">Song, H.</span>, <span class="refAuthor">Qin, F.</span>, <span class="refAuthor">Martinez-Julia, P.</span>, <span class="refAuthor">Ciavaglia, L.</span>, and <span class="refAuthor">A. Wang</span>, <span class="refTitle">"Network Telemetry Framework"</span>, <span class="seriesInfo">RFC 9232</span>, <span class="seriesInfo">DOI 10.17487/RFC9232</span>, <time datetime="2022-05" class="refDate">May 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9232">https://www.rfc-editor.org/rfc/rfc9232</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9315">[RFC9315]</dt>
+        <dd>
+<span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Ciavaglia, L.</span>, <span class="refAuthor">Granville, L. Z.</span>, and <span class="refAuthor">J. Tantsura</span>, <span class="refTitle">"Intent-Based Networking - Concepts and Definitions"</span>, <span class="seriesInfo">RFC 9315</span>, <span class="seriesInfo">DOI 10.17487/RFC9315</span>, <time datetime="2022-10" class="refDate">October 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9315">https://www.rfc-editor.org/rfc/rfc9315</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TMF-1251D">[TMF-1251D]</dt>
+        <dd>
+<span class="refTitle">"AN Agent Architecture v1.0.0"</span>, <time datetime="2025-05" class="refDate">May 2025</time>, <span>&lt;<a href="https://www.tmforum.org/resources/introductory-guide/ig1251d-an-agent-architecture-v1-0-0/">https://www.tmforum.org/resources/introductory-guide/ig1251d-an-agent-architecture-v1-0-0/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="TMF-1258">[TMF-1258]</dt>
+      <dd>
+<span class="refTitle">"Autonomous Networks Glossary v1.2.0"</span>, <time datetime="2025-05" class="refDate">May 2025</time>, <span>&lt;<a href="https://projects.tmforum.org/wiki/display/PUB/IG1258+Autonomous+Networks+Glossary+v1.2.0">https://projects.tmforum.org/wiki/display/PUB/IG1258+Autonomous+Networks+Glossary+v1.2.0</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="appendix-A">
+      <h2 id="name-acknowledgements">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+      </h2>
+<p id="appendix-A-1">This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
+Thanks Chris Janz for wonderful comments and discussion on proactive close loop.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="changes-between-revisions">
+<section id="appendix-B">
+      <h2 id="name-changes-between-revisions">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-changes-between-revisions" class="section-name selfRef">Changes between Revisions</a>
+      </h2>
+<p id="appendix-B-1">v01 - v02<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-B-2">
+<pre>
+* Agentic AI Architecture Update.
+* Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
+* Explore Relationship Between      Management      Characteristics and Functional Components in section 6.
+* Rewrite a collection of use cases to support multi-agent collaboration.
+* Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
+* Add workflows for Agent Registration, Discovery, team forming.
+* Add workflow for Agent to Agent Communciation Security.
+* Add Conclusion Section.
+</pre><a href="#appendix-B-2" class="pilcrow">¶</a>
+</div>
+<p id="appendix-B-3">v00 - v01<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-B-4">
+<pre>
+* Add Security Consideration Section;
+* Add Acknowledge Section;
+* Clarify the relation between knowlege and tools;
+* Clarify the souce of knowlege;
+* Clarify the key characteristics of Network AI Agent to adpat to the environment change.
+</pre><a href="#appendix-B-4" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="contributors">
+<section id="appendix-C">
+      <h2 id="name-contributors">
+<a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Qiufang Ma</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:maqiufang1@huawei.com" class="email">maqiufang1@huawei.com</a>
+</div>
+</address>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-D">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Qin Wu</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:bill.wu@huawei.com" class="email">bill.wu@huawei.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Cheng Zhou</span></div>
+<div dir="auto" class="left"><span class="org">China Mobile</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:zhouchengyjy@chinamobile.com" class="email">zhouchengyjy@chinamobile.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Luis M. Contreras</span></div>
+<div dir="auto" class="left"><span class="org">Telefonica</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:luismiguel.contrerasmurillo@telefonica.com" class="email">luismiguel.contrerasmurillo@telefonica.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Sai Han</span></div>
+<div dir="auto" class="left"><span class="org">China Unicom</span></div>
+<div dir="auto" class="left"><span class="country-name">China</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:hans29@chinaunicom.cn" class="email">hans29@chinaunicom.cn</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Lionel Tailhardat</span></div>
+<div dir="auto" class="left"><span class="org">Orange Research</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:lionel.tailhardat@orange.com" class="email">lionel.tailhardat@orange.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Yong-Geun Hong</span></div>
+<div dir="auto" class="left"><span class="org">Daejeon University</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:yonggeun.hong@gmail.com" class="email">yonggeun.hong@gmail.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
