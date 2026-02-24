@@ -1425,7 +1425,7 @@ This document has no requests to IANA.
 
 The following items were felt to be good starting points for IETF work:
 
-* Nature Language Interaction protocol to to ensure both The accuracy and efficiency of structured data for deterministic tasks and natural language interactions for
+* Nature Language Interaction protocol to ensure both The accuracy and efficiency of structured data for deterministic tasks and natural language interactions for
   understanding and handling uncertain or ambiguous tasks.
 
 * Translate Service Level YANG Data model and Network Level YANG Data model into DSL payloads and APIs which can be consumed by Agents and Models.
@@ -1434,7 +1434,7 @@ The following items were felt to be good starting points for IETF work:
 
 * Define semantic information transfer or agent prompt language template for Agent to Agent Communication.
 
-* Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration
+* Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration.
 
 --- back
 
@@ -1450,10 +1450,11 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
     * Agentic AI Architecture Update.
     * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
     * Explore Relationship Between	Management	Characteristics and Functional Components in section 6.
-    * Rewrite a collection of use cases to support multi-agent collaboration.
+    * Rewrite a collection of use cases to support multi-agent collaborations.
     * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
     * Add workflows for Agent Registration, Discovery, team forming.
     * Add workflow for Agent to Agent Communciation Security.
+    * Rewrite Security Consideration Section.
     * Add Conclusion Section.
 
   v00 - v01
