@@ -1407,9 +1407,9 @@ the delegation mechanism, implementing AI agent identity authentication, and iso
 o Human Manipulation：When Human operators interact with the network AI Agent, AI agents might be coerced to manipulate users into performing covert operations.
 Safety guardrails, content moderation, output content detection are required to mitigate such risk.
 
-o Insecure Inter-Agent Protocol Abuse：In case of multi-agent collaboration, there might be target flaws in protocols like MCP or A2A; e.g.,consent bypass, context 
-hijacking, etc. Strong authentication,data validation, restricting delegation to scoped function,logging agent and tool invocations and encrypting communications
-are required to mitigate such risk.
+o Insecure Inter-Agent Protocol Abuse：In case of multi-agent collaboration, there might be target flaws in protocols like MCP or A2A; e.g.,consent bypass,
+context hijacking, etc. Strong authentication,data validation, restricting delegation to scoped function,logging agent and tool invocations and encrypting
+communications are required to mitigate such risk.
 
 o Supply Chain Compromise：In case of multi-agent collaboration, Vulnerable, malicious, outdated, harmful components might be included into the agent. Digital
 signatures of SBOMs (AI*, Agent*),applying version control, chaining authentication, environment isolation are required to mitigate such risk.
