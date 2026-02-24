@@ -1199,31 +1199,39 @@ o Human operator-> AI Agent-> APIs/Tools/APIs/LLMs
 
 In a single-agent scenario, Human operators access services through the network management AI agent. The network
 management AI agent has multiple functions (fault and optimization), and authentication is required to prevent users
-from accessing the optimization function interface when they only have fault agent permissions.
+from Performing unauthorized actions by exploiting privilege vulnerabilities,e.g., accessing the optimization function
+ interface when they only have fault agent permissions.
 
 o AI Agent -> API Services
 
 In a single-agent scenario, the network management AI agent triggers tasks automatically based on trace and log information.
+In some cases, the logging or decision-making process cannot be traced.
 
 o Human operator-> AI Agent -> multiple AI Agent
 
-Multiple agents may call each other. For example, if a faulty agent A calls an optimization agent B, authentication is required.
+Multiple agents may call each other. For example, if a faulty agent A calls an optimization agent B, authentication is required
+to prevent Manipulating communication channels of agents to influence decision-making processes.
 
 o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs
 
 External AI agents can directly access the network management AI Agent by simulating human operation through interface protocols.
-For example, a customer AI agent can access the Network AI Agent through a northbound interface.
+For example, a customer AI agent can access the Network AI Agent through a northbound interface protocol such as A2A, MCP.
+In some case, there might have target flaws in protocols like MCP or A2A; e.g.,consent bypass, context hijacking, etc.
 
 Ensuring robust security throughout the entire AI-based network
 management architecture is essential to prevent unauthorized access and maintain the
 security of the network infrastructure. The security risk can be break down into the following cases:
 
-o External system interact with AI agent
+o External system interacts with AI agent
 
 Human Operators or external systems bypass their privileges to operate the Network management AI agent
 
 * Human operators operate through a network management AI agent, but the service scope that the AI agent can handle may exceed
   the user's authorized privileges, leading to unauthorized access.
+
+* Human operators manipulate business operations using agent delegation and authorization.
+
+* Human operators Coerce intelligent agents to manipulate users into performing covert operations.
 
 o  AI Agent Interact with Tools/APIs/LLMs
 
@@ -1231,24 +1239,26 @@ o  AI Agent Interact with Tools/APIs/LLMs
 
   Since network management AI agents rely on LLM for inference when accessing APIs and tools,
   there is a possibility of malicious injection scenarios where the APIs accessed by the agent
-  exceed the expected scope.
+  exceed the expected scope,e.g.,Using AI to generate execution environments and inject malicious code.
 
 * Interact with Tools/APIs/LLMs without audit
 
   When an agent interacts with an API or tool, the logs are currently recorded as system logs, which
-  cannot distinguish between different agents and pose a risk of repudiation.
+  cannot distinguish between different agents, the logging or decision-making process for specific agent
+  cannot be traced and pose a risk of repudiation.
 
 o Multiple Agent Collaboration and Communication
 
 * Multi-Agent Communication with Privilege Escalation
 
   When agents communicate with each other via intent communication and understanding, there is a
-  cascading permission amplification problem, leading to Privilege Escalation.
+  cascading permission amplification problem,e.g.,AI-generated false information disrupts the reasoning process
+  , leading to Privilege Escalation.
 
 * Interaction with internal AI Agent
 
-  As a microservice, a network management AI agent can be accessed by other services or AI agents,
-  which poses a risk of Privilege Escalation.
+  As a microservice, a network management AI agent can be accessed by other services or AI agents,e.g.,
+  Performing unauthorized operations by exploiting authentication vulnerabilities,which poses a risk of Privilege Escalation.
 
 ## Protocols between Agent and Agent/Human operator/Tools
 
