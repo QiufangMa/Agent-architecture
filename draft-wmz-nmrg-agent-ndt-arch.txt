@@ -1722,9 +1722,9 @@ Table of Contents
    [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
    the following architectural risks need to be considered:
 
-   Memory Poisoning：If the AI/ML models used by the network AI Agent or
-   Network digital twin are compromised or poisoned with malicious/fake
-   data,they could begin making incorrect or malicious decisions.
+   o Memory Poisoning：If the AI/ML models used by the network AI Agent
+   or Network digital twin are compromised or poisoned with malicious/
+   fake data,they could begin making incorrect or malicious decisions.
    Robust checks and validation are necessary to ensure the integrity of
    these models.  Session isolation or memory access authentication is
    also required to mitigate such risk.
