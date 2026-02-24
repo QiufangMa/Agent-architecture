@@ -1445,7 +1445,7 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
 
 # Changes between Revisions
 
-  v01 - v02
+  v02 - v03
 
     * Agentic AI Architecture Update.
     * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
