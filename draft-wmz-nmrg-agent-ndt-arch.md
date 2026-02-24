@@ -196,6 +196,10 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 
  * Agentic AI {{?I-D.hong-nmrg-agenticai-ps}}
 
+ * Multiple Agent System (MAS)
+
+ * Remote Code Execution (RCE)
+
 Besides, this document defines the following terminology:
 
 Network AI Agent:
@@ -1357,17 +1361,61 @@ including the existence of systemic risks such as information silos, resource wa
 
 The security consideration from {{?I-D.irtf-nmrg-network-digital-twin-arch}} apply here. In addition, the following architectural risks need to be considered:
 
-- Single point of failure:
-  While the architecture provides resiliency through its recovery capabilities, the network digital twin or Network AI Agent could become a single point of
-  failure if not implemented with sufficientc redundancy and fault tolerance.
+Memory Poisoning：If the AI/ML models used by the network AI Agent or Network digital twin are compromised or poisoned with malicious/fake data,they could begin
+making incorrect or malicious decisions. Robust checks and validation are necessary to ensure the integrity of these models. Session isolation or memory access
+authentication is also required to mitigate such risk.
 
-- AI/ML model integrity:
-  If the AI/ML models used by the digital twin are compromised or poisoned with bad data, they could begin making incorrect or malicious decisions. Robust
-  checks and validation are necessary to ensure the integrity of these models.
+o Misuse of Tools： When network AI Agent interacts with tools, Deceptive prompts or commands can be introduced. Tool access verification, tool monitoring, log
+tracking of AI tool usage are required to mitigate such risk.
 
-- Lifecycle security:
-  The entire lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to updates and decommissioning—must
-  be secured against unauthorized access and manipulation.
+o Privilege Compromise：When human operators interact with Network AI Agent or Network AI Agent interact with tools/APIs/LLM, unauthorized actions might be performed
+by exploiting privilege vulnerabilities. Fine-grained permission control, dynamic access verification, and role change monitoring are required to mitigate such risk.
+
+o Resource Overload：When Network AI Agent interact with tools/APIs/LLMs, system failures might be caused by exploiting resource-intensive features. Deployment of
+resource management controls to limit high-frequency task requests from agents is required to mitigate such risk.
+
+o Cascading Hallucinations：In case of multi-agent collaboration or communication, AI-generated false information might disrupt the reasoning process.Output
+verification, secondary verification of AI-generated knowledge are required to mitigate such risk.
+
+o Intent Breaking &Goal Manipulation：When external AI Agent or human operators interact with the network AI Agent, reasoning through agent planning capabilities
+might be manipulated. Planning verification, managing reflection processes, goal consistency protection are required to mitigate such risk.
+
+o Misaligned & Deceptive Behaviors：When Network AI Agent interact with tools/APIs/LLMs, harmful operations might be performed by exploiting reasoning vulnerabilities. Manual confirmation of high-risk operations, logging, monitoring, and deception detection are required to mitigate such risk.
+
+o Repudiation & Untraceability：In case of multi-agent collaboration or communication, the logging or decision-making process might not be traced.
+Logging & cryptographic signature, cryptographic verification are required to mitigate such risk.
+
+o Identity Spoofing & Impersonation：When Human operators interact with the network AI Agent or in case of multi-agent collaboration or communication,unauthorized
+operations might be performed by exploiting authentication vulnerabilities. Comprehensive identity verification, trust boundary control, and continuous monitoring
+are required to mitigate such risk.
+
+o Overwhelming HITL(Human In The Loop)：In case of multi-agent collaboration or communication,fatigue auditors attack might take place. Developing advanced
+human-machine interaction frameworks and adaptive trust mechanisms are required to mitigate such risk.
+
+o Unexpected RCE & Code Attacks：When the network AI Agent interacts with tools/APIs/LLMs, Using AI to generate execution environments and inject malicious code
+might take place. Restrict AI code generation permissions, sandbox isolation, and manual review of generated code are required to mitigate such risk.
+
+o Agent Communication Poisoning：In case of multi-agent collaboration or communication, communication channels of agents might be manipulated to influence
+decision-making processes. Message authentication, communication verification, implementing multi-agent authentication mechanisms.
+
+o Rogue Agents in MAS：In case of multi-agent collaboration, there might be malicious or compromised agents. Restricting the autonomy of agents and conducting
+regular AI testing are required to mitigate such risk.
+
+o Humans Attacks on MAS：In case of multi-agent collaboration, business operations might be manipulated using agent delegation and authorization. Restricting
+the delegation mechanism, implementing AI agent identity authentication, and isolate tasks in segments are required to mitigate such risk.
+
+o Human Manipulation：When Human operators interact with the network AI Agent, AI agents might be coerced to manipulate users into performing covert operations.
+Safety guardrails, content moderation, output content detection are required to mitigate such risk.
+
+o Insecure Inter-Agent Protocol Abuse：In case of multi-agent collaboration, there might be target flaws in protocols like MCP or A2A; e.g.,consent bypass, context 
+hijacking, etc. Strong authentication,data validation, restricting delegation to scoped function,logging agent and tool invocations and encrypting communications
+are required to mitigate such risk.
+
+o Supply Chain Compromise：In case of multi-agent collaboration, Vulnerable, malicious, outdated, harmful components might be included into the agent. Digital
+signatures of SBOMs (AI*, Agent*),applying version control, chaining authentication, environment isolation are required to mitigate such risk.
+
+o Lifecycle security: The entire management lifecycle of the network AI agents and the network digital twin—from initial deployment and configuration to
+updates and decommissioning—must be secured against unauthorized access and manipulation.
 
 # IANA Considerations
 
