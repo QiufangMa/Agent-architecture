@@ -168,9 +168,13 @@ coordinating the components that operate and manage the network:
 * Model traffic flow across the network, including traffic generation, flow control, routing, and
   congestion control and evaluate traffic's impact on network performance.
 
-* Support generation of rectification solutions for potential network risks and provide
+* Support generation of repair solutions for potential network risks and provide
   verification on the repair solution in seconds, including loop, address conflict, and security
   policy conflict.
+
+* Model the performance characteristics of each flow according to traffic conditions change by
+  using a virtual topology in order to understand which flows and network portions can be potentially
+  affected by performance degradation and act to prevent it
 
 This document describes an architecture for AI Driven network operations, showing how these components
 work together with network digital and AI capabilities. It provides a cookbook of existing technologies
