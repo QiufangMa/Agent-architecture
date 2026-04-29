@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 28 August 2026                                     China Mobile
+Expires: 31 October 2026                                    China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                        24 February 2026
+                                                           29 April 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 August 2026.
+   This Internet-Draft will expire on 31 October 2026.
 
 Copyright Notice
 
@@ -320,25 +320,21 @@ Table of Contents
    management.
 
            +---------------------------------------------------+
-           |                  +---------+                      |
-           |                  |  Intent |                      |
-           |                  +---------+                      |
            |                                                   |
-           | +-----------+                       +-----------+ |
-           | |  Analysis |                       | Decision  | |
-           | +-----------+       --------        +-----------+ |
-           |                 ////        \\\\                  |
-           |                |AI Driven Network|                |
-           |                |  Operations    |                 |
+           |   +---------+                       +-----------+ |
+           |   |  Intent |                       | Knowledge | |
+           |   +---------+                       +-----------+ |
+           |                                                   |
+           |                     --------                      |
+           |  +-----------+  ////        \\\\    +-----------+ |
+           |  |  Analysis | |AI Driven Network|  | Decision  | |
+           |  +-----------+ |  Operations    |   +-----------+ |
            |                 \\\\        ////                  |
            |                     --------                      |
            | +-----------+                      +------------+ |
            | |  Awareness|                      |  Execution | |
            | +-----------+                      +------------+ |
            |                                                   |
-           |                 +-----------+                     |
-           |                 | Knowledge |                     |
-           |                 +-----------+                     |
            +---------------------------------------------------+
 
         Figure 1: Six Key Elements to Characterize AI driven network
@@ -1888,9 +1884,9 @@ Table of Contents
               Hong, Y., Youn, J., Wu, Q., and B. Claise, "Motivations
               and Problem Statement of Agentic AI for network
               management", Work in Progress, Internet-Draft, draft-hong-
-              nmrg-agenticai-ps-00, 20 October 2025,
+              nmrg-agenticai-ps-01, 1 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-hong-nmrg-
-              agenticai-ps-00>.
+              agenticai-ps-01>.
 
    [I-D.ietf-nmop-network-incident-yang]
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
@@ -1921,9 +1917,9 @@ Table of Contents
               Q., Boucadair, M., and C. Jacquenet, "Network Digital
               Twin: Concepts and Reference Architecture", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
-              twin-arch-11, 6 July 2025,
+              twin-arch-12, 27 February 2026,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
-              network-digital-twin-arch-11>.
+              network-digital-twin-arch-12>.
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
