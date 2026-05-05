@@ -133,19 +133,21 @@ Since network changes are directly related to service operations, any
 successful change needs to not only ensure that new services are
 provisioned smoothly, but also that existing services are not
 affected and that no problems are introduced with the new
-configurations. These changes might still require manual operation or
+configurations. On one hand, these changes might still require manual operation or
 iterative input from network Operators to provide operational guidance and
 information about the goals, purposes, and service instances that the network
-is to serve and refine the intent. Pre-programmed automation scripts or policy
-templates may not be sufficient to realize the intent. Network operators are,
-therefore, increasingly cautious about making network changes. For example,
-they need to review the solution design as well as evaluate all change
+is to serve and refine the intent. On the other hand, pre-programmed automation
+scripts or policy templates may not be sufficient to realize the intent. Network
+operators are, therefore, increasingly cautious about making network changes. For
+example, they need to review the solution design as well as evaluate all change
 impacts, before making any change.  Then, after the change, they need to
 perform dialing tests, monitor traffic, and manually check table entries.
 
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} provides
-a network emulation tool for scenario planning, impact analysis, and change management.
-Agentic AI introduces disruptive paradigm to the network management and allow declarative
+Network operators with a safe sandbox for testing complex configuration changes, software
+updates, or new protocols before they are deployed in production so that the risk of
+accidental outages or service disruptions can be greatly reduced. In addition, Agentic AI
+introduces disruptive paradigm to the network management and allow declarative
 intent interpretation, multi-step action, multi-agent coordination. Integrating a Network
 Digital Twin into network management together with Agentic AI, it allows network management
 activities to dynamically adapt to customer needs, network changes, as well as to automatically
