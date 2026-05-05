@@ -531,7 +531,7 @@ decisions, where human judgement is essential to avoid potential errors or ethic
 
 This typically uses natural language as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
 
-### Application to Network AI Agent Interface
+### Application to Network AI Agent Interface (Intent based Management)
 
 Intent based Network Management helps in delivering application
 requests to the AI Driven network operation platform and exposing the
@@ -553,15 +553,21 @@ This interface governs the coordination and task delegation within the Multi-Age
 This interface enables collaboration and information exchange between Network AI Agents residing in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents can negotiate resource allocation, share summarized domain-specific insights (while preserving detail isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives. Standardized protocols like A2A-T {{A2A-T}}, designed for agent interoperability in telecommunication area, are candidate technologies for implementing this cross-domain interface, ensuring secure and reliable interaction between autonomous systems from different administrative domains.
 
 
-### Network AI Agent/Task AI Agent to Agent Gateway Interface
+### Network AI Agent/Task AI Agent to Agent Gateway Interface (Agent Lifecycle Management)
 
-The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.
+The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle
+of AI agents, and collaborative capabilities of AI Agents such as Registration, Security and Trust, Observability.
 
+- Registration
 Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
 A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.
 
-Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
+- Security and Trust
+Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
 Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.
+
+- Observability
+The observability component enables the network operators to gain deep insights of agent behaviors. It collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition, to make the behavior of multi-agent system declarative and traceable, it is essential to have the capability to distinguish whether an operation action is taken by agents automatically or by human operators. For example, in the fault management scenarios that need on-site repairing, the demarcation and locating task could be accomplished by agents, and the repair solution implementation and verification task is accomplished by human operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic system.
 
 The interface between AI Agent and Knowledge Base is specified in {{interface2knowledge}}.
 
