@@ -217,6 +217,9 @@ Task AI Agent:
 : Task AI Agent is responsible for coordinating with Network AI Agent in the multi-Agent System
 and executing specific task assigned by Network AI Agent.
 
+Autonomy:
+: The ability to operate under uncertainty and adapt to changing objectives without explicit external intervention.
+
 # Introduction of Concepts
 
 ## Generative AI and Agentic AI
