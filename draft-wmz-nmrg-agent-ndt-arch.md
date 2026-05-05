@@ -133,7 +133,7 @@ Since network changes are directly related to service operations, any
 successful change needs to not only ensure that new services are
 provisioned smoothly, but also that existing services are not
 affected and that no problems are introduced with the new
-configurations. These changes might still require manual operation or 
+configurations. These changes might still require manual operation or
 iterative input from network Operators to provide operational guidance and
 information about the goals, purposes, and service instances that the network
 is to serve and refine the intent. Pre-programmed automation scripts or policy
@@ -142,7 +142,7 @@ therefore, increasingly cautious about making network changes. For example,
 they need to review the solution design as well as evaluate all change
 impacts, before making any change.  Then, after the change, they need to
 perform dialing tests, monitor traffic, and manually check table entries.
-    
+
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} provides
 a network emulation tool for scenario planning, impact analysis, and change management.
 Agentic AI introduces disruptive paradigm to the network management and allow declarative
