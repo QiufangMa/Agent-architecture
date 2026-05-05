@@ -521,7 +521,7 @@ as necessary to realize specific functionality.  Thus, some of the
 interfaces described below might not be visible as specific
 relationships in {{arch}}, but they can nevertheless exist.
 
-### Human in the Loop
+### Human Oversight (Human on the Loop)
 
 The architecture allows human experts to monitor, guide, approve, or intervene in the
 AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.
@@ -1094,7 +1094,7 @@ and energy efficiency statistics data, the Network AI Agent in each autonomous d
 collaborate with network digital twin to know which part of the network need to be adjusted or optimized
 based on network status change.
 
-## Network Security Drills (Human in the Loop)
+## Network Security Drills (Human on the Loop)
 
 
 ~~~~
