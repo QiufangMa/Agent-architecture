@@ -146,7 +146,7 @@ perform dialing tests, monitor traffic, and manually check table entries.
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} provides
 Network operators with a safe sandbox for testing complex configuration changes, software
 updates, or new protocols before they are deployed in production so that the risk of
-accidental outages or service disruptions can be greatly reduced. In addition, Agentic AI
+accidental outages or service disruptions can be greatly reduced. Agentic AI
 introduces disruptive paradigm to the network management and allow declarative
 intent interpretation, multi-step action, multi-agent coordination. Integrating a Network
 Digital Twin into network management together with Agentic AI, it allows network management
