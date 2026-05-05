@@ -122,25 +122,36 @@ intent-based network management to meet the needs of the network service.
 
 # Introduction
 
-The rapid expansion of network scale and the increasing demands on these networks necessitate
-of continuous network reconfiguration to better adapt to ever-changing service requirements.
+With the rapid expansion of network scale and the increasing demands on
+these networks, significant challenges arise with keeping device
+configurations consistent with the needs of services and rapidly adapting
+the network at scale. The intent based management has been first introduced
+in {{?RFC9315}} to address these challenges and necessitate of continuous
+network reconfiguration to better adapt to ever-changing service requirements.
 
-Since network changes are directly related to service operations, any successful change
-needs to not only ensure that new services are provisioned smoothly, but also that existing
-services are not affected and that no problems are introduced with the new configurations.
-Network operators are, therefore, increasingly cautious about making network changes, given that
-they need to review the solution design as well as evaluate all change impacts, before making any
-change. Then, after the change, they need to perform dialing tests, monitor traffic, and manually
-check table entries.
-
-The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} has been proposed as
-a mean to provide a network emulation tool for scenario planning, impact analysis, and change
-management. Agentic AI introduces disruptive paradigm to the network management and allow declarative
-intent interpretation, multi-step action, multi-agent coordination. Integrating a Network Digital Twin
-into network management together with Agentic AI, it allows network management activities to dynamically
-adapt to customer needs, network changes, as well as to automatically assess, model, and refine optimization
-strategies under realistic conditions but in a risk-free environment. An environment that operates to meet these
-types of requirements is said to have AI driven network operations.
+Since network changes are directly related to service operations, any
+successful change needs to not only ensure that new services are
+provisioned smoothly, but also that existing services are not
+affected and that no problems are introduced with the new
+configurations. These changes might still require manual operation or 
+iterative input from network Operators to provide operational guidance and
+information about the goals, purposes, and service instances that the network
+is to serve and refine the intent. Pre-programmed automation scripts or policy
+templates may not be sufficient to realize the intent. Network operators are,
+therefore, increasingly cautious about making network changes. For example,
+they need to review the solution design as well as evaluate all change
+impacts, before making any change.  Then, after the change, they need to
+perform dialing tests, monitor traffic, and manually check table entries.
+    
+The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} provides
+a network emulation tool for scenario planning, impact analysis, and change management.
+Agentic AI introduces disruptive paradigm to the network management and allow declarative
+intent interpretation, multi-step action, multi-agent coordination. Integrating a Network
+Digital Twin into network management together with Agentic AI, it allows network management
+activities to dynamically adapt to customer needs, network changes, as well as to automatically
+assess, model, and refine optimization strategies under realistic conditions but in a risk-free
+environment. An environment that operates to meet these types of requirements is said to have AI
+driven network operations.
 
 AI Driven network operations provide the following capabilities to applications by
 coordinating the components that operate and manage the network:
