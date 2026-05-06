@@ -1316,7 +1316,10 @@ intent-based network management to meet the needs of the network service.<a href
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.4">
-                <p id="section-toc.1-1.10.2.4.1"><a href="#section-10.4" class="auto internal xref">10.4</a>.  <a href="#name-agent-benchmarking-vs-model" class="internal xref">Agent Benchmarking vs Model Benchmarking</a></p>
+                <p id="section-toc.1-1.10.2.4.1"><a href="#section-10.4" class="auto internal xref">10.4</a>.  <a href="#name-agent-observabilityinterven" class="internal xref">Agent Observability,Intervention and Control</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.5">
+                <p id="section-toc.1-1.10.2.5.1"><a href="#section-10.5" class="auto internal xref">10.5</a>.  <a href="#name-agent-benchmarking-vs-model" class="internal xref">Agent Benchmarking vs Model Benchmarking</a></p>
 </li>
             </ul>
 </li>
@@ -2932,24 +2935,45 @@ properly cleaned, validated, and maintained is a significant challenge in provid
 </div>
 </section>
 </div>
-<div id="agent-benchmarking-vs-model-benchmarking">
+<div id="agent-observabilityintervention-and-control">
 <section id="section-10.4">
-        <h3 id="name-agent-benchmarking-vs-model">
-<a href="#section-10.4" class="section-number selfRef">10.4. </a><a href="#name-agent-benchmarking-vs-model" class="section-name selfRef">Agent Benchmarking vs Model Benchmarking</a>
+        <h3 id="name-agent-observabilityinterven">
+<a href="#section-10.4" class="section-number selfRef">10.4. </a><a href="#name-agent-observabilityinterven" class="section-name selfRef">Agent Observability,Intervention and Control</a>
         </h3>
-<p id="section-10.4-1">Current AI evaluation frameworks are primarily designed for "one-shot" Large Language Models (LLMs) that provide static responses to isolated prompts. However,
+<p id="section-10.4-1">Network operations are increasingly autonomous with the growth of network management Agent applications at the network level and
+service level. Since AI native operations are non-deterministic, when network management agents misbehave or deviate from what
+Agents are expected to do, Current AI safety technologies, often referred to as "AI guardrails" are introduced to constrain the behavior of
+AI agents within operational and ethical boundaries, prevent AI from producing harmful results, e.g.,escalate a decision to a
+human for high-risk network operation, protect against malicious attacks,e.g., prompt injection. These guardrails typically
+operate at the input/output filter level or through static boundary alignment.<a href="#section-10.4-1" class="pilcrow">¶</a></p>
+<p id="section-10.4-2">However as AI systems are increasingly integrated into autonomous workflows and critical infrastructure, these static measures
+are proving insufficient for the full operational lifecycle, the pace of AI Agent technology
+adoption is exceeding network operators' capacities to assure and control them.  Network operators usually lack an equivalent infrastructure
+for human oversight or to provide continuous, monitoring of an AI system’s internal logic or its long-running execution paths that match the speed and scale
+of the network management Agent applications,e.g.,network failure or security risk is hard to detect and control, occurring at machine speed.
+When a violation is suspected, there are currently no standardized protocols for "policy implementation intervention" or "operation rollback" mechanism.
+In non-deterministic environments, the inability to revert to a "last known safe state" or undo a series of autonomous actions creates significant
+operational risk, as the system cannot be effectively recovered without a full reset.<a href="#section-10.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="agent-benchmarking-vs-model-benchmarking">
+<section id="section-10.5">
+        <h3 id="name-agent-benchmarking-vs-model">
+<a href="#section-10.5" class="section-number selfRef">10.5. </a><a href="#name-agent-benchmarking-vs-model" class="section-name selfRef">Agent Benchmarking vs Model Benchmarking</a>
+        </h3>
+<p id="section-10.5-1">Current AI evaluation frameworks are primarily designed for "one-shot" Large Language Models (LLMs) that provide static responses to isolated prompts. However,
 the industry is shifting toward AI Agents: systems capable of reasoning, planning, and using tools to execute complex, multi-step workflows.Traditional benchmarks
 (e.g., HumanEval) focus on outcome-only scoring and static knowledge. These fail to measure the core competencies of agents, such as long-horizon planning,
 tool-use proficiency, and the ability to adapt to environmental feedback. As agents increasingly manage production-level tasks—often involving millions of tokens
-and hundreds of tool calls—there is a critical need for standardized metrics that evaluate the process of task completion, not just the final result.<a href="#section-10.4-1" class="pilcrow">¶</a></p>
-<p id="section-10.4-2">o Sequential Complexity: Unlike single-turn benchmarks that check one answer, agents require multi-step task completion where each step relies on the success of
-the previous one. This involves massive workflows (e.g., ~90 tool calls) that traditional benchmarks don't measure.<a href="#section-10.4-2" class="pilcrow">¶</a></p>
-<p id="section-10.4-3">o Environmental Interaction: Agents must interact with live environments. Evaluation shifts from checking if code passes a test to whether a system can select,
-sequence, and execute tools in realistic, dynamic settings.<a href="#section-10.4-3" class="pilcrow">¶</a></p>
-<p id="section-10.4-4">o Adaptive Planning: Benchmarking must move beyond static knowledge retrieval to evaluate how systems build and adapt plans over long horizons, especially when
-faced with resource constraints or unexpected disruptions.<a href="#section-10.4-4" class="pilcrow">¶</a></p>
-<p id="section-10.4-5">o Process vs. Outcome: Traditional "right or wrong" scoring is insufficient. Agentic evaluation requires process metrics such as tool success rates, context
-retention, and multi-turn coherence to determine how an agent reached its conclusion.<a href="#section-10.4-5" class="pilcrow">¶</a></p>
+and hundreds of tool calls—there is a critical need for standardized metrics that evaluate the process of task completion, not just the final result.<a href="#section-10.5-1" class="pilcrow">¶</a></p>
+<p id="section-10.5-2">o Sequential Complexity: Unlike single-turn benchmarks that check one answer, agents require multi-step task completion where each step relies on the success of
+the previous one. This involves massive workflows (e.g., ~90 tool calls) that traditional benchmarks don't measure.<a href="#section-10.5-2" class="pilcrow">¶</a></p>
+<p id="section-10.5-3">o Environmental Interaction: Agents must interact with live environments. Evaluation shifts from checking if code passes a test to whether a system can select,
+sequence, and execute tools in realistic, dynamic settings.<a href="#section-10.5-3" class="pilcrow">¶</a></p>
+<p id="section-10.5-4">o Adaptive Planning: Benchmarking must move beyond static knowledge retrieval to evaluate how systems build and adapt plans over long horizons, especially when
+faced with resource constraints or unexpected disruptions.<a href="#section-10.5-4" class="pilcrow">¶</a></p>
+<p id="section-10.5-5">o Process vs. Outcome: Traditional "right or wrong" scoring is insufficient. Agentic evaluation requires process metrics such as tool success rates, context
+retention, and multi-turn coherence to determine how an agent reached its conclusion.<a href="#section-10.5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
