@@ -102,7 +102,7 @@ informative:
   OTel-gen-ai:
     title: AI Agent Observability
     target: https://opentelemetry.io/docs/specs/semconv/gen-ai/
-    date: 2025    
+    date: 2025
 
 --- abstract
 
