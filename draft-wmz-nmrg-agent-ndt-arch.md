@@ -1351,10 +1351,11 @@ operational risk, as the system cannot be effectively recovered without a full r
 ## Agent Benchmarking vs Model Benchmarking
 
 Current AI evaluation frameworks are primarily designed for "one-shot" Large Language Models (LLMs) that provide static responses to isolated prompts. However,
-the industry is shifting toward AI Agents: systems capable of reasoning, planning, and using tools to execute complex, multi-step workflows.Traditional benchmarks
-(e.g., HumanEval) focus on outcome-only scoring and static knowledge. These fail to measure the core competencies of agents, such as long-horizon planning,
-tool-use proficiency, and the ability to adapt to environmental feedback. As agents increasingly manage production-level tasks—often involving millions of tokens
-and hundreds of tool calls—there is a critical need for standardized metrics that evaluate the process of task completion, not just the final result.
+the industry is shifting toward AI Agents: systems capable of reasoning, planning, and using tools to execute complex, multi-step workflows.
+
+Traditional benchmarks (e.g., HumanEval) focus on outcome-only scoring and static knowledge. These fail to measure the core competencies of agents, such as long-horizon planning, tool-use proficiency, and the ability to adapt to environmental feedback.
+
+As agents increasingly manage production-level tasks—often involving millions of tokens and hundreds of tool calls—there is a critical need for standardized metrics that evaluate the process of task completion, not just the final result.
 
 o Sequential Complexity: Unlike single-turn benchmarks that check one answer, agents require multi-step task completion where each step relies on the success of
 the previous one. This involves massive workflows (e.g., ~90 tool calls) that traditional benchmarks don't measure.
