@@ -1327,45 +1327,25 @@ provided, the model may provide incorrect repair advice when diagnosing network 
 or faults, it may suggest checking an non-existing interface. Ensuring that data is
 properly cleaned, validated, and maintained is a significant challenge in providing reliable inputs for AI-driven network management.
 
-## Benchmarking
+## Agent Benchmarking vs Model Benchmarking
 
-### Single Agent Benchmarking
+Current AI evaluation frameworks are primarily designed for "one-shot" Large Language Models (LLMs) that provide static responses to isolated prompts. However,
+the industry is shifting toward AI Agents: systems capable of reasoning, planning, and using tools to execute complex, multi-step workflows.Traditional benchmarks
+(e.g., HumanEval) focus on outcome-only scoring and static knowledge. These fail to measure the core competencies of agents, such as long-horizon planning,
+tool-use proficiency, and the ability to adapt to environmental feedback. As agents increasingly manage production-level tasks—often involving millions of tokens
+and hundreds of tool calls—there is a critical need for standardized metrics that evaluate the process of task completion, not just the final result.
 
-The core of Single Agents assessment lies in its "omnipotence" and the quality of its direct interaction with the environment.
+o Sequential Complexity: Unlike single-turn benchmarks that check one answer, agents require multi-step task completion where each step relies on the success of
+the previous one. This involves massive workflows (e.g., ~90 tool calls) that traditional benchmarks don't measure.
 
-o Task complexity bottleneck
+o Environmental Interaction: Agents must interact with live environments. Evaluation shifts from checking if code passes a test to whether a system can select,
+sequence, and execute tools in realistic, dynamic settings.
 
-When dealing with long-term, multi-step tasks, single agents are prone to hallucination accumulation and reasoning chain breaks.
-Benchmark tests need to evaluate their persistent logic capabilities under context window constraints.
+o Adaptive Planning: Benchmarking must move beyond static knowledge retrieval to evaluate how systems build and adapt plans over long horizons, especially when
+faced with resource constraints or unexpected disruptions.
 
-o Command compliance and control
-
-The challenge lies in whether the model can strictly follow complex system prompts, especially when there are many tool options,
-which can easily lead to tool invocation errors or the omission of some instructions.
-
-o Generalization and memory
-
-To evaluate how monolithic models can efficiently manage long-term memory to handle new tasks without relying on external collaborative
-support.
-
-### Multi-Agent Benchmarking
-
-The focus of collaborative assessment has shifted from "individual capabilities" to "system dynamics":
-
-o Coordination and communication overhead:
-
-Multi-agent systems (MAS) involve complex task decomposition and allocation (global planning). Benchmarking needs to measure the communication
-efficiency between agents, alignment consistency, and the high latency and cost caused by multi-turn interactions.
-
-o Error tracing and attribution:
-
-When the final task fails, it is extremely challenging to accurately pinpoint which "role" went wrong or in which round of collaboration there
-was a deviation (failure attribution) due to the presence of multiple participants.
-
-o Swarm intelligence and social emergence:
-
-It is necessary to assess the dynamics of competition and cooperation among intelligent agents,
-including the existence of systemic risks such as information silos, resource waste, or vicious cycles.
+o Process vs. Outcome: Traditional "right or wrong" scoring is insufficient. Agentic evaluation requires process metrics such as tool success rates, context
+retention, and multi-turn coherence to determine how an agent reached its conclusion.
 
 # Security Considerations
 
