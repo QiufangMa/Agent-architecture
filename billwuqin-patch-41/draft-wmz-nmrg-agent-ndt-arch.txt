@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 6 November 2026                                    China Mobile
+Expires: 7 November 2026                                    China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                              5 May 2026
+                                                              6 May 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 November 2026.
+   This Internet-Draft will expire on 7 November 2026.
 
 Copyright Notice
 
@@ -97,7 +97,7 @@ Table of Contents
        5.2.1.  Network Applications
        5.2.2.  Autonomous Domain
      5.3.  Functional Interfaces
-       5.3.1.  Human in the Loop
+       5.3.1.  Human Oversight (Human on the Loop)
        5.3.2.  Application to Network AI Agent Interface
        5.3.3.  Network AI Agent to Task AI Agent Interface (Single
                Autonomous Domain)
@@ -121,7 +121,7 @@ Table of Contents
      9.3.  Multi-Agent Collaboration on Network Optimization
      9.4.  Network level Energy Efficiency Management in the
            IP+Optical network
-     9.5.  Network Security Drills (Human in the Loop)
+     9.5.  Network Security Drills (Human on the Loop)
    10. Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
      10.1.  Create domain specific language for agents and models
@@ -146,42 +146,56 @@ Table of Contents
 
 1.  Introduction
 
-   The rapid expansion of network scale and the increasing demands on
-   these networks necessitate of continuous network reconfiguration to
-   better adapt to ever-changing service requirements.
+   With the rapid expansion of network scale and the increasing demands
+   on these networks, significant challenges arise with keeping device
+   configurations consistent with the needs of services and rapidly
+   adapting the network at scale.  The intent based management has been
+   first introduced in [RFC9315] to address these challenges and
+   necessitate of continuous network reconfiguration to better adapt to
+   ever-changing service requirements.
 
    Since network changes are directly related to service operations, any
    successful change needs to not only ensure that new services are
    provisioned smoothly, but also that existing services are not
    affected and that no problems are introduced with the new
-   configurations.  Network operators are, therefore, increasingly
-   cautious about making network changes, given that they need to review
-   the solution design as well as evaluate all change impacts, before
-   making any change.  Then, after the change, they need to perform
-   dialing tests, monitor traffic, and manually check table entries.
+   configurations.  On one hand, these changes might still require
+   manual operation or iterative input from network Operators to provide
+   operational guidance and information about the goals, purposes, and
+   service instances that the network is to serve and refine the intent.
+   On the other hand, pre-programmed automation scripts or policy
+   templates may not be sufficient to realize the intent.  Network
+   operators are, therefore, increasingly cautious about making network
+   changes.  For example, they need to review the solution design as
+   well as evaluate all change impacts, before making any change.  Then,
+   after the change, they need to perform dialing tests, monitor
+   traffic, and manually check table entries.
 
    The Network Digital Twin (NDT)
-   [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
-   to provide a network emulation tool for scenario planning, impact
-   analysis, and change management.  In addition, Agentic AI introduces
-   disruptive paradigm to the network management which:
+   [I-D.irtf-nmrg-network-digital-twin-arch] provides Network operators
+   with a safe sandbox for testing complex configuration changes,
+   software updates, or new protocols before they are deployed in
+   production so that the risk of accidental outages or service
+   disruptions can be greatly reduced.
 
-   *  allows declarative intent interpretation and refinement with
+   In addition, Agentic AI introduces disruptive paradigm to the network
+   management which:
+
+   *  Allows declarative intent interpretation and refinement with
       multi-step task management,
 
-   *  enables dynamic goal-driven execution and adaptive behavior
+   *  Enables dynamic goal-driven execution and adaptive behavior
       instead of stepwise static instruction,
 
-   *  and enables closed-loop autonomy across layer or across domain
+   *  And enables closed-loop autonomy across layer or across domain
       instead of deterministic closed-loop automation.
 
-   Integrating a Network Digital Twin into the network management
-   together with the Agentic AI, it allows network management activities
-   to dynamically adapt to customer needs, network changes, as well as
-   to automatically assess, model, and refine optimization strategies
-   under realistic conditions but in a risk-free environment.  An
-   environment that operates to meet these types of requirements is said
-   to have AI driven network operations.
+   Integrating a Network Digital Twin into network management together
+   with Agentic AI, it allows network management activities to
+   dynamically adapt to customer needs, network changes, as well as to
+   automatically assess, model, and refine optimization strategies under
+   realistic conditions but in a risk-free environment.  An environment
+   that operates to meet these types of requirements is said to have AI
+   driven network operations.
 
    AI Driven network operations provide the following capabilities to
    applications by coordinating the components that operate and manage
@@ -273,6 +287,9 @@ Table of Contents
    Task AI Agent:  Task AI Agent is responsible for coordinating with
       Network AI Agent in the multi-Agent System and executing specific
       task assigned by Network AI Agent.
+
+   Autonomy:  The ability to operate under uncertainty and adapt to
+      changing objectives without explicit external intervention.
 
 3.  Introduction of Concepts
 
@@ -658,7 +675,7 @@ Table of Contents
    might not be visible as specific relationships in Figure 2, but they
    can nevertheless exist.
 
-5.3.1.  Human in the Loop
+5.3.1.  Human Oversight (Human on the Loop)
 
    The architecture allows human experts to monitor, guide, approve, or
    intervene in the AI driven network operations.  Human may provide
@@ -1390,7 +1407,7 @@ Table of Contents
    network digital twin to know which part of the network need to be
    adjusted or optimized based on network status change.
 
-9.5.  Network Security Drills (Human in the Loop)
+9.5.  Network Security Drills (Human on the Loop)
 
                                  +----------------+   Human
                                  | Agent Gateway  |  Operator
