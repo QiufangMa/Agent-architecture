@@ -125,7 +125,7 @@ Table of Contents
      9.5.  Network Security Drills (Human on the Loop)
    10. Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     10.1.  Create domain specific language for agents and models
+     10.1.  Make IETF developed YANG models AI ready
      10.2.  Trust and Security
      10.3.  Protocols between Agent and Agent/Human operator/Tools
        10.3.1.  High Risk Operations
@@ -1510,54 +1510,27 @@ Table of Contents
    integrating agentic AI together with network digital twin for network
    operations.
 
-10.1.  Create domain specific language for agents and models
+10.1.  Make IETF developed YANG models AI ready
 
-   Feeding network data into machine-readable knowledge for autonomous
-   AI agents involves transforming raw telemetry and metadata into a
-   structured semantic format.  This process typically uses the Model
-   Context Protocol (MCP) and Domain Specific Languages (DSLs) to bridge
-   the gap between low-level network signals and high-level AI
-   reasoning.
+   Network management has evolved towards model-driven programmability
+   using YANG (RFC 7950).  While YANG provides a rigorous structure for
+   data, it was designed for deterministic software clients rather than
+   the probabilistic reasoning of Large Language Models (LLMs).
+   Consequently, AI agents often struggle to navigate complex YANG
+   hierarchies, leading to "hallucinations" or incorrect configuration
+   logic.
 
-   o Semantic & Contextual
-
-   Network data in the wire format is often low-fidelity and lacks the
-   context for AI to "reason" about intent or impact.  AI agents may
-   struggle to understand rigid structure for the interaction,e.g., a
-   numerical value represents "Frame Delay" without explicit ontological
-   mapping.  Multi-task collaboration and Agent operation involve some
-   ambiguity and uncertainty.  The natural language interactions should
-   be supported for understanding and handling uncertain or ambiguous
-   tasks.  With the presence of existing standard of natural language
-   interaction, the task of defining common functions for any agent to
-   agent communications becomes that of defining the semantics of the
-   information that should be transferred, as opposed to defining a
-   rigid structure for the interaction.
-
-   o Data Quality & Fragmentation
-
-   Information is often fragmented across multiple vendor tools and
-   legacy systems, preventing a unified knowledge model.  Processing
-   high-velocity data and non-standardized formats makes it difficult
-   for AI to generalize across different device types or data sources.
-
-   o Technical & Computational
-
-   Architectural Limits: Standard hardware often lacks the capacity for
-   real-time AI operations at the data-plane level.
-
-   Token/Memory Limits: Large AI models have finite "context windows",
-   which restricts their ability to process long or complex network
-   sequences.
-
-   o Operational & Trust
-
-   "Black Box" Problem: AI decisions can be opaque, making it hard for
-   human operators to audit or trust automated actions.
-
-   Skill Gap: There is a significant shortage of professionals with the
-   cross-disciplinary expertise needed for both networking and AI
-   development.
+   The emerging Model Context Protocol (MCP) provides a framework for
+   connecting AI models to external tools and data.  However, there is
+   currently no standardized way to map YANG primitives to MCP
+   components (Resources, Tools, and Prompts).  This gap results in: •
+   Semantic Ambiguity: LLMs lack the contextual hints needed to
+   understand the operational impact of specific YANG leaves. •
+   Interoperability Barriers: AI agents require custom "glue code" for
+   every vendor's unique interpretation of how a YANG model should be
+   exposed to an AI. • Scaling Issues: Massive YANG schemas exceed LLM
+   context windows, requiring standardized methods for sub-schema
+   discovery and pruning.
 
 10.2.  Trust and Security
 

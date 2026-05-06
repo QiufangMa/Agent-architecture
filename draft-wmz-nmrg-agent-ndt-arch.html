@@ -1296,7 +1296,7 @@ intent-based network management to meet the needs of the network service.<a href
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-challenges-of-integrating-n" class="internal xref">Challenges of Integrating Network Digital Twin and Agentic AI into Network Management</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-create-domain-specific-lang" class="internal xref">Create domain specific language for agents and models</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-make-ietf-developed-yang-mo" class="internal xref">Make IETF developed YANG models AI ready</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
                 <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-trust-and-security" class="internal xref">Trust and Security</a></p>
@@ -2785,35 +2785,22 @@ systems against real-world threats.<a href="#section-9.5-3" class="pilcrow">¶</
 specified in <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span>, this document
 also identifies some challenges that need to be considered when integrating
 agentic AI together with network digital twin for network operations.<a href="#section-10-1" class="pilcrow">¶</a></p>
-<div id="create-domain-specific-language-for-agents-and-models">
+<div id="make-ietf-developed-yang-models-ai-ready">
 <section id="section-10.1">
-        <h3 id="name-create-domain-specific-lang">
-<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-create-domain-specific-lang" class="section-name selfRef">Create domain specific language for agents and models</a>
+        <h3 id="name-make-ietf-developed-yang-mo">
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-make-ietf-developed-yang-mo" class="section-name selfRef">Make IETF developed YANG models AI ready</a>
         </h3>
-<p id="section-10.1-1">Feeding network data into machine-readable knowledge for autonomous AI agents involves transforming raw
-telemetry and metadata into a structured semantic format. This process typically uses the Model Context
-Protocol (MCP) and Domain Specific Languages (DSLs) to bridge the gap between low-level network signals
-and high-level AI reasoning.<a href="#section-10.1-1" class="pilcrow">¶</a></p>
-<p id="section-10.1-2">o Semantic &amp; Contextual<a href="#section-10.1-2" class="pilcrow">¶</a></p>
-<p id="section-10.1-3">Network data in the wire format is often low-fidelity and lacks the context for AI to "reason" about intent or impact.
-AI agents may struggle to understand rigid structure for the interaction,e.g., a numerical value represents "Frame Delay"
-without explicit ontological mapping. Multi-task collaboration and Agent operation involve some ambiguity and uncertainty.
-The natural language interactions should be supported for understanding and handling uncertain or ambiguous tasks.
-With the presence of existing standard of natural language interaction, the task of defining common functions for any agent
-to agent communications becomes that of defining the semantics of the information that should be transferred, as opposed to
-defining a rigid structure for the interaction.<a href="#section-10.1-3" class="pilcrow">¶</a></p>
-<p id="section-10.1-4">o Data Quality &amp; Fragmentation<a href="#section-10.1-4" class="pilcrow">¶</a></p>
-<p id="section-10.1-5">Information is often fragmented across multiple vendor tools and legacy systems, preventing a unified knowledge model.
-Processing high-velocity data and non-standardized formats makes it difficult for AI to generalize across different
-device types or data sources.<a href="#section-10.1-5" class="pilcrow">¶</a></p>
-<p id="section-10.1-6">o Technical &amp; Computational<a href="#section-10.1-6" class="pilcrow">¶</a></p>
-<p id="section-10.1-7">Architectural Limits: Standard hardware often lacks the capacity for real-time AI operations at the data-plane level.<a href="#section-10.1-7" class="pilcrow">¶</a></p>
-<p id="section-10.1-8">Token/Memory Limits: Large AI models have finite "context windows", which restricts their ability to process long or complex
-network sequences.<a href="#section-10.1-8" class="pilcrow">¶</a></p>
-<p id="section-10.1-9">o Operational &amp; Trust<a href="#section-10.1-9" class="pilcrow">¶</a></p>
-<p id="section-10.1-10">"Black Box" Problem: AI decisions can be opaque, making it hard for human operators to audit or trust automated actions.<a href="#section-10.1-10" class="pilcrow">¶</a></p>
-<p id="section-10.1-11">Skill Gap: There is a significant shortage of professionals with the cross-disciplinary expertise needed for both
-networking and AI development.<a href="#section-10.1-11" class="pilcrow">¶</a></p>
+<p id="section-10.1-1">Network management has evolved towards model-driven programmability using YANG (RFC 7950).
+While YANG provides a rigorous structure for data, it was designed for deterministic software
+clients rather than the probabilistic reasoning of Large Language Models (LLMs). Consequently,
+AI agents often struggle to navigate complex YANG hierarchies, leading to "hallucinations" or
+incorrect configuration logic.<a href="#section-10.1-1" class="pilcrow">¶</a></p>
+<p id="section-10.1-2">The emerging Model Context Protocol (MCP) provides a framework for connecting AI models to
+external tools and data. However, there is currently no standardized way to map YANG primitives
+to MCP components (Resources, Tools, and Prompts). This gap results in:
+•       Semantic Ambiguity: LLMs lack the contextual hints needed to understand the operational impact of specific YANG leaves.
+•       Interoperability Barriers: AI agents require custom "glue code" for every vendor's unique interpretation of how a YANG model should be exposed to an AI.
+•       Scaling Issues: Massive YANG schemas exceed LLM context windows, requiring standardized methods for sub-schema discovery and pruning.<a href="#section-10.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="trust-and-security">
