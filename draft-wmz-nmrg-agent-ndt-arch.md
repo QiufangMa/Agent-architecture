@@ -99,6 +99,11 @@ informative:
     target: https://agentskills.io/home
     date: 2025
 
+  OTel-gen-ai:
+    title: AI Agent Observability
+    target: https://opentelemetry.io/docs/specs/semconv/gen-ai/
+    date: 2025    
+
 --- abstract
 
 A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
@@ -369,7 +374,7 @@ realize specific functionality.
 ||                +-------^--------+              |   || Registration || |
 ||                        |                       |   |+--------------+| |
 ||       +----------------+------------+--------+ <--->+--------------+| |
-||       |                |            |        | |   ||   Security   || |
+||       |                |            |        | |   ||Security&Trust|| |
 ||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
 |||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
 ||+------------+ +------------+ +------------+    | | ||Observability || |
@@ -424,7 +429,7 @@ capabilities to achieve autonomous network management. It comprises the followin
 #### Multi-Agent System
 
 Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.
+for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents; in some simplified scenarios, the system may also consist of only one single AI Agent equipped with multiple skills and toolsets that integrates both network-level coordination and task-specific execution.
 
 The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
 to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
@@ -441,11 +446,11 @@ AI Agents need to first discover each other and understand their capabilities to
 Each Agent instance submits its
 own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
 
-Agent skills {{Agent-skills}}, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component enables Agents to query directories for required skills.
+Agent skills {{Agent-skills}}, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component may also work as a skill hub that enables Agents to query directories for required skills.
 
 {{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.
 
-##### Security
+##### Security & Trust
 
 The security component enforces trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction. It provides unified security functionalities for all AI Agents within the autonomous domain, including those residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.
@@ -457,12 +462,11 @@ a Least Privilege access control method. It is also recommended to log every Age
 
 #### Observability
 
-Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enable network operators to gain deep insights into Agent behaviors.
-It collects logs, metrics and traces for each Agent and provides end-to-end
-visibility into task progress, failures, and network performance such as latency.
+Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enables network operators to gain deep insights into Agent behaviors.
 
-In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity, e.g., it can discern
-whether a human-in-the-loop approved an action or if the agent acted autonomously.
+OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It provides a consistent instrumentation layer, semantic conventions, and telemetry export mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM inference, and tool/skill executions.
+
+By leveraging Semantic Conventions for GenAI {{OTel-gen-ai}}, the system unifies the collection of LLM inference metadata, token consumption, reasoning processes, and skill invocation events, etc. This allows comprehensive tracking of agent runtime status, cross-component interaction flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified single-agent deployments with integrated multiple skills and tools.
 
 ##### Knowledge Base
 
@@ -526,7 +530,7 @@ relationships in {{arch}}, but they can nevertheless exist.
 The architecture allows human experts to monitor, guide, approve, or intervene in the
 AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.
 
-Human in the loop is also helpful to provide a safeguard for complex or sensitive
+Human on the loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
 This typically uses natural language as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
@@ -558,7 +562,7 @@ This interface enables collaboration and information exchange between Network AI
 The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle, security, and collaborative capabilities of the AI Agents.
 
 Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
-A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.
+A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery. This interface also supports skill management, including skill query, loading, unloading, and version control, enabling agents to dynamically obtain and use skills provided by the Registration component.
 
 Authentication ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
 Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.
@@ -860,7 +864,7 @@ continuously monitors the network by data collection. Based on the result of net
 running analysis and user explicit feedback, it may adjust and optimize the
 management strategy if necessary.
 
-## Multi-Agent Collaboration on Network Configuration Change
+## Agent and Skill Enabled Network Configuration Change
 
 Network configuration changes are needed in scenarios such as optimizing network
 or service performance, provisioning new network services, or resolving network incidents/faults.
