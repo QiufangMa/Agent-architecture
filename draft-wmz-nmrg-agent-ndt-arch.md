@@ -102,8 +102,9 @@ informative:
 --- abstract
 
 A Network Digital Twin (NDT) provides a network emulation tool usable for different purposes
-such as scenario planning, impact analysis, and change management. Integrating
-a Network Digital Twin into network management together with Agentic AI, it allows the network management
+such as scenario planning, impact analysis, and change management. Agentic AI enables dynamic
+goal-driven execution and adaptive behavior and closed-loop autonomy. By integrating
+a Network Digital Twin into network management together with the Agentic AI, it allows the network management
 activities to take user intent or service requirements as input,
 automatically assess, model, and refine optimization strategies under realistic conditions
 but in a risk-free environment. Such environment that operates to meet these types of
@@ -146,10 +147,15 @@ perform dialing tests, monitor traffic, and manually check table entries.
 The Network Digital Twin (NDT) {{?I-D.irtf-nmrg-network-digital-twin-arch}} provides
 Network operators with a safe sandbox for testing complex configuration changes, software
 updates, or new protocols before they are deployed in production so that the risk of
-accidental outages or service disruptions can be greatly reduced. Agentic AI
-introduces disruptive paradigm to the network management and allow declarative
-intent interpretation, multi-step action, multi-agent coordination. Integrating a Network
-Digital Twin into network management together with Agentic AI, it allows network management
+accidental outages or service disruptions can be greatly reduced.
+
+In addition, Agentic AI introduces disruptive paradigm to the network management which:
+
+- Allows declarative intent interpretation and refinement with multi-step task management,
+- Enables dynamic goal-driven execution and adaptive behavior instead of stepwise static instruction,
+- And enables closed-loop autonomy across layer or across domain instead of deterministic closed-loop automation.
+
+Integrating a Network Digital Twin into network management together with Agentic AI, it allows network management
 activities to dynamically adapt to customer needs, network changes, as well as to automatically
 assess, model, and refine optimization strategies under realistic conditions but in a risk-free
 environment. An environment that operates to meet these types of requirements is said to have AI
