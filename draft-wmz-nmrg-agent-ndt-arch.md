@@ -1327,6 +1327,24 @@ provided, the model may provide incorrect repair advice when diagnosing network 
 or faults, it may suggest checking an non-existing interface. Ensuring that data is
 properly cleaned, validated, and maintained is a significant challenge in providing reliable inputs for AI-driven network management.
 
+## Agent Observability,Intervention and Control
+
+Network operations are increasingly autonomous with the growth of network management Agent applications at the network level and
+service level. Since AI native operations are non-deterministic, when network management agents misbehave or deviate from what
+Agents are expected to do, Current AI safety technologies, often referred to as "AI guardrails" are introduced to constrain the behavior of
+AI agents within operational and ethical boundaries, prevent AI from producing harmful results, e.g.,escalate a decision to a
+human for high-risk network operation, protect against malicious attacks,e.g., prompt injection. These guardrails typically
+operate at the input/output filter level or through static boundary alignment.
+
+However as AI systems are increasingly integrated into autonomous workflows and critical infrastructure, these static measures
+are proving insufficient for the full operational lifecycle, the pace of AI Agent technology
+adoption is exceeding network operators' capacities to assure and control them.  Network operators usually lack an equivalent infrastructure
+for human oversight or to provide continuous, monitoring of an AI system’s internal logic or its long-running execution paths that match the speed and scale
+of the network management Agent applications,e.g.,network failure or security risk is hard to detect and control, occurring at machine speed.
+When a violation is suspected, there are currently no standardized protocols for "policy implementation intervention" or "operation rollback" mechanism.
+In non-deterministic environments, the inability to revert to a "last known safe state" or undo a series of autonomous actions creates significant
+operational risk, as the system cannot be effectively recovered without a full reset.
+
 ## Agent Benchmarking vs Model Benchmarking
 
 Current AI evaluation frameworks are primarily designed for "one-shot" Large Language Models (LLMs) that provide static responses to isolated prompts. However,
