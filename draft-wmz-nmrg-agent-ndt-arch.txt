@@ -275,6 +275,9 @@ Table of Contents
       Network AI Agent in the multi-Agent System and executing specific
       task assigned by Network AI Agent.
 
+   Autonomy:  The ability to operate under uncertainty and adapt to
+      changing objectives without explicit external intervention.
+
 3.  Introduction of Concepts
 
 3.1.  Generative AI and Agentic AI
