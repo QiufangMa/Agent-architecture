@@ -1741,7 +1741,7 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
 ||                +-------^--------+              |   || Registration || |
 ||                        |                       |   |+--------------+| |
 ||       +----------------+------------+--------+ &lt;---&gt;+--------------+| |
-||       |                |            |        | |   ||   Security   || |
+||       |                |            |        | |   ||Security&amp;Trust|| |
 ||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
 |||Task Agent 1&lt;-&gt;Task Agent 2&lt;-&gt;Task Agent 3| ...&lt;-+ |+--------------+| |
 ||+------------+ +------------+ +------------+    | | ||Observability || |
@@ -1809,7 +1809,7 @@ capabilities to achieve autonomous network management. It comprises the followin
 <a href="#section-5.2.2.1" class="section-number selfRef">5.2.2.1. </a><a href="#name-multi-agent-system" class="section-name selfRef">Multi-Agent System</a>
             </h5>
 <p id="section-5.2.2.1-1">Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
+for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents; in some simplified scenarios, the system may also consist of only one single AI Agent equipped with multiple skills and toolsets that integrates both network-level coordination and task-specific execution.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.1-2">The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
 to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
 Task Agents can adapt to new circumstances through access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge Base to accomplish specific network operation task. Some ongoing efforts (MCP <span>[<a href="#MCP" class="cite xref">MCP</a>]</span>, A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>) in the
@@ -1830,14 +1830,14 @@ industry may help with multi-agents coordination.<a href="#section-5.2.2.1-2" cl
 <p id="section-5.2.2.2.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. It supports the unified registration of all AI agents within the autonomous domain, including those residing on network devices.
 Each Agent instance submits its
 own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.<a href="#section-5.2.2.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.2.1-2">Agent skills <span>[<a href="#Agent-skills" class="cite xref">Agent-skills</a>]</span>, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component enables Agents to query directories for required skills.<a href="#section-5.2.2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.2.1-2">Agent skills <span>[<a href="#Agent-skills" class="cite xref">Agent-skills</a>]</span>, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component may also work as a skill hub that enables Agents to query directories for required skills.<a href="#section-5.2.2.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.2.1-3"><span>[<a href="#A2A" class="cite xref">A2A</a>]</span> implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.<a href="#section-5.2.2.2.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="security">
+<div id="security-trust">
 <section id="section-5.2.2.2.2">
-              <h6 id="name-security">
-<a href="#section-5.2.2.2.2" class="section-number selfRef">5.2.2.2.2. </a><a href="#name-security" class="section-name selfRef">Security</a>
+              <h6 id="name-security-trust">
+<a href="#section-5.2.2.2.2" class="section-number selfRef">5.2.2.2.2. </a><a href="#name-security-trust" class="section-name selfRef">Security &amp; Trust</a>
               </h6>
 <p id="section-5.2.2.2.2-1">The security component enforces trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction. It provides unified security functionalities for all AI Agents within the autonomous domain, including those residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.<a href="#section-5.2.2.2.2-1" class="pilcrow">¶</a></p>
@@ -1853,11 +1853,9 @@ a Least Privilege access control method. It is also recommended to log every Age
             <h5 id="name-observability">
 <a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
             </h5>
-<p id="section-5.2.2.3-1">Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enable network operators to gain deep insights into Agent behaviors.
-It collects logs, metrics and traces for each Agent and provides end-to-end
-visibility into task progress, failures, and network performance such as latency.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-2">In addition, it can also make sure every action is governed by declarative policy, logged, and traceable for operational integrity, e.g., it can discern
-whether a human-in-the-loop approved an action or if the agent acted autonomously.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-1">Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enables network operators to gain deep insights into Agent behaviors.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-2">OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It provides a consistent instrumentation layer, semantic conventions, and telemetry export mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM inference, and tool/skill executions.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-3">By leveraging Semantic Conventions for GenAI <span>[<a href="#OTel-gen-ai" class="cite xref">OTel-gen-ai</a>]</span>, the system unifies the collection of LLM inference metadata, token consumption, reasoning processes, and skill invocation events, etc. This allows comprehensive tracking of agent runtime status, cross-component interaction flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified single-agent deployments with integrated multiple skills and tools.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
 <div id="knowledge-base">
 <section id="section-5.2.2.3.1">
               <h6 id="name-knowledge-base">
@@ -1939,7 +1937,7 @@ relationships in <a href="#arch" class="auto internal xref">Figure 2</a>, but th
           </h4>
 <p id="section-5.3.1-1">The architecture allows human experts to monitor, guide, approve, or intervene in the
 AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
-<p id="section-5.3.1-2">Human in the loop is also helpful to provide a safeguard for complex or sensitive
+<p id="section-5.3.1-2">Human on the loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.<a href="#section-5.3.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.3.1-3">This typically uses natural language as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, and RESTful API can be leveraged.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
 </section>
@@ -1986,7 +1984,7 @@ of AI agents, and collaborative capabilities of AI Agents such as Registration, 
 <li class="normal" id="section-5.3.5-2.1">
               <p id="section-5.3.5-2.1.1">Registration
 Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
-A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery.<a href="#section-5.3.5-2.1.1" class="pilcrow">¶</a></p>
+A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span> Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery. This interface also supports skill management, including skill query, loading, unloading, and version control, enabling agents to dynamically obtain and use skills provided by the Registration component.<a href="#section-5.3.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.3.5-2.2">
               <p id="section-5.3.5-2.2.1">Security and Trust
@@ -3145,6 +3143,10 @@ understanding and handling uncertain or ambiguous tasks.<a href="#section-13-2.1
 <dt id="MCP">[MCP]</dt>
         <dd>
 <span class="refTitle">"Model Context Protocol"</span>, <time datetime="2024-11" class="refDate">November 2024</time>, <span>&lt;<a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="OTel-gen-ai">[OTel-gen-ai]</dt>
+        <dd>
+<span class="refTitle">"AI Agent Observability"</span>, <time datetime="2025" class="refDate">2025</time>, <span>&lt;<a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">https://opentelemetry.io/docs/specs/semconv/gen-ai/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6241">[RFC6241]</dt>
         <dd>

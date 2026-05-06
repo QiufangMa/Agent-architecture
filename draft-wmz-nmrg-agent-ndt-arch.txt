@@ -468,7 +468,7 @@ Table of Contents
 ||                +-------^--------+              |   || Registration || |
 ||                        |                       |   |+--------------+| |
 ||       +----------------+------------+--------+ <--->+--------------+| |
-||       |                |            |        | |   ||   Security   || |
+||       |                |            |        | |   ||Security&Trust|| |
 ||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
 |||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
 ||+------------+ +------------+ +------------+    | | ||Observability || |
@@ -528,7 +528,10 @@ Table of Contents
    Multi-Agent system acts as the smart brain of the Autonomous Domain,
    which is responsible for conducting AI-based analysis and making
    decisions regarding network management operations.  It usually
-   comprises a Network AI Agent and one or multiple task agents.
+   comprises a Network AI Agent and one or multiple task agents; in some
+   simplified scenarios, the system may also consist of only one single
+   AI Agent equipped with multiple skills and toolsets that integrates
+   both network-level coordination and task-specific execution.
 
    The Network AI Agent coordinates cross-task-agent collaboration,
    aligns tasks with user intent, and supervises the task execution of
@@ -566,14 +569,14 @@ Table of Contents
    way for Agents to improve how they perform specific tasks through
    folds that include instructions, scripts, and resources that are only
    loaded when needed.  Skills are folds containing a "skill.md" file,
-   Registration component enables Agents to query directories for
-   required skills.
+   Registration component may also work as a skill hub that enables
+   Agents to query directories for required skills.
 
    [A2A] implements Agent Registration by providing the Agent Card
    mechanism to ensure Agents from different vendors can register and
    discover other Agents they need.
 
-5.2.2.2.2.  Security
+5.2.2.2.2.  Security & Trust
 
    The security component enforces trusted inter-Agent communication by
    verifying the identity of AI Agents and enforcing security policies
@@ -596,16 +599,22 @@ Table of Contents
 5.2.2.3.  Observability
 
    Observability component provides unified monitoring capabilities for
-   all AI agents within the autonomous domain and enable network
-   operators to gain deep insights into Agent behaviors.  It collects
-   logs, metrics and traces for each Agent and provides end-to-end
-   visibility into task progress, failures, and network performance such
-   as latency.
+   all AI agents within the autonomous domain and enables network
+   operators to gain deep insights into Agent behaviors.
 
-   In addition, it can also make sure every action is governed by
-   declarative policy, logged, and traceable for operational integrity,
-   e.g., it can discern whether a human-in-the-loop approved an action
-   or if the agent acted autonomously.
+   OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI
+   Agent observability.  It provides a consistent instrumentation layer,
+   semantic conventions, and telemetry export mechanisms, ensuring
+   end-to-end visibility across network AI agents, task AI agents, LLM
+   inference, and tool/skill executions.
+
+   By leveraging Semantic Conventions for GenAI [OTel-gen-ai], the
+   system unifies the collection of LLM inference metadata, token
+   consumption, reasoning processes, and skill invocation events, etc.
+   This allows comprehensive tracking of agent runtime status, cross-
+   component interaction flows, and abnormal behaviors in both multi-
+   agent collaboration scenarios and simplified single-agent deployments
+   with integrated multiple skills and tools.
 
 5.2.2.3.1.  Knowledge Base
 
@@ -684,7 +693,7 @@ Table of Contents
    human in the process, the architecture can leverage their insights
    and experience, ensuring AI actions align with organizational goals.
 
-   Human in the loop is also helpful to provide a safeguard for complex
+   Human on the loop is also helpful to provide a safeguard for complex
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
@@ -753,7 +762,11 @@ Table of Contents
       be used to ensure interoperability among different Agent vendors.
       It is also worth noting that message queue mechanisms such as
       Kafka could also be a candidate interface for asynchronous
-      communications for agent registration and discovery.
+      communications for agent registration and discovery.  This
+      interface also supports skill management, including skill query,
+      loading, unloading, and version control, enabling agents to
+      dynamically obtain and use skills provided by the Registration
+      component.
 
    *  Security and Trust Security and Trust ensures trusted inter-Agent
       communication by verifying the identity of AI Agents and enforcing
@@ -1974,6 +1987,10 @@ Table of Contents
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
+
+   [OTel-gen-ai]
+              "AI Agent Observability", 2025,
+              <https://opentelemetry.io/docs/specs/semconv/gen-ai/>.
 
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
