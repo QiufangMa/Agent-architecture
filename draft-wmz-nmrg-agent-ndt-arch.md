@@ -1201,9 +1201,12 @@ incorrect configuration logic.
 The emerging Model Context Protocol (MCP) provides a framework for connecting AI models to
 external tools and data. However, there is currently no standardized way to map YANG primitives
 to MCP components (Resources, Tools, and Prompts). This gap results in:
-•	Semantic Ambiguity: LLMs lack the contextual hints needed to understand the operational impact of specific YANG leaves.
-•	Interoperability Barriers: AI agents require custom "glue code" for every vendor's unique interpretation of how a YANG model should be exposed to an AI.
-•	Scaling Issues: Massive YANG schemas exceed LLM context windows, requiring standardized methods for sub-schema discovery and pruning.
+
+o Semantic Ambiguity: LLMs lack the contextual hints needed to understand the operational impact of specific YANG leaves.
+
+o Interoperability Barriers: AI agents require custom "glue code" for every vendor's unique interpretation of how a YANG model should be exposed to an AI.
+
+o Scaling Issues: Massive YANG schemas exceed LLM context windows, requiring standardized methods for sub-schema discovery and pruning.
 
 ## Trust and Security
 
