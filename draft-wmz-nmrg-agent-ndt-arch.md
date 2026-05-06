@@ -864,7 +864,7 @@ continuously monitors the network by data collection. Based on the result of net
 running analysis and user explicit feedback, it may adjust and optimize the
 management strategy if necessary.
 
-## Agent and Skill Enabled Network Configuration Change
+## Multi-Agent Collaboration on Network Configuration Change
 
 Network configuration changes are needed in scenarios such as optimizing network
 or service performance, provisioning new network services, or resolving network incidents/faults.
