@@ -2038,6 +2038,15 @@ Appendix A.  Acknowledgements
 
 Appendix B.  Changes between Revisions
 
+   v03 - v04 * Add some background information for this work in the
+   introduction; * Agent Governance Consideration in the context of
+   network management; * Clarify the value of Agent added to the network
+   management architecture; * Add one new definition for Autonomy; *
+   Rewrite Challenges for Agent Benchmarking; * Rewrite the 1st
+   challange on making YANG AI ready; * Add a new challenge on Agent
+   Observability,Intervention and Control; * Add OTel & agent skill
+   alignment.
+
    v02 - v03
 
 * Agentic AI Architecture Update.
