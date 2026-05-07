@@ -5,16 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 10 August 2026                                     China Mobile
+Expires: 8 November 2026                                    China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
-                                                           L. Tailhardat
-                                                         Orange Research
                                                                  Y. Hong
                                                       Daejeon University
-                                                         6 February 2026
+                                                              7 May 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -25,13 +23,15 @@ Abstract
 
    A Network Digital Twin (NDT) provides a network emulation tool usable
    for different purposes such as scenario planning, impact analysis,
-   and change management.  Integrating a Network Digital Twin into
-   network management together with Agentic AI, it allows the network
-   management activities to take user intent or service requirements as
-   input, automatically assess, model, and refine optimization
-   strategies under realistic conditions but in a risk-free environment.
-   Such environment that operates to meet these types of requirements is
-   said to have AI driven Network Operations.
+   and change management.  Agentic AI enables dynamic goal-driven
+   execution and adaptive behavior and closed-loop autonomy.  By
+   integrating a Network Digital Twin into network management together
+   with the Agentic AI, it allows the network management activities to
+   take user intent or service requirements as input, automatically
+   assess, model, and refine optimization strategies under realistic
+   conditions but in a risk-free environment.  Such environment that
+   operates to meet these types of requirements is said to have AI
+   driven Network Operations.
 
    AI driven Network Operations brings together existing technologies
    such as Agentic AI and Network Digital Twin which may be seen as the
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2026.
+   This Internet-Draft will expire on 8 November 2026.
 
 Copyright Notice
 
@@ -97,14 +97,15 @@ Table of Contents
        5.2.1.  Network Applications
        5.2.2.  Autonomous Domain
      5.3.  Functional Interfaces
-       5.3.1.  Human in the Loop
-       5.3.2.  Application to Network AI Agent Interface
+       5.3.1.  Human Oversight (Human on the Loop)
+       5.3.2.  Application to Network AI Agent Interface (Intent based
+               Management)
        5.3.3.  Network AI Agent to Task AI Agent Interface (Single
                Autonomous Domain)
        5.3.4.  Network AI Agent to Network AI Agent Interface (Cross
                Autonomous Domain)
-       5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway
-               Interface
+       5.3.5.  Network AI Agent/Task AI Agent to Agent Fabric
+               Interface (Agent Lifecycle Management)
        5.3.6.  Network AI Agent to Network Digital Twin Interface
        5.3.7.  Network AI Agent to Knowledge Base Interface
        5.3.8.  Task AI Agent to Physical Network Interface
@@ -121,23 +122,23 @@ Table of Contents
      9.3.  Multi-Agent Collaboration on Network Optimization
      9.4.  Network level Energy Efficiency Management in the
            IP+Optical network
-     9.5.  Network Security Drills (Human in the Loop)
+     9.5.  Network Security Drills (Human on the Loop)
    10. Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     10.1.  Create domain specific language for agents and models
+     10.1.  Make IETF developed YANG models AI ready
      10.2.  Trust and Security
      10.3.  Protocols between Agent and Agent/Human operator/Tools
        10.3.1.  High Risk Operations
        10.3.2.  The Timeliness Requirements of Collaboration
        10.3.3.  Collaboration Reliability
-     10.4.  Benchmarking
-       10.4.1.  Single Agent Benchmarking
-       10.4.2.  Multi-Agent Benchmarking
+     10.4.  Agent Observability,Intervention and Control
+     10.5.  Agent Benchmarking vs Model Benchmarking
    11. Security Considerations
    12. IANA Considerations
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
+   13. Conclusion
+   14. References
+     14.1.  Normative References
+     14.2.  Informative References
    Appendix A.  Acknowledgements
    Appendix B.  Changes between Revisions
    Contributors
@@ -145,26 +146,49 @@ Table of Contents
 
 1.  Introduction
 
-   The rapid expansion of network scale and the increasing demands on
-   these networks necessitate of continuous network reconfiguration to
-   better adapt to ever-changing service requirements.
+   With the rapid expansion of network scale and the increasing demands
+   on these networks, significant challenges arise with keeping device
+   configurations consistent with the needs of services and rapidly
+   adapting the network at scale.  The intent based management has been
+   first introduced in [RFC9315] to address these challenges and
+   necessitate of continuous network reconfiguration to better adapt to
+   ever-changing service requirements.
 
    Since network changes are directly related to service operations, any
    successful change needs to not only ensure that new services are
    provisioned smoothly, but also that existing services are not
    affected and that no problems are introduced with the new
-   configurations.  Network operators are, therefore, increasingly
-   cautious about making network changes, given that they need to review
-   the solution design as well as evaluate all change impacts, before
-   making any change.  Then, after the change, they need to perform
-   dialing tests, monitor traffic, and manually check table entries.
+   configurations.  On one hand, these changes might still require
+   manual operation or iterative input from network Operators to provide
+   operational guidance and information about the goals, purposes, and
+   service instances that the network is to serve and refine the intent.
+   On the other hand, pre-programmed automation scripts or policy
+   templates may not be sufficient to realize the intent.  Network
+   operators are, therefore, increasingly cautious about making network
+   changes.  For example, they need to review the solution design as
+   well as evaluate all change impacts, before making any change.  Then,
+   after the change, they need to perform dialing tests, monitor
+   traffic, and manually check table entries.
 
    The Network Digital Twin (NDT)
-   [I-D.irtf-nmrg-network-digital-twin-arch] has been proposed as a mean
-   to provide a network emulation tool for scenario planning, impact
-   analysis, and change management.  Agentic AI introduces disruptive
-   paradigm to the network management and allow declarative intent
-   interpretation, multi-step action, multi-agent coordination.
+   [I-D.irtf-nmrg-network-digital-twin-arch] provides Network operators
+   with a safe sandbox for testing complex configuration changes,
+   software updates, or new protocols before they are deployed in
+   production so that the risk of accidental outages or service
+   disruptions can be greatly reduced.
+
+   In addition, Agentic AI introduces disruptive paradigm to the network
+   management which:
+
+   *  Allows declarative intent interpretation and refinement with
+      multi-step task management,
+
+   *  Enables dynamic goal-driven execution and adaptive behavior
+      instead of stepwise static instruction,
+
+   *  And enables closed-loop autonomy across layer or across domain
+      instead of deterministic closed-loop automation.
+
    Integrating a Network Digital Twin into network management together
    with Agentic AI, it allows network management activities to
    dynamically adapt to customer needs, network changes, as well as to
@@ -206,10 +230,14 @@ Table of Contents
       generation, flow control, routing, and congestion control and
       evaluate traffic's impact on network performance.
 
-   *  Support generation of rectification solutions for potential
-      network risks and provide verification on the repair solution in
-      seconds, including loop, address conflict, and security policy
-      conflict.
+   *  Support generation of repair solutions for potential network risks
+      and provide verification on the repair solution in seconds,
+      including loop, address conflict, and security policy conflict.
+
+   *  Model the performance characteristics of each flow according to
+      traffic conditions change by using a virtual topology in order to
+      understand which flows and network portions can be potentially
+      affected by performance degradation and act to prevent it
 
    This document describes an architecture for AI Driven network
    operations, showing how these components work together with network
@@ -242,6 +270,10 @@ Table of Contents
 
    *  Agentic AI [I-D.hong-nmrg-agenticai-ps]
 
+   *  Multiple Agent System (MAS)
+
+   *  Remote Code Execution (RCE)
+
    Besides, this document defines the following terminology:
 
    Network AI Agent:  Network AI Agent is an autonomous system or entity
@@ -255,6 +287,9 @@ Table of Contents
    Task AI Agent:  Task AI Agent is responsible for coordinating with
       Network AI Agent in the multi-Agent System and executing specific
       task assigned by Network AI Agent.
+
+   Autonomy:  The ability to operate under uncertainty and adapt to
+      changing objectives without explicit external intervention.
 
 3.  Introduction of Concepts
 
@@ -317,25 +352,21 @@ Table of Contents
    management.
 
            +---------------------------------------------------+
-           |                  +---------+                      |
-           |                  |  Intent |                      |
-           |                  +---------+                      |
            |                                                   |
-           | +-----------+                       +-----------+ |
-           | |  Analysis |                       | Decision  | |
-           | +-----------+       --------        +-----------+ |
-           |                 ////        \\\\                  |
-           |                |AI Driven Network|                |
-           |                |  Operations    |                 |
+           |   +---------+                       +-----------+ |
+           |   |  Intent |                       | Knowledge | |
+           |   +---------+                       +-----------+ |
+           |                                                   |
+           |                     --------                      |
+           |  +-----------+  ////        \\\\    +-----------+ |
+           |  |  Analysis | |AI Driven Network|  | Decision  | |
+           |  +-----------+ |  Operations    |   +-----------+ |
            |                 \\\\        ////                  |
            |                     --------                      |
            | +-----------+                      +------------+ |
            | |  Awareness|                      |  Execution | |
            | +-----------+                      +------------+ |
            |                                                   |
-           |                 +-----------+                     |
-           |                 | Knowledge |                     |
-           |                 +-----------+                     |
            +---------------------------------------------------+
 
         Figure 1: Six Key Elements to Characterize AI driven network
@@ -430,13 +461,13 @@ Table of Contents
 +-------------------------+----------------------------------------------+
 |Autonomous Domain        |                                              |
 |+------------------------+-----------------------+   +----------------+ |
-||Multi-Agent System      |                       |   |  Agent Gateway | |
+||Multi-Agent System      |                       |   |  Agent Fabric  | |
 ||                +-------v--------+              |   |                | |
 ||                |Network AI Agent|              |   |+--------------+| |
 ||                +-------^--------+              |   || Registration || |
 ||                        |                       |   |+--------------+| |
 ||       +----------------+------------+--------+ <--->+--------------+| |
-||       |                |            |        | |   ||   Security   || |
+||       |                |            |        | |   ||Security&Trust|| |
 ||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
 |||Task Agent 1<->Task Agent 2<->Task Agent 3| ...<-+ |+--------------+| |
 ||+------------+ +------------+ +------------+    | | ||Observability || |
@@ -496,9 +527,13 @@ Table of Contents
    Multi-Agent system acts as the smart brain of the Autonomous Domain,
    which is responsible for conducting AI-based analysis and making
    decisions regarding network management operations.  It usually
-   comprises a Network AI Agent and one or multiple task agents.
+   comprises a Network AI Agent and zero or multiple task agents; in
+   some simplified scenarios, the system may also consist of only one
+   single AI Agent equipped with multiple skills and toolsets that
+   integrates both network-level coordination and task-specific
+   execution.
 
-   The Network AI Agent coordinates cross-task-agent collaboration,
+   The Network AI Agent may coordinate cross-task-agent collaboration,
    aligns tasks with user intent, and supervises the task execution of
    each task agent.  And task agents are designed to perform specific
    functionalities, they could be scenario-oriented and classified
@@ -510,9 +545,9 @@ Table of Contents
    operation task.  Some ongoing efforts (MCP [MCP], A2A [A2A]) in the
    industry may help with multi-agents coordination.
 
-5.2.2.2.  Agent Gateway
+5.2.2.2.  Agent Fabric
 
-   The Agent Gateway, which serves as a central management hub, provides
+   The Agent fabric, which serves as a central management hub, provides
    essential services for the Multi-Agent System, including agent
    registration/discovery, authentication, observability, and knowledge
    base.
@@ -534,14 +569,14 @@ Table of Contents
    way for Agents to improve how they perform specific tasks through
    folds that include instructions, scripts, and resources that are only
    loaded when needed.  Skills are folds containing a "skill.md" file,
-   Registration component enables Agents to query directories for
-   required skills.
+   Registration component may also work as a skill hub that enables
+   Agents to query directories for required skills.
 
    [A2A] implements Agent Registration by providing the Agent Card
    mechanism to ensure Agents from different vendors can register and
    discover other Agents they need.
 
-5.2.2.2.2.  Security
+5.2.2.2.2.  Security & Trust
 
    The security component enforces trusted inter-Agent communication by
    verifying the identity of AI Agents and enforcing security policies
@@ -564,16 +599,22 @@ Table of Contents
 5.2.2.3.  Observability
 
    Observability component provides unified monitoring capabilities for
-   all AI agents within the autonomous domain and enable network
-   operators to gain deep insights into Agent behaviors.  It collects
-   logs, metrics and traces for each Agent and provides end-to-end
-   visibility into task progress, failures, and network performance such
-   as latency.
+   all AI agents within the autonomous domain and enables network
+   operators to gain deep insights into Agent behaviors.
 
-   In addition, it can also make sure every action is governed by
-   declarative policy, logged, and traceable for operational integrity,
-   e.g., it can discern whether a human-in-the-loop approved an action
-   or if the agent acted autonomously.
+   OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI
+   Agent observability.  It provides a consistent instrumentation layer,
+   semantic conventions, and telemetry export mechanisms, ensuring
+   end-to-end visibility across network AI agents, task AI agents, LLM
+   inference, and tool/skill executions.
+
+   By leveraging Semantic Conventions for GenAI [OTel-gen-ai], the
+   system unifies the collection of LLM inference metadata, token
+   consumption, reasoning processes, and skill invocation events, etc.
+   This allows comprehensive tracking of agent runtime status, cross-
+   component interaction flows, and abnormal behaviors in both multi-
+   agent collaboration scenarios and simplified single-agent deployments
+   with integrated multiple skills and tools.
 
 5.2.2.3.1.  Knowledge Base
 
@@ -644,7 +685,7 @@ Table of Contents
    might not be visible as specific relationships in Figure 2, but they
    can nevertheless exist.
 
-5.3.1.  Human in the Loop
+5.3.1.  Human Oversight (Human on the Loop)
 
    The architecture allows human experts to monitor, guide, approve, or
    intervene in the AI driven network operations.  Human may provide
@@ -652,7 +693,7 @@ Table of Contents
    human in the process, the architecture can leverage their insights
    and experience, ensuring AI actions align with organizational goals.
 
-   Human in the loop is also helpful to provide a safeguard for complex
+   Human on the loop is also helpful to provide a safeguard for complex
    or sensitive decisions, where human judgement is essential to avoid
    potential errors or ethical dilemmas.
 
@@ -663,7 +704,8 @@ Table of Contents
    workflows.  Protocols like A2A [A2A], and RESTful API can be
    leveraged.
 
-5.3.2.  Application to Network AI Agent Interface
+5.3.2.  Application to Network AI Agent Interface (Intent based
+        Management)
 
    Intent based Network Management helps in delivering application
    requests to the AI Driven network operation platform and exposing the
@@ -704,28 +746,49 @@ Table of Contents
    interface, ensuring secure and reliable interaction between
    autonomous systems from different administrative domains.
 
-5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway Interface
+5.3.5.  Network AI Agent/Task AI Agent to Agent Fabric Interface (Agent
+        Lifecycle Management)
 
-   The interface between Multi-Agent System and Agent Gateway serves as
+   The interface between Multi-Agent System and Agent Fabric serves as
    the management bridge which encompasses a set of services designed to
-   manage the lifecycle, security, and collaborative capabilities of the
-   AI Agents.
+   manage the lifecycle of AI agents, and collaborative capabilities of
+   AI Agents such as Registration, Security and Trust, Observability.
 
-   Registration handles Agent onboarding, lifecycle tracking (e.g.,
-   heartbeat monitoring, status updates), and capability-based Agent
-   discovery.  Interfaces like RESTful APIs with structural schema for
-   AI Agents metadata description could be leveraged.  Protocols like
-   A2A [A2A] Agent card mechanism may also be used to ensure
-   interoperability among different Agent vendors.  It is also worth
-   noting that message queue mechanisms such as Kafka could also be a
-   candidate interface for asynchronous communications for agent
-   registration and discovery.
+   *  Registration Registration handles Agent onboarding, lifecycle
+      tracking (e.g., heartbeat monitoring, status updates), and
+      capability-based Agent discovery.  Interfaces like RESTful APIs
+      with structural schema for AI Agents metadata description could be
+      leveraged.  Protocols like A2A [A2A] Agent card mechanism may also
+      be used to ensure interoperability among different Agent vendors.
+      It is also worth noting that message queue mechanisms such as
+      Kafka could also be a candidate interface for asynchronous
+      communications for agent registration and discovery.  This
+      interface also supports skill management, including skill query,
+      loading, unloading, and version control, enabling agents to
+      dynamically obtain and use skills provided by the Registration
+      component.
 
-   Authentication ensures trusted inter-Agent communication by verifying
-   the identity of AI Agents and enforcing security policies throughout
-   their interaction.  Protocols like Transport Layer Security (TLS)
-   could be leveraged for in-transit data Protection.  While OAuth 2.0
-   and OpenID Connect are increasingly used to authenticate AI Agents.
+   *  Security and Trust Security and Trust ensures trusted inter-Agent
+      communication by verifying the identity of AI Agents and enforcing
+      security policies throughout their interaction.  Protocols like
+      Transport Layer Security (TLS) could be leveraged for in-transit
+      data Protection.  While OAuth 2.0 and OpenID Connect are
+      increasingly used to authenticate AI Agents.
+
+   *  Observability The observability component enables the network
+      operators to gain deep insights of agent behaviors.  It collects
+      audit logs, metrics and traces of each agent and provides
+      visibility of task process.  In addition, to make the behavior of
+      multi-agent system declarative and traceable, it is essential to
+      have the capability to distinguish whether an operation action is
+      taken by agents automatically or by human operators.  For example,
+      in the fault management scenarios that need on-site repairing, the
+      demarcation and locating task could be accomplished by agents, and
+      the repair solution implementation and verification task is
+      accomplished by human operators, maybe with the help of
+      intelligent copilot.  The traceable logs are essential for both
+      clarifying the duty boundary between agents and human operators,
+      and also for evaluating the effectiveness of the agentic system.
 
    The interface between AI Agent and Knowledge Base is specified in
    Section 5.3.7.
@@ -927,7 +990,7 @@ Table of Contents
          interprets this intent and translates it into actionable
          network operation tasks to each task Agent.
 
-   *  Knowledge:  The Knowledge Base in Agent Gateway serves as the
+   *  Knowledge:  The Knowledge Base in Agent Fabric serves as the
          central repository for domain-specific knowledge, expert rules,
          and historical data.  It provides the necessary context and
          long/short memory to support accurate decision-making by task
@@ -959,7 +1022,7 @@ Table of Contents
 7.  AI Agent Registration and Team formation
 
                                                      +----------------+
-                                                     |Agent Gateway   |
+                                                     |Agent Fabric    |
                     +-----------+                    | +------------+ |
                     |  Network  |      Register      | |            | |
                     | AI Agent  +--------------------+->            | |
@@ -976,7 +1039,7 @@ Table of Contents
                     +-----------+
                     |  Incident |
                     |   Center  |                    +----------------+
-                    +-----+-----+                    |Agent Gateway   |
+                    +-----+-----+                    |Agent Fabric    |
                      Incident Notif                  | +------------+ |
                           |        Registry based    | |   Agent    | |
            Intent   +-----V-----+    Discovery       | |            | |
@@ -996,10 +1059,10 @@ Table of Contents
 
       Figure 4: AI Agent Registration and Team formation Usage Example
 
-   The Agent gateway at the network level provides agent registration
-   for both embedded AI agent in each network element and network AI
-   agent and associated task agents.  The following steps are performed
-   to provide Event driven AI Agent Team formation within the Agentic AI
+   The Agent Fabric at the network level provides agent registration for
+   both embedded AI agent in each network element and network AI agent
+   and associated task agents.  The following steps are performed to
+   provide Event driven AI Agent Team formation within the Agentic AI
    network management architecture:
 
    Step 1:  Human Operator pre-provision user intent which comprises
@@ -1012,7 +1075,7 @@ Table of Contents
 
    Step3:  Network AI agent generate task planning based on objective
       and then discover matched task agent lists based on planned task
-      from registration center within the agent gateway.
+      from registration center within the agent fabric.
 
    Step4:  Upon receiving incident from the incident center, network AI
       agent assign the tasks to task agents corresponding to specific
@@ -1026,7 +1089,7 @@ Table of Contents
       Artifacts Delivery
     +-----------+
     |           |                                    +----------------+
-    |           |                                     Agent Gateway   |
+    |           |                                     Agent Fabric    |
     |        +--V--------+  Agent Identity Discovery | +------------+ |
     |        |    Task   <---------------------------+->   Agent    | |
     |        |  AI Agent <---------------------+     | |            | |
@@ -1376,10 +1439,10 @@ Table of Contents
    network digital twin to know which part of the network need to be
    adjusted or optimized based on network status change.
 
-9.5.  Network Security Drills (Human in the Loop)
+9.5.  Network Security Drills (Human on the Loop)
 
                                  +----------------+   Human
-                                 | Agent Gateway  |  Operator
+                                 | Agent Fabric   |  Operator
             +-----------------+  |                | /---------\
             | Network AI Agent|  |+--------------+| | Analyze |
             |     Goal        |  ||              || | Define  |
@@ -1447,42 +1510,30 @@ Table of Contents
    integrating agentic AI together with network digital twin for network
    operations.
 
-10.1.  Create domain specific language for agents and models
+10.1.  Make IETF developed YANG models AI ready
 
-   Feeding network data into machine-readable knowledge for autonomous
-   AI agents involves transforming raw telemetry and metadata into a
-   structured semantic format.  This process typically uses the Model
-   Context Protocol (MCP) and Domain Specific Languages (DSLs) to bridge
-   the gap between low-level network signals and high-level AI
-   reasoning.
+   Network management has evolved towards model-driven programmability
+   using YANG (RFC 7950).  While YANG provides a rigorous structure for
+   data, it was designed for deterministic software clients rather than
+   the probabilistic reasoning of Large Language Models (LLMs).
+   Consequently, AI agents often struggle to navigate complex YANG
+   hierarchies, leading to "hallucinations" or incorrect configuration
+   logic.
 
-   o Semantic & Contextual
+   The emerging Model Context Protocol (MCP) provides a framework for
+   connecting AI models to external tools and data.  However, there is
+   currently no standardized way to map YANG primitives to MCP
+   components (Resources, Tools, and Prompts).  This gap results in:
 
-   Network data is often low-fidelity and lacks the context for AI to
-   "reason" about intent or impact.  AI agents may struggle to
-   understand that a numerical value represents "Frame Delay" without
-   explicit ontological mapping.
+   o Semantic Ambiguity: LLMs lack the contextual hints needed to
+   understand the operational impact of specific YANG leaves.
 
-   o Data Quality & Fragmentation
+   o Interoperability Barriers: AI agents require custom "glue code" for
+   every vendor's unique interpretation of how a YANG model should be
+   exposed to an AI.
 
-   Information is often fragmented across multiple vendor tools and
-   legacy systems, preventing a unified knowledge model.  Processing
-   high-velocity data and non-standardized formats makes it difficult
-   for AI to generalize across different device types.
-
-   o Technical & Computational
-
-   Architectural Limits: Standard hardware often lacks the capacity for
-   real-time AI operations at the data-plane level.  Token/Memory
-   Limits: AI models have finite "context windows," which restricts
-   their ability to process long or complex network sequences.
-
-   o Operational & Trust
-
-   "Black Box" Problem: AI decisions can be opaque, making it hard for
-   human operators to audit or trust automated actions.  Skill Gap:
-   There is a significant shortage of professionals with the cross-
-   disciplinary expertise needed for both networking and AI development.
+   o Scaling Issues: Massive YANG schemas exceed LLM context windows,
+   requiring standardized methods for sub-schema discovery and pruning.
 
 10.2.  Trust and Security
 
@@ -1494,32 +1545,38 @@ Table of Contents
    In a single-agent scenario, Human operators access services through
    the network management AI agent.  The network management AI agent has
    multiple functions (fault and optimization), and authentication is
-   required to prevent users from accessing the optimization function
-   interface when they only have fault agent permissions.
+   required to prevent users from Performing unauthorized actions by
+   exploiting privilege vulnerabilities,e.g., accessing the optimization
+   function interface when they only have fault agent permissions.
 
    o AI Agent -> API Services
 
    In a single-agent scenario, the network management AI agent triggers
-   tasks automatically based on trace and log information.
+   tasks automatically based on trace and log information.  In some
+   cases, the logging or decision-making process cannot be traced.
 
    o Human operator-> AI Agent -> multiple AI Agent
 
    Multiple agents may call each other.  For example, if a faulty agent
-   A calls an optimization agent B, authentication is required.
+   A calls an optimization agent B, authentication is required to
+   prevent Manipulating communication channels of agents to influence
+   decision-making processes.
 
    o External AI Agent ->AI Agent-> APIs/Tools/APIs/LLMs
 
    External AI agents can directly access the network management AI
    Agent by simulating human operation through interface protocols.  For
    example, a customer AI agent can access the Network AI Agent through
-   a northbound interface.
+   a northbound interface protocol such as A2A, MCP.  In some case,
+   there might have target flaws in protocols like MCP or A2A;
+   e.g.,consent bypass, context hijacking, etc.
 
    Ensuring robust security throughout the entire AI-based network
    management architecture is essential to prevent unauthorized access
    and maintain the security of the network infrastructure.  The
    security risk can be break down into the following cases:
 
-   o External system interact with AI agent
+   o External system interacts with AI agent
 
    Human Operators or external systems bypass their privileges to
    operate the Network management AI agent
@@ -1528,6 +1585,12 @@ Table of Contents
       the service scope that the AI agent can handle may exceed the
       user's authorized privileges, leading to unauthorized access.
 
+   *  Human operators manipulate business operations using agent
+      delegation and authorization.
+
+   *  Human operators Coerce intelligent agents to manipulate users into
+      performing covert operations.
+
    o AI Agent Interact with Tools/APIs/LLMs
 
    *  Interact with Tools/APIs/LLMs with Privilege Escalation
@@ -1535,13 +1598,16 @@ Table of Contents
       Since network management AI agents rely on LLM for inference when
       accessing APIs and tools, there is a possibility of malicious
       injection scenarios where the APIs accessed by the agent exceed
-      the expected scope.
+      the expected scope,e.g.,Using AI to generate execution
+      environments and inject malicious code.
 
    *  Interact with Tools/APIs/LLMs without audit
 
       When an agent interacts with an API or tool, the logs are
       currently recorded as system logs, which cannot distinguish
-      between different agents and pose a risk of repudiation.
+      between different agents, the logging or decision-making process
+      for specific agent cannot be traced and pose a risk of
+      repudiation.
 
    o Multiple Agent Collaboration and Communication
 
@@ -1549,13 +1615,15 @@ Table of Contents
 
       When agents communicate with each other via intent communication
       and understanding, there is a cascading permission amplification
-      problem, leading to Privilege Escalation.
+      problem,e.g.,AI-generated false information disrupts the reasoning
+      process , leading to Privilege Escalation.
 
    *  Interaction with internal AI Agent
 
       As a microservice, a network management AI agent can be accessed
-      by other services or AI agents, which poses a risk of Privilege
-      Escalation.
+      by other services or AI agents,e.g., Performing unauthorized
+      operations by exploiting authentication vulnerabilities,which
+      poses a risk of Privilege Escalation.
 
 10.3.  Protocols between Agent and Agent/Human operator/Tools
 
@@ -1632,57 +1700,75 @@ Table of Contents
    maintained is a significant challenge in providing reliable inputs
    for AI-driven network management.
 
-10.4.  Benchmarking
+10.4.  Agent Observability,Intervention and Control
 
-10.4.1.  Single Agent Benchmarking
+   Network operations are increasingly autonomous with the growth of
+   network management Agent applications at the network level and
+   service level.  Since AI native operations are non-deterministic,
+   when network management agents misbehave or deviate from what Agents
+   are expected to do, Current AI safety technologies, often referred to
+   as "AI guardrails" are introduced to constrain the behavior of AI
+   agents within operational and ethical boundaries, prevent AI from
+   producing harmful results, e.g.,escalate a decision to a human for
+   high-risk network operation, protect against malicious attacks,e.g.,
+   prompt injection.  These guardrails typically operate at the input/
+   output filter level or through static boundary alignment.
 
-   The core of Single Agents assessment lies in its "omnipotence" and
-   the quality of its direct interaction with the environment.
+   However as AI systems are increasingly integrated into autonomous
+   workflows and critical infrastructure, these static measures are
+   proving insufficient for the full operational lifecycle, the pace of
+   AI Agent technology adoption is exceeding network operators'
+   capacities to assure and control them.  Network operators usually
+   lack an equivalent infrastructure for human oversight or to provide
+   continuous, monitoring of an AI system’s internal logic or its long-
+   running execution paths that match the speed and scale of the network
+   management Agent applications,e.g.,network failure or security risk
+   is hard to detect and control, occurring at machine speed.  When a
+   violation is suspected, there are currently no standardized protocols
+   for "policy implementation intervention" or "operation rollback"
+   mechanism.  In non-deterministic environments, the inability to
+   revert to a "last known safe state" or undo a series of autonomous
+   actions creates significant operational risk, as the system cannot be
+   effectively recovered without a full reset.
 
-   o Task complexity bottleneck
+10.5.  Agent Benchmarking vs Model Benchmarking
 
-   When dealing with long-term, multi-step tasks, single agents are
-   prone to hallucination accumulation and reasoning chain breaks.
-   Benchmark tests need to evaluate their persistent logic capabilities
-   under context window constraints.
+   Current AI evaluation frameworks are primarily designed for "one-
+   shot" Large Language Models (LLMs) that provide static responses to
+   isolated prompts.  However, the industry is shifting toward AI
+   Agents: systems capable of reasoning, planning, and using tools to
+   execute complex, multi-step workflows.
 
-   o Command compliance and control
+   Traditional benchmarks (e.g., HumanEval) focus on outcome-only
+   scoring and static knowledge.  These fail to measure the core
+   competencies of agents, such as long-horizon planning, tool-use
+   proficiency, and the ability to adapt to environmental feedback.
 
-   The challenge lies in whether the model can strictly follow complex
-   system prompts, especially when there are many tool options, which
-   can easily lead to tool invocation errors or the omission of some
-   instructions.
+   As agents increasingly manage production-level tasks—often involving
+   millions of tokens and hundreds of tool calls—there is a critical
+   need for standardized metrics that evaluate the process of task
+   completion, not just the final result.
 
-   o Generalization and memory
+   o Sequential Complexity: Unlike single-turn benchmarks that check one
+   answer, agents require multi-step task completion where each step
+   relies on the success of the previous one.  This involves massive
+   workflows (e.g., ~90 tool calls) that traditional benchmarks don't
+   measure.
 
-   To evaluate how monolithic models can efficiently manage long-term
-   memory to handle new tasks without relying on external collaborative
-   support.
+   o Environmental Interaction: Agents must interact with live
+   environments.  Evaluation shifts from checking if code passes a test
+   to whether a system can select, sequence, and execute tools in
+   realistic, dynamic settings.
 
-10.4.2.  Multi-Agent Benchmarking
+   o Adaptive Planning: Benchmarking must move beyond static knowledge
+   retrieval to evaluate how systems build and adapt plans over long
+   horizons, especially when faced with resource constraints or
+   unexpected disruptions.
 
-   The focus of collaborative assessment has shifted from "individual
-   capabilities" to "system dynamics":
-
-   o Coordination and communication overhead:
-
-   Multi-agent systems (MAS) involve complex task decomposition and
-   allocation (global planning).  Benchmarking needs to measure the
-   communication efficiency between agents, alignment consistency, and
-   the high latency and cost caused by multi-turn interactions.
-
-   o Error tracing and attribution:
-
-   When the final task fails, it is extremely challenging to accurately
-   pinpoint which "role" went wrong or in which round of collaboration
-   there was a deviation (failure attribution) due to the presence of
-   multiple participants.
-
-   o Swarm intelligence and social emergence:
-
-   It is necessary to assess the dynamics of competition and cooperation
-   among intelligent agents, including the existence of systemic risks
-   such as information silos, resource waste, or vicious cycles.
+   o Process vs. Outcome: Traditional "right or wrong" scoring is
+   insufficient.  Agentic evaluation requires process metrics such as
+   tool success rates, context retention, and multi-turn coherence to
+   determine how an agent reached its conclusion.
 
 11.  Security Considerations
 
@@ -1690,28 +1776,140 @@ Table of Contents
    [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
    the following architectural risks need to be considered:
 
-   *  Single point of failure: While the architecture provides
-      resiliency through its recovery capabilities, the network digital
-      twin or Network AI Agent could become a single point of failure if
-      not implemented with sufficientc redundancy and fault tolerance.
+   o Memory Poisoning：If the AI/ML models used by the network AI Agent
+   or Network digital twin are compromised or poisoned with malicious/
+   fake data,they could begin making incorrect or malicious decisions.
+   Robust checks and validation are necessary to ensure the integrity of
+   these models.  Session isolation or memory access authentication is
+   also required to mitigate such risk.
 
-   *  AI/ML model integrity: If the AI/ML models used by the digital
-      twin are compromised or poisoned with bad data, they could begin
-      making incorrect or malicious decisions.  Robust checks and
-      validation are necessary to ensure the integrity of these models.
+   o Misuse of Tools： When network AI Agent interacts with tools,
+   Deceptive prompts or commands can be introduced.  Tool access
+   verification, tool monitoring, log tracking of AI tool usage are
+   required to mitigate such risk.
 
-   *  Lifecycle security: The entire lifecycle of the network AI agents
-      and the network digital twin—from initial deployment and
-      configuration to updates and decommissioning—must be secured
-      against unauthorized access and manipulation.
+   o Privilege Compromise：When human operators interact with Network AI
+   Agent or Network AI Agent interact with tools/APIs/LLM, unauthorized
+   actions might be performed by exploiting privilege vulnerabilities.
+   Fine-grained permission control, dynamic access verification, and
+   role change monitoring are required to mitigate such risk.
+
+   o Resource Overload：When Network AI Agent interact with tools/APIs/
+   LLMs, system failures might be caused by exploiting resource-
+   intensive features.  Deployment of resource management controls to
+   limit high-frequency task requests from agents is required to
+   mitigate such risk.
+
+   o Cascading Hallucinations：In case of multi-agent collaboration or
+   communication, AI-generated false information might disrupt the
+   reasoning process.Output verification, secondary verification of AI-
+   generated knowledge are required to mitigate such risk.
+
+   o Intent Breaking &Goal Manipulation：When external AI Agent or human
+   operators interact with the network AI Agent, reasoning through agent
+   planning capabilities might be manipulated.  Planning verification,
+   managing reflection processes, goal consistency protection are
+   required to mitigate such risk.
+
+   o Misaligned & Deceptive Behaviors：When Network AI Agent interact
+   with tools/APIs/LLMs, harmful operations might be performed by
+   exploiting reasoning vulnerabilities.  Manual confirmation of high-
+   risk operations, logging, monitoring, and deception detection are
+   required to mitigate such risk.
+
+   o Repudiation & Untraceability：In case of multi-agent collaboration
+   or communication, the logging or decision-making process might not be
+   traced.  Logging & cryptographic signature, cryptographic
+   verification are required to mitigate such risk.
+
+   o Identity Spoofing & Impersonation：When Human operators interact
+   with the network AI Agent or in case of multi-agent collaboration or
+   communication,unauthorized operations might be performed by
+   exploiting authentication vulnerabilities.  Comprehensive identity
+   verification, trust boundary control, and continuous monitoring are
+   required to mitigate such risk.
+
+   o Overwhelming HITL(Human In The Loop)：In case of multi-agent
+   collaboration or communication,fatigue auditors attack might take
+   place.  Developing advanced human-machine interaction frameworks and
+   adaptive trust mechanisms are required to mitigate such risk.
+
+   o Unexpected RCE & Code Attacks：When the network AI Agent interacts
+   with tools/APIs/LLMs, Using AI to generate execution environments and
+   inject malicious code might take place.  Restrict AI code generation
+   permissions, sandbox isolation, and manual review of generated code
+   are required to mitigate such risk.
+
+   o Agent Communication Poisoning：In case of multi-agent collaboration
+   or communication, communication channels of agents might be
+   manipulated to influence decision-making processes.  Message
+   authentication, communication verification, implementing multi-agent
+   authentication mechanisms.
+
+   o Rogue Agents in MAS：In case of multi-agent collaboration, there
+   might be malicious or compromised agents.  Restricting the autonomy
+   of agents and conducting regular AI testing are required to mitigate
+   such risk.
+
+   o Humans Attacks on MAS：In case of multi-agent collaboration,
+   business operations might be manipulated using agent delegation and
+   authorization.  Restricting the delegation mechanism, implementing AI
+   agent identity authentication, and isolate tasks in segments are
+   required to mitigate such risk.
+
+   o Human Manipulation：When Human operators interact with the network
+   AI Agent, AI agents might be coerced to manipulate users into
+   performing covert operations.  Safety guardrails, content moderation,
+   output content detection are required to mitigate such risk.
+
+   o Insecure Inter-Agent Protocol Abuse：In case of multi-agent
+   collaboration, there might be target flaws in protocols like MCP or
+   A2A; e.g.,consent bypass, context hijacking, etc.  Strong
+   authentication,data validation, restricting delegation to scoped
+   function,logging agent and tool invocations and encrypting
+   communications are required to mitigate such risk.
+
+   o Supply Chain Compromise：In case of multi-agent collaboration,
+   Vulnerable, malicious, outdated, harmful components might be included
+   into the agent.  Digital signatures of SBOMs (AI_, Agent_),applying
+   version control, chaining authentication, environment isolation are
+   required to mitigate such risk.
+
+   o Lifecycle security: The entire management lifecycle of the network
+   AI agents and the network digital twin—from initial deployment and
+   configuration to updates and decommissioning—must be secured against
+   unauthorized access and manipulation.
 
 12.  IANA Considerations
 
    This document has no requests to IANA.
 
-13.  References
+13.  Conclusion
 
-13.1.  Normative References
+   The following items were felt to be good starting points for IETF
+   work:
+
+   *  Nature Language Interaction protocol to ensure both The accuracy
+      and efficiency of structured data for deterministic tasks and
+      natural language interactions for understanding and handling
+      uncertain or ambiguous tasks.
+
+   *  Translate Service Level YANG Data model and Network Level YANG
+      Data model into DSL payloads and APIs which can be consumed by
+      Agents and Models.
+
+   *  Human and Agent Interaction to support explainable, observability
+      and controllable capabilities.
+
+   *  Define semantic information transfer or agent prompt language
+      template for Agent to Agent Communication.
+
+   *  Agent to Agent Protocol extensions for IP Network Agent and
+      Network Element Agent Collaboration.
+
+14.  References
+
+14.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1722,7 +1920,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-13.2.  Informative References
+14.2.  Informative References
 
    [A2A]      "Agent2Agent (A2A) protocol", April 2025, <https://google-
               a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-
@@ -1744,17 +1942,17 @@ Table of Contents
               Hong, Y., Youn, J., Wu, Q., and B. Claise, "Motivations
               and Problem Statement of Agentic AI for network
               management", Work in Progress, Internet-Draft, draft-hong-
-              nmrg-agenticai-ps-00, 20 October 2025,
+              nmrg-agenticai-ps-01, 1 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-hong-nmrg-
-              agenticai-ps-00>.
+              agenticai-ps-01>.
 
    [I-D.ietf-nmop-network-incident-yang]
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-07, 3 January 2026,
+              incident-yang-08, 13 February 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-07>.
+              network-incident-yang-08>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
@@ -1777,12 +1975,16 @@ Table of Contents
               Q., Boucadair, M., and C. Jacquenet, "Network Digital
               Twin: Concepts and Reference Architecture", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
-              twin-arch-11, 6 July 2025,
+              twin-arch-12, 27 February 2026,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
-              network-digital-twin-arch-11>.
+              network-digital-twin-arch-12>.
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
+
+   [OTel-gen-ai]
+              "AI Agent Observability", 2025,
+              <https://opentelemetry.io/docs/specs/semconv/gen-ai/>.
 
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
@@ -1840,15 +2042,28 @@ Appendix A.  Acknowledgements
 
 Appendix B.  Changes between Revisions
 
-   v01 - v02
+   v03 - v04
 
-* Agentic AI Architecture Update
+* Add some background information for this work in the introduction;
+* Agent Governance Consideration in the context of network management;
+* Clarify the value of Agent added to the network management architecture;
+* Add one new definition for Autonomy;
+* Rewrite Challenges for Agent Benchmarking;
+* Rewrite the 1st challange on making YANG AI ready;
+* Add a new challenge on Agent Observability,Intervention and Control;
+* Add OTel & agent skill alignment.
+
+   v02 - v03
+
+* Agentic AI Architecture Update.
 * Rewrite Functional Interfaces section for user to agent, agent to agent, agent to tools communication.
 * Explore Relationship Between      Management      Characteristics and Functional Components in section 6.
-* Rewrite a collection of use cases to support multi-agent collaboration.
+* Rewrite a collection of use cases to support multi-agent collaborations.
 * Rewrite Challenges section to cover Trust and Security, protocol and benchmarking.
 * Add workflows for Agent Registration, Discovery, team forming.
-* Add workflow for Agent to Agent Communciation Security
+* Add workflow for Agent to Agent Communciation Security.
+* Rewrite Security Consideration Section.
+* Add Conclusion Section.
 
    v00 - v01
 
@@ -1863,6 +2078,16 @@ Contributors
    Qiufang Ma
    Huawei
    Email: maqiufang1@huawei.com
+
+
+   Zhenqiang Li
+   CMCC
+   Email: lizhenqiang@chinamobile.com
+
+
+   Lionel Tailhardat
+   Orange Research
+   Email: lionel.tailhardat@orange.com
 
 
 Authors' Addresses
@@ -1888,11 +2113,6 @@ Authors' Addresses
    China Unicom
    China
    Email: hans29@chinaunicom.cn
-
-
-   Lionel Tailhardat
-   Orange Research
-   Email: lionel.tailhardat@orange.com
 
 
    Yong-Geun Hong
