@@ -390,7 +390,7 @@ realize specific functionality.
 +-------------------------+----------------------------------------------+
 |Autonomous Domain        |                                              |
 |+------------------------+-----------------------+   +----------------+ |
-||Multi-Agent System      |                       |   |  Agent Gateway | |
+||Multi-Agent System      |                       |   |  Agent Fabric  | |
 ||                +-------v--------+              |   |                | |
 ||                |Network AI Agent|              |   |+--------------+| |
 ||                +-------^--------+              |   || Registration || |
@@ -465,9 +465,9 @@ of Network Digital Twin, and the contextual and domain-specific knowledge provid
 Base to accomplish specific network operation task. Some ongoing efforts (MCP {{MCP}},
 A2A {{A2A}}) in the industry may help with multi-agents coordination.
 
-#### Agent Gateway
+#### Agent Fabric
 
-The Agent Gateway, which serves as a central management hub, provides essential services for
+The Agent fabric, which serves as a central management hub, provides essential services for
 the Multi-Agent System, including agent registration/discovery, authentication, observability,
 and knowledge base.
 
@@ -631,9 +631,9 @@ area, are candidate technologies for implementing this cross-domain interface, e
 reliable interaction between autonomous systems from different administrative domains.
 
 
-### Network AI Agent/Task AI Agent to Agent Gateway Interface (Agent Lifecycle Management)
+### Network AI Agent/Task AI Agent to Agent Fabric Interface (Agent Lifecycle Management)
 
-The interface between Multi-Agent System and Agent Gateway serves as the management bridge which
+The interface between Multi-Agent System and Agent Fabric serves as the management bridge which
 encompasses a set of services designed to manage the lifecycle of AI agents, and collaborative
 capabilities of AI Agents such as Registration, Security and Trust, Observability.
 
@@ -818,7 +818,7 @@ clarifies how the architecture operationalizes these characteristics:
  The Network AI Agent​ interprets this intent and translates it into actionable network operation tasks to each task Agent.
 
  * Knowledge:
- : The Knowledge Base​ in Agent Gateway serves as the central repository for domain-specific knowledge,
+ : The Knowledge Base​ in Agent Fabric serves as the central repository for domain-specific knowledge,
  expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
 
  * Analysis:
@@ -842,7 +842,7 @@ clarifies how the architecture operationalizes these characteristics:
 ~~~~
 
                                                   +----------------+
-                                                  |Agent Gateway   |
+                                                  |Agent Fabric    |
                  +-----------+                    | +------------+ |
                  |  Network  |      Register      | |            | |
                  | AI Agent  +--------------------+->            | |
@@ -859,7 +859,7 @@ clarifies how the architecture operationalizes these characteristics:
                  +-----------+
                  |  Incident |
                  |   Center  |                    +----------------+
-                 +-----+-----+                    |Agent Gateway   |
+                 +-----+-----+                    |Agent Fabric    |
                   Incident Notif                  | +------------+ |
                        |        Registry based    | |   Agent    | |
         Intent   +-----V-----+    Discovery       | |            | |
@@ -880,7 +880,7 @@ clarifies how the architecture operationalizes these characteristics:
 ~~~~
 {: #reg title="AI Agent Registration and Team formation Usage Example" artwork-align="center"}
 
-The Agent gateway at the network level provides agent registration for both embedded AI agent in each network
+The Agent Fabric at the network level provides agent registration for both embedded AI agent in each network
 element and network AI agent and associated task agents. The following steps are performed to provide Event driven AI Agent
 Team formation within the Agentic AI network management architecture:
 
@@ -892,7 +892,7 @@ Step 2:
 In addition, Network AI Agent subscribe corresponding incidents from incident center.
 
 Step3:
-: Network AI agent generate task planning based on objective and then discover matched task agent lists based on planned task from registration center within the agent gateway.
+: Network AI agent generate task planning based on objective and then discover matched task agent lists based on planned task from registration center within the agent fabric.
 
 Step4:
 : Upon receiving incident from the incident center, network AI agent assign the tasks to task agents corresponding to specific incident received.
@@ -907,7 +907,7 @@ Step 5:
    Artifacts Delivery
  +-----------+
  |           |                                    +----------------+
- |           |                                     Agent Gateway   |
+ |           |                                     Agent Fabric    |
  |        +--V--------+  Agent Identity Discovery | +------------+ |
  |        |    Task   <---------------------------+->   Agent    | |
  |        |  AI Agent <---------------------+     | |            | |
@@ -1210,7 +1210,7 @@ based on network status change.
 ~~~~
 
                      +----------------+   Human
-                     | Agent Gateway  |  Operator
+                     | Agent Fabric   |  Operator
 +-----------------+  |                | /---------\
 | Network AI Agent|  |+--------------+| | Analyze |
 |     Goal        |  ||              || | Define  |
