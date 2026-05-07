@@ -451,44 +451,76 @@ capabilities to achieve autonomous network management. It comprises the followin
 #### Multi-Agent System
 
 Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
-for conducting AI-based analysis and making decisions regarding network management operations. It usually comprises a Network AI Agent and one or multiple task agents; in some simplified scenarios, the system may also consist of only one single AI Agent equipped with multiple skills and toolsets that integrates both network-level coordination and task-specific execution.
+for conducting AI-based analysis and making decisions regarding network management operations.
+It usually comprises a Network AI Agent and zero or multiple task agents; in some simplified
+scenarios, the system may also consist of only one single AI Agent equipped with multiple
+skills and toolsets that integrates both network-level coordination and task-specific execution.
 
-The Network AI Agent coordinates cross-task-agent collaboration, aligns tasks with user intent, and supervises the task execution of each task agent. And task agents are designed
-to perform specific functionalities, they could be scenario-oriented and classified according to the function they perform.
-Task Agents can adapt to new circumstances through access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge Base to accomplish specific network operation task. Some ongoing efforts (MCP {{MCP}}, A2A {{A2A}}) in the
-industry may help with multi-agents coordination.
+The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user
+intent, and supervises the task execution of each task agent. And task agents are designed
+to perform specific functionalities, they could be scenario-oriented and classified according
+to the function they perform. Task Agents can adapt to new circumstances through access to
+evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
+of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge
+Base to accomplish specific network operation task. Some ongoing efforts (MCP {{MCP}},
+A2A {{A2A}}) in the industry may help with multi-agents coordination.
 
 #### Agent Gateway
 
-The Agent Gateway, which serves as a central management hub, provides essential services for the Multi-Agent System, including agent registration/discovery, authentication, observability, and knowledge base.
+The Agent Gateway, which serves as a central management hub, provides essential services for
+the Multi-Agent System, including agent registration/discovery, authentication, observability,
+and knowledge base.
 
 ##### Registration
 
-AI Agents need to first discover each other and understand their capabilities to collaborate. Agent Registration manages the process by which new agents could join the system, making them discoverable and available. It supports the unified registration of all AI agents within the autonomous domain, including those residing on network devices.
-Each Agent instance submits its
-own metadata information including URI, supported authentication methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task execution.
+AI Agents need to first discover each other and understand their capabilities to collaborate.
+Agent Registration manages the process by which new agents could join the system, making them
+discoverable and available. It supports the unified registration of all AI agents within the
+autonomous domain, including those residing on network devices.
+Each Agent instance submits its own metadata information including URI, supported authentication
+methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent
+or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task
+execution.
 
-Agent skills {{Agent-skills}}, introduced by Anthropic, provides a new way for Agents to improve how they perform specific tasks through folds that include instructions, scripts, and resources that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration component may also work as a skill hub that enables Agents to query directories for required skills.
+Agent skills {{Agent-skills}}, introduced by Anthropic, provides a new way for Agents to improve
+how they perform specific tasks through folds that include instructions, scripts, and resources
+that are only loaded when needed. Skills are folds containing a "skill.md" file, Registration
+component may also work as a skill hub that enables Agents to query directories for required
+skills.
 
-{{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents from different vendors can register and discover other Agents they need.
+{{A2A}} implements Agent Registration by providing the Agent Card mechanism to ensure Agents
+from different vendors can register and discover other Agents they need.
 
 ##### Security & Trust
 
-The security component enforces trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction. It provides unified security functionalities for all AI Agents within the autonomous domain, including those residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
+The security component enforces trusted inter-Agent communication by verifying the identity of
+AI Agents and enforcing security policies throughout their interaction. It provides unified
+security functionalities for all AI Agents within the autonomous domain, including those
+residing on network devices. Some existing authentication methods such as OAuth 2.0, allow
 to issue each AI Agent its own authentication credentials to establish trusted communication.
 
-Standardized protocols like TLS (Transport Level Security) could be leveraged to protect sensitive data exchanged between AI Agents.
+Standardized protocols like TLS (Transport Level Security) could be leveraged to protect
+sensitive data exchanged between AI Agents.
 
-It is also worth noting that once authenticated, authorization defines the specific tools and data an agent can access, which often using
-a Least Privilege access control method. It is also recommended to log every Agent decision and tooling call to maintain audit trail.
+It is also worth noting that once authenticated, authorization defines the specific tools and
+data an agent can access, which often using a Least Privilege access control method. It is also
+recommended to log every Agent decision and tooling call to maintain audit trail.
 
 #### Observability
 
-Observability component provides unified monitoring capabilities for all AI agents within the autonomous domain and enables network operators to gain deep insights into Agent behaviors.
+Observability component provides unified monitoring capabilities for all AI agents within the
+autonomous domain and enables network operators to gain deep insights into Agent behaviors.
 
-OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It provides a consistent instrumentation layer, semantic conventions, and telemetry export mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM inference, and tool/skill executions.
+OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It
+provides a consistent instrumentation layer, semantic conventions, and telemetry export
+mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM
+inference, and tool/skill executions.
 
-By leveraging Semantic Conventions for GenAI {{OTel-gen-ai}}, the system unifies the collection of LLM inference metadata, token consumption, reasoning processes, and skill invocation events, etc. This allows comprehensive tracking of agent runtime status, cross-component interaction flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified single-agent deployments with integrated multiple skills and tools.
+By leveraging Semantic Conventions for GenAI {{OTel-gen-ai}}, the system unifies the collection
+of LLM inference metadata, token consumption, reasoning processes, and skill invocation events,
+etc. This allows comprehensive tracking of agent runtime status, cross-component interaction
+flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified
+single-agent deployments with integrated multiple skills and tools.
 
 ##### Knowledge Base
 
@@ -525,10 +557,13 @@ to Network AI Agent(s) in {{arch}}.
 
 This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
-with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} or AI Agent may also achieve some local close loop without relying on human intervention. It is also possible for Lightweight AI or AI Agent to coordinate with other
+with Lightweight AI {{?I-D.irtf-nmrg-ai-challenges}} or AI Agent may also achieve some local
+close loop without relying on human intervention. It is also possible for Lightweight AI or
+AI Agent to coordinate with other
 AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Lightweight AI models could be trained, validated, deployed, and executed on Network Elements,
-and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.
+and further refined (e.g., model re-training) through monitoring and continuous optimization based
+on feedback from LLM.
 
 ## Functional Interfaces {#functional-interfaces}
 
@@ -550,12 +585,17 @@ relationships in {{arch}}, but they can nevertheless exist.
 ### Human Oversight (Human on the Loop)
 
 The architecture allows human experts to monitor, guide, approve, or intervene in the
-AI driven network operations. Human may provide guidance and make critical decisions when necessary. By involving human in the process, the architecture can leverage their insights and experience, ensuring AI actions align with organizational goals.
+AI driven network operations. Human may provide guidance and make critical decisions when
+necessary. By involving human in the process, the architecture can leverage their insights
+and experience, ensuring AI actions align with organizational goals.
 
 Human on the loop is also helpful to provide a safeguard for complex or sensitive
 decisions, where human judgement is essential to avoid potential errors or ethical dilemmas.
 
-This typically uses natural language as the primary mode of interaction, a chat platform that allows for conversational interaction with AI Agents can be leveraged. In some scenarios, operators may use structured format for strategy injection via workflows. Protocols like A2A {{A2A}}, and RESTful API can be leveraged.
+This typically uses natural language as the primary mode of interaction, a chat platform that
+allows for conversational interaction with AI Agents can be leveraged. In some scenarios,
+operators may use structured format for strategy injection via workflows. Protocols like
+A2A {{A2A}}, and RESTful API can be leveraged.
 
 ### Application to Network AI Agent Interface (Intent based Management)
 
@@ -572,43 +612,81 @@ Protocol for Telecoms (A2A-T) {{A2A-T}} specified by TM Forum.
 
 ### Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)
 
-This interface governs the coordination and task delegation within the Multi-Agent System of a single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this interface to decompose high-level goals into specific tasks and assign them to specialized Task Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for task assignment, progress monitoring, and result aggregation. This coordination can be implemented using protocols like {{A2A-T}}.
+This interface governs the coordination and task delegation within the Multi-Agent System of a
+single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this
+interface to decompose high-level goals into specific tasks and assign them to specialized Task
+Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for
+task assignment, progress monitoring, and result aggregation. This coordination can be implemented
+using protocols like {{A2A-T}}.
 
 ### Network AI Agent to Network AI Agent Interface (Cross Autonomous Domain)
 
-This interface enables collaboration and information exchange between Network AI Agents residing in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents can negotiate resource allocation, share summarized domain-specific insights (while preserving detail isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives. Standardized protocols like A2A-T {{A2A-T}}, designed for agent interoperability in telecommunication area, are candidate technologies for implementing this cross-domain interface, ensuring secure and reliable interaction between autonomous systems from different administrative domains.
+This interface enables collaboration and information exchange between Network AI Agents residing
+in different Autonomous Domains. It is essential for scenarios requiring end-to-end service assurance
+or coordinated optimization across multi-domain networks. Through this interface, Network AI Agents
+can negotiate resource allocation, share summarized domain-specific insights (while preserving detail
+isolation for privacy and scalability), and coordinate actions to fulfill cross-domain objectives.
+Standardized protocols like A2A-T {{A2A-T}}, designed for agent interoperability in telecommunication
+area, are candidate technologies for implementing this cross-domain interface, ensuring secure and
+reliable interaction between autonomous systems from different administrative domains.
 
 
 ### Network AI Agent/Task AI Agent to Agent Gateway Interface (Agent Lifecycle Management)
 
-The interface between Multi-Agent System and Agent Gateway serves as the management bridge which encompasses a set of services designed to manage the lifecycle
-of AI agents, and collaborative capabilities of AI Agents such as Registration, Security and Trust, Observability.
+The interface between Multi-Agent System and Agent Gateway serves as the management bridge which
+encompasses a set of services designed to manage the lifecycle of AI agents, and collaborative
+capabilities of AI Agents such as Registration, Security and Trust, Observability.
 
 - Registration
-Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates), and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents metadata description could be leveraged. Protocols like
-A2A {{A2A}} Agent card mechanism may also be used to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms such as Kafka could also be a candidate interface for asynchronous communications for agent registration and discovery. This interface also supports skill management, including skill query, loading, unloading, and version control, enabling agents to dynamically obtain and use skills provided by the Registration component.
+ Registration handles Agent onboarding, lifecycle tracking (e.g., heartbeat monitoring, status updates),
+ and capability-based Agent discovery. Interfaces like RESTful APIs with structural schema for AI Agents
+ metadata description could be leveraged. Protocols like A2A {{A2A}} Agent card mechanism may also be used
+ to ensure interoperability among different Agent vendors. It is also worth noting that message queue mechanisms
+ such as Kafka could also be a candidate interface for asynchronous communications for agent registration and
+ discovery. This interface also supports skill management, including skill query, loading, unloading, and version
+ control, enabling agents to dynamically obtain and use skills provided by the Registration component.
 
 - Security and Trust
-Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and enforcing security policies throughout their interaction.
-Protocols like Transport Layer Security (TLS) could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly used to authenticate AI Agents.
+Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and
+enforcing security policies throughout their interaction. Protocols like Transport Layer Security (TLS)
+ could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly
+ used to authenticate AI Agents.
 
 - Observability
-The observability component enables the network operators to gain deep insights of agent behaviors. It collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition, to make the behavior of multi-agent system declarative and traceable, it is essential to have the capability to distinguish whether an operation action is taken by agents automatically or by human operators. For example, in the fault management scenarios that need on-site repairing, the demarcation and locating task could be accomplished by agents, and the repair solution implementation and verification task is accomplished by human operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic system.
+The observability component enables the network operators to gain deep insights of agent behaviors. It
+ collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
+ to make the behavior of multi-agent system declarative and traceable, it is essential to have the capability
+ to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
+ in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
+ accomplished by agents, and the repair solution implementation and verification task is accomplished by human
+ operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying
+ the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic
+ system.
 
 The interface between AI Agent and Knowledge Base is specified in {{interface2knowledge}}.
 
 ### Network AI Agent to Network Digital Twin Interface
 
 The interface between Multi-Agent System and Network Digital Twin are the application-facing
-interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}. Furthermore, the Model Context Protocol (MCP) {{MCP}} can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.
+interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}. Furthermore, the Model Context Protocol
+(MCP) {{MCP}} can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and
+analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based
+approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.
 
 ### Network AI Agent to Knowledge Base Interface {#interface2knowledge}
 
-Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Multi-Agent System.
+Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the
+Multi-Agent System.
 
-Interfaces such as Cypher or SPARQL with schema-defined data models (e.g., LPG or RDF for knowledge representation) allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
+Interfaces such as Cypher or SPARQL with schema-defined data models (e.g., LPG or RDF for knowledge representation)
+allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the
+candidate for synchronous semantic search queries. For large-scale knowledge operations, asynchronous data message
+systems (e.g., Kafka) can also be employed for data ingestion and real-time knowledge synchronization across distributed Agents.
 
-Additionally, the Model Context Protocol (MCP) {{MCP}} could also serve as a standardized interface for AI Agents to dynamically access and utilize a wide range of tools and data sources provided by the Knowledge Base. It enables the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can invoke, significantly enhancing their reasoning and problem-solving capabilities.
+Additionally, the Model Context Protocol (MCP) {{MCP}} could also serve as a standardized interface for AI Agents
+to dynamically access and utilize a wide range of tools and data sources provided by the Knowledge Base. It enables
+the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can
+invoke, significantly enhancing their reasoning and problem-solving capabilities.
 
 ### Task AI Agent to Physical Network Interface
 
