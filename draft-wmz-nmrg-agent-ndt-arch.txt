@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 7 November 2026                                    China Mobile
+Expires: 8 November 2026                                    China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                              6 May 2026
+                                                              7 May 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 November 2026.
+   This Internet-Draft will expire on 8 November 2026.
 
 Copyright Notice
 
@@ -2041,14 +2041,16 @@ Appendix A.  Acknowledgements
 
 Appendix B.  Changes between Revisions
 
-   v03 - v04 * Add some background information for this work in the
-   introduction; * Agent Governance Consideration in the context of
-   network management; * Clarify the value of Agent added to the network
-   management architecture; * Add one new definition for Autonomy; *
-   Rewrite Challenges for Agent Benchmarking; * Rewrite the 1st
-   challange on making YANG AI ready; * Add a new challenge on Agent
-   Observability,Intervention and Control; * Add OTel & agent skill
-   alignment.
+   v03 - v04
+
+* Add some background information for this work in the introduction;
+* Agent Governance Consideration in the context of network management;
+* Clarify the value of Agent added to the network management architecture;
+* Add one new definition for Autonomy;
+* Rewrite Challenges for Agent Benchmarking;
+* Rewrite the 1st challange on making YANG AI ready;
+* Add a new challenge on Agent Observability,Intervention and Control;
+* Add OTel & agent skill alignment.
 
    v02 - v03
 
