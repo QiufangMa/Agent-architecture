@@ -527,12 +527,13 @@ Table of Contents
    Multi-Agent system acts as the smart brain of the Autonomous Domain,
    which is responsible for conducting AI-based analysis and making
    decisions regarding network management operations.  It usually
-   comprises a Network AI Agent and one or multiple task agents; in some
-   simplified scenarios, the system may also consist of only one single
-   AI Agent equipped with multiple skills and toolsets that integrates
-   both network-level coordination and task-specific execution.
+   comprises a Network AI Agent and zero or multiple task agents; in
+   some simplified scenarios, the system may also consist of only one
+   single AI Agent equipped with multiple skills and toolsets that
+   integrates both network-level coordination and task-specific
+   execution.
 
-   The Network AI Agent coordinates cross-task-agent collaboration,
+   The Network AI Agent may coordinate cross-task-agent collaboration,
    aligns tasks with user intent, and supervises the task execution of
    each task agent.  And task agents are designed to perform specific
    functionalities, they could be scenario-oriented and classified
