@@ -1458,6 +1458,7 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
 # Changes between Revisions
 
   v03 - v04
+
     * Add some background information for this work in the introduction;
     * Agent Governance Consideration in the context of network management;
     * Clarify the value of Agent added to the network management architecture;
