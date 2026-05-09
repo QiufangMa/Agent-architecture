@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 8 November 2026                                    China Mobile
+Expires: 10 November 2026                                   China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                              7 May 2026
+                                                              9 May 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 November 2026.
+   This Internet-Draft will expire on 10 November 2026.
 
 Copyright Notice
 
@@ -104,7 +104,7 @@ Table of Contents
                Autonomous Domain)
        5.3.4.  Network AI Agent to Network AI Agent Interface (Cross
                Autonomous Domain)
-       5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway
+       5.3.5.  Network AI Agent/Task AI Agent to Agent Fabric
                Interface (Agent Lifecycle Management)
        5.3.6.  Network AI Agent to Network Digital Twin Interface
        5.3.7.  Network AI Agent to Knowledge Base Interface
@@ -461,7 +461,7 @@ Table of Contents
 +-------------------------+----------------------------------------------+
 |Autonomous Domain        |                                              |
 |+------------------------+-----------------------+   +----------------+ |
-||Multi-Agent System      |                       |   |  Agent Gateway | |
+||Multi-Agent System      |                       |   |  Agent Fabric  | |
 ||                +-------v--------+              |   |                | |
 ||                |Network AI Agent|              |   |+--------------+| |
 ||                +-------^--------+              |   || Registration || |
@@ -545,9 +545,9 @@ Table of Contents
    operation task.  Some ongoing efforts (MCP [MCP], A2A [A2A]) in the
    industry may help with multi-agents coordination.
 
-5.2.2.2.  Agent Gateway
+5.2.2.2.  Agent Fabric
 
-   The Agent Gateway, which serves as a central management hub, provides
+   The Agent fabric, which serves as a central management hub, provides
    essential services for the Multi-Agent System, including agent
    registration/discovery, authentication, observability, and knowledge
    base.
@@ -746,10 +746,10 @@ Table of Contents
    interface, ensuring secure and reliable interaction between
    autonomous systems from different administrative domains.
 
-5.3.5.  Network AI Agent/Task AI Agent to Agent Gateway Interface (Agent
+5.3.5.  Network AI Agent/Task AI Agent to Agent Fabric Interface (Agent
         Lifecycle Management)
 
-   The interface between Multi-Agent System and Agent Gateway serves as
+   The interface between Multi-Agent System and Agent Fabric serves as
    the management bridge which encompasses a set of services designed to
    manage the lifecycle of AI agents, and collaborative capabilities of
    AI Agents such as Registration, Security and Trust, Observability.
@@ -990,7 +990,7 @@ Table of Contents
          interprets this intent and translates it into actionable
          network operation tasks to each task Agent.
 
-   *  Knowledge:  The Knowledge Base in Agent Gateway serves as the
+   *  Knowledge:  The Knowledge Base in Agent Fabric serves as the
          central repository for domain-specific knowledge, expert rules,
          and historical data.  It provides the necessary context and
          long/short memory to support accurate decision-making by task
@@ -1022,7 +1022,7 @@ Table of Contents
 7.  AI Agent Registration and Team formation
 
                                                      +----------------+
-                                                     |Agent Gateway   |
+                                                     |Agent Fabric    |
                     +-----------+                    | +------------+ |
                     |  Network  |      Register      | |            | |
                     | AI Agent  +--------------------+->            | |
@@ -1039,7 +1039,7 @@ Table of Contents
                     +-----------+
                     |  Incident |
                     |   Center  |                    +----------------+
-                    +-----+-----+                    |Agent Gateway   |
+                    +-----+-----+                    |Agent Fabric    |
                      Incident Notif                  | +------------+ |
                           |        Registry based    | |   Agent    | |
            Intent   +-----V-----+    Discovery       | |            | |
@@ -1059,10 +1059,10 @@ Table of Contents
 
       Figure 4: AI Agent Registration and Team formation Usage Example
 
-   The Agent gateway at the network level provides agent registration
-   for both embedded AI agent in each network element and network AI
-   agent and associated task agents.  The following steps are performed
-   to provide Event driven AI Agent Team formation within the Agentic AI
+   The Agent Fabric at the network level provides agent registration for
+   both embedded AI agent in each network element and network AI agent
+   and associated task agents.  The following steps are performed to
+   provide Event driven AI Agent Team formation within the Agentic AI
    network management architecture:
 
    Step 1:  Human Operator pre-provision user intent which comprises
@@ -1075,7 +1075,7 @@ Table of Contents
 
    Step3:  Network AI agent generate task planning based on objective
       and then discover matched task agent lists based on planned task
-      from registration center within the agent gateway.
+      from registration center within the agent fabric.
 
    Step4:  Upon receiving incident from the incident center, network AI
       agent assign the tasks to task agents corresponding to specific
@@ -1089,7 +1089,7 @@ Table of Contents
       Artifacts Delivery
     +-----------+
     |           |                                    +----------------+
-    |           |                                     Agent Gateway   |
+    |           |                                     Agent Fabric    |
     |        +--V--------+  Agent Identity Discovery | +------------+ |
     |        |    Task   <---------------------------+->   Agent    | |
     |        |  AI Agent <---------------------+     | |            | |
@@ -1442,7 +1442,7 @@ Table of Contents
 9.5.  Network Security Drills (Human on the Loop)
 
                                  +----------------+   Human
-                                 | Agent Gateway  |  Operator
+                                 | Agent Fabric   |  Operator
             +-----------------+  |                | /---------\
             | Network AI Agent|  |+--------------+| | Analyze |
             |     Goal        |  ||              || | Define  |
