@@ -1069,7 +1069,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wu, et al.</td>
-<td class="center">Expires 7 November 2026</td>
+<td class="center">Expires 10 November 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1082,12 +1082,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-wmz-nmrg-agent-ndt-arch-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-06" class="published">6 May 2026</time>
+<time datetime="2026-05-09" class="published">9 May 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-07">7 November 2026</time></dd>
+<dd class="expires"><time datetime="2026-11-10">10 November 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1161,7 +1161,7 @@ intent-based network management to meet the needs of the network service.<a href
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1865,17 +1865,26 @@ delivers NDT services through appropriate application-facing output interfaces, 
 to Network AI Agent(s) in <a href="#arch" class="auto internal xref">Figure 2</a>.<a href="#section-5.2.2.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="physical-network">
+<div id="network-controller">
 <section id="section-5.2.2.5">
-            <h5 id="name-physical-network">
-<a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
+            <h5 id="name-network-controller">
+<a href="#section-5.2.2.5" class="section-number selfRef">5.2.2.5. </a><a href="#name-network-controller" class="section-name selfRef">Network Controller</a>
             </h5>
-<p id="section-5.2.2.5-1">This is the actual hardware and infrastructure that makes up the network, which
+<p id="section-5.2.2.5-1">A Network Controller provides the functions and services of existing network management systems, it offers a set of APIs and tools that can be consumed by agents and also exposes standard southbound interfaces such as NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> and RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>, which utilize YANG <span>[<a href="#RFC7950" class="cite xref">RFC7950</a>]</span> as the data modeling language.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.5-2">AI Agents can invoke the Network Controller’s functions to perform deterministic network operations such as configuration delivery, route adjustment, resource allocation, and service activation, ensuring that decisions validated by the Network Digital Twin are accurately and reliably executed on the physical network in a policy‑compliant manner.<a href="#section-5.2.2.5-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="physical-network">
+<section id="section-5.2.2.6">
+            <h5 id="name-physical-network">
+<a href="#section-5.2.2.6" class="section-number selfRef">5.2.2.6. </a><a href="#name-physical-network" class="section-name selfRef">Physical Network</a>
+            </h5>
+<p id="section-5.2.2.6-1">This is the actual hardware and infrastructure that makes up the network, which
 includes a set of network devices and wiring. In a physical network, Network Elements (NEs)
 with Lightweight AI <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span> or AI Agent may also achieve some local close loop without relying on human intervention. It is also possible for Lightweight AI or AI Agent to coordinate with other
 AI Agent(s) to enhance the automation and efficiency of network operations. The Network
 Lightweight AI models could be trained, validated, deployed, and executed on Network Elements,
-and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.<a href="#section-5.2.2.5-1" class="pilcrow">¶</a></p>
+and further refined (e.g., model re-training) through monitoring and continuous optimization based on feedback from LLM.<a href="#section-5.2.2.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3116,6 +3125,10 @@ understanding and handling uncertain or ambiguous tasks.<a href="#section-13-2.1
 <dt id="RFC7854">[RFC7854]</dt>
         <dd>
 <span class="refAuthor">Scudder, J., Ed.</span>, <span class="refAuthor">Fernando, R.</span>, and <span class="refAuthor">S. Stuart</span>, <span class="refTitle">"BGP Monitoring Protocol (BMP)"</span>, <span class="seriesInfo">RFC 7854</span>, <span class="seriesInfo">DOI 10.17487/RFC7854</span>, <time datetime="2016-06" class="refDate">June 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7854">https://www.rfc-editor.org/rfc/rfc7854</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7950">[RFC7950]</dt>
+        <dd>
+<span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refTitle">"The YANG 1.1 Data Modeling Language"</span>, <span class="seriesInfo">RFC 7950</span>, <span class="seriesInfo">DOI 10.17487/RFC7950</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7950">https://www.rfc-editor.org/rfc/rfc7950</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8040">[RFC8040]</dt>
         <dd>

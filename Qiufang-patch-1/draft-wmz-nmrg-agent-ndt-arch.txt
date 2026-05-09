@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 7 November 2026                                    China Mobile
+Expires: 10 November 2026                                   China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                              6 May 2026
+                                                              9 May 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 November 2026.
+   This Internet-Draft will expire on 10 November 2026.
 
 Copyright Notice
 
@@ -625,7 +625,22 @@ Table of Contents
    services through appropriate application-facing output interfaces,
    which is the interfaces to Network AI Agent(s) in Figure 2.
 
-5.2.2.5.  Physical Network
+5.2.2.5.  Network Controller
+
+   A Network Controller provides the functions and services of existing
+   network management systems, it offers a set of APIs and tools that
+   can be consumed by agents and also exposes standard southbound
+   interfaces such as NETCONF [RFC6241] and RESTCONF [RFC8040], which
+   utilize YANG [RFC7950] as the data modeling language.
+
+   AI Agents can invoke the Network Controller’s functions to perform
+   deterministic network operations such as configuration delivery,
+   route adjustment, resource allocation, and service activation,
+   ensuring that decisions validated by the Network Digital Twin are
+   accurately and reliably executed on the physical network in a
+   policy-compliant manner.
+
+5.2.2.6.  Physical Network
 
    This is the actual hardware and infrastructure that makes up the
    network, which includes a set of network devices and wiring.  In a
@@ -1959,6 +1974,10 @@ Table of Contents
               Monitoring Protocol (BMP)", RFC 7854,
               DOI 10.17487/RFC7854, June 2016,
               <https://www.rfc-editor.org/rfc/rfc7854>.
+
+   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/rfc/rfc7950>.
 
    [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
