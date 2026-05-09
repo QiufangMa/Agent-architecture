@@ -553,6 +553,12 @@ from network through the appropriate real network-facing input interfaces, and i
 delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
 to Network AI Agent(s) in {{arch}}.
 
+#### Network Controller
+
+A Network Controller provides the functions and services of existing network management systems, it offers a set of APIs and tools that can be consumed by agents and also exposes standard southbound interfaces such as NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}, which utilize YANG {{?RFC7950}} as the data modeling language.
+
+AI Agents can invoke the Network Controller’s functions to perform deterministic network operations such as configuration delivery, route adjustment, resource allocation, and service activation, ensuring that decisions validated by the Network Digital Twin are accurately and reliably executed on the physical network in a policy‑compliant manner.
+
 #### Physical Network
 
 This is the actual hardware and infrastructure that makes up the network, which
