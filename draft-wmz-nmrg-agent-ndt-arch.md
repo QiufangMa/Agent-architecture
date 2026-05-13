@@ -390,23 +390,23 @@ realize specific functionality.
 +-------------------------+----------------------------------------------+
 |Autonomous Domain        |                                              |
 |+------------------------+-----------------------+   +----------------+ |
-||Multi-Agent System      |                       |   |  Agent Fabric  | |
+||Hybrid Agent System     |                       |   |  Agent Fabric  | |
 ||                +-------v--------+              |   |                | |
 ||                |Network AI Agent|              |   |+--------------+| |
 ||                +-------^--------+              |   || Registration || |
 ||                        |                       |   |+--------------+| |
-||       +----------------+------------+--------+ <--->+--------------+| |
-||       |                |            |        | |   ||Security&Trust|| |
-||+------v-----+ +--------v---+ +------v-----+  v |   |+--------------+| |
-|||Task Agent 1<->Task Agent 2<->Task Agent 3| ...|   |+--------------+| |
-||+------------+ +------------+ +------------+    |   ||Observability || |
-|+-----------^------------------------^-----------+   |+--------------+| |
-|            |                        |               |+--------------+| |
-|+-----------v----------+ +-----------v-----------+   ||Knowledge Base|| |
-|| Network Digital Twin | |  Network Controller   |   |+--------------+| |
-|+-----------^----------+ +----------^------------+   +----------------+ |
+||       +------------+---+------------+--------+ <--->+--------------+| |
+||       |            |                |        | |   ||Security&Trust|| |
+||+------v---+  +-----v----+  +--------v------+ v |   |+--------------+| |
+|||Task Agent<->|Task Agent<->|Function Module|...|   |+--------------+| |
+||+----------+  +----------+  +---------------+   |   ||Observability || |
+|+-----------^-----------------------^------------+   |+--------------+| |
+|            |                       |                |+--------------+| |
+|+-----------v----------+            |                ||Knowledge Base|| |
+|| Network Digital Twin |            |                |+--------------+| |
+|+-----------^----------+            |                +----------------+ |
 |            |                       |                                   |
-|+-----------v-----------------------v---------------------------------+ |
+|+-----------------------------------v---------------------------------+ |
 ||Physical Network                                                     | |
 ||      +---------+    +------------------+             +---------+    | |
 ||      |         |    |                  |             |         |    | |
@@ -448,22 +448,21 @@ An autonomous domain is a self-governing network that integrates NDT and AI driv
 capabilities to achieve autonomous network management. It comprises the following sub-components.
 
 
-#### Multi-Agent System
+#### Hybrid Agent System
 
-Multi-Agent system acts as the smart brain of the Autonomous Domain, which is responsible
+Hybrid agent system acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network management operations.
-It usually comprises a Network AI Agent and zero or multiple task agents; in some simplified
-scenarios, the system may also consist of only one single AI Agent equipped with multiple
-skills and toolsets that integrates both network-level coordination and task-specific execution.
+It usually comprises a Network AI Agent and multiple task agents or function modules (e.g., Agent skills, network management functional APIs or tools).
+It is worth mentioning that function modules could be the functions and services of existing network management systems, it offers a set of APIs and tools that can be consumed by agents.
+In some simplified scenarios, the system may consist of only one single AI Agent equipped with multiple function modules, e.g., skills and toolsets that integrates both network-level coordination and task-specific execution.
 
 The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user
-intent, and supervises the task execution of each task agent. And task agents are designed
+intent, and supervises the execution of each task agent or function module. And task agents and function modules are designed
 to perform specific functionalities, they could be scenario-oriented and classified according
-to the function they perform. Task Agents can adapt to new circumstances through access to
+to the function they perform. The hybrid agent system can adapt to new circumstances through access to
 evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
 of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge
-Base to accomplish specific network operation task. Some ongoing efforts (MCP {{MCP}},
-A2A {{A2A}}) in the industry may help with multi-agents coordination.
+Base to accomplish specific network operation task.
 
 #### Agent Fabric
 
@@ -552,12 +551,6 @@ Network Digital Twin collects the real-time operational and instrumentation data
 from network through the appropriate real network-facing input interfaces, and it
 delivers NDT services through appropriate application-facing output interfaces, which is the interfaces
 to Network AI Agent(s) in {{arch}}.
-
-#### Network Controller
-
-A Network Controller provides the functions and services of existing network management systems, it offers a set of APIs and tools that can be consumed by agents and also exposes standard southbound interfaces such as NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}, which utilize YANG {{?RFC7950}} as the data modeling language.
-
-AI Agents can invoke the Network Controller’s functions to perform deterministic network operations such as configuration delivery, route adjustment, resource allocation, and service activation, ensuring that decisions validated by the Network Digital Twin are accurately and reliably executed on the physical network in a policy‑compliant manner.
 
 #### Physical Network
 
@@ -694,25 +687,25 @@ to dynamically access and utilize a wide range of tools and data sources provide
 the Knowledge Base to expose contextual information, expert rules, and external data as "tools" that Agents can
 invoke, significantly enhancing their reasoning and problem-solving capabilities.
 
-### Task AI Agent to Physical Network Interface
+### Hybrid Agent System to Physical Network Interface
+
+The interface between the hybrid agent system and the physical network is established via its internal function modules interacting with network elements (NEs). AI agent can invoke function modules to perform specific network operations.
 
 #### Data Collection
 
 Data Collection interface is responsible for gathering data from the physical network
 through various different tools and methods (e.g., IPFIX {{?RFC7011}}, YANG-push
-  {{?RFC8639}},{{?RFC8641}}, BMP {{?RFC7854}}, and MCP {{MCP}}).
+  {{?RFC8639}},{{?RFC8641}}, and BMP {{?RFC7854}}).
 It collects various types of network data including configuration data, operational data,
 network topology, routing data, logs, and trace on management plane, control plane, and
 forwarding plane as needed. The collected data is fed into the Network Digital Twin
-and Network AI Agent(s) to provide with up-to-date information about the current state of
+and hybrid agent system to provide with up-to-date information about the current state of
 the physical network.
 
 #### Configuration
 
-Once network decisions are made and confirmed, the Multi-Agent System performs
-specific actions to the physical network, e.g., modify specific configuration on
-network controllers or network devices through protocols like NETCONF {{?RFC6241}}
-, RESTCONF {{?RFC8040}}, MCP {{MCP}}. It is the component that makes the planned control and
+Once network decisions are made and confirmed, the Hybrid Agent System performs
+specific actions to the physical network, e.g., modify specific configuration through protocols like NETCONF {{?RFC6241}} and RESTCONF {{?RFC8040}}, which utilize YANG {{?RFC7950}} as the data modeling language. It is the component that makes the planned control and
 management changes a reality in the real physical network.
 
 #### Lightweight AI and Large AI Model Collaboration Interface
