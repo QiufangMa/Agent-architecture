@@ -224,8 +224,6 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 
  * Agentic AI {{?I-D.hong-nmrg-agenticai-ps}}
 
- * Multiple Agent System (MAS)
-
  * Remote Code Execution (RCE)
 
 Besides, this document defines the following terminology:
@@ -238,7 +236,7 @@ In addition, it is able of planning the tasks and decompose the tasks into sever
 and coordinate with Task agent for these sub-tasks.
 
 Task AI Agent:
-: Task AI Agent is responsible for coordinating with Network AI Agent in the multi-Agent System
+: Task AI Agent is responsible for coordinating with Network AI Agent in the Hybrid Agent System
 and executing specific task assigned by Network AI Agent.
 
 Autonomy:
@@ -440,7 +438,7 @@ maintaining the health, performance, and availability of complex networks.
 Network applications make requests that need to be addressed by the AI driven network.
 Such requests are exchanged through a northbound intent interface (e.g., Restful
 API, Natural Language Programming Interface(NLPI),A2A, A2A-T), so that they can be applied
-by multi-agent system at the appropriate twin instance(s).
+by Hybrid Agent System at the appropriate twin instance(s).
 
 ### Autonomous Domain
 
@@ -467,7 +465,7 @@ Base to accomplish specific network operation task.
 #### Agent Fabric
 
 The Agent fabric, which serves as a central management hub, provides essential services for
-the Multi-Agent System, including agent registration/discovery, authentication, observability,
+the Hybrid Agent System, including agent registration/discovery, authentication, observability,
 and knowledge base.
 
 ##### Registration
@@ -611,7 +609,7 @@ Protocol for Telecoms (A2A-T) {{A2A-T}} specified by TM Forum.
 
 ### Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)
 
-This interface governs the coordination and task delegation within the Multi-Agent System of a
+This interface governs the coordination and task delegation within the Hybrid Agent System of a
 single Autonomous Domain. The Network AI Agent, acting as the principal coordinator, uses this
 interface to decompose high-level goals into specific tasks and assign them to specialized Task
 Agents (e.g., for configuration generation or fault diagnosis). It facilitates communication for
@@ -630,9 +628,9 @@ area, are candidate technologies for implementing this cross-domain interface, e
 reliable interaction between autonomous systems from different administrative domains.
 
 
-### Network AI Agent/Task AI Agent to Agent Fabric Interface (Agent Lifecycle Management)
+### Hybrid Agent System to Agent Fabric Interface (Agent Lifecycle Management)
 
-The interface between Multi-Agent System and Agent Fabric serves as the management bridge which
+The interface between Hybrid Agent System and Agent Fabric serves as the management bridge which
 encompasses a set of services designed to manage the lifecycle of AI agents, and collaborative
 capabilities of AI Agents such as Registration, Security and Trust, Observability.
 
@@ -654,7 +652,7 @@ enforcing security policies throughout their interaction. Protocols like Transpo
 - Observability
 The observability component enables the network operators to gain deep insights of agent behaviors. It
  collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
- to make the behavior of multi-agent system declarative and traceable, it is essential to have the capability
+ to make the behavior of Hybrid Agent System declarative and traceable, it is essential to have the capability
  to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
  in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
  accomplished by agents, and the repair solution implementation and verification task is accomplished by human
@@ -664,18 +662,17 @@ The observability component enables the network operators to gain deep insights 
 
 The interface between AI Agent and Knowledge Base is specified in {{interface2knowledge}}.
 
-### Network AI Agent to Network Digital Twin Interface
+### Hybrid Agent System to Network Digital Twin Interface
 
-The interface between Multi-Agent System and Network Digital Twin are the application-facing
+The interface between Hybrid Agent System and Network Digital Twin are the application-facing
 interface as defined in {{?I-D.irtf-nmrg-network-digital-twin-arch}}. Furthermore, the Model Context Protocol
 (MCP) {{MCP}} can be leveraged to standardize this interaction, enabling the NDT to expose its simulation and
 analysis capabilities as a set of discoverable "tools" that the AI Agent can dynamically invoke. This MCP-based
 approach facilitates seamless integration and richer contextual exchange between the Agent and the NDT.
 
-### Network AI Agent to Knowledge Base Interface {#interface2knowledge}
+### Hybrid Agent System to Knowledge Base Interface {#interface2knowledge}
 
-Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the
-Multi-Agent System.
+Knowledge Base service provides contextual data and insights to enhance the decision-making accuracy of the Hybrid Agent System.
 
 Interfaces such as Cypher or SPARQL with schema-defined data models (e.g., LPG or RDF for knowledge representation)
 allow efficient retrieval and updates. Other high-throughput interfaces such as gRPC or RESTful API can be the
@@ -758,53 +755,6 @@ This data is then consumed by analytics components and machine learning platform
 for fine-tuning. Subsequently, optimized models and updated knowledge are deployed back into the runtime
 system via model serving and configuration management interfaces, closing the improvement loop.
 
-### Network Element AI Agent and Network AI Agent Collaboration Interface
-
-Network devices collect information from multiple dimensions, including flow information, configuration,
-events, alarms, logs, dynamic topology and routes, and device status (including CPU, memory, and hardware
-health). With large amount of data collected to the domain controller for analysis and processing, the data
-accuracy is very limited and therefore it is hard to determine the service impact within 1 minute. In addition,
-it usually require multiple step interaction, complex task management with various different data types or data sources.
-
-To address those challenges, the network AI Agent can delegate massive data analysis and processing to distributed AI
-Agent in each network element, e.g.,
-a) only allow distributed AI Agent export processed analytic data to help establish global view of network observability.
-b) or export key network fault information for Network AI Agent for further investigation the root cause of the problem.
-
-For the former case, routing protocol specific fault data such as BGP Status Changed, OSPF Neighbor state changes, IS-IS
-Adjacency Changed data or hardware related fault data such as Optical fail, Physical Port down can be collected and using
-pre-trained LLM model with expert experience to match fault pattern and invoke corresponding routing protocol troubleshooting
-MCP tools and finally root cause. In addition, it allows network maintenance engineer using nature language interface to look up
-troubleshooting information or it allows Network AI Agent or Task Agent at the network element using MCP interface to invoke
-tools from MCP server within the network element.
-
-~~~~
-
-                     +------------+     +------------+
-                     |  Network   |     |            |
-    Human Operator   |  AI Agent  |     | Task Agent |
-         |           |            |     |            |
-         |           |+----------+|     |+----------+|
-         |           ||MCP Client||     ||MCP Client||
-         |           |+----------+|     |+----+-----+|
-       Intent        +------+-----+     +-----+------+
-         |                  |                 |
- +-------+------------------+-----------------+-------+
- |       |                  +------------+    |       |
- | +-----V-----------------+    +--------+----+------+|
- | |Protocol Fault Agent   |    |Protocol|Fault Agent||
- | |  +---------+ +------+ |    |  +-----V----V-+    ||
- | |  |  ONNOX  | | MCP  +-+----+-->    MCP     |    ||
- | |  |  Model  | |Client| |    |  |   Server   |    ||
- | |  +---------+ +------+ |    |  +------------+    ||
- | +-----------------------+    +--------------------+|
- |                                                    |
- +----------------------------------------------------+
-               Smart Network Element
-
-~~~~
-{: #embed title="Network Element AI Agent and Network AI Agent Collaboration Usage Example" artwork-align="center"}
-
 # AI Driven Network Operations: Relationship Between Characteristics and Functional Components
 
 The architecture in {{arch}} provides a concrete implementation framework to realize the six key
@@ -821,19 +771,19 @@ clarifies how the architecture operationalizes these characteristics:
  expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
 
  * Analysis:
- : The AI Agent​ in Multi-Agent System performs intelligent analysis using data and tools. It leverages
+ : The AI Agent​ in Hybrid Agent System performs intelligent analysis using data and tools. It leverages
  the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.
 
  * Decision:
- : The AI Agent in Multi-Agent System​ makes informed decisions based on its analysis results. It utilizes
+ : The AI Agent in Hybrid Agent System​ makes informed decisions based on its analysis results. It utilizes
  the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.
 
  * Awareness:
- : The AI Agent in Multi-Agent System gathers data from the Physical Network, it may also fetch data from
+ : The AI Agent in Hybrid Agent System gathers data from the Physical Network, it may also fetch data from
  the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.
 
  * Execution:
- ：The AI Agent in Multi-Agent System implements validated decisions by applying configurations or control
+ ：The AI Agent in Hybrid Agent System implements validated decisions by applying configurations or control
  actions to the Physical Network via southbound interfaces such as NETCONF, RESTCONF, or Model Context Protocol {{MCP}}.
 
 # AI Agent Registration and Team formation
@@ -1526,6 +1476,54 @@ The following items were felt to be good starting points for IETF work:
 * Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration.
 
 --- back
+
+### Network Element AI Agent and Network AI Agent Collaboration
+
+As a supplementary deployment case, this section explores the collaboration mechanism between network element AI Agent and Network AI Agent.
+
+Network devices collect information from multiple dimensions, including flow information, configuration,
+events, alarms, logs, dynamic topology and routes, and device status (including CPU, memory, and hardware
+health). With large amount of data collected to the domain controller for analysis and processing, the data
+accuracy is very limited and therefore it is hard to determine the service impact within 1 minute. In addition,
+it usually require multiple step interaction, complex task management with various different data types or data sources.
+
+To address those challenges, the network AI Agent can delegate massive data analysis and processing to distributed AI
+Agent in each network element, e.g.,
+a) only allow distributed AI Agent export processed analytic data to help establish global view of network observability.
+b) or export key network fault information for Network AI Agent for further investigation the root cause of the problem.
+
+For the former case, routing protocol specific fault data such as BGP Status Changed, OSPF Neighbor state changes, IS-IS
+Adjacency Changed data or hardware related fault data such as Optical fail, Physical Port down can be collected and using
+pre-trained LLM model with expert experience to match fault pattern and invoke corresponding routing protocol troubleshooting
+MCP tools and finally root cause. In addition, it allows network maintenance engineer using nature language interface to look up
+troubleshooting information or it allows Network AI Agent or Task Agent at the network element using MCP interface to invoke
+tools from MCP server within the network element.
+
+~~~~
+                     +------------+     +------------+
+                     |  Network   |     |            |
+    Human Operator   |  AI Agent  |     | Task Agent |
+         |           |            |     |            |
+         |           |+----------+|     |+----------+|
+         |           ||MCP Client||     ||MCP Client||
+         |           |+----------+|     |+----+-----+|
+       Intent        +------+-----+     +-----+------+
+         |                  |                 |
+ +-------+------------------+-----------------+-------+
+ |       |                  +------------+    |       |
+ | +-----V-----------------+    +--------+----+------+|
+ | |Protocol Fault Agent   |    |Protocol|Fault Agent||
+ | |  +---------+ +------+ |    |  +-----V----V-+    ||
+ | |  |  ONNOX  | | MCP  +-+----+-->    MCP     |    ||
+ | |  |  Model  | |Client| |    |  |   Server   |    ||
+ | |  +---------+ +------+ |    |  +------------+    ||
+ | +-----------------------+    +--------------------+|
+ |                                                    |
+ +----------------------------------------------------+
+               Smart Network Element
+
+~~~~
+{: #embed title="Network Element AI Agent and Network AI Agent Collaboration Usage Example" artwork-align="center"}
 
 # Acknowledgements
 
