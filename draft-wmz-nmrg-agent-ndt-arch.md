@@ -1530,7 +1530,8 @@ The following items were felt to be good starting points for IETF work:
 # Acknowledgements
 
 This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
-Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
+Thanks Chris Janz,Pedro Garcia Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro Gassanov
+for wonderful comments and discussion on proactive close loop.
 
 # Changes between Revisions
 
@@ -1544,6 +1545,7 @@ Thanks Chris Janz for wonderful comments and discussion on proactive close loop.
     * Rewrite the 1st challange on making YANG AI ready;
     * Add a new challenge on Agent Observability,Intervention and Control;
     * Add OTel & agent skill alignment.
+    * Update Architecture into hybrid architecture to support hybrid agent system.
 
   v02 - v03
 
