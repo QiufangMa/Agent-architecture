@@ -1528,9 +1528,8 @@ tools from MCP server within the network element.
 # Acknowledgements
 
 This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
-Thanks Chris Janz,Pedro Garcia Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro Gassanov
-for wonderful comments and discussion on proactive close loop.
-
+Thanks Laurent Ciavaglia, Chris Janz,Pedro Garcia Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro Gassanov
+for wonderful comments and discussion on Agentic AI for Network Operation.
 
 # Changes between Revisions
 
