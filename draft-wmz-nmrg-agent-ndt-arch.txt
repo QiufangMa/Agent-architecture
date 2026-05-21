@@ -2053,10 +2053,10 @@ Appendix A.  Network Element AI Agent and Network AI Agent Collaboration
 Appendix B.  Acknowledgements
 
    This work has benefited from the discussions of NMRG interim meeting
-   on Agentic AI.  Thanks Chris Janz,Pedro Garcia Parra,Brad
-   Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro
-   Gassanov for wonderful comments and discussion on proactive close
-   loop.
+   on Agentic AI.  Thanks Laurent Ciavaglia, Chris Janz,Pedro Garcia
+   Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard
+   Kilmurray,Dmytro Gassanov for wonderful comments and discussion on
+   Agentic AI for Network Operation.
 
 Appendix C.  Changes between Revisions
 
