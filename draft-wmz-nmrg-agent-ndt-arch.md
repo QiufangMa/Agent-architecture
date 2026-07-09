@@ -62,7 +62,6 @@ contributor:
 
 normative:
 
-
 informative:
 
   TMF-1258:
