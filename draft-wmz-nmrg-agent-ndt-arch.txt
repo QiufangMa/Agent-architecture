@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 22 November 2026                                   China Mobile
+Expires: 10 January 2027                                    China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                             21 May 2026
+                                                             9 July 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 November 2026.
+   This Internet-Draft will expire on 10 January 2027.
 
 Copyright Notice
 
@@ -1894,17 +1894,17 @@ Table of Contents
               Hong, Y., Youn, J., Wu, Q., and B. Claise, "Motivations
               and Problem Statement of Agentic AI for network
               management", Work in Progress, Internet-Draft, draft-hong-
-              nmrg-agenticai-ps-01, 1 March 2026,
+              nmrg-agenticai-ps-02, 5 July 2026,
               <https://datatracker.ietf.org/doc/html/draft-hong-nmrg-
-              agenticai-ps-01>.
+              agenticai-ps-02>.
 
    [I-D.ietf-nmop-network-incident-yang]
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-08, 13 February 2026,
+              incident-yang-10, 5 July 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-08>.
+              network-incident-yang-10>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
@@ -1919,17 +1919,17 @@ Table of Contents
               and S. Schneider, "Research Challenges in Coupling
               Artificial Intelligence and Network Management", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-ai-challenges-
-              05, 18 March 2025, <https://datatracker.ietf.org/doc/html/
-              draft-irtf-nmrg-ai-challenges-05>.
+              06, 6 July 2026, <https://datatracker.ietf.org/doc/html/
+              draft-irtf-nmrg-ai-challenges-06>.
 
    [I-D.irtf-nmrg-network-digital-twin-arch]
               Zhou, C., Yang, H., Duan, X., Lopez, D., Pastor, A., Wu,
-              Q., Boucadair, M., and C. Jacquenet, "Network Digital
-              Twin: Concepts and Reference Architecture", Work in
+              Q., Boucadair, M., and C. Jacquenet, "Network Digital Twin
+              (NDT): Concepts and Reference Architecture", Work in
               Progress, Internet-Draft, draft-irtf-nmrg-network-digital-
-              twin-arch-12, 27 February 2026,
+              twin-arch-13, 1 July 2026,
               <https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-
-              network-digital-twin-arch-12>.
+              network-digital-twin-arch-13>.
 
    [MCP]      "Model Context Protocol", November 2024,
               <https://modelcontextprotocol.io/>.
