@@ -480,8 +480,10 @@ and knowledge base.
 
 AI Agents need to first discover each other and understand their capabilities to collaborate.
 Agent Registration manages the process by which new agents could join the system, making them
-discoverable and available. It supports the unified registration of all AI agents within the
-autonomous domain, including those residing on network devices.
+discoverable and available. It supports the unified registration of all AI agents across the
+autonomous domains, note that task agents is hidden behind the domain AI agent and short lived
+created on demand so that task agents will not be registered in the same way as network AI gent
+in each autonomous domain, instead the task agents capabilities can be registered in the agent registry.
 Each Agent instance submits its own metadata information including URI, supported authentication
 methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent
 or task agent) could query or subscribe to the Agent Registry to find appropriate Agents for task
