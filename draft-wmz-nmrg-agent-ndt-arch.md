@@ -435,10 +435,13 @@ end-to-end connections or scheduled bandwidth reservations or NOC Application
 /Service AI Agent Application that is responsible for monitoring, managing, and
 maintaining the health, performance, and availability of complex networks.
 
-Network applications make requests that need to be addressed by the AI driven network.
-Such requests are exchanged through a northbound intent interface (e.g., Restful
-API, Natural Language Programming Interface(NLPI),A2A, A2A-T), so that they can be applied
-by Hybrid Agent System at the appropriate twin instance(s).
+Network applications make requests that need to be addressed by the AI driven network
+operation. Such requests are exchanged through a either traditional northbound intent
+interface (e.g., Restful API), or A2A style intent interface with Bi-directional
+interaction support and Multi-step dialogue for intent refinement (e.g., Natural Language
+Programming Interface(NLPI),A2A, A2A-T), so that they can be applied by Hybrid Agent
+System to either interact with traditional deterministic systems (OSS/BSS, orchestration)
+or Autonomous service AI agents acting as consumers of the Hybrid Agent System.
 
 ### Autonomous Domain
 
