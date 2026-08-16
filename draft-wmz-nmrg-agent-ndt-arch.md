@@ -229,15 +229,16 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 Besides, this document defines the following terminology:
 
 Network AI Agent:
-: Network AI Agent is an autonomous system or entity with awareness of its environment, capable of
+: Network AI Agent is an autonomous system or long live entity with awareness of its environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
 based on its knowledge representation to achieve a set of service goals {{TMF-1251D}}.
 In addition, it is able of planning the tasks and decompose the tasks into several sub-tasks
-and coordinate with Task agent for these sub-tasks.
+and coordinate with short live Task agent for these sub-tasks.
 
 Task AI Agent:
-: Task AI Agent is responsible for coordinating with Network AI Agent in the Hybrid Agent System
-and executing specific task assigned by Network AI Agent.
+: Task AI Agent is created by the Network AI Agent on demand for a specific subtask, lives only
+as long as that subtask runs, destroyed when done. It responsible for coordinating with Network
+AI Agent in the Hybrid Agent System and executing specific sub-task assigned by Network AI Agent.
 
 Autonomy:
 : The ability to operate under uncertainty and adapt to changing objectives without explicit external intervention.
@@ -453,15 +454,19 @@ capabilities to achieve autonomous network management. It comprises the followin
 
 Hybrid agent system acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network management operations.
-It usually comprises a Network AI Agent and multiple task agents or function modules (e.g., Agent skills, network management functional APIs or tools).
-It is worth mentioning that function modules could be the functions and services of existing network management systems, it offers a set of APIs and tools that can be consumed by agents.
-In some simplified scenarios, the system may consist of only one single AI Agent equipped with multiple function modules, e.g., skills and toolsets that integrates both network-level coordination and task-specific execution.
+It usually comprises a Network AI Agent and multiple short live task agents or short live function
+modules (e.g., Agent skills, network management functional APIs or tools).
+It is worth mentioning that function modules could be the functions and services of existing network
+management systems, it offers a set of stateless APIs and tools that can be consumed by agents.
+In some simplified scenarios, the system may consist of only one single AI Agent equipped with
+multiple function modules, e.g., skills and toolsets that integrates both network-level coordination
+and task-specific execution.
 
-The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user
-intent, and supervises the execution of each task agent or function module. And task agents and function modules are designed
-to perform specific functionalities, they could be scenario-oriented and classified according
-to the function they perform. The hybrid agent system can adapt to new circumstances through access to
-evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
+The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user intent, and
+supervises the execution of each short-live task agent or function module. And task agents and function
+modules are designed to perform specific functionalities, they could be scenario-oriented and classified
+according to the function they perform. The hybrid agent system can adapt to new circumstances through
+access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
 of Network Digital Twin, and the contextual and domain-specific knowledge provided by Knowledge
 Base to accomplish specific network operation task.
 
