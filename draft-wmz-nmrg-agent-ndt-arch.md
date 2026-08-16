@@ -1464,16 +1464,19 @@ This document has no requests to IANA.
 
 The following items were felt to be good starting points for IETF work:
 
-* Nature Language Interaction protocol to ensure both The accuracy and efficiency of structured data for deterministic tasks and natural language interactions for
-  understanding and handling uncertain or ambiguous tasks.
+* OpenTelemetry protocol extension Enabling network behavioral assessment
+  through analysis of observed operational network data (logs, metrics, traces, etc.)
 
-* Translate Service Level YANG Data model and Network Level YANG Data model into DSL payloads and APIs which can be consumed by Agents and Models.
+* Human and Agent Interaction protocol for Human Escalation/ Intervention,
+  Agent Intervention and Control
 
-* Human and Agent Interaction to support explainable, observability and controllable capabilities.
+* Nature Language Interaction protocol to ensure both The accuracy and efficiency of
+  structured data for deterministic tasks and natural language interactions for
+  understanding and handling uncertain or ambiguous tasks,e.g., using semantic information
+  transfer or agent prompt language template for Agent to Agent Communication.
 
-* Define semantic information transfer or agent prompt language template for Agent to Agent Communication.
-
-* Agent to Agent Protocol extensions for IP Network Agent and Network Element Agent Collaboration.
+* Semantic MetaData: Utilizing YANG Model to provide the Metadata related to Context or
+  Constraint information required by LLMs.
 
 --- back
 
