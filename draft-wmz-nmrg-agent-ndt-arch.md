@@ -1568,7 +1568,7 @@ tools from MCP server within the network element.
 # Acknowledgements
 
 This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
-Thanks Laurent Ciavaglia, Chris Janz,Pedro Garcia Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro Gassanov
+Thanks Laurent Ciavaglia, Chris Janz, Pedro Garcia Parra, Brad Peters, Kevin McDonnell, Giuseppe Fioccola, Richard Kilmurray, Dmytro Gassanov, and Chong Feng
 for wonderful comments and discussion on Agentic AI for Network Operation.
 
 # Changes between Revisions
