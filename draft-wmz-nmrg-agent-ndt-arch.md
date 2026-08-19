@@ -481,10 +481,14 @@ Base to accomplish specific network operation task.
 
 #### Agent Fabric
 
-The Agent fabric, which serves as a central management hub, provides essential services for
-the Hybrid Agent System, including agent registration/discovery, authentication, observability, Agent control and intervention,
+The Agent Fabric acts as the unified management hub and internal communication infrastructure for the hybrid agent system, including agent registration/discovery, authentication, observability,
 and knowledge base. With the introduction of the agent fabric, consistent observability,
 traceability, control and security can be provided.
+
+Specifically, within a single autonomous domain, the Agent Fabric provides
+localized agent management and communication facilitation. When extending to
+multi-domain scenarios, the Agent Fabric is leveraged across multiple domains to enable cross-domain agent registration/discovery, trust establishment,
+and execution traceability.
 
 ##### Registration
 
@@ -1564,7 +1568,7 @@ tools from MCP server within the network element.
 # Acknowledgements
 
 This work has benefited from the discussions of NMRG interim meeting on Agentic AI.
-Thanks Laurent Ciavaglia, Chris Janz,Pedro Garcia Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard Kilmurray,Dmytro Gassanov
+Thanks Laurent Ciavaglia, Chris Janz, Pedro Garcia Parra, Brad Peters, Kevin McDonnell, Giuseppe Fioccola, Richard Kilmurray, Dmytro Gassanov, and Chong Feng
 for wonderful comments and discussion on Agentic AI for Network Operation.
 
 # Changes between Revisions
