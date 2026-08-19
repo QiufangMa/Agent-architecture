@@ -398,7 +398,8 @@ realize specific functionality.
 ||       |            |                |        | |   ||Security&Trust|| |
 ||+------v---+  +-----v----+  +--------v------+ v |   |+--------------+| |
 |||Task Agent<->|Task Agent<->|Function Module|...|   |+--------------+| |
-||+----------+  +----------+  +---------------+   |   ||Observability || |
+||+----------+  +----------+  +---------------+   |   ||Observability,|| |
+||                                                |   ||     C & I    || |
 |+-----------^-----------------------^------------+   |+--------------+| |
 |            |                       |                |+--------------+| |
 |+-----------v----------+            |                ||Knowledge Base|| |
@@ -473,7 +474,7 @@ Base to accomplish specific network operation task.
 #### Agent Fabric
 
 The Agent fabric, which serves as a central management hub, provides essential services for
-the Hybrid Agent System, including agent registration/discovery, authentication, observability,
+the Hybrid Agent System, including agent registration/discovery, authentication, observability, Agent control and intervention,
 and knowledge base. With the introduction of the agent fabric, consistent observability,
 traceability and security can be provided.
 
@@ -514,21 +515,30 @@ It is also worth noting that once authenticated, authorization defines the speci
 data an agent can access, which often using a Least Privilege access control method. It is also
 recommended to log every Agent decision and tooling call to maintain audit trail.
 
-#### Observability
+#### Observability, C & I
 
-Observability component provides unified monitoring capabilities for all AI agents within the
-autonomous domain and enables network operators to gain deep insights into Agent behaviors.
+Observability, Control and Intervention component provides monitoring,
+policy enforcement, and real-time intervention capabilities for all AI agents
+within the autonomous domain, enabling network operators to gain deep
+insights into agent behaviors and maintain determinism over autonomous network operations.
 
 OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It
 provides a consistent instrumentation layer, semantic conventions, and telemetry export
 mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM
 inference, and tool/skill executions.
-
 By leveraging Semantic Conventions for GenAI {{OTel-gen-ai}}, the system unifies the collection
 of LLM inference metadata, token consumption, reasoning processes, and skill invocation events,
 etc. This allows comprehensive tracking of agent runtime status, cross-component interaction
 flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified
 single-agent deployments with integrated multiple skills and tools.
+
+Beyond agent oversight, this component also incorporates control and runtime intervention mechanisms to guarantee agent operational compliance:
+
+ * Control:
+ : A prevention mechanism to constrain Agent behavior within operational boundaries {{?I-D.wnd-opsawg-icon-ps}}. This includes predefining the agent's behavior scopes, operational constraints, and security baselines so that harmful or unauthorized actions are difficult or impossible to execute.
+
+ * Intervention:
+ : A reactive and emergency actions that enable the capability to pause, terminate, correct, or rollback agent execution (e.g., during LLM reasoning or tool invocation) at any point for any reason {{?I-D.wnd-opsawg-icon-ps}}. Intervention provides humans with the ability to intervene or take control of agent behaviors that is not anticipated by control mechanism.
 
 ##### Knowledge Base
 
