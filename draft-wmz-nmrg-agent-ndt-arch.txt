@@ -5,14 +5,14 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 17 February 2027                                   China Mobile
+Expires: 20 February 2027                                   China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                          16 August 2026
+                                                          19 August 2026
 
 
   Network Digital Twin and Agentic AI based Architecture for AI driven
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 February 2027.
+   This Internet-Draft will expire on 20 February 2027.
 
 Copyright Notice
 
@@ -558,7 +558,8 @@ Table of Contents
    The Agent fabric, which serves as a central management hub, provides
    essential services for the Hybrid Agent System, including agent
    registration/discovery, authentication, observability, and knowledge
-   base.
+   base.  With the introduction of the agent fabric, consistent
+   observability, traceability and security can be provided.
 
 5.2.2.2.1.  Registration
 
@@ -1912,9 +1913,9 @@ Table of Contents
               Hu, T., Contreras, L. M., Wu, Q., Davis, N., and C. Feng,
               "A YANG Data Model for Network Incident Management", Work
               in Progress, Internet-Draft, draft-ietf-nmop-network-
-              incident-yang-13, 29 July 2026,
+              incident-yang-14, 18 August 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-nmop-
-              network-incident-yang-13>.
+              network-incident-yang-14>.
 
    [I-D.ietf-nmop-terminology]
               Davis, N., Farrel, A., Graf, T., Wu, Q., and C. Yu, "Some
