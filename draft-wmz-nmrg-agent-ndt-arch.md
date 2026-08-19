@@ -474,7 +474,8 @@ Base to accomplish specific network operation task.
 
 The Agent fabric, which serves as a central management hub, provides essential services for
 the Hybrid Agent System, including agent registration/discovery, authentication, observability,
-and knowledge base.
+and knowledge base. With the introduction of the agent fabric, consistent observability,
+traceability and security can be provided.
 
 ##### Registration
 
