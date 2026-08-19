@@ -1489,23 +1489,35 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <span class="break"></span><dl class="dlParallel" id="section-2-7">
         <dt id="section-2-7.1">Network AI Agent:</dt>
         <dd style="margin-left: 1.5em" id="section-2-7.2">
-          <p id="section-2-7.2.1">Network AI Agent is an autonomous system or long live entity with awareness of its environment, capable of
+          <p id="section-2-7.2.1">Network AI Agent is a persistent, long-lived autonomous
+entity with continuous awareness of its network environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
 based on its knowledge representation to achieve a set of service goals <span>[<a href="#TMF-1251D" class="cite xref">TMF-1251D</a>]</span>.
 In addition, it is able of planning the tasks and decompose the tasks into several sub-tasks
-and coordinate with short live Task agent for these sub-tasks.<a href="#section-2-7.2.1" class="pilcrow">¶</a></p>
+and coordinate with Task AI Agent for these sub-tasks.<a href="#section-2-7.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-7.3">Task AI Agent:</dt>
         <dd style="margin-left: 1.5em" id="section-2-7.4">
-          <p id="section-2-7.4.1">Task AI Agent is created by the Network AI Agent on demand for a specific subtask, lives only
-as long as that subtask runs, destroyed when done. It responsible for coordinating with Network
-AI Agent in the Hybrid Agent System and executing specific sub-task assigned by Network AI Agent.<a href="#section-2-7.4.1" class="pilcrow">¶</a></p>
+          <p id="section-2-7.4.1">Task AI Agent is a domain-specialized execution entity
+responsible for carrying out specific subtasks delegated by the Network AI Agent.
+Depending on operational requirements, a Task AI Agent operates in one of two following modes:<a href="#section-2-7.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-7.5">Autonomy:</dt>
+<dt id="section-2-7.5">Ephemeral Task AI Agent:</dt>
         <dd style="margin-left: 1.5em" id="section-2-7.6">
-          <p id="section-2-7.6.1">The ability to operate under uncertainty and adapt to changing objectives without explicit external intervention.<a href="#section-2-7.6.1" class="pilcrow">¶</a></p>
+          <p id="section-2-7.6.1">Created on demand by a Network AI Agent for a specific, scoped subtask (e.g., executing a single troubleshooting action). It exists only for the duration of that task and is destroyed upon completion, avoiding registry bloat and lifecycle management overhead.<a href="#section-2-7.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-7.7">Persistent Task AI Agent:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-7.8">
+          <p id="section-2-7.8.1">A long-lived, pre-provisioned entity dedicated to
+continuous, specialized operational needs (e.g., long-term anomaly detection) that require continuous network state tracking.<a href="#section-2-7.8.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-7.9">Autonomy:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-7.10">
+          <p id="section-2-7.10.1">The ability to operate under uncertainty and adapt to changing objectives without explicit external intervention.<a href="#section-2-7.10.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -1733,7 +1745,8 @@ realize specific functionality.<a href="#section-5.1-1" class="pilcrow">¶</a></
 ||       |            |                |        | |   ||Security&amp;Trust|| |
 ||+------v---+  +-----v----+  +--------v------+ v |   |+--------------+| |
 |||Task Agent&lt;-&gt;|Task Agent&lt;-&gt;|Function Module|...|   |+--------------+| |
-||+----------+  +----------+  +---------------+   |   ||Observability || |
+||+----------+  +----------+  +---------------+   |   ||Observability,|| |
+||                                                |   ||     C &amp; I    || |
 |+-----------^-----------------------^------------+   |+--------------+| |
 |            |                       |                |+--------------+| |
 |+-----------v----------+            |                ||Knowledge Base|| |
@@ -1802,7 +1815,7 @@ capabilities to achieve autonomous network management. It comprises the followin
             </h5>
 <p id="section-5.2.2.1-1">Hybrid agent system acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network management operations.
-It usually comprises a Network AI Agent and multiple short live task agents or short live function
+It usually comprises a Network AI Agent and multiple ephemeral or persistent task agents or function
 modules (e.g., Agent skills, network management functional APIs or tools).
 It is worth mentioning that function modules could be the functions and services of existing network
 management systems, it offers a set of stateless APIs and tools that can be consumed by agents.
@@ -1810,7 +1823,7 @@ In some simplified scenarios, the system may consist of only one single AI Agent
 multiple function modules, e.g., skills and toolsets that integrates both network-level coordination
 and task-specific execution.<a href="#section-5.2.2.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.1-2">The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user intent, and
-supervises the execution of each short-live task agent or function module. And task agents and function
+supervises the execution of each task agent or function module. And task agents and function
 modules are designed to perform specific functionalities, they could be scenario-oriented and classified
 according to the function they perform. The hybrid agent system can adapt to new circumstances through
 access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
@@ -1825,7 +1838,7 @@ Base to accomplish specific network operation task.<a href="#section-5.2.2.1-2" 
             </h5>
 <p id="section-5.2.2.2-1">The Agent Fabric acts as the unified management hub and internal communication infrastructure for the hybrid agent system, including agent registration/discovery, authentication, observability,
 and knowledge base. With the introduction of the agent fabric, consistent observability,
-traceability and security can be provided.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
+traceability, control and security can be provided.<a href="#section-5.2.2.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.2-2">Specifically, within a single autonomous domain, the Agent Fabric provides
 localized agent management and communication facilitation. When extending to
 multi-domain scenarios, the Agent Fabric is leveraged across multiple domains to enable cross-domain agent registration/discovery, trust establishment,
@@ -1838,8 +1851,8 @@ and execution traceability.<a href="#section-5.2.2.2-2" class="pilcrow">¶</a></
 <p id="section-5.2.2.2.1-1">AI Agents need to first discover each other and understand their capabilities to collaborate.
 Agent Registration manages the process by which new agents could join the system, making them
 discoverable and available. It supports the unified registration of all AI agents across the
-autonomous domains, note that task agents is hidden behind the domain AI agent and short lived
-created on demand so that task agents will not be registered in the same way as network AI gent
+autonomous domains. Note that ephemeral task agents is hidden behind the domain AI agent and short lived
+created on demand so that they will not be registered in the same way as network AI gent
 in each autonomous domain, instead the task agents capabilities can be registered in the agent registry.
 Each Agent instance submits its own metadata information including URI, supported authentication
 methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent
@@ -1873,22 +1886,45 @@ recommended to log every Agent decision and tooling call to maintain audit trail
 </div>
 </section>
 </div>
-<div id="observability">
+<div id="observability-c-i">
 <section id="section-5.2.2.3">
-            <h5 id="name-observability">
-<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-observability" class="section-name selfRef">Observability</a>
+            <h5 id="name-observability-c-i">
+<a href="#section-5.2.2.3" class="section-number selfRef">5.2.2.3. </a><a href="#name-observability-c-i" class="section-name selfRef">Observability, C &amp; I</a>
             </h5>
-<p id="section-5.2.2.3-1">Observability component provides unified monitoring capabilities for all AI agents within the
-autonomous domain and enables network operators to gain deep insights into Agent behaviors.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-1">Observability, Control and Intervention component provides monitoring,
+policy enforcement, and real-time intervention capabilities for all AI agents
+within the autonomous domain, enabling network operators to gain deep
+insights into agent behaviors and maintain determinism over autonomous network operations.<a href="#section-5.2.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.2.3-2">OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It
 provides a consistent instrumentation layer, semantic conventions, and telemetry export
 mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM
-inference, and tool/skill executions.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.2.3-3">By leveraging Semantic Conventions for GenAI <span>[<a href="#OTel-gen-ai" class="cite xref">OTel-gen-ai</a>]</span>, the system unifies the collection
+inference, and tool/skill executions.
+By leveraging Semantic Conventions for GenAI <span>[<a href="#OTel-gen-ai" class="cite xref">OTel-gen-ai</a>]</span>, the system unifies the collection
 of LLM inference metadata, token consumption, reasoning processes, and skill invocation events,
 etc. This allows comprehensive tracking of agent runtime status, cross-component interaction
 flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified
-single-agent deployments with integrated multiple skills and tools.<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
+single-agent deployments with integrated multiple skills and tools.<a href="#section-5.2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2.3-3">Beyond agent oversight, this component also incorporates control and runtime intervention mechanisms to guarantee agent operational compliance:<a href="#section-5.2.2.3-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2.2.3-4.1">
+                <span class="break"></span><dl class="dlParallel" id="section-5.2.2.3-4.1.1">
+                  <dt id="section-5.2.2.3-4.1.1.1">Control:</dt>
+                  <dd style="margin-left: 1.5em" id="section-5.2.2.3-4.1.1.2">
+                    <p id="section-5.2.2.3-4.1.1.2.1">A prevention mechanism to constrain Agent behavior within operational boundaries <span>[<a href="#I-D.wnd-opsawg-icon-ps" class="cite xref">I-D.wnd-opsawg-icon-ps</a>]</span>. This includes predefining the agent's behavior scopes, operational constraints, and security baselines so that harmful or unauthorized actions are difficult or impossible to execute.<a href="#section-5.2.2.3-4.1.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+                <dd class="break"></dd>
+</dl>
+</li>
+              <li class="normal" id="section-5.2.2.3-4.2">
+                <span class="break"></span><dl class="dlParallel" id="section-5.2.2.3-4.2.1">
+                  <dt id="section-5.2.2.3-4.2.1.1">Intervention:</dt>
+                  <dd style="margin-left: 1.5em" id="section-5.2.2.3-4.2.1.2">
+                    <p id="section-5.2.2.3-4.2.1.2.1">A reactive and emergency actions that enable the capability to pause, terminate, correct, or rollback agent execution (e.g., during LLM reasoning or tool invocation) at any point for any reason <span>[<a href="#I-D.wnd-opsawg-icon-ps" class="cite xref">I-D.wnd-opsawg-icon-ps</a>]</span>. Intervention provides humans with the ability to intervene or take control of agent behaviors that is not anticipated by control mechanism.<a href="#section-5.2.2.3-4.2.1.2.1" class="pilcrow">¶</a></p>
+</dd>
+                <dd class="break"></dd>
+</dl>
+</li>
+            </ul>
 <div id="knowledge-base">
 <section id="section-5.2.2.3.1">
               <h6 id="name-knowledge-base">
@@ -3154,6 +3190,10 @@ Constraint information required by LLMs.<a href="#section-13-2.4.1" class="pilcr
 <dt id="I-D.irtf-nmrg-network-digital-twin-arch">[I-D.irtf-nmrg-network-digital-twin-arch]</dt>
         <dd>
 <span class="refAuthor">Zhou, C.</span>, <span class="refAuthor">Yang, H.</span>, <span class="refAuthor">Duan, X.</span>, <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Pastor, A.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Network Digital Twin (NDT): Concepts and Reference Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-network-digital-twin-arch-13</span>, <time datetime="2026-07-01" class="refDate">1 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-13">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-13</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.wnd-opsawg-icon-ps">[I-D.wnd-opsawg-icon-ps]</dt>
+        <dd>
+<span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Ceccarelli, D.</span>, <span class="refAuthor">Li, Z.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">Q. Ma</span>, <span class="refTitle">"Problem Statement for Observability, Intervention and Control (I&amp;C) in Multi-Agent Autonomous Networks"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-wnd-opsawg-icon-ps-00</span>, <time datetime="2026-07-05" class="refDate">5 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-wnd-opsawg-icon-ps-00">https://datatracker.ietf.org/doc/html/draft-wnd-opsawg-icon-ps-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="MCP">[MCP]</dt>
         <dd>
