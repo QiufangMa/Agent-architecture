@@ -608,14 +608,14 @@ A2A {{A2A}}, and RESTful API can be leveraged.
 ### Application to Network AI Agent Interface (Intent based Management)
 
 Intent based Network Management helps in delivering application
-requests to the AI Driven network operation platform and exposing the
+requests as service intent to the AI Driven network operation platform and allowing expose the
 various platform capabilities to network applications.
 
 Standardized protocols and interfaces facilitate smooth communication between applications
 and AI driven network operation platform and ensures different systems from various
-vendors can work together seamlessly.
-The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
-Protocol for Telecoms (A2A-T) {{A2A-T}} specified by TM Forum.
+vendors can work together seamlessly to support intent driven network management.
+One example of the interface between Network applications (e.g., Service AI Agent) and Network AI Agent can
+adopt IG1453 Agent to Agent Protocol for Telecoms (A2A-T) {{A2A-T}} specified by TM Forum.
 
 
 ### Network AI Agent to Task AI Agent Interface (Single Autonomous Domain)
@@ -655,21 +655,21 @@ capabilities of AI Agents such as Registration, Security and Trust, Observabilit
  control, enabling agents to dynamically obtain and use skills provided by the Registration component.
 
 - Security and Trust
-Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and
-enforcing security policies throughout their interaction. Protocols like Transport Layer Security (TLS)
- could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly
- used to authenticate AI Agents.
+  Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and
+  enforcing security policies throughout their interaction. Protocols like Transport Layer Security (TLS)
+  could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly
+  used to authenticate AI Agents.
 
 - Observability
-The observability component enables the network operators to gain deep insights of agent behaviors. It
- collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
- to make the behavior of Hybrid Agent System declarative and traceable, it is essential to have the capability
- to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
- in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
- accomplished by agents, and the repair solution implementation and verification task is accomplished by human
- operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying
- the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic
- system.
+  The observability component enables the network operators to gain deep insights of agent behaviors. It
+  collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
+  to make the behavior of Hybrid Agent System declarative and traceable, it is essential to have the capability
+  to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
+  in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
+  accomplished by agents, and the repair solution implementation and verification task is accomplished by human
+  operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying
+  the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic
+  system.
 
 The interface between AI Agent and Knowledge Base is specified in {{interface2knowledge}}.
 
@@ -779,19 +779,23 @@ clarifies how the architecture operationalizes these characteristics:
 
  * Knowledge:
  : The Knowledge Base​ in Agent Fabric serves as the central repository for domain-specific knowledge,
- expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.
+ expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making
+ bytask Agents.
 
  * Analysis:
  : The AI Agent​ in Hybrid Agent System performs intelligent analysis using data and tools. It leverages
- the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.
+ the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and
+ current network state.
 
  * Decision:
  : The AI Agent in Hybrid Agent System​ makes informed decisions based on its analysis results. It utilizes
- the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.
+ the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for
+ confirmation before actions are taken.
 
  * Awareness:
  : The AI Agent in Hybrid Agent System gathers data from the Physical Network, it may also fetch data from
- the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.
+ the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide
+ comprehensive network visibility and context-aware awareness.
 
  * Execution:
  ：The AI Agent in Hybrid Agent System implements validated decisions by applying configurations or control
