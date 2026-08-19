@@ -560,8 +560,8 @@ Table of Contents
    essential services for the Hybrid Agent System, including agent
    registration/discovery, authentication, observability, Agent control
    and intervention, and knowledge base.  With the introduction of the
-   agent fabric, consistent observability, traceability and security can
-   be provided.
+   agent fabric, consistent observability, traceability, control and
+   security can be provided.
 
 5.2.2.2.1.  Registration
 
