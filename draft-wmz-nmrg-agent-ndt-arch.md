@@ -229,16 +229,24 @@ The document uses the following definitions and acronyms defined in {{?I-D.irtf-
 Besides, this document defines the following terminology:
 
 Network AI Agent:
-: Network AI Agent is an autonomous system or long live entity with awareness of its environment, capable of
+: Network AI Agent is a persistent, long-lived autonomous
+entity with continuous awareness of its network environment, capable of
 conducting analysis, making decisions, and executing actions with specific intent
 based on its knowledge representation to achieve a set of service goals {{TMF-1251D}}.
 In addition, it is able of planning the tasks and decompose the tasks into several sub-tasks
-and coordinate with short live Task agent for these sub-tasks.
+and coordinate with Task AI Agent for these sub-tasks.
 
 Task AI Agent:
-: Task AI Agent is created by the Network AI Agent on demand for a specific subtask, lives only
-as long as that subtask runs, destroyed when done. It responsible for coordinating with Network
-AI Agent in the Hybrid Agent System and executing specific sub-task assigned by Network AI Agent.
+: Task AI Agent is a domain-specialized execution entity
+responsible for carrying out specific subtasks delegated by the Network AI Agent.
+Depending on operational requirements, a Task AI Agent operates in one of two following modes:
+
+Ephemeral Task AI Agent:
+: Created on demand by a Network AI Agent for a specific, scoped subtask (e.g., executing a single troubleshooting action). It exists only for the duration of that task and is destroyed upon completion, avoiding registry bloat and lifecycle management overhead.
+
+Persistent Task AI Agent:
+: A long-lived, pre-provisioned entity dedicated to
+continuous, specialized operational needs (e.g., long-term anomaly detection) that require continuous network state tracking.
 
 Autonomy:
 : The ability to operate under uncertainty and adapt to changing objectives without explicit external intervention.
@@ -398,7 +406,8 @@ realize specific functionality.
 ||       |            |                |        | |   ||Security&Trust|| |
 ||+------v---+  +-----v----+  +--------v------+ v |   |+--------------+| |
 |||Task Agent<->|Task Agent<->|Function Module|...|   |+--------------+| |
-||+----------+  +----------+  +---------------+   |   ||Observability || |
+||+----------+  +----------+  +---------------+   |   ||Observability,|| |
+||                                                |   ||     C & I    || |
 |+-----------^-----------------------^------------+   |+--------------+| |
 |            |                       |                |+--------------+| |
 |+-----------v----------+            |                ||Knowledge Base|| |
@@ -454,7 +463,7 @@ capabilities to achieve autonomous network management. It comprises the followin
 
 Hybrid agent system acts as the smart brain of the Autonomous Domain, which is responsible
 for conducting AI-based analysis and making decisions regarding network management operations.
-It usually comprises a Network AI Agent and multiple short live task agents or short live function
+It usually comprises a Network AI Agent and multiple ephemeral or persistent task agents or function
 modules (e.g., Agent skills, network management functional APIs or tools).
 It is worth mentioning that function modules could be the functions and services of existing network
 management systems, it offers a set of stateless APIs and tools that can be consumed by agents.
@@ -463,7 +472,7 @@ multiple function modules, e.g., skills and toolsets that integrates both networ
 and task-specific execution.
 
 The Network AI Agent may coordinate cross-task-agent collaboration, aligns tasks with user intent, and
-supervises the execution of each short-live task agent or function module. And task agents and function
+supervises the execution of each task agent or function module. And task agents and function
 modules are designed to perform specific functionalities, they could be scenario-oriented and classified
 according to the function they perform. The hybrid agent system can adapt to new circumstances through
 access to evolving knowledge and reasoning, planning. It leverages the inference of LLM, the simulation
@@ -474,7 +483,7 @@ Base to accomplish specific network operation task.
 
 The Agent Fabric acts as the unified management hub and internal communication infrastructure for the hybrid agent system, including agent registration/discovery, authentication, observability,
 and knowledge base. With the introduction of the agent fabric, consistent observability,
-traceability and security can be provided.
+traceability, control and security can be provided.
 
 Specifically, within a single autonomous domain, the Agent Fabric provides
 localized agent management and communication facilitation. When extending to
@@ -486,8 +495,8 @@ and execution traceability.
 AI Agents need to first discover each other and understand their capabilities to collaborate.
 Agent Registration manages the process by which new agents could join the system, making them
 discoverable and available. It supports the unified registration of all AI agents across the
-autonomous domains, note that task agents is hidden behind the domain AI agent and short lived
-created on demand so that task agents will not be registered in the same way as network AI gent
+autonomous domains. Note that ephemeral task agents is hidden behind the domain AI agent and short lived
+created on demand so that they will not be registered in the same way as network AI gent
 in each autonomous domain, instead the task agents capabilities can be registered in the agent registry.
 Each Agent instance submits its own metadata information including URI, supported authentication
 methods, and capabilities to the Agent Registry. And the consumer Agent (e.g., the Network AI Agent
@@ -518,21 +527,30 @@ It is also worth noting that once authenticated, authorization defines the speci
 data an agent can access, which often using a Least Privilege access control method. It is also
 recommended to log every Agent decision and tooling call to maintain audit trail.
 
-#### Observability
+#### Observability, C & I
 
-Observability component provides unified monitoring capabilities for all AI agents within the
-autonomous domain and enables network operators to gain deep insights into Agent behaviors.
+Observability, Control and Intervention component provides monitoring,
+policy enforcement, and real-time intervention capabilities for all AI agents
+within the autonomous domain, enabling network operators to gain deep
+insights into agent behaviors and maintain determinism over autonomous network operations.
 
 OpenTelemetry(OTel) has emerged as a vendor-neutral approach for AI Agent observability. It
 provides a consistent instrumentation layer, semantic conventions, and telemetry export
 mechanisms, ensuring end‑to‑end visibility across network AI agents, task AI agents, LLM
 inference, and tool/skill executions.
-
 By leveraging Semantic Conventions for GenAI {{OTel-gen-ai}}, the system unifies the collection
 of LLM inference metadata, token consumption, reasoning processes, and skill invocation events,
 etc. This allows comprehensive tracking of agent runtime status, cross-component interaction
 flows, and abnormal behaviors in both multi-agent collaboration scenarios and simplified
 single-agent deployments with integrated multiple skills and tools.
+
+Beyond agent oversight, this component also incorporates control and runtime intervention mechanisms to guarantee agent operational compliance:
+
+ * Control:
+ : A prevention mechanism to constrain Agent behavior within operational boundaries {{?I-D.wnd-opsawg-icon-ps}}. This includes predefining the agent's behavior scopes, operational constraints, and security baselines so that harmful or unauthorized actions are difficult or impossible to execute.
+
+ * Intervention:
+ : A reactive and emergency actions that enable the capability to pause, terminate, correct, or rollback agent execution (e.g., during LLM reasoning or tool invocation) at any point for any reason {{?I-D.wnd-opsawg-icon-ps}}. Intervention provides humans with the ability to intervene or take control of agent behaviors that is not anticipated by control mechanism.
 
 ##### Knowledge Base
 
