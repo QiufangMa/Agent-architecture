@@ -1986,13 +1986,13 @@ A2A <span>[<a href="#A2A" class="cite xref">A2A</a>]</span>, and RESTful API can
 <a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-application-to-network-ai-a" class="section-name selfRef">Application to Network AI Agent Interface (Intent based Management)</a>
           </h4>
 <p id="section-5.3.2-1">Intent based Network Management helps in delivering application
-requests to the AI Driven network operation platform and exposing the
+requests as service intent to the AI Driven network operation platform and allowing expose the
 various platform capabilities to network applications.<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.3.2-2">Standardized protocols and interfaces facilitate smooth communication between applications
 and AI driven network operation platform and ensures different systems from various
-vendors can work together seamlessly.
-The interfaces between Network applications and Network AI Agent can adopt IG1453 Agent to Agent
-Protocol for Telecoms (A2A-T) <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span> specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
+vendors can work together seamlessly to support intent driven network management.
+One example of the interface between Network applications (e.g., Service AI Agent) and Network AI Agent can
+adopt IG1453 Agent to Agent Protocol for Telecoms (A2A-T) <span>[<a href="#A2A-T" class="cite xref">A2A-T</a>]</span> specified by TM Forum.<a href="#section-5.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-ai-agent-to-task-ai-agent-interface-single-autonomous-domain">
@@ -2046,20 +2046,20 @@ capabilities of AI Agents such as Registration, Security and Trust, Observabilit
               <p id="section-5.3.5-2.2.1">Security and Trust
 Security and Trust ensures trusted inter-Agent communication by verifying the identity of AI Agents and
 enforcing security policies throughout their interaction. Protocols like Transport Layer Security (TLS)
- could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly
- used to authenticate AI Agents.<a href="#section-5.3.5-2.2.1" class="pilcrow">¶</a></p>
+could be leveraged for in-transit data Protection. While OAuth 2.0 and OpenID Connect are increasingly
+used to authenticate AI Agents.<a href="#section-5.3.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-5.3.5-2.3">
               <p id="section-5.3.5-2.3.1">Observability
 The observability component enables the network operators to gain deep insights of agent behaviors. It
- collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
- to make the behavior of Hybrid Agent System declarative and traceable, it is essential to have the capability
- to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
- in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
- accomplished by agents, and the repair solution implementation and verification task is accomplished by human
- operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying
- the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic
- system.<a href="#section-5.3.5-2.3.1" class="pilcrow">¶</a></p>
+collects audit logs, metrics and traces of each agent and provides visibility of task process. In addition,
+to make the behavior of Hybrid Agent System declarative and traceable, it is essential to have the capability
+to distinguish whether an operation action is taken by agents automatically or by human operators. For example,
+in the fault management scenarios that need on-site repairing, the demarcation and locating task could be
+accomplished by agents, and the repair solution implementation and verification task is accomplished by human
+operators, maybe with the help of intelligent copilot. The traceable logs are essential for both clarifying
+the duty boundary between agents and human operators, and also for evaluating the effectiveness of the agentic
+system.<a href="#section-5.3.5-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-5.3.5-3">The interface between AI Agent and Knowledge Base is specified in <a href="#interface2knowledge" class="auto internal xref">Section 5.3.7</a>.<a href="#section-5.3.5-3" class="pilcrow">¶</a></p>
@@ -2207,7 +2207,8 @@ clarifies how the architecture operationalizes these characteristics:<a href="#s
             <dt id="section-6-2.2.1.1">Knowledge:</dt>
             <dd style="margin-left: 1.5em" id="section-6-2.2.1.2">
               <p id="section-6-2.2.1.2.1">The Knowledge Base​ in Agent Fabric serves as the central repository for domain-specific knowledge,
- expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making by task Agents.<a href="#section-6-2.2.1.2.1" class="pilcrow">¶</a></p>
+ expert rules, and historical data. It provides the necessary context and long/short memory to support accurate decision-making
+ bytask Agents.<a href="#section-6-2.2.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2217,7 +2218,8 @@ clarifies how the architecture operationalizes these characteristics:<a href="#s
             <dt id="section-6-2.3.1.1">Analysis:</dt>
             <dd style="margin-left: 1.5em" id="section-6-2.3.1.2">
               <p id="section-6-2.3.1.2.1">The AI Agent​ in Hybrid Agent System performs intelligent analysis using data and tools. It leverages
- the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and current network state.<a href="#section-6-2.3.1.2.1" class="pilcrow">¶</a></p>
+ the Network Digital Twin​ to simulate and validate scenarios, enabling data-driven insights and gap analysis between intent and
+ current network state.<a href="#section-6-2.3.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2227,7 +2229,8 @@ clarifies how the architecture operationalizes these characteristics:<a href="#s
             <dt id="section-6-2.4.1.1">Decision:</dt>
             <dd style="margin-left: 1.5em" id="section-6-2.4.1.2">
               <p id="section-6-2.4.1.2.1">The AI Agent in Hybrid Agent System​ makes informed decisions based on its analysis results. It utilizes
- the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for confirmation before actions are taken.<a href="#section-6-2.4.1.2.1" class="pilcrow">¶</a></p>
+ the Network Digital Twin for risk-free validation before finalizing decisions. The decision may be sent to human operators for
+ confirmation before actions are taken.<a href="#section-6-2.4.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2237,7 +2240,8 @@ clarifies how the architecture operationalizes these characteristics:<a href="#s
             <dt id="section-6-2.5.1.1">Awareness:</dt>
             <dd style="margin-left: 1.5em" id="section-6-2.5.1.2">
               <p id="section-6-2.5.1.2.1">The AI Agent in Hybrid Agent System gathers data from the Physical Network, it may also fetch data from
- the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide comprehensive network visibility and context-aware awareness.<a href="#section-6-2.5.1.2.1" class="pilcrow">¶</a></p>
+ the Network Digital Twin​ which maintains a dynamic, virtual representation of Physical Network. Together, they provide
+ comprehensive network visibility and context-aware awareness.<a href="#section-6-2.5.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>

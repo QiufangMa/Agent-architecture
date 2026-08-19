@@ -721,15 +721,17 @@ Table of Contents
         Management)
 
    Intent based Network Management helps in delivering application
-   requests to the AI Driven network operation platform and exposing the
-   various platform capabilities to network applications.
+   requests as service intent to the AI Driven network operation
+   platform and allowing expose the various platform capabilities to
+   network applications.
 
    Standardized protocols and interfaces facilitate smooth communication
    between applications and AI driven network operation platform and
    ensures different systems from various vendors can work together
-   seamlessly.  The interfaces between Network applications and Network
-   AI Agent can adopt IG1453 Agent to Agent Protocol for Telecoms (A2A-
-   T) [A2A-T] specified by TM Forum.
+   seamlessly to support intent driven network management.  One example
+   of the interface between Network applications (e.g., Service AI
+   Agent) and Network AI Agent can adopt IG1453 Agent to Agent Protocol
+   for Telecoms (A2A-T) [A2A-T] specified by TM Forum.
 
 5.3.3.  Network AI Agent to Task AI Agent Interface (Single Autonomous
         Domain)
@@ -955,7 +957,7 @@ Table of Contents
    *  Knowledge:  The Knowledge Base in Agent Fabric serves as the
          central repository for domain-specific knowledge, expert rules,
          and historical data.  It provides the necessary context and
-         long/short memory to support accurate decision-making by task
+         long/short memory to support accurate decision-making bytask
          Agents.
 
    *  Analysis:  The AI Agent in Hybrid Agent System performs
