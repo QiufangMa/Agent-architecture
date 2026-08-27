@@ -5,17 +5,17 @@
 Network Management                                                 Q. Wu
 Internet-Draft                                                    Huawei
 Intended status: Informational                                   C. Zhou
-Expires: 20 February 2027                                   China Mobile
+Expires: 28 February 2027                                   China Mobile
                                                          L. M. Contreras
                                                               Telefonica
                                                                   S. Han
                                                             China Unicom
                                                                  Y. Hong
                                                       Daejeon University
-                                                          19 August 2026
+                                                          27 August 2026
 
 
-  Network Digital Twin and Agentic AI based Architecture for AI driven
+  Network Digital Twin and Agentic AI based Architecture for AI-driven
                            Network Operations
                   draft-wmz-nmrg-agent-ndt-arch-latest
 
@@ -25,24 +25,20 @@ Abstract
    for different purposes such as scenario planning, impact analysis,
    and change management.  Agentic AI enables dynamic goal-driven
    execution and adaptive behavior and closed-loop autonomy.  By
-   integrating a Network Digital Twin into network management together
-   with the Agentic AI, it allows the network management activities to
-   take user intent or service requirements as input, automatically
-   assess, model, and refine optimization strategies under realistic
-   conditions but in a risk-free environment.  Such environment that
-   operates to meet these types of requirements is said to have AI
-   driven Network Operations.
+   integrating a NDT into network management together with the Agentic
+   AI, it allows the network management activities to take user intent
+   or service requirements as input, automatically assess, model, and
+   refine optimization strategies under realistic conditions but in a
+   risk-free environment.  Such environment that operates to meet these
+   types of requirements is said to have AI-driven network operations.
 
-   AI driven Network Operations brings together existing technologies
-   such as Agentic AI and Network Digital Twin which may be seen as the
-   use of a toolbox of existing components enhanced with a few new
-   elements.
+   AI-driven network operations brings together existing technologies
+   such as Agentic AI and NDT which may be seen as the use of a toolbox
+   of existing components enhanced with a few new elements.
 
-   This document describes an architecture for AI driven network
-   operations and shows how these components work together with network
-   digital twin and Agentic AI capabilities.  It provides a cookbook of
-   existing technologies to satisfy the architecture and realize intent-
-   based network management to meet the needs of the network service.
+   This document describes an architecture for AI-driven network
+   operations and shows how these components work together with NDT and
+   Agentic AI capabilities.
 
 Discussion Venues
 
@@ -70,7 +66,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 February 2027.
+   This Internet-Draft will expire on 28 February 2027.
 
 Copyright Notice
 
@@ -90,7 +86,7 @@ Table of Contents
    3.  Introduction of Concepts
      3.1.  Generative AI and Agentic AI
      3.2.  Network Digital Twin
-   4.  Characteristics of AI driven Network Operations
+   4.  Characteristics of AI-driven Network Operations
    5.  Architecture Design
      5.1.  Overall Architecture
      5.2.  Functional Components
@@ -110,37 +106,35 @@ Table of Contents
        5.3.7.  Hybrid Agent System to Knowledge Base Interface
        5.3.8.  Hybrid Agent System to Physical Network Interface
        5.3.9.  Feedback-driven Improvement Interface
-   6.  AI Driven Network Operations: Relationship Between
+   6.  AI-driven Network Operations: Relationship Between
            Characteristics and Functional Components
-   7.  AI Agent Registration and Team formation
-   8.  Agent to Agent Communication Security
-   9.  AI Driven Network Operations: A collection of Use Cases
-     9.1.  Multi-Agent Collaboration on Network Configuration Change
-     9.2.  Multi-Agent Collaboration on Network Troubleshooting
-     9.3.  Multi-Agent Collaboration on Network Optimization
-     9.4.  Network level Energy Efficiency Management in the
-           IP+Optical network
-     9.5.  Network Security Drills (Human on the Loop)
-   10. Challenges of Integrating Network Digital Twin and Agentic AI
+   7.  AI-driven Network Operations: A collection of Use Cases
+     7.1.  Multi-Agent Collaboration on Network Configuration Change
+     7.2.  Multi-Agent Collaboration on Network Troubleshooting
+     7.3.  Multi-Agent Collaboration on Network Optimization
+     7.4.  Network level Energy Efficiency Management in the IP +
+           Optical network
+     7.5.  Network Security Drills (Human on the Loop)
+   8.  Challenges of Integrating Network Digital Twin and Agentic AI
            into Network Management
-     10.1.  Make IETF developed YANG models AI ready
-     10.2.  Trust and Security
-     10.3.  Protocols between Agent and Agent/Human operator/Tools
-       10.3.1.  High Risk Operations
-       10.3.2.  The Timeliness Requirements of Collaboration
-       10.3.3.  Collaboration Reliability
-     10.4.  Agent Observability,Intervention and Control
-     10.5.  Agent Benchmarking vs Model Benchmarking
-   11. Security Considerations
-   12. IANA Considerations
-   13. Conclusion
-   14. References
-     14.1.  Normative References
-     14.2.  Informative References
+     8.1.  Make IETF developed YANG models AI ready
+     8.2.  Trust and Security
+     8.3.  Protocols between Agent and Agent/Human operator/Tools
+       8.3.1.  High Risk Operations
+       8.3.2.  The Timeliness Requirements of Collaboration
+       8.3.3.  Collaboration Reliability
+     8.4.  Agent Observability,Intervention and Control
+     8.5.  Agent Benchmarking vs Model Benchmarking
+   9.  Security Considerations
+   10. IANA Considerations
+   11. Potential Items for IETF Standardization
+   12. Acknowledgements
+   13. Informative References
    Appendix A.  Network Element AI Agent and Network AI Agent
            Collaboration
-   Appendix B.  Acknowledgements
-   Appendix C.  Changes between Revisions
+   Appendix B.  AI Agent Registration and Team formation
+   Appendix C.  Agent to Agent Communication Security
+   Appendix D.  Changes between Revisions
    Contributors
    Authors' Addresses
 
@@ -189,15 +183,15 @@ Table of Contents
    *  And enables closed-loop autonomy across layer or across domain
       instead of deterministic closed-loop automation.
 
-   Integrating a Network Digital Twin into network management together
-   with Agentic AI, it allows network management activities to
-   dynamically adapt to customer needs, network changes, as well as to
-   automatically assess, model, and refine optimization strategies under
-   realistic conditions but in a risk-free environment.  An environment
-   that operates to meet these types of requirements is said to have AI
-   driven network operations.
+   Integrating a NDT into network management together with Agentic AI,
+   it allows network management activities to dynamically adapt to
+   customer needs, network changes, as well as to automatically assess,
+   model, and refine optimization strategies under realistic conditions
+   but in a risk-free environment.  An environment that operates to meet
+   these types of requirements is said to have AI-driven network
+   operations.
 
-   AI Driven network operations provide the following capabilities to
+   AI-driven network operations provide the following capabilities to
    applications by coordinating the components that operate and manage
    the network:
 
@@ -239,19 +233,11 @@ Table of Contents
       understand which flows and network portions can be potentially
       affected by performance degradation and act to prevent it
 
-   This document describes an architecture for AI Driven network
-   operations, showing how these components work together with network
-   digital and AI capabilities.  It provides a cookbook of existing
-   technologies to satisfy the architecture and realize intent-based
-   networking to meet the needs of applications.
+   This document describes an architecture for AI-driven network
+   operations, showing how these components work together with NDT and
+   AI capabilities.
 
 2.  Conventions and Definitions
-
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
 
    The document uses the following definitions and acronyms defined in
    [I-D.irtf-nmrg-network-digital-twin-arch]:
@@ -274,19 +260,30 @@ Table of Contents
 
    Besides, this document defines the following terminology:
 
-   Network AI Agent:  Network AI Agent is an autonomous system or long
-      live entity with awareness of its environment, capable of
-      conducting analysis, making decisions, and executing actions with
-      specific intent based on its knowledge representation to achieve a
-      set of service goals [TMF-1251D].  In addition, it is able of
-      planning the tasks and decompose the tasks into several sub-tasks
-      and coordinate with short live Task agent for these sub-tasks.
+   Network AI Agent:  Network AI Agent is a persistent, long-lived
+      autonomous entity with continuous awareness of its network
+      environment, capable of conducting analysis, making decisions, and
+      executing actions with specific intent based on its knowledge
+      representation to achieve a set of service goals [TMF-1251D].  In
+      addition, it is able of planning the tasks and decompose the tasks
+      into several sub-tasks and coordinate with Task AI Agent for these
+      sub-tasks.
 
-   Task AI Agent:  Task AI Agent is created by the Network AI Agent on
-      demand for a specific subtask, lives only as long as that subtask
-      runs, destroyed when done.  It responsible for coordinating with
-      Network AI Agent in the Hybrid Agent System and executing specific
-      sub-task assigned by Network AI Agent.
+   Task AI Agent:  Task AI Agent is a domain-specialized execution
+      entity responsible for carrying out specific subtasks delegated by
+      the Network AI Agent.  Depending on operational requirements, a
+      Task AI Agent operates in one of two following modes:
+
+   Ephemeral Task AI Agent:  Created on demand by a Network AI Agent for
+      a specific, scoped subtask (e.g., executing a single
+      troubleshooting action).  It exists only for the duration of that
+      task and is destroyed upon completion, avoiding registry bloat and
+      lifecycle management overhead.
+
+   Persistent Task AI Agent:  A long-lived, pre-provisioned entity
+      dedicated to continuous, specialized operational needs (e.g.,
+      long-term anomaly detection) that require continuous network state
+      tracking.
 
    Autonomy:  The ability to operate under uncertainty and adapt to
       changing objectives without explicit external intervention.
@@ -297,7 +294,7 @@ Table of Contents
 
    The integration of AI into network operations has marked a
    significant leap forward in the pursuit of network automation and
-   intelligence, while generative AI further enhances the role of AI
+   intelligence, while generative AI further enhances the role of AI-
    driven network operations and management.  Generative AI is a
    subfield of AI that uses generative models such as Large Language
    Models (LLMs) to generate new and original content such as text,
@@ -320,34 +317,31 @@ Table of Contents
 
 3.2.  Network Digital Twin
 
-   The Network Digital Twin is a digital representation that is used in
-   the context of network.  The concept and architecture of the Network
-   Digital Twin are specified in
+   The NDT is a digital representation that is used in the context of
+   network.  The concept and architecture of the NDT are specified in
    [I-D.irtf-nmrg-network-digital-twin-arch].  Three core functional
    components which includes Data Repository component, a Service
    Mapping Models component, and an NDT Management component are
-   introduced to characterize the Network Digital Twin and its reference
-   architecture.
+   introduced to characterize the NDT and its reference architecture.
 
-   The Network Digital Twin is widely recognized to be useful as an
-   advanced platform for network emulation, serving as a tool for
-   scenario planning, impact analysis, and change management.  By
-   delivering applications requests to the Network Digital Twin through
-   standardized interfaces (see Section 9.4 of
-   [I-D.irtf-nmrg-network-digital-twin-arch]), the Network Digital Twin
-   exposes the various capabilities to network applications.
+   The NDT is widely recognized to be useful as an advanced platform for
+   network emulation, serving as a tool for scenario planning, impact
+   analysis, and change management.  By delivering applications requests
+   to the NDT through standardized interfaces (see Section 9.4 of
+   [I-D.irtf-nmrg-network-digital-twin-arch]), the NDT exposes the
+   various capabilities to network applications.
 
-4.  Characteristics of AI driven Network Operations
+4.  Characteristics of AI-driven Network Operations
 
    AIOPS was first defined by Gartner in 2016, combining "artificial
    intelligence" and "IT operations" to describe the application of AI
    and machine learning to enhance IT operations.  However there is no
-   unified definition for characteristic of "AI driven network
+   unified definition for characteristic of "AI-driven network
    operations" within the networking industry.  Referring to the
    characteristics of AIOPS in IT field and the characteristics of
    networking itself, this document introduces six key elements (i.e.,
    awareness, decision, analysis, execution, intent and knowledge) to
-   characterize the AI driven network operation and its use, as shown in
+   characterize the AI-driven network operation and its use, as shown in
    Figure 1.  They together form a close-loop of network operation and
    management.
 
@@ -359,7 +353,7 @@ Table of Contents
            |                                                   |
            |                     --------                      |
            |  +-----------+  ////        \\\\    +-----------+ |
-           |  |  Analysis | |AI Driven Network|  | Decision  | |
+           |  |  Analysis | |AI-driven Network|  | Decision  | |
            |  +-----------+ |  Operations    |   +-----------+ |
            |                 \\\\        ////                  |
            |                     --------                      |
@@ -369,7 +363,7 @@ Table of Contents
            |                                                   |
            +---------------------------------------------------+
 
-        Figure 1: Six Key Elements to Characterize AI driven network
+        Figure 1: Six Key Elements to Characterize AI-driven network
                                  operation
 
    *  Intent:  Intent is defined as a set of operational goals and
@@ -398,16 +392,16 @@ Table of Contents
          of network data from various sources, including network
          telemetry [RFC9232] and external feeds, and identify the gap
          between user intent and the existing network status.  By
-         integrating Network digital twin
-         [I-D.irtf-nmrg-network-digital-twin-arch] with Network AI agent
-         and leveraging machine learning and other data analytics
-         techniques, it also identifies network fault, problem,
-         incident, anomaly and perform data driven intelligent analysis
-         such as service impact analysis, and so on.  Their distinction
-         is further discussed in [I-D.ietf-nmop-terminology].
+         integrating NDT [I-D.irtf-nmrg-network-digital-twin-arch] with
+         Network AI agent and leveraging machine learning and other data
+         analytics techniques, it also identifies network fault,
+         problem, incident, anomaly and perform data-driven intelligent
+         analysis such as service impact analysis, and so on.  Their
+         distinction is further discussed in
+         [I-D.ietf-nmop-terminology].
 
    *  Decision:  Based on the intent and network analysis, AI makes
-         informed decisions.  By integrating network digital twin
+         informed decisions.  By integrating NDT
          [I-D.irtf-nmrg-network-digital-twin-arch] and AI, the
          intelligence decisions making can be realized.  These decisions
          could involve dynamically adjusting network parameters, e.g.,
@@ -443,7 +437,7 @@ Table of Contents
    Figure 2 provides the overall architecture for integrating Network
    Digital Twin and Network AI Agent System.  The components and
    functional interfaces are discussed in Section 5.2 and Section 5.3,
-   respectively.  The use cases described in Section 9 show how
+   respectively.  The use cases described in Section 7 show how
    different components are used selectively to provide different
    services.  It is important to understand that the relationships and
    interfaces shown between components in this figure are illustrative
@@ -500,7 +494,7 @@ Table of Contents
 5.2.1.  Network Applications
 
    Various network applications at the service level can effectively run
-   over a AI driven Network operation platform to implement either
+   over a AI-driven network operation platform to implement either
    conventional or innovative network operations, with low cost and less
    service impact on real networks.
 
@@ -512,7 +506,7 @@ Table of Contents
    availability of complex networks.
 
    Network applications make requests that need to be addressed by the
-   AI driven network operation.  Such requests are exchanged through a
+   AI-driven network operation.  Such requests are exchanged through a
    either traditional northbound intent interface (e.g., Restful API),
    or A2A style intent interface with Bi-directional interaction support
    and Multi-step dialogue for intent refinement (e.g., Natural Language
@@ -524,7 +518,7 @@ Table of Contents
 5.2.2.  Autonomous Domain
 
    An autonomous domain is a self-governing network that integrates NDT
-   and AI driven capabilities to achieve autonomous network management.
+   and AI-driven capabilities to achieve autonomous network management.
    It comprises the following sub-components.
 
 5.2.2.1.  Hybrid Agent System
@@ -532,36 +526,42 @@ Table of Contents
    Hybrid agent system acts as the smart brain of the Autonomous Domain,
    which is responsible for conducting AI-based analysis and making
    decisions regarding network management operations.  It usually
-   comprises a Network AI Agent and multiple short live task agents or
-   short live function modules (e.g., Agent skills, network management
-   functional APIs or tools).  It is worth mentioning that function
-   modules could be the functions and services of existing network
-   management systems, it offers a set of stateless APIs and tools that
-   can be consumed by agents.  In some simplified scenarios, the system
-   may consist of only one single AI Agent equipped with multiple
-   function modules, e.g., skills and toolsets that integrates both
-   network-level coordination and task-specific execution.
+   comprises a Network AI Agent and multiple ephemeral or persistent
+   task agents or function modules (e.g., Agent skills, network
+   management functional APIs or tools).  It is worth mentioning that
+   function modules could be the functions and services of existing
+   network management systems, it offers a set of stateless APIs and
+   tools that can be consumed by agents.  In some simplified scenarios,
+   the system may consist of only one single AI Agent equipped with
+   multiple function modules, e.g., skills and toolsets that integrates
+   both network-level coordination and task-specific execution.
 
    The Network AI Agent may coordinate cross-task-agent collaboration,
    aligns tasks with user intent, and supervises the execution of each
-   short-live task agent or function module.  And task agents and
-   function modules are designed to perform specific functionalities,
-   they could be scenario-oriented and classified according to the
-   function they perform.  The hybrid agent system can adapt to new
-   circumstances through access to evolving knowledge and reasoning,
-   planning.  It leverages the inference of LLM, the simulation of
-   Network Digital Twin, and the contextual and domain-specific
-   knowledge provided by Knowledge Base to accomplish specific network
-   operation task.
+   task agent or function module.  And task agents and function modules
+   are designed to perform specific functionalities, they could be
+   scenario-oriented and classified according to the function they
+   perform.  The hybrid agent system can adapt to new circumstances
+   through access to evolving knowledge and reasoning, planning.  It
+   leverages the inference of LLM, the simulation of NDT, and the
+   contextual and domain-specific knowledge provided by Knowledge Base
+   to accomplish specific network operation task.
 
 5.2.2.2.  Agent Fabric
 
-   The Agent fabric, which serves as a central management hub, provides
-   essential services for the Hybrid Agent System, including agent
-   registration/discovery, authentication, observability, Agent control
-   and intervention, and knowledge base.  With the introduction of the
-   agent fabric, consistent observability, traceability, control and
-   security can be provided.
+   The Agent Fabric acts as the unified management hub and internal
+   communication infrastructure for the hybrid agent system, including
+   agent registration/discovery, authentication, observability, and
+   knowledge base.  With the introduction of the agent fabric,
+   consistent observability, traceability, control and security can be
+   provided.
+
+   Specifically, within a single autonomous domain, the Agent Fabric
+   provides localized agent management and communication facilitation.
+   When extending to multi-domain scenarios, the Agent Fabric is
+   leveraged across multiple domains to enable cross-domain agent
+   registration/discovery, trust establishment, and execution
+   traceability.
 
 5.2.2.2.1.  Registration
 
@@ -569,12 +569,12 @@ Table of Contents
    capabilities to collaborate.  Agent Registration manages the process
    by which new agents could join the system, making them discoverable
    and available.  It supports the unified registration of all AI agents
-   across the autonomous domains, note that task agents is hidden behind
-   the domain AI agent and short lived created on demand so that task
-   agents will not be registered in the same way as network AI gent in
-   each autonomous domain, instead the task agents capabilities can be
-   registered in the agent registry.  Each Agent instance submits its
-   own metadata information including URI, supported authentication
+   across the autonomous domains.  Note that ephemeral task agents is
+   hidden behind the domain AI agent and short lived created on demand
+   so that they will not be registered in the same way as network AI
+   gent in each autonomous domain, instead the task agents capabilities
+   can be registered in the agent registry.  Each Agent instance submits
+   its own metadata information including URI, supported authentication
    methods, and capabilities to the Agent Registry.  And the consumer
    Agent (e.g., the Network AI Agent or task agent) could query or
    subscribe to the Agent Registry to find appropriate Agents for task
@@ -663,26 +663,19 @@ Table of Contents
    Generation (RAG), which further boosts the system's ability to
    generate reliable and relevant outputs.
 
-   In case of coupling MCP [MCP] with the network management system, the
-   new knowledge also can be used to support modification of the
-   currently operating automation Closed Loop, such as: - Choice of
-   tools (data, analytics, algorithms/decision processes, closed loops)
-   - Orchestration of tools
-
 5.2.2.4.  Network Digital Twin
 
-   A Network Digital Twin provides an enhanced and optimized solution in
-   the face of increasing network and business types, scale, and
-   complexity.  It simulates the behavior, performance, and
-   characteristics of the actual network, which could help in validation
-   and testing scenarios, analyzing and predicting network behavior
-   without affecting the real physical network.
+   A NDT provides an enhanced and optimized solution in the face of
+   increasing network and business types, scale, and complexity.  It
+   simulates the behavior, performance, and characteristics of the
+   actual network, which could help in validation and testing scenarios,
+   analyzing and predicting network behavior without affecting the real
+   physical network.
 
    As described in Section 7 of
    [I-D.irtf-nmrg-network-digital-twin-arch], the core functional
-   components of an Network Digital Twin includes Data Repository,
-   Service Mapping Models, and a Network Digital Twin Management
-   component.  The Network Digital Twin collects the real-time
+   components of a NDT includes Data Repository, Service Mapping Models,
+   and a NDT Management component.  The NDT collects the real-time
    operational and instrumentation data from network through the
    appropriate real network-facing input interfaces, and it delivers NDT
    services through appropriate application-facing output interfaces,
@@ -722,7 +715,7 @@ Table of Contents
 5.3.1.  Human Oversight (Human on the Loop)
 
    The architecture allows human experts to monitor, guide, approve, or
-   intervene in the AI driven network operations.  Human may provide
+   intervene in the AI-driven network operations.  Human may provide
    guidance and make critical decisions when necessary.  By involving
    human in the process, the architecture can leverage their insights
    and experience, ensuring AI actions align with organizational goals.
@@ -742,14 +735,14 @@ Table of Contents
         Management)
 
    Intent based Network Management helps in delivering application
-   requests as service intent to the AI Driven network operation
+   requests as service intent to the AI-driven network operation
    platform and allowing expose the various platform capabilities to
    network applications.
 
    Standardized protocols and interfaces facilitate smooth communication
-   between applications and AI driven network operation platform and
+   between applications and AI-driven network operation platform and
    ensures different systems from various vendors can work together
-   seamlessly to support intent driven network management.  One example
+   seamlessly to support intent-driven network management.  One example
    of the interface between Network applications (e.g., Service AI
    Agent) and Network AI Agent can adopt IG1453 Agent to Agent Protocol
    for Telecoms (A2A-T) [A2A-T] specified by TM Forum.
@@ -831,8 +824,8 @@ Table of Contents
 
 5.3.6.  Hybrid Agent System to Network Digital Twin Interface
 
-   The interface between Hybrid Agent System and Network Digital Twin
-   are the application-facing interface as defined in
+   The interface between Hybrid Agent System and NDT are the
+   application-facing interface as defined in
    [I-D.irtf-nmrg-network-digital-twin-arch].  Furthermore, the Model
    Context Protocol (MCP) [MCP] can be leveraged to standardize this
    interaction, enabling the NDT to expose its simulation and analysis
@@ -854,13 +847,12 @@ Table of Contents
    message systems (e.g., Kafka) can also be employed for data ingestion
    and real-time knowledge synchronization across distributed Agents.
 
-   Additionally, the Model Context Protocol (MCP) [MCP] could also serve
-   as a standardized interface for AI Agents to dynamically access and
-   utilize a wide range of tools and data sources provided by the
-   Knowledge Base.  It enables the Knowledge Base to expose contextual
-   information, expert rules, and external data as "tools" that Agents
-   can invoke, significantly enhancing their reasoning and problem-
-   solving capabilities.
+   Additionally, MCP could also serve as a standardized interface for AI
+   Agents to dynamically access and utilize a wide range of tools and
+   data sources provided by the Knowledge Base.  It enables the
+   Knowledge Base to expose contextual information, expert rules, and
+   external data as "tools" that Agents can invoke, significantly
+   enhancing their reasoning and problem-solving capabilities.
 
 5.3.8.  Hybrid Agent System to Physical Network Interface
 
@@ -877,9 +869,9 @@ Table of Contents
    It collects various types of network data including configuration
    data, operational data, network topology, routing data, logs, and
    trace on management plane, control plane, and forwarding plane as
-   needed.  The collected data is fed into the Network Digital Twin and
-   hybrid agent system to provide with up-to-date information about the
-   current state of the physical network.
+   needed.  The collected data is fed into the NDT and hybrid agent
+   system to provide with up-to-date information about the current state
+   of the physical network.
 
 5.3.8.2.  Configuration
 
@@ -960,7 +952,7 @@ Table of Contents
    deployed back into the runtime system via model serving and
    configuration management interfaces, closing the improvement loop.
 
-6.  AI Driven Network Operations: Relationship Between Characteristics
+6.  AI-driven Network Operations: Relationship Between Characteristics
     and Functional Components
 
    The architecture in Figure 2 provides a concrete implementation
@@ -983,150 +975,28 @@ Table of Contents
 
    *  Analysis:  The AI Agent in Hybrid Agent System performs
          intelligent analysis using data and tools.  It leverages the
-         Network Digital Twin to simulate and validate scenarios,
-         enabling data-driven insights and gap analysis between intent
-         and current network state.
+         NDT to simulate and validate scenarios, enabling data-driven
+         insights and gap analysis between intent and current network
+         state.
 
    *  Decision:  The AI Agent in Hybrid Agent System makes informed
-         decisions based on its analysis results.  It utilizes the
-         Network Digital Twin for risk-free validation before finalizing
-         decisions.  The decision may be sent to human operators for
-         confirmation before actions are taken.
+         decisions based on its analysis results.  It utilizes the NDT
+         for risk-free validation before finalizing decisions.  The
+         decision may be sent to human operators for confirmation before
+         actions are taken.
 
    *  Awareness:  The AI Agent in Hybrid Agent System gathers data from
-         the Physical Network, it may also fetch data from the Network
-         Digital Twin which maintains a dynamic, virtual representation
-         of Physical Network.  Together, they provide comprehensive
-         network visibility and context-aware awareness.
+         the Physical Network, it may also fetch data from the NDT which
+         maintains a dynamic, virtual representation of Physical
+         Network.  Together, they provide comprehensive network
+         visibility and context-aware awareness.
 
-   *  Execution: ：The AI Agent in Hybrid Agent System implements
-      validated decisions by applying configurations or control actions
-      to the Physical Network via southbound interfaces such as NETCONF,
-      RESTCONF, or Model Context Protocol [MCP].
+   *  Execution:  The AI Agent in Hybrid Agent System implements
+         validated decisions by applying configurations or control
+         actions to the Physical Network via southbound interfaces such
+         as NETCONF, RESTCONF, or MCP.
 
-7.  AI Agent Registration and Team formation
-
-                                                     +----------------+
-                                                     |Agent Fabric    |
-                    +-----------+                    | +------------+ |
-                    |  Network  |      Register      | |            | |
-                    | AI Agent  +--------------------+->            | |
-                    +-----------+                    | |Registration| |
-          |---------------+----------------+---------+->            | |
-         Register       Register         Register    | |  Center    | |
-          |               |                |         | +------------+ |
-   +------+----+   +------+-----+    +-----+----+    |                |
-   |   Fault   |   |Optimization|    | Change   |    |                |
-   | Task Agent|   |Task Agent  |    |Task Agent| ...|                |
-   +-----------+   +------------+    +----------+    +----------------+
-
-
-                    +-----------+
-                    |  Incident |
-                    |   Center  |                    +----------------+
-                    +-----+-----+                    |Agent Fabric    |
-                     Incident Notif                  | +------------+ |
-                          |        Registry based    | |   Agent    | |
-           Intent   +-----V-----+    Discovery       | |            | |
-          Objective |  Network  +--------------------+->Registration| |
-     Human ---------> AI Agent  |                    | |            | |
-    Operator        |           |                    | |  Center    | |
-                    +-----+-----+                    | +------------+ |
-             Policy Definition(Obj+Incident+Action)  |                |
-                    Task Planning                    |                |
-                   Agent Team Formation              |                |
-          +---------------+----------------+         +----------------+
-          |               |                |
-    +-----+-----+    +----+------+    +----+------+
-    |           |    |           |    |           |
-    |Task Agent1|    |Task Agent1|    |Task Agent1|
-    +-----------+    +-----------+    +-----------+
-
-      Figure 3: AI Agent Registration and Team formation Usage Example
-
-   The Agent Fabric at the network level provides agent registration for
-   both embedded AI agent in each network element and network AI agent
-   and associated task agents.  The following steps are performed to
-   provide Event driven AI Agent Team formation within the Agentic AI
-   network management architecture:
-
-   Step 1:  Human Operator pre-provision user intent which comprises
-      objective, incident list and corresponding action list.
-
-   Step 2:  Network AI Agent receieves user intent and generate
-      corresponding policies which comprise objective, incident list and
-      corresponding action list.  In addition, Network AI Agent
-      subscribe corresponding incidents from incident center.
-
-   Step3:  Network AI agent generate task planning based on objective
-      and then discover matched task agent lists based on planned task
-      from registration center within the agent fabric.
-
-   Step4:  Upon receiving incident from the incident center, network AI
-      agent assign the tasks to task agents corresponding to specific
-      incident received.
-
-   Step 5:  Network AI Agent distribute task to corresponding task
-      agents and complete task agent team formation.
-
-8.  Agent to Agent Communication Security
-
-      Artifacts Delivery
-    +-----------+
-    |           |                                    +----------------+
-    |           |                                     Agent Fabric    |
-    |        +--V--------+  Agent Identity Discovery | +------------+ |
-    |        |    Task   <---------------------------+->   Agent    | |
-    |        |  AI Agent <---------------------+     | |            | |
-    |        +-^------^--+  Authentication     |  +--+->Registration| |
-    |          |      |       Handshake        |  |  | |            | |
-    |   Secure |  Stateful                     |  |  | |  Center    | |
-    |   Task   |   Monitoring                  |  |  | +------------+ |
-    Negotiation|      |                        |  |  |                |
-    |          |      |     Agent Identity     |  |  | +-------------+|
-    |        +-V------V--+     Discoverey      +--+--+->   Agent     ||
-    |        |    Task   +------------------------+  | |Authorization||
-    +-------->  AI Agent <---------------------------+->   Server    ||
-             +-----------+  Authentication           | |             ||
-                             Handshake               | +-------------+|
-                                                     +----------------+
-
-       Figure 4: Agent to Agent Communication Security Usage Example
-
-   The following steps are performed to provide Agent to Agent
-   Communication Security within the Agentic AI network management
-   architecture:
-
-   Step 1.  Discovery via Agent Card:  The workflow begins when a client
-      agent requests the Agent Card from the remote agent's /.well-
-      known/agent.json endpoint.  This JSON file acts as a secure
-      manifest, declaring the agent’s identity, capabilities, and
-      required security schemes.
-
-   Step 2.  Authentication Handshake:  Before any task is sent, the
-      client must fulfill the authentication requirements listed in the
-      Agent Card.  This typically involves an OAuth 2.0 flow where the
-      client obtains a JSON Web Token (JWT) to prove its identity and
-      permissions.
-
-   Step 3.  Secure Task Initiation: :Communication is established over
-   HTTPS/TLS.  The client sends a tasks/send request using JSON-RPC 2.0.
-   The server validates the token and authorizes the specific task based
-   on the client's role.
-
-   Step 4.  Stateful Monitoring & Feedback: :The task moves through a
-   strictly defined lifecycle (submitted → working → completed).
-   Security is maintained throughout as updates are streamed via Server-
-   Sent Events (SSE) or webhooks, each tied to the unique, authorized
-   Task ID.
-
-   Step 5.  Artifact Delivery:  Final results (Artifacts) are delivered
-      only after the task reaches a completed state.  These are
-      structured objects (text, files, or data) returned to the verified
-      requester, ensuring data integrity and preventing unauthorized
-      access to output.
-
-9.  AI Driven Network Operations: A collection of Use Cases
+7.  AI-driven Network Operations: A collection of Use Cases
 
    Network AI Agent could help in the following phases which are usually
    mentioned in network management:
@@ -1157,7 +1027,7 @@ Table of Contents
    explicit feedback, it may adjust and optimize the management strategy
    if necessary.
 
-9.1.  Multi-Agent Collaboration on Network Configuration Change
+7.1.  Multi-Agent Collaboration on Network Configuration Change
 
    Network configuration changes are needed in scenarios such as
    optimizing network or service performance, provisioning new network
@@ -1177,8 +1047,8 @@ Table of Contents
              |       |   ... Task-n    +-------+          | Network |
              |       +-------+---------+       |          | Digital |
              |               |                 |          |  Twin   |
-             |               |                 |          |  Task   |
-       +-----V------+  +-----V-------+  +------V----+     |  Agent  |
+             |               |                 |          |         |
+       +-----V------+  +-----V-------+  +------V----+     |         |
        |   Config   |  |  Config     |  |  Config   <----->         |
        | Generation |  | Distribution|  |Validation |     |         |
        | Task Agent |  |  Task Agent |  | Task Agent|     |         |
@@ -1190,15 +1060,15 @@ Table of Contents
                                        | Task Agent  |
                                        +-------------+
 
-     Figure 5: Intent Based Network Configuration Change Usage Example
+     Figure 3: Intent Based Network Configuration Change Usage Example
 
-   Network configuration change leveraging Network AI Agent and Network
-   Digital Twin may experience the following typical steps:
+   Network configuration change leveraging Network AI Agent and NDT may
+   experience the following typical steps:
 
    Step 1:  The network operator inputs the intent of network
       configuration change into the Network AI Agent using natural
-      language.  The network operator may simply explain the objectives
-      and requirements of the changes.
+      language.  The network operator may explain the objectives and
+      requirements of the changes.
 
    Step 2:  Network AI Agent first verifies the identity of the user
       requesting the change and checks the user's permissions to make
@@ -1214,12 +1084,11 @@ Table of Contents
       possible.
 
    Step 3:  Network AI Agent further communicates with the Configuration
-      Validation task agent and Network Digital Twin task agent to
-      validate the suggested configuration change, including the syntax
-      and semantics of the configuration, verification of effected
-      application and resources.  The network digital Twin task agent
-      may generate a report indicating the validation result, and
-      suggested configuration fix when the validation fails after
+      Validation task agent and NDT to validate the suggested
+      configuration change, including the syntax and semantics of the
+      configuration, verification of affected application and resources.
+      The NDT may generate a report indicating the validation result,
+      and suggested configuration fix when the validation fails after
       network simulation leveraging the current physical network
       operational state.
 
@@ -1233,7 +1102,7 @@ Table of Contents
       to obtain network resource (e.g.,vlan, IP subnet) allocated by
       resource allocation task agent.
 
-9.2.  Multi-Agent Collaboration on Network Troubleshooting
+7.2.  Multi-Agent Collaboration on Network Troubleshooting
 
                                   |
                           Human   |Network Troubeshooting
@@ -1242,8 +1111,8 @@ Table of Contents
                          +--------V--------+           | Network |
                          | Network AI Agent|           | Digital |
                          |     Goal        |           |  Twin   |
-                         | Task-1,Task-2   +----------->  Task   |
-                         | ....Task-n      |           |  Agent  |
+                         | Task-1,Task-2   +----------->         |
+                         | ....Task-n      |           |         |
                          +--------+--------+           +---------+
                                   |
             |------------------+--+-----------+------------+
@@ -1253,15 +1122,14 @@ Table of Contents
         | Task Agent   | |Task Agent |  |Task Agent| | Task Agent |
         +--------------+ +-----------+  +----------+ +------------+
 
-        Figure 6: Intent based Network Troubleshooting Usage Example
+        Figure 4: Intent based Network Troubleshooting Usage Example
 
-   The network operator inputs the intent of network configuration
-   change into the Network AI Agent using natural language.  Network AI
-   Agent could plan and decompose network troubleshooting tasks and
-   coordinate with fault identification task agent, fault diagnosis task
-   agent, fault repair task agent and fault prediction task agent to
-   assist in network troubleshooting in the following significant
-   aspects:
+   The network operator inputs the intent of network troubleshooting
+   into the Network AI Agent using natural language.  Network AI Agent
+   could plan and decompose network troubleshooting tasks and coordinate
+   with fault identification task agent, fault diagnosis task agent,
+   fault repair task agent and fault prediction task agent to assist in
+   network troubleshooting in the following significant aspects:
 
    *  Fault Identification:  Network AI Agent coordinates with fault
          identification task agent continuously monitors and aggregates
@@ -1295,9 +1163,8 @@ Table of Contents
          repair solutions.  These solutions range from specific
          configuration adjustments to more complex fixes (e.g., hardware
          replacement).  Fault Repair task Agent would also communicate
-         with the Network Digital Twin task agent to simulate the
-         proposed repair solutions and get feedback from the Network
-         Digital Twin task agent.  In advanced setups, fault repair task
+         with the NDT to simulate the proposed repair solutions and get
+         feedback from the NDT.  In advanced setups, fault repair task
          agent may automatically execute these repairs, ensuring quick
          restoration of normal operations and enhancing the overall
          reliability and efficiency of network management.  But the
@@ -1309,22 +1176,21 @@ Table of Contents
          capabilities, fault prediction aims to reduce network risks
          through proactive management that prevents problems before they
          occur.  Before a fault actually occurs, the fault prediction
-         task agent can coordinate with network digital twin task agent
-         to construct a dynamic simulation model by collecting real-time
-         multi-dimensional operational state data, including network
-         topology, traffic load, and device performance indicators.
-         Based on the network data, the fault predication task agent
-         uses large models and machine learning algorithms (such as
-         time-series prediction models and anomaly detection models) to
-         reason and analyze potential faults—for example, predicting the
-         risk of physical link interruption based on optical cable
-         signal attenuation data.  Furthermore, the fault prediction
-         task Agent generates recommended operations to avoid faults and
-         validates them through simulation in the network digital twin
-         task agent, thereby achieving predictive maintenance of the
-         network.
+         task agent can coordinate with NDT to construct a dynamic
+         simulation model by collecting real-time multi-dimensional
+         operational state data, including network topology, traffic
+         load, and device performance indicators.  Based on the network
+         data, the fault prediction task agent uses large models and
+         machine learning algorithms (such as time-series prediction
+         models and anomaly detection models) to reason and analyze
+         potential faults—for example, predicting the risk of physical
+         link interruption based on optical cable signal attenuation
+         data.  Furthermore, the fault prediction task Agent generates
+         recommended operations to avoid faults and validates them
+         through simulation in the NDT, thereby achieving predictive
+         maintenance of the network.
 
-9.3.  Multi-Agent Collaboration on Network Optimization
+7.3.  Multi-Agent Collaboration on Network Optimization
 
                                 |
                                 |
@@ -1334,8 +1200,8 @@ Table of Contents
                        +--------V--------+           | Network |
                        | Network AI Agent|           | Digital |
                        |     Goal        |           |  Twin   |
-                       | Task-1,Task-2   +----------->  Task   |
-                       | ....Task-n      |           |  Agent  |
+                       | Task-1,Task-2   +----------->         |
+                       | ....Task-n      |           |         |
                        +--------+--------+           +---------+
                                 |
                      +----------+----------------+
@@ -1346,7 +1212,7 @@ Table of Contents
              | Task Agent   |            | Task Agent    |
              +--------------+            +---------------+
 
-         Figure 7: Intent based Network Optimization Usage Example
+         Figure 5: Intent based Network Optimization Usage Example
 
    Network optimization is often introduced due to the Network AI
    Agent's awareness of some potential network faults or anomalies
@@ -1363,17 +1229,16 @@ Table of Contents
    scaling up to meet specific demands.
 
    Before the network optimization is conducted, Network AI Agent
-   coordinates with the network digital twin task agent to implement and
-   evaluate the optimization solution using the Network Digital Twin
-   platform.  This may need repeated trials and validations based on
-   specific evaluation criteria, before the optimal strategy could be
-   selected.  Network AI Agent may also first present the suggested
-   network optimization solution to the network operator for review, and
-   apply it to the physical network through optimization solution
-   distribution task agent after obtaining approval from the network
-   operator.
+   coordinates with the NDT to implement and evaluate the optimization
+   solution using the NDT platform.  This may need repeated trials and
+   validations based on specific evaluation criteria, before the optimal
+   strategy could be selected.  Network AI Agent may also first present
+   the suggested network optimization solution to the network operator
+   for review, and apply it to the physical network through optimization
+   solution distribution task agent after obtaining approval from the
+   network operator.
 
-9.4.  Network level Energy Efficiency Management in the IP+Optical
+7.4.  Network level Energy Efficiency Management in the IP + Optical
       network
 
                             +-----------------+
@@ -1393,15 +1258,15 @@ Table of Contents
                  |   AI Agent |              |   AI Agent |
                  +------------+              +------------+
 
-     Figure 8: Intent based Network level Energy Efficiency Management
+     Figure 6: Intent based Network level Energy Efficiency Management
                                Usage Example
 
-   Network level Energy Efficiency refer to a set of processes used to
-   discover a inventory of capabilities, use specific metrics to monitor
-   and assess energy consumption of the entire IP+Optical network ,
-   operate, and control the use of available energy in an optimized
-   manner while achieving the network’s functional and performance
-   requirements by improving overall network utilization.
+   Network level Energy Efficiency refers to a set of processes used to
+   discover an inventory of capabilities, use specific metrics to
+   monitor and assess energy consumption of the entire IP+Optical
+   network , operate, and control the use of available energy in an
+   optimized manner while achieving the network’s functional and
+   performance requirements by improving overall network utilization.
 
    Multi-Domain AI Agent can work together with network AI Agent in each
    autonomous domain to allow network operators not only see real time
@@ -1421,10 +1286,10 @@ Table of Contents
    On the other hand, With the end to end observability to energy
    consumption statistics data and energy efficiency statistics data,
    the Network AI Agent in each autonomous domain can collaborate with
-   network digital twin to know which part of the network need to be
-   adjusted or optimized based on network status change.
+   NDT to know which part of the network need to be adjusted or
+   optimized based on network status change.
 
-9.5.  Network Security Drills (Human on the Loop)
+7.5.  Network Security Drills (Human on the Loop)
 
                                  +----------------+   Human
                                  | Agent Fabric   |  Operator
@@ -1453,27 +1318,27 @@ Table of Contents
             |            Network Infrastructure             |
             +-----------------------------------------------+
 
-        Figure 9: Intent based Network Security Drill Usage Example
+        Figure 7: Intent based Network Security Drill Usage Example
 
    The human operator can work together with the Network AI Agent to
    conduct Network security Drill.  The human operator can instruct the
-   Network AI Agent with specific injection policy to work with network
-   digital twin help construct a dynamic attack-defense verification
-   system in network security drills through NDT and AI reasoning
-   capabilities.  The dynamic attack-defense verification system
-   comprise dynamic security attack task agent and dynamic security
-   defense task agent which are responsible security risk attack task
-   and security risk defense task respectively assigned by the network
-   AI agent.  The dynamic security attack task agent uses generative AI
-   to automatically generate diversified attack paths, models network
-   topologies with graph neural networks, covers attack stages such as
-   reconnaissance and penetration, and dynamically adjusts strategies
-   via reinforcement learning to simulate the adaptive characteristics
-   of network attacks.  The virtual range built based on the NDT can 1:1
-   map the production environment, supporting simulations of composite
-   scenarios like ransomware chain attacks and supply chain attacks —
-   such as simulating the entire process of Contivirus laterally
-   penetrating to domain controllers through weak passwords.
+   Network AI Agent with specific injection policy to work with NDT help
+   construct a dynamic attack-defense verification system in network
+   security drills through NDT and AI reasoning capabilities.  The
+   dynamic attack-defense verification system comprise dynamic security
+   attack task agent and dynamic security defense task agent which are
+   responsible security risk attack task and security risk defense task
+   respectively assigned by the network AI agent.  The dynamic security
+   attack task agent uses generative AI to automatically generate
+   diversified attack paths, models network topologies with graph neural
+   networks, covers attack stages such as reconnaissance and
+   penetration, and dynamically adjusts strategies via reinforcement
+   learning to simulate the adaptive characteristics of network attacks.
+   The virtual range built based on the NDT can 1:1 map the production
+   environment, supporting simulations of composite scenarios like
+   ransomware chain attacks and supply chain attacks — such as
+   simulating the entire process of Contivirus laterally penetrating to
+   domain controllers through weak passwords.
 
    During drills, Human operator can instruct the Network AI Agent to
    work with the dynamic security defense task agent to automatically
@@ -1486,16 +1351,15 @@ Table of Contents
    security drills, enhancing the proactive verification ability of
    defense systems against real-world threats.
 
-10.  Challenges of Integrating Network Digital Twin and Agentic AI into
-     Network Management
+8.  Challenges of Integrating Network Digital Twin and Agentic AI into
+    Network Management
 
    In addition to the research challenges in coupling AI and network
    management specified in [I-D.irtf-nmrg-ai-challenges], this document
    also identifies some challenges that need to be considered when
-   integrating agentic AI together with network digital twin for network
-   operations.
+   integrating agentic AI together with NDT for network operations.
 
-10.1.  Make IETF developed YANG models AI ready
+8.1.  Make IETF developed YANG models AI ready
 
    Network management has evolved towards model-driven programmability
    using YANG (RFC 7950).  While YANG provides a rigorous structure for
@@ -1505,10 +1369,10 @@ Table of Contents
    hierarchies, leading to "hallucinations" or incorrect configuration
    logic.
 
-   The emerging Model Context Protocol (MCP) provides a framework for
-   connecting AI models to external tools and data.  However, there is
-   currently no standardized way to map YANG primitives to MCP
-   components (Resources, Tools, and Prompts).  This gap results in:
+   The emerging MCP provides a framework for connecting AI models to
+   external tools and data.  However, there is currently no standardized
+   way to map YANG primitives to MCP components (Resources, Tools, and
+   Prompts).  This gap results in:
 
    o Semantic Ambiguity: LLMs lack the contextual hints needed to
    understand the operational impact of specific YANG leaves.
@@ -1520,7 +1384,7 @@ Table of Contents
    o Scaling Issues: Massive YANG schemas exceed LLM context windows,
    requiring standardized methods for sub-schema discovery and pruning.
 
-10.2.  Trust and Security
+8.2.  Trust and Security
 
    Multi-Agent Collaborations and interactions can be break down into 4
    typical scenarios:
@@ -1610,9 +1474,9 @@ Table of Contents
       operations by exploiting authentication vulnerabilities,which
       poses a risk of Privilege Escalation.
 
-10.3.  Protocols between Agent and Agent/Human operator/Tools
+8.3.  Protocols between Agent and Agent/Human operator/Tools
 
-10.3.1.  High Risk Operations
+8.3.1.  High Risk Operations
 
    "network change" in the network management field refers to the
    modification, adjustment, or configuration of physical or logical
@@ -1634,7 +1498,7 @@ Table of Contents
    if any abnormalities are detected, the configuration should be
    automatically rolled back within milliseconds.
 
-10.3.2.  The Timeliness Requirements of Collaboration
+8.3.2.  The Timeliness Requirements of Collaboration
 
    For real-time network operation and maintenance scenarios with high
    real-time requirements, such as scheduling strategy optimization and
@@ -1643,10 +1507,9 @@ Table of Contents
    a "Token-based" generation and reasoning approach, which is limited
    by computing power and algorithms, resulting in generally slow
    reasoning speeds.  In addition, the simulation and verification
-   process of Network Digital Twin (NDT) further increases decision
-   latency, which leads to long end-to-end decision-making time in
-   complex scenarios and is difficult to meet the real-time requirements
-   of services.
+   process of NDT further increases decision latency, which leads to
+   long end-to-end decision-making time in complex scenarios and is
+   difficult to meet the real-time requirements of services.
 
    Also tasks such as fault diagnosis, complaint handling, and user
    experience improvement often have strict time constraints.  For
@@ -1663,7 +1526,7 @@ Table of Contents
    frameworks (such as quantization technology and parallel computing),
    and deploying high-performance AI acceleration hardware.
 
-10.3.3.  Collaboration Reliability
+8.3.3.  Collaboration Reliability
 
    Fault diagnosis and complaint handling in the network management
    field are complex tasks, typically involving 10 to 20+ fields for one
@@ -1685,7 +1548,7 @@ Table of Contents
    maintained is a significant challenge in providing reliable inputs
    for AI-driven network management.
 
-10.4.  Agent Observability,Intervention and Control
+8.4.  Agent Observability,Intervention and Control
 
    Network operations are increasingly autonomous with the growth of
    network management Agent applications at the network level and
@@ -1718,7 +1581,7 @@ Table of Contents
    intent exchange hinder timely risk mitigation and state recovery
    during boundary violations by agents.
 
-10.5.  Agent Benchmarking vs Model Benchmarking
+8.5.  Agent Benchmarking vs Model Benchmarking
 
    Current AI evaluation frameworks are primarily designed for "one-
    shot" Large Language Models (LLMs) that provide static responses to
@@ -1757,18 +1620,18 @@ Table of Contents
    tool success rates, context retention, and multi-turn coherence to
    determine how an agent reached its conclusion.
 
-11.  Security Considerations
+9.  Security Considerations
 
    The security consideration from
    [I-D.irtf-nmrg-network-digital-twin-arch] apply here.  In addition,
    the following architectural risks need to be considered:
 
    o Memory Poisoning：If the AI/ML models used by the network AI Agent
-   or Network digital twin are compromised or poisoned with malicious/
-   fake data,they could begin making incorrect or malicious decisions.
-   Robust checks and validation are necessary to ensure the integrity of
-   these models.  Session isolation or memory access authentication is
-   also required to mitigate such risk.
+   or NDT are compromised or poisoned with malicious/fake data,they
+   could begin making incorrect or malicious decisions.  Robust checks
+   and validation are necessary to ensure the integrity of these models.
+   Session isolation or memory access authentication is also required to
+   mitigate such risk.
 
    o Misuse of Tools： When network AI Agent interacts with tools,
    Deceptive prompts or commands can be introduced.  Tool access
@@ -1863,25 +1726,25 @@ Table of Contents
    required to mitigate such risk.
 
    o Lifecycle security: The entire management lifecycle of the network
-   AI agents and the network digital twin—from initial deployment and
-   configuration to updates and decommissioning—must be secured against
-   unauthorized access and manipulation.
+   AI agents and the NDT—from initial deployment and configuration to
+   updates and decommissioning—must be secured against unauthorized
+   access and manipulation.
 
-12.  IANA Considerations
+10.  IANA Considerations
 
    This document has no requests to IANA.
 
-13.  Conclusion
+11.  Potential Items for IETF Standardization
 
    The following items were felt to be good starting points for IETF
    work:
 
    *  OpenTelemetry protocol extension Enabling network behavioral
       assessment through analysis of observed operational network data
-      (logs, metrics, traces, etc.)
+      (logs, metrics, traces, etc.).
 
-   *  Human and Agent Interaction protocol for Human Escalation/
-      Intervention, Agent Intervention and Control
+   *  Human and Agent Interaction protocol for human to control agents,
+      handle agent escalation requests and intervene.
 
    *  Nature Language Interaction protocol to ensure both The accuracy
       and efficiency of structured data for deterministic tasks and
@@ -1890,23 +1753,18 @@ Table of Contents
       transfer or agent prompt language template for Agent to Agent
       Communication.
 
-   *  Semantic MetaData: Utilizing YANG Model to provide the Metadata
+   *  Semantic Metadata: Utilizing YANG Model to provide the Metadata
       related to Context or Constraint information required by LLMs.
 
-14.  References
+12.  Acknowledgements
 
-14.1.  Normative References
+   This work has benefited from the discussions of NMRG interim meeting
+   on Agentic AI.  Thanks Laurent Ciavaglia, Chris Janz, Pedro Garcia
+   Parra, Brad Peters, Kevin McDonnell, Giuseppe Fioccola, Richard
+   Kilmurray, Dmytro Gassanov, and Chong Feng for wonderful comments and
+   discussion on Agentic AI for Network Operation.
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
-
-14.2.  Informative References
+13.  Informative References
 
    [A2A]      "Agent2Agent (A2A) protocol", April 2025, <https://google-
               a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-
@@ -2081,26 +1939,146 @@ Appendix A.  Network Element AI Agent and Network AI Agent Collaboration
            | +-----V-----------------+    +--------+----+------+|
            | |Protocol Fault Agent   |    |Protocol|Fault Agent||
            | |  +---------+ +------+ |    |  +-----V----V-+    ||
-           | |  |  ONNOX  | | MCP  +-+----+-->    MCP     |    ||
-           | |  |  Model  | |Client| |    |  |   Server   |    ||
+           | |  | Embedded| | MCP  +-+----+-->    MCP     |    ||
+           | |  | AI Model| |Client| |    |  |   Server   |    ||
            | |  +---------+ +------+ |    |  +------------+    ||
            | +-----------------------+    +--------------------+|
            |                                                    |
            +----------------------------------------------------+
                          Smart Network Element
 
-          Figure 10: Network Element AI Agent and Network AI Agent
+          Figure 8: Network Element AI Agent and Network AI Agent
                         Collaboration Usage Example
 
-Appendix B.  Acknowledgements
+Appendix B.  AI Agent Registration and Team formation
 
-   This work has benefited from the discussions of NMRG interim meeting
-   on Agentic AI.  Thanks Laurent Ciavaglia, Chris Janz,Pedro Garcia
-   Parra,Brad Peters,Kevin McDonnell,Giuseppe Fioccola,Richard
-   Kilmurray,Dmytro Gassanov for wonderful comments and discussion on
-   Agentic AI for Network Operation.
+   this section provides an illustrative realization example
+   demonstrating how agent registration could help with the dynamic team
+   formation when a specified network intent is requested to be handled.
 
-Appendix C.  Changes between Revisions
+                                                     +----------------+
+                                                     |Agent Fabric    |
+                    +-----------+                    | +------------+ |
+                    |  Network  |      Register      | |            | |
+                    | AI Agent  +--------------------+->            | |
+                    +-----------+                    | |Registration| |
+          |---------------+----------------+---------+->            | |
+         Register       Register         Register    | |  Center    | |
+          |               |                |         | +------------+ |
+   +------+----+   +------+-----+    +-----+----+    |                |
+   |   Fault   |   |Optimization|    | Change   |    |                |
+   | Task Agent|   |Task Agent  |    |Task Agent| ...|                |
+   +-----------+   +------------+    +----------+    +----------------+
+
+
+                    +-----------+
+                    |  Incident |
+                    |   Center  |                    +----------------+
+                    +-----+-----+                    |Agent Fabric    |
+                     Incident Notif                  | +------------+ |
+                          |        Registry based    | |   Agent    | |
+           Intent   +-----V-----+    Discovery       | |            | |
+          Objective |  Network  +--------------------+->Registration| |
+     Human ---------> AI Agent  |                    | |            | |
+    Operator        |           |                    | |  Center    | |
+                    +-----+-----+                    | +------------+ |
+             Policy Definition(Obj+Incident+Action)  |                |
+                    Task Planning                    |                |
+                   Agent Team Formation              |                |
+          +---------------+----------------+         +----------------+
+          |               |                |
+    +-----+-----+    +----+------+    +----+------+
+    |           |    |           |    |           |
+    |Task Agent1|    |Task Agent1|    |Task Agent1|
+    +-----------+    +-----------+    +-----------+
+
+      Figure 9: AI Agent Registration and Team formation Usage Example
+
+   The Agent Fabric at the network level provides agent registration for
+   both network AI agent and associated task agents.  The following
+   steps are performed to provide event-driven AI Agent Team formation
+   within the Agentic AI network management architecture:
+
+   Step 1:  Human Operator pre-provision user intent which comprises
+      objective, incident list and corresponding action list.
+
+   Step 2:  Network AI Agent receieves user intent and generate
+      corresponding policies which comprise objective, incident list and
+      corresponding action list.  In addition, Network AI Agent
+      subscribe corresponding incidents from incident center.
+
+   Step3:  Network AI agent generate task planning based on objective
+      and then discover matched task agent lists based on planned task
+      from registration center within the agent fabric.
+
+   Step4:  Upon receiving incident from the incident center, network AI
+      agent assign the tasks to task agents corresponding to specific
+      incident received.
+
+   Step 5:  Network AI Agent distribute task to corresponding task
+      agents and complete task agent team formation.
+
+Appendix C.  Agent to Agent Communication Security
+
+   This section provides an informative usage example to illustrate how
+   to secure an Agent to Agent communication via protocols such as A2A.
+
+      Artifacts Delivery
+    +-----------+
+    |           |                                    +----------------+
+    |           |                                     Agent Fabric    |
+    |        +--V--------+  Agent Identity Discovery | +------------+ |
+    |        |    Task   <---------------------------+->   Agent    | |
+    |        |  AI Agent <---------------------+     | |            | |
+    |        +-^------^--+  Authentication     |  +--+->Registration| |
+    |          |      |       Handshake        |  |  | |            | |
+    |   Secure |  Stateful                     |  |  | |  Center    | |
+    |   Task   |   Monitoring                  |  |  | +------------+ |
+    Negotiation|      |                        |  |  |                |
+    |          |      |     Agent Identity     |  |  | +-------------+|
+    |        +-V------V--+     Discovery      +--+--+->   Agent     ||
+    |        |    Task   +------------------------+  | |Authorization||
+    +-------->  AI Agent <---------------------------+->   Server    ||
+             +-----------+  Authentication           | |             ||
+                             Handshake               | +-------------+|
+                                                     +----------------+
+
+       Figure 10: Agent to Agent Communication Security Usage Example
+
+   The following steps are performed to provide Agent to Agent
+   Communication Security within the Agentic AI network management
+   architecture:
+
+   Step 1.  Discovery via Agent Card:  The workflow begins when a client
+      agent requests the Agent Card from the remote agent's /.well-
+      known/agent.json endpoint.  This JSON file acts as a secure
+      manifest, declaring the agent’s identity, capabilities, and
+      required security schemes.
+
+   Step 2.  Authentication Handshake:  Before any task is sent, the
+      client must fulfill the authentication requirements listed in the
+      Agent Card.  This typically involves an OAuth 2.0 flow where the
+      client obtains a JSON Web Token (JWT) to prove its identity and
+      permissions.
+
+   Step 3.  Secure Task Initiation:  Communication is established over
+      HTTPS/TLS.  The client sends a tasks/send request using JSON-RPC
+      2.0.  The server validates the token and authorizes the specific
+      task based on the client's role.
+
+   Step 4.  Stateful Monitoring & Feedback:  The task moves through a
+      strictly defined lifecycle (submitted → working → completed).
+      Security is maintained throughout as updates are streamed via
+      Server-Sent Events (SSE) or webhooks, each tied to the unique,
+      authorized Task ID.
+
+   Step 5.  Artifact Delivery:  Final results (Artifacts) are delivered
+      only after the task reaches a completed state.  These are
+      structured objects (text, files, or data) returned to the verified
+      requester, ensuring data integrity and preventing unauthorized
+      access to output.
+
+Appendix D.  Changes between Revisions
 
    v03 - v04
 
