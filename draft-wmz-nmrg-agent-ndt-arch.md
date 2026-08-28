@@ -1407,7 +1407,7 @@ While the architectural components and multi-agent collaborative workflows detai
 this document offer a concrete blueprint for autonomous networks, several key challenges
 remain to be addressed before full production-level deployment can be realized. These
 include rendering IETF-developed YANG models AI-ready via protocols like MCP, establishing
-robust trust and security frameworks across multi-agent environments, provide agent observability
+robust trust and security frameworks across multi-agent environments, providing agent observability
 , intervention and control, and designing advanced evaluation benchmarks that assess
 task-completion processes rather than just static model outcomes.
 
