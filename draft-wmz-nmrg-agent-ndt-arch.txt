@@ -128,8 +128,9 @@ Table of Contents
    9.  Security Considerations
    10. IANA Considerations
    11. Potential Items for IETF Standardization
-   12. Acknowledgements
-   13. Informative References
+   12. Conclusion
+   13. Acknowledgements
+   14. Informative References
    Appendix A.  Network Element AI Agent and Network AI Agent
            Collaboration
    Appendix B.  AI Agent Registration and Team formation
@@ -1756,7 +1757,26 @@ Table of Contents
    *  Semantic Metadata: Utilizing YANG Model to provide the Metadata
       related to Context or Constraint information required by LLMs.
 
-12.  Acknowledgements
+12.  Conclusion
+
+   This document outlines an architectural framework for AI-driven
+   network operations that integrates a Network Digital Twin (NDT) with
+   Agentic AI.  By establishing an Autonomous Domain driven by a Hybrid
+   Agent System and supported by an Agent Fabric, this architecture
+   evolves network management from traditional deterministic automation
+   scripts to flexible, goal-driven, and intent-based operations.
+
+   While the architectural components and multi-agent collaborative
+   workflows detailed in this document offer a concrete blueprint for
+   autonomous networks, several key challenges remain to be addressed
+   before full production-level deployment can be realized.  These
+   include rendering IETF-developed YANG models AI-ready via protocols
+   like MCP, establishing robust trust and security frameworks across
+   multi-agent environments, provide agent observability , intervention
+   and control, and designing advanced evaluation benchmarks that assess
+   task-completion processes rather than just static model outcomes.
+
+13.  Acknowledgements
 
    This work has benefited from the discussions of NMRG interim meeting
    on Agentic AI.  Thanks Laurent Ciavaglia, Chris Janz, Pedro Garcia
@@ -1764,7 +1784,7 @@ Table of Contents
    Kilmurray, Dmytro Gassanov, and Chong Feng for wonderful comments and
    discussion on Agentic AI for Network Operation.
 
-13.  Informative References
+14.  Informative References
 
    [A2A]      "Agent2Agent (A2A) protocol", April 2025, <https://google-
               a2a.github.io/A2A/#/documentation?id=agent2agent-protocol-
