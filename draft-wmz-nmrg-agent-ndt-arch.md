@@ -1589,6 +1589,13 @@ preventing unauthorized access to output.
 
 # Changes between Revisions
 
+  v05 - v06
+
+    * Add conclusion section;
+    * Remove Normative Language;
+    * Change original conclusion section title into Potential Items for IETF Standardization;
+    * Some other Editorial changes.
+
   v03 - v04
 
     * Add some background information for this work in the introduction;
